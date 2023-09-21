@@ -1,0 +1,17 @@
+.lis {
+  padding: none;
+  display: inline-block;
+  /* float: left; */
+  margin: 0rem 3rem;
+  position: relative;
+}
+.lis a {
+  display: inline-block;
+}
+.lis a:hover {
+  cursor: pointer;
+  color: black;
+}
+/* .lis h3 {
+  display: inline-block;inline-block is ignored due to the float. If 'float' has a value other than 'none', the box is floated and 'display' is treated as 'block'
+} */

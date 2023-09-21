@@ -1,0 +1,31 @@
+.ImageDiv {
+  width: 100%;
+}
+.ImageDiv img {
+  width: 100%;
+  height: 100%;
+}
+.OtherPart {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 100%;
+}
+.imgHere {
+  display: flex;
+  justify-content: space-between;
+}
+.imgHere img {
+  width: 49%;
+}
+.texts {
+  margin-top: auto;
+}
+.texts h2 {
+  text-transform: uppercase;
+  font-weight: 700;
+  word-spacing: 0.3rem;
+  margin-bottom: 1rem;
+}
+.texts p {
+  font-size: 1.2rem;
+}

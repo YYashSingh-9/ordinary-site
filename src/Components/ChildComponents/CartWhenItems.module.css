@@ -1,0 +1,169 @@
+.CartSection {
+  margin-top: 2%;
+  display: grid;
+  grid-template-rows: 5rem auto;
+}
+.CartSection h3:hover {
+  cursor: default;
+}
+.line {
+  text-decoration: line-through;
+  margin-right: 1rem;
+}
+.CartMain {
+  display: grid;
+  grid-template-columns: 49% 49%;
+  grid-template-rows: 60vh;
+  column-gap: 2%;
+  /* background-color: bisque; */
+}
+.cartOrderDiv {
+  border-left: 0.1rem solid grey;
+  /* padding-left: 2%; */
+  /* padding-right: 2%; */
+}
+.couponSection {
+  display: grid;
+  max-width: inherit;
+  grid-template-rows: 40% 60%;
+}
+.applycoupon {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 0.1rem solid grey;
+  padding-bottom: 1rem;
+}
+.CartMain h3 {
+  margin-left: 2%;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+.applycoupon h4 {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+.applycoupon button {
+  outline: none;
+  border: 0.1rem solid rgb(207, 39, 75);
+  color: rgb(207, 39, 75);
+  padding: 0.7rem 1rem;
+  border-radius: 0.2rem;
+  background-color: transparent;
+}
+.applycoupon button :hover {
+  background-color: rgb(207, 39, 75);
+  color: white;
+}
+.gifting {
+  margin-top: 1%;
+  display: grid;
+  grid-template-rows: 30% 70%;
+}
+.CouponMain {
+  background-color: rgb(246, 223, 204);
+  text-align: left;
+  margin: 0.5rem 0rem;
+  padding-top: 1rem;
+
+  width: 100%;
+  margin-right: auto;
+  margin-left: 2%;
+  border-radius: 0.8rem;
+}
+.CouponMain p {
+  margin-left: 2%;
+  color: black;
+  font-size: 1rem;
+}
+.CouponMain h3 {
+  font-size: 1.5rem;
+}
+.buttonH3 {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  color: rgb(244, 65, 65);
+  margin-left: 2%;
+  padding-bottom: 3rem;
+  cursor: pointer;
+}
+.priceDetails {
+  display: grid;
+  grid-template-rows: 15% 85%;
+
+  margin-top: 1%;
+}
+
+.priceDetailComponent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.priceDetailComponent h3 {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+.priceDetailComponent p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+.priceDetails h2 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-left: 2%;
+}
+.pricesPart {
+  margin-top: 1%;
+}
+.total_N_Order {
+  margin-left: 2%;
+  display: grid;
+  grid-template-rows: 45% 45%;
+  row-gap: 10%;
+}
+.total_titles {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total_N_Order button {
+  width: 100%;
+  background-color: rgb(232, 72, 72);
+  padding: 1rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: white;
+  outline: none;
+  border: none;
+}
+.btnDiv button:hover {
+  cursor: pointer;
+  background-color: rgb(234, 60, 60);
+}
+.total_titles h3 {
+  margin-left: 0;
+}
+.cartProductListDiv {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: mandatory;
+}
+.cartProductListDiv::-webkit-scrollbar {
+  display: none;
+}
+.cartProductListDiv::-webkit-scrollbar-track {
+  background-color: #4d4d4d;
+}
+
+/* Handle */
+.cartProductListDiv::-webkit-scrollbar-thumb {
+  background: #4d4d4d;
+}
+
+/* Handle on hover */
+.cartProductListDiv::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

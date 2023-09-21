@@ -1,0 +1,10 @@
+.LiCard {
+  max-height: 35rem;
+  max-width: 30rem;
+  box-sizing: border-box;
+  text-align: left;
+  display: grid;
+  grid-template-rows: 85% 15%;
+  grid-template-columns: 100%;
+  justify-content: center;
+}

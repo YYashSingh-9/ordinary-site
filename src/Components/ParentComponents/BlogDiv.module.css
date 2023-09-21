@@ -1,0 +1,33 @@
+.parentDiv {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 80% 5% 15%;
+}
+.imageUsed {
+  width: 100%;
+}
+.imageUsed img {
+  width: fit-content;
+}
+.interationInfo {
+  display: flex;
+
+  margin-top: 0.5rem;
+}
+.interationInfo p {
+  margin-left: 1rem;
+  color: grey;
+}
+.title_N_info {
+  margin-top: 1rem;
+}
+.title_N_info h2 {
+  text-transform: uppercase;
+}
+.title_N_info p {
+  margin-top: 0.3rem;
+  font-size: 1.2rem;
+}
+.parentDiv:hover {
+  cursor: pointer;
+}

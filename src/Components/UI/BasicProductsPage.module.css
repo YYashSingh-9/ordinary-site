@@ -1,0 +1,49 @@
+.thisSection {
+  display: grid;
+  grid-template-rows: auto 100% auto;
+}
+.ParentProductsDiv {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+}
+.nfilter {
+  grid-template-columns: 26% auto;
+}
+.ProductsListPart {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 30rem);
+  column-gap: 2%;
+  row-gap: 1%;
+  justify-content: right;
+}
+
+.routeDenoter {
+  padding: 2rem 0rem;
+}
+.FiltersPart {
+  text-align: center;
+}
+.secondSideDiv {
+  display: grid;
+  grid-template-rows: 4rem 90%;
+}
+.ech2 {
+  display: inline-block;
+  text-transform: uppercase;
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+  min-height: 5rem;
+}
+.filterlogo {
+  font-size: 3rem;
+  cursor: pointer;
+}
+.pagination {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+}

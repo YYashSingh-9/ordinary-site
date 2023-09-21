@@ -1,0 +1,37 @@
+.card {
+  margin-top: 10%;
+  display: grid;
+  grid-template-rows: 5rem auto;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+.buttons h2 {
+  font-size: 1.8rem;
+}
+.buttons h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.childCard {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 20% 20% 20% 20%;
+  column-gap: 5%;
+  grid-template-rows: 30rem;
+  max-width: 100%;
+  max-height: 40rem;
+  margin-top: 1%;
+}
+.card h2,
+h3:hover {
+  cursor: pointer;
+}
+.card h3 {
+  text-decoration: underline;
+}
+.title {
+  text-transform: uppercase;
+}

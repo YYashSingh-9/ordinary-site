@@ -1,0 +1,40 @@
+.ParentDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.CenterDiv {
+  display: grid;
+  grid-template-rows: 20rem auto 10rem;
+  text-align: center;
+  margin-top: 5%;
+}
+.ImgDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.ImgDiv img {
+  /* width: 80%; */
+  height: 100%;
+}
+.writtens p {
+  font-size: 1.2rem;
+  margin-top: 2%;
+}
+.buttonHere {
+  margin-top: 5%;
+}
+.buttonHere button {
+  padding: 2% 3%;
+  border-radius: 1rem;
+  font-size: 1.4rem;
+  border: 0.1rem solid rgb(232, 72, 72);
+  background-color: white;
+  color: rgb(232, 72, 72);
+}
+.buttonHere button:hover {
+  background-color: rgb(232, 72, 72);
+  color: white;
+  cursor: pointer;
+}

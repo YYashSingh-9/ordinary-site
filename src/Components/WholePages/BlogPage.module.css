@@ -1,0 +1,38 @@
+.MainAboutSecDiv {
+  margin-top: 2%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 25% 25%;
+  row-gap: 2%;
+  max-height: 100%;
+}
+.blogBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0.2rem 0.2rem 1.2rem -0.2rem rgb(213, 213, 213);
+}
+.barImage {
+  width: 25%;
+  height: 100%;
+}
+
+.barImage img {
+  height: 100%;
+  width: 100%;
+}
+.barInfos {
+  width: 72%;
+  padding-left: 2%;
+}
+.barInfos h2 {
+  margin-bottom: 2%;
+}
+.barInfos p {
+  font-size: 1.5rem;
+}
+.icons {
+  font-size: 2rem;
+  margin-right: 1%;
+  cursor: pointer;
+}

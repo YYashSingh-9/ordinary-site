@@ -1,0 +1,20 @@
+.searchNfilter {
+  display: grid;
+  grid-template-rows: repeat(3fr);
+  row-gap: 10%;
+  justify-content: center;
+  /* margin-top: 5%; */
+  text-align: left;
+}
+.searchNfilter input {
+  border: none;
+  outline: none;
+  padding: 1rem 0.5rem;
+  background-color: rgb(223, 223, 223);
+}
+.searchNfilter select {
+  padding: 1rem 0.5rem;
+  border: 0.1rem solid grey;
+  border-radius: 0.5rem;
+  color: gray;
+}

@@ -1,0 +1,72 @@
+.parentFooter {
+  display: grid;
+  max-height: 25rem;
+  grid-template-rows: 20% 65% 15%;
+  margin-top: 10%;
+}
+.logo_N_SearchIcon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* margin: 5% 0%; */
+  padding-bottom: 1%;
+  border-bottom: 0.1rem solid grey;
+}
+.logo_N_SearchIcon img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.logos {
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: 1%;
+}
+.links_N_Email {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 40%;
+  grid-template-rows: 100%;
+  padding-top: 1%;
+}
+.links_N_Email h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+/* .coveringDiv {
+  display: grid;
+ 
+} */
+.links_N_Email p {
+  margin-bottom: 1rem;
+}
+.input_s {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-top: 10%;
+}
+.input_s input {
+  width: 80%;
+  padding: 2% 2%;
+  margin-right: 1%;
+  border: none;
+  outline: none;
+  border-bottom: 0.1rem solid grey;
+  background-color: transparent;
+}
+.final_N_Socials {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.final_N_Socials p {
+  display: inline-block;
+  margin-left: 2%;
+  color: grey;
+}
+.final_N_Socials > div {
+  width: 25%;
+}
+.social_Logos {
+  text-align: right;
+  color: black;
+}

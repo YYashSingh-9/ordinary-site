@@ -1,0 +1,90 @@
+.mainProductDiv {
+  display: grid;
+  grid-template-rows: 5% auto;
+}
+.mainDiv {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* align-items: center; */
+  margin-top: 5%;
+  column-gap: 2rem;
+}
+.productDetails {
+  display: grid;
+  grid-template-rows: 22% 78%;
+}
+.insideLogo {
+  width: 95%;
+  height: 100%;
+}
+
+.insideLogo img {
+  width: 50%;
+  /* height: 100%; */
+}
+.details {
+  margin-top: 1%;
+  display: grid;
+  grid-template-rows: 20% 10% 30% 30%;
+}
+.details h2 {
+  font-weight: 700;
+  margin-top: 5%;
+}
+.details p {
+  font-size: 1.2rem;
+  margin-top: 1%;
+}
+.details h3 {
+  font-size: 2.6rem;
+  font-weight: 400;
+}
+.details h4 {
+  font-size: 2.4rem;
+  font-weight: 400;
+  margin-top: 1%;
+}
+.actionBtns {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.btn {
+  max-height: 50%;
+  padding: 1rem 1rem;
+  border: 0.1rem solid black;
+  width: 70%;
+}
+.btn:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.stars {
+  font-size: 1.4rem;
+  margin-left: 0.5rem;
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+}
+.heartLogo {
+  font-size: 1.5rem;
+}
+.heartLogo:hover {
+  color: rgb(237, 53, 53);
+  cursor: pointer;
+}
+.red {
+  color: red;
+}
+.discPrice {
+  text-decoration: line-through;
+  color: grey;
+  margin-right: 5%;
+}
+.prices {
+  display: flex;
+}

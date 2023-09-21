@@ -1,0 +1,24 @@
+.MainAboutSecDiv {
+  display: grid;
+  grid-template-rows: 65% 30%;
+  grid-template-columns: 90%;
+  /* max-height: 100vh; */
+  justify-content: center;
+  margin-top: 5%;
+  row-gap: 5%;
+}
+.imageHere {
+  height: 100%;
+  width: 100%;
+}
+.imageHere img {
+  height: 100%;
+  width: 100%;
+}
+.textHere h2 {
+  font-size: 2.8rem;
+  text-transform: uppercase;
+}
+.textHere p {
+  font-size: 1.5rem;
+}
