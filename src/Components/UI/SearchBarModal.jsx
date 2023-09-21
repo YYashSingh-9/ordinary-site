@@ -12,7 +12,7 @@ const BackDrop = () => {
 
   const ModalExit = () => {
     dispatch(actions.searchModalToggler());
-    // navigate("..");
+    navigate("../");
   };
   return (
     <>

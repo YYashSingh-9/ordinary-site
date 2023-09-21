@@ -28,7 +28,8 @@ const ProductItem = (props) => {
         </div>
         <div className={classes.productInfo}>
           <h2>{title}</h2>
-          <h4>${price}</h4>
+          <h3>${price}</h3>
+          {props.btnState && <button className={classes.addBtn}>Add </button>}
         </div>
       </LiCard>
     </>

@@ -1,8 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import classes from "./Favourites.module.css";
 import CartProductItem from "../UI/CartProductItem";
+import ProductItem from "../ChildComponents/ProductItem";
+import FavouriteCard from "../UI/FavouriteCard";
 import WithoutItems from "../UI/WithoutItems";
 const FavWhenItems = (props) => {
+  let buttonState = true;
   return (
     <>
       <section className={classes.CartSection}>
@@ -11,14 +14,16 @@ const FavWhenItems = (props) => {
         </div>
         <div className={classes.cartProductListDiv}>
           {props.Favarray.map((el) => (
-            <CartProductItem key={el.key} elem={el} />
+            <FavouriteCard key={el.key} elem={el} btnState={buttonState} />
           ))}
         </div>
       </section>
     </>
   );
 };
-
+{
+  /* <CartProductItem key={el.key} elem={el} />; */
+}
 const Favourites = () => {
   const productList = useSelector((state) => state.sliceOne.arrayOfProducts);
   const favarray = productList.filter((elem) => {

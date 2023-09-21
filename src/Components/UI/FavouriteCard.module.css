@@ -1,0 +1,68 @@
+.favCardParentDiv {
+  max-width: 20rem;
+  max-height: 30rem;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 19rem 7rem 4rem;
+}
+.imgAndCloseDiv {
+  width: 100%;
+  position: relative;
+}
+.imgAndCloseDiv button {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+}
+.favImg img {
+  object-fit: contain;
+  max-width: 100%;
+}
+.productInfos {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 100%;
+}
+.title {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+.prices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.prices h4 {
+  margin-left: 0.7rem;
+  font-size: 1.2rem;
+}
+.cuttedPrice {
+  text-decoration: line-through;
+}
+.offerPrice {
+  color: rgb(241, 131, 46);
+}
+.addBtn {
+  background-color: brown;
+  font-size: 1.5rem;
+  width: 80%;
+  color: rgb(231, 231, 231);
+  padding: 0.8rem 1.5rem;
+  text-transform: uppercase;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  background-color: rgb(223, 64, 64);
+  border: none;
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 0.2rem 0.8rem;
+}
+.addBtn:hover {
+  background-color: rgb(223, 46, 46);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+.addedBtn {
+  text-align: center;
+}

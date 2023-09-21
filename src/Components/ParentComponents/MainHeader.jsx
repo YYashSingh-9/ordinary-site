@@ -1,5 +1,6 @@
 import classes from "./MainHeader.module.css";
 import NavItem from "../ChildComponents/NavItems";
+import { Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { CiSearch, CiHeart, CiShoppingCart } from "react-icons/ci";
 import { BiRadioCircle } from "react-icons/bi";
@@ -10,7 +11,6 @@ import { actions } from "../../Store/StoreSlice";
 const MainHeader = () => {
   const navData = useSelector((state) => state.sliceOne.navItems);
   const CartData = useSelector((state) => state.sliceOne.AddToCart_Array);
-
   const dispatch = useDispatch();
   const clickFunction = () => {
     dispatch(actions.searchModalToggler());
