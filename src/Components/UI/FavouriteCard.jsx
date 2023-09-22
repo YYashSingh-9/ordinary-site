@@ -1,8 +1,17 @@
 import classes from "./FavouriteCard.module.css";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { actions } from "../../Store/StoreSlice";
 const FavouriteCard = (props) => {
   const { title, price, images, key, isFav } = props.elem;
+  console.log(props.elem);
   const extendedPrice = (price * 3).toFixed(2);
+  const dispatch = useDispatch();
+
+  const addItemToCartHandler = () => {
+    dispatch(actions.FavouriteToggler(key));
+    dispatch(actions.AddItemToCart(props.elem));
+  };
   return (
     <>
       <div className={classes.favCardParentDiv}>
@@ -10,8 +19,8 @@ const FavouriteCard = (props) => {
           <div className={classes.favImg}>
             <img src={images} />
           </div>
-          <button>
-            <AiOutlineCloseCircle />
+          <button className={classes.closeBtn} disabled={true}>
+            <AiOutlineCloseCircle className={classes.closeLogo} />
           </button>
         </div>
         <div className={classes.productInfos}>
@@ -31,7 +40,9 @@ const FavouriteCard = (props) => {
           </div>
         </div>
         <div className={classes.addedBtn}>
-          <button className={classes.addBtn}>Add to bag</button>
+          <button className={classes.addBtn} onClick={addItemToCartHandler}>
+            Add to bag
+          </button>
         </div>
       </div>
     </>

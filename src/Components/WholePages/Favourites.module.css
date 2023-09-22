@@ -3,3 +3,9 @@
   display: grid;
   grid-template-rows: 5rem auto;
 }
+.cartProductListDiv {
+  display: grid;
+  grid-template-rows: repeat(2, 33rem);
+  grid-template-columns: repeat(6, 20rem);
+  column-gap: 1%;
+}

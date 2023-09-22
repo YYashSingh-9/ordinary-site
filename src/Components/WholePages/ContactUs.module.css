@@ -1,0 +1,144 @@
+.mainDiv {
+  display: grid;
+  grid-template-rows: 9rem 55rem;
+  width: 80%;
+  margin: auto;
+  margin-top: 5%;
+}
+.upperDiv {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  border-bottom: 0.1rem solid rgb(218, 218, 218);
+  align-items: center;
+}
+.title {
+  padding-top: 5%;
+  text-align: left;
+}
+.title h2 {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+.title p {
+  margin-top: 0.1rem;
+}
+.trackTitle {
+  display: grid;
+  grid-template-columns: 10% 65% 25%;
+  align-items: center;
+  height: 7rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border: 0.1rem solid rgb(218, 218, 218);
+  border-radius: 0.2rem;
+}
+.bagLogo {
+  font-size: 4rem;
+}
+.texts h3 {
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.texts {
+  padding-top: 1rem;
+}
+.checkOrderBtn {
+  border: 0.2rem solid rgb(126, 206, 126);
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: rgb(56, 187, 56);
+  padding: 1rem 1.3rem;
+  cursor: pointer;
+}
+.checkOrderBtn:hover {
+  color: white;
+  background-color: rgb(126, 206, 126);
+}
+.lowerDiv {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  margin-top: 3%;
+}
+.queryTypesDiv_left {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  border-right: 0.1rem solid rgb(199, 199, 199);
+}
+.typesDiv {
+  display: grid;
+  grid-template-rows: 5rem 5rem 5rem 5rem;
+}
+.queryLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  padding: 0rem 1rem;
+  cursor: pointer;
+}
+.queryLink:hover {
+  background-color: rgb(216, 216, 216);
+}
+.typesDiv h3 {
+  color: rgb(56, 187, 56);
+  text-transform: uppercase;
+  padding-left: 1rem;
+}
+.faqDiv {
+  border-top: 0.1rem solid rgb(218, 218, 218);
+  padding-top: 2rem;
+  display: grid;
+  grid-template-rows: 10% 90%;
+}
+.faqDiv h3 {
+  margin-top: auto;
+}
+.faqDiv h4 {
+  cursor: pointer;
+}
+.faqDiv h4:hover {
+  background-color: rgb(216, 216, 216);
+}
+.formDiv_right {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  margin-top: 5%;
+  width: 80%;
+  border: 0.1rem solid rgb(239, 239, 239);
+  padding: 2rem 2rem;
+}
+.formDiv_right label {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  word-spacing: 0.1rem;
+}
+.formDiv_right input {
+  padding: 1rem 2rem;
+  outline: none;
+  border: none;
+  margin-top: 5%;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0.5rem 1rem 0px;
+}
+.formDiv_right button {
+  margin-top: 5%;
+  padding: 0.5rem 1.5rem;
+  width: 50%;
+  background: none;
+  border: 0.2rem solid rgb(126, 206, 126);
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: rgb(56, 187, 56);
+  padding: 1rem 1.3rem;
+  cursor: pointer;
+}
+.formDiv_right button:hover {
+  background-color: rgb(126, 206, 126);
+  color: white;
+}

@@ -65,10 +65,9 @@
   text-align: left;
   margin: 0.5rem 0rem;
   padding-top: 1rem;
-
-  width: 100%;
+  width: 99%;
   margin-right: auto;
-  margin-left: 2%;
+  margin-left: 1%;
   border-radius: 0.8rem;
 }
 .CouponMain p {
@@ -130,6 +129,7 @@
 
 .total_N_Order button {
   width: 100%;
+  border-radius: 0.5rem;
   background-color: rgb(232, 72, 72);
   padding: 1rem;
   font-size: 1.5rem;

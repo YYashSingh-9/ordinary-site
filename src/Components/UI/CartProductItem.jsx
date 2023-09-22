@@ -16,10 +16,9 @@ const CartProductItem = (props) => {
   const { title, price, images, catagory, quantity, key } = props.elem;
   const isCartOn = props.isCartOn;
   const dispatch = useDispatch();
-
+  const elem = props.elem;
   const addItemHandler = (quantityRecieved) => {
-    const ProductToBeAdded = { ...props.elem, quantity: quantityRecieved };
-    dispatch(actions.AddItemToCart(ProductToBeAdded));
+    dispatch(actions.AddItemToCart(elem));
   };
   return (
     <>
@@ -40,6 +39,7 @@ const CartProductItem = (props) => {
           <PlusMinusButton
             addItemFunction={addItemHandler}
             cartisOn={isCartOn}
+            elems={elem}
           />
         </div>
       </div>

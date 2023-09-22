@@ -12,7 +12,7 @@ import BlogPage from "./Components/WholePages/BlogPage";
 import Cart from "./Components/WholePages/Cart";
 import SearcBarModal from "./Components/UI/SearchBarModal";
 import Favourites from "./Components/WholePages/Favourites";
-import { useSelector } from "react-redux";
+import ContactUs from "./Components/WholePages/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +52,7 @@ const router = createBrowserRouter([
         children: [{ path: "/search/:id", element: <BasicProductsPage /> }],
       },
       { path: "/favourites", element: <Favourites /> },
+      { path: "/contact-us", element: <ContactUs /> },
     ],
   },
 ]);

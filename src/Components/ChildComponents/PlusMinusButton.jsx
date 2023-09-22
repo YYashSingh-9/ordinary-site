@@ -1,20 +1,21 @@
 import classes from "./PlusMinusButton.module.css";
 import { useState } from "react";
+import { actions } from "../../Store/StoreSlice";
+import { useDispatch } from "react-redux";
 
 const PlusMinusButton = (props) => {
   const [quantityState, setQuantity] = useState(1);
-
-  const onclick = () => {
-    props.addItemFunction(quantityState);
-  };
+  const dispatch = useDispatch();
 
   const incrementHandler = () => {
+    dispatch(actions.AddItemToCart(props.elems));
     setQuantity((state) => {
       return state + 1;
     });
   };
 
   const decrementHandler = () => {
+    dispatch(actions.RemoveItemfromCart(props.elems));
     quantityState > 0
       ? setQuantity((state) => {
           return state - 1;

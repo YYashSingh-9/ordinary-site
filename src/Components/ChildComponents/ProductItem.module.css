@@ -37,25 +37,6 @@
   color: rgb(223, 46, 46);
 }
 
-.addBtn {
-  background-color: brown;
-  font-size: 1.6rem;
-  width: 80%;
-  color: rgb(231, 231, 231);
-  padding: 0.8rem 1.5rem;
-  text-transform: uppercase;
-  border-radius: 0.5rem;
-  margin-top: 0.5rem;
-  background-color: rgb(223, 64, 64);
-  border: none;
-  outline: none;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 0.2rem 0.8rem;
-}
-.addBtn:hover {
-  background-color: rgb(223, 46, 46);
-  color: rgb(255, 255, 255);
-  cursor: pointer;
-}
 .productInfo {
   text-align: center;
   /* text-transform: uppercase; */

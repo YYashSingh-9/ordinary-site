@@ -5,7 +5,7 @@
 3. Best seller route and page on showmore click.✅
 4. Setting One product page for different links and show details as per the route params✅
 5. Blog route.✅
-6. Favourites page and logic of adding and showing Favourites products there
+6. Favourites page and logic of adding and showing Favourites products there✅
    (and also dummy front when no favourites are added ).✅
 7. Social Media Links ✅
 8. Searching products and taking it to that route of searched products/category
@@ -16,10 +16,16 @@
 12. Popup when a user sends his/her email from footer.✅
 13. Adding red dot on cart logo when user add something in
     cart and removing it when all items are out of cart✅
-14. Removing Items once order is Placed.
-15. Adding route links on CatalogueDiv links.
-16. Showing more products on page numbers click.
-17. Range selection drag filter and its working.
-18. Filtering process.
-19. Remove item from cart.
-20. When removing last quantity of that product then remove that whole product from cart.
+14. Adding route links on CatalogueDiv links.✅
+15. Remove item from cart.✅
+16. Remove item from fav list when it is added to bag.✅
+17. Removing Items once order is Placed.
+18. When removing last quantity of that product then remove that whole product from cart.✅
+19. Showing more products on page numbers click.
+20. Range selection drag filter and its working.
+21. Filtering process.
+22. Show nice popup when item is added to fav list , when added to bag and when order is placed
+23. Show loading spinner/text/pop-up when page is not full loaded.
+24. Build this app's REST API
+25. Build full functional backend
+26. Data must be saved and everything should be shown as per that (like saved fav's , added products in bag )

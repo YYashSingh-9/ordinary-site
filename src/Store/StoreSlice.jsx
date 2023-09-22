@@ -270,7 +270,6 @@ const StoreSlice = createSlice({
         isFav: favState,
       };
       state.arrayOfProducts = AlteredArray;
-      state.isCartEmpty = false;
     },
     searchModalToggler(state, action) {
       state.searchModal = !state.searchModal;
@@ -280,6 +279,7 @@ const StoreSlice = createSlice({
       const existingItem = state.AddToCart_Array.find(
         (elem) => elem.key === newItem.key
       );
+      state.isCartEmpty = false;
       let price_per_product;
       if (!existingItem) {
         state.AddToCart_Array.push({
@@ -298,16 +298,34 @@ const StoreSlice = createSlice({
         state.CartTotal = state.TotalMrp - state.DiscountPrice;
       } else {
         existingItem.totalPrice += newItem.price;
-        existingItem.quantity += newItem.quantity;
-        price_per_product = existingItem.price * newItem.quantity;
-        state.TotalMrp = state.TotalMrp + price_per_product;
+        existingItem.quantity++;
+        price_per_product = newItem.price * 1;
+        state.TotalMrp += price_per_product;
         state.DiscountPrice = (state.TotalMrp * 15) / 100;
         state.CartTotal = state.TotalMrp - state.DiscountPrice;
       }
-      console.log(current(state.AddToCart_Array));
     },
     RemoveItemfromCart(state, action) {
-      const Item = action.payload;
+      const itemToRemove = action.payload;
+      const itemToBeRemoved = state.AddToCart_Array.find(
+        (elem) => elem.key === itemToRemove.key
+      );
+      console.log("First", current(itemToBeRemoved));
+      state.TotalMrp = state.TotalMrp - itemToBeRemoved.price;
+      state.DiscountPrice = (state.TotalMrp * 15) / 100;
+      state.CartTotal = state.TotalMrp - state.DiscountPrice;
+
+      if (itemToBeRemoved.quantity === 1) {
+        const filteredArray = state.AddToCart_Array.filter(
+          (elem) => elem.key !== itemToBeRemoved.key
+        );
+        state.AddToCart_Array = filteredArray;
+      } else {
+        itemToBeRemoved.quantity--;
+        itemToBeRemoved.totalPrice =
+          itemToBeRemoved.totalPrice - itemToBeRemoved.price;
+      }
+      if (state.AddToCart_Array.length === 0) state.isCartEmpty = true;
     },
   },
 });

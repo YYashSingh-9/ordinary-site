@@ -66,3 +66,12 @@
 .addedBtn {
   text-align: center;
 }
+.closeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.closeLogo {
+  font-size: 2rem;
+  color: rgb(57, 57, 57);
+}

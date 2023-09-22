@@ -12,18 +12,18 @@ import Popup from "reactjs-popup";
 const Linkss = (props) => {
   return (
     <>
-      <p>
-        <a>{props.t}</a>
-      </p>
+      <NavLink to={props.url}>
+        <p>{props.t}</p>
+      </NavLink>
     </>
   );
 };
 const HeadingLinks = (props) => {
   return (
     <>
-      <h3>
-        <a>{props.head}</a>
-      </h3>
+      <NavLink to={props.url}>
+        <h3>{props.head}</h3>
+      </NavLink>
     </>
   );
 };
@@ -41,15 +41,15 @@ const FooterDiv = () => {
         </div>
         <div className={classes.links_N_Email}>
           <div>
-            <HeadingLinks head="MainPage" />
-            <HeadingLinks head="About Us" />
-            <HeadingLinks head="Contact Us" />
+            <HeadingLinks head="MainPage" url="./" />
+            <HeadingLinks head="About Us" url="about" />
+            <HeadingLinks head="Contact Us" url="contact-us" />
           </div>
           <div>
             <h3>CATALOGUE</h3>
-            <Linkss t="Skin Care" />
-            <Linkss t="Hair & Body" />
-            <Linkss t="Best Sellers" />
+            <Linkss t="Skin Care" url="/catalogue/Skincare" />
+            <Linkss t="Hair & Body" url="/catalogue/Hair" />
+            <Linkss t="Best Sellers" url="bestsellers" />
           </div>
           <div>
             <h3>CUSTOMER CARE</h3>
@@ -76,7 +76,7 @@ const FooterDiv = () => {
             </p>
           </div>
           <div className={classes.social_Logos}>
-            <NavLink to="https://www.instagram.com/yyashsingh_/">
+            <NavLink to="https://www.instagram.com/yashwardhanm_singh/">
               <BiLogoInstagramAlt className={classes.logos} />
             </NavLink>
             <NavLink to="https://twitter.com/">
