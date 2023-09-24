@@ -1,5 +1,5 @@
 .MainAboutSecDiv {
-  margin-top: 2%;
+  padding-top: 2%;
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 25% 25%;

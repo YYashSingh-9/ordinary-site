@@ -9,8 +9,11 @@ const FavouriteCard = (props) => {
   const dispatch = useDispatch();
 
   const addItemToCartHandler = () => {
-    dispatch(actions.FavouriteToggler(key));
+    dispatch(actions.FavouriteToggler(key)); // this changes isFav=true to false which removes this item from favCart when re-evaluates
     dispatch(actions.AddItemToCart(props.elem));
+  };
+  const removeFavStatus = () => {
+    dispatch(actions.FavouriteToggler(key));
   };
   return (
     <>
@@ -19,8 +22,11 @@ const FavouriteCard = (props) => {
           <div className={classes.favImg}>
             <img src={images} />
           </div>
-          <button className={classes.closeBtn} disabled={true}>
-            <AiOutlineCloseCircle className={classes.closeLogo} />
+          <button className={classes.closeBtn}>
+            <AiOutlineCloseCircle
+              className={classes.closeLogo}
+              onClick={removeFavStatus}
+            />
           </button>
         </div>
         <div className={classes.productInfos}>

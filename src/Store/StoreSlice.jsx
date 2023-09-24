@@ -28,17 +28,17 @@ const NavigationItems = [
     submenu: [
       {
         title: "Hair",
-        url: "catalogue/Hair",
+        url: "catalogue/hair",
         key: 1.1,
       },
       {
         title: "Fragrences",
-        url: "catalogue/Fragrences",
+        url: "catalogue/fragrences",
         key: 1.2,
       },
       {
         title: "Serums",
-        url: "catalogue/Skincare",
+        url: "catalogue/skincare",
         key: 1.2,
       },
     ],
@@ -242,6 +242,10 @@ const initialState_one = {
   isCartEmpty: true,
   searchModal: false,
   AddToCart_Array: [],
+  sliceValues: [0, 10],
+  minPriceVal: 0,
+  maxPriceVal: 10,
+  typeSelectVariable: null,
 };
 
 const StoreSlice = createSlice({
@@ -249,11 +253,6 @@ const StoreSlice = createSlice({
   initialState: initialState_one,
   reducers: {
     CatalogueToggler(state, action) {
-      // if (action.payload === "done") {
-      //   state.catalogueState = false;
-      //   console.log(action, state.catalogueState);
-      //   return;
-      // }
       action.payload !== "removeSubMenu"
         ? (state.catalogueState = !state.catalogueState)
         : (state.catalogueState = false);
@@ -270,6 +269,10 @@ const StoreSlice = createSlice({
         isFav: favState,
       };
       state.arrayOfProducts = AlteredArray;
+      let filteredArray = state.arrayOfProducts.filter(
+        (el) => el.isFav === true
+      );
+      state.FavouriteItems = filteredArray;
     },
     searchModalToggler(state, action) {
       state.searchModal = !state.searchModal;
@@ -310,7 +313,6 @@ const StoreSlice = createSlice({
       const itemToBeRemoved = state.AddToCart_Array.find(
         (elem) => elem.key === itemToRemove.key
       );
-      console.log("First", current(itemToBeRemoved));
       state.TotalMrp = state.TotalMrp - itemToBeRemoved.price;
       state.DiscountPrice = (state.TotalMrp * 15) / 100;
       state.CartTotal = state.TotalMrp - state.DiscountPrice;
@@ -326,6 +328,49 @@ const StoreSlice = createSlice({
           itemToBeRemoved.totalPrice - itemToBeRemoved.price;
       }
       if (state.AddToCart_Array.length === 0) state.isCartEmpty = true;
+    },
+    totalRemoveFromCart(state, action) {
+      const removingItemGot = action.payload;
+      const removingItemFound = state.AddToCart_Array.find(
+        (el) => el.key === removingItemGot.key
+      );
+      if (removingItemFound)
+        state.TotalMrp = state.TotalMrp - removingItemFound.totalPrice;
+      state.DiscountPrice = (state.TotalMrp * 15) / 100;
+      state.CartTotal = state.TotalMrp - state.DiscountPrice;
+      const filteredArray = state.AddToCart_Array.filter(
+        (el) => el.key !== removingItemFound.key
+      );
+      state.AddToCart_Array = filteredArray;
+      if (state.AddToCart_Array.length === 0) state.isCartEmpty = true;
+    },
+    pageIncrement(state, action) {
+      const actionType = action.payload;
+      const copyArray = [...state.sliceValues];
+      console.log(copyArray);
+      if (actionType === "increment") {
+        copyArray[0] = copyArray[1];
+        copyArray[1] = copyArray[1] + 10;
+        state.sliceValues = copyArray;
+      }
+      if (actionType === "decrement" && copyArray[0] > 0) {
+        copyArray[1] = copyArray[1] - 10;
+        copyArray[0] = copyArray[1] - 10;
+        state.sliceValues = copyArray;
+      }
+      return;
+    },
+    setMinPrice(state, action) {
+      const val = action.payload;
+      state.minPriceVal = val;
+    },
+    setMaxPrice(state, action) {
+      const val = action.payload;
+      state.maxPriceVal = val;
+    },
+    selectType(state, action) {
+      const val = action.payload;
+      state.typeSelectVariable = val;
     },
   },
 });

@@ -19,13 +19,14 @@
 14. Adding route links on CatalogueDiv links.✅
 15. Remove item from cart.✅
 16. Remove item from fav list when it is added to bag.✅
-17. Removing Items once order is Placed.
-18. When removing last quantity of that product then remove that whole product from cart.✅
-19. Showing more products on page numbers click.
-20. Range selection drag filter and its working.
+17. When removing last quantity of that product then remove that whole product from cart.✅
+18. Total removal of product from final bag and favourite cart ✅
+19. Showing more products on page numbers click.✅
+20. Range selection drag filter and its working.✅
 21. Filtering process.
 22. Show nice popup when item is added to fav list , when added to bag and when order is placed
 23. Show loading spinner/text/pop-up when page is not full loaded.
 24. Build this app's REST API
 25. Build full functional backend
-26. Data must be saved and everything should be shown as per that (like saved fav's , added products in bag )
+26. Removing Items once order is Placed.
+27. Data must be saved and everything should be shown as per that (like saved fav's , added products in bag )

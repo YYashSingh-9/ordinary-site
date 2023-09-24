@@ -1,7 +1,6 @@
 // import { NavLink } from "react-router-dom";
 import Submenu from "./Submenu";
 import classes from "./NavItem.module.css";
-import { CiDroplet } from "react-icons/ci";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
@@ -17,13 +16,11 @@ const NavItem = (props) => {
 
   const catalogueToggle = () => {
     if (key === 1) {
-      console.log(key);
       dispatch(actions.CatalogueToggler());
     } else if (key >= 2) {
       dispatch(actions.CatalogueToggler("removeSubMenu"));
     }
   };
-
   links === "catalogue" ? (links = id) : links;
   return (
     <>

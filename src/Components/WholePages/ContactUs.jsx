@@ -2,6 +2,8 @@ import classes from "./ContactUs.module.css";
 import { BsFillBagCheckFill } from "react-icons/bs";
 import { AiOutlineRight } from "react-icons/ai";
 import { Form } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { actions } from "../../Store/StoreSlice";
 
 const QueryTypeLink = (props) => {
   return (
@@ -15,9 +17,18 @@ const QueryTypeLink = (props) => {
 };
 
 const ContactUs = () => {
+  const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
+  const dispatch = useDispatch();
+  //THIS IS DONE TO REMOVE SUB MENU BECAUSE USER CLICKS THE SCREEN TO REMOVE POPUPS WHICH IS WE TARGET THIS DIV FOR THIS WORK
+  const submenuRemover = () => {
+    if (!catalogueState) {
+      return;
+    }
+    dispatch(actions.CatalogueToggler("removeSubMenu"));
+  };
   return (
     <>
-      <section className={classes.mainDiv}>
+      <section className={classes.mainDiv} onClick={submenuRemover}>
         <div className={classes.upperDiv}>
           <div className={classes.title}>
             <h2>help center</h2>

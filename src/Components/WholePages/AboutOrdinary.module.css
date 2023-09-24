@@ -4,7 +4,7 @@
   grid-template-columns: 90%;
   /* max-height: 100vh; */
   justify-content: center;
-  margin-top: 5%;
+  padding-top: 5%;
   row-gap: 5%;
 }
 .imageHere {

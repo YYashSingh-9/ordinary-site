@@ -3,9 +3,10 @@ import bagImg from "../../assets/bag.png";
 import { NavLink } from "react-router-dom";
 
 const WithoutItems = (props) => {
+  const subMenuTogglers = () => props.subMenuToggler();
   return (
     <>
-      <section className={classes.ParentDiv}>
+      <section className={classes.ParentDiv} onClick={subMenuTogglers}>
         <div className={classes.CenterDiv}>
           <div className={classes.ImgDiv}>
             <img src={bagImg} />

@@ -2,7 +2,6 @@
 import classes from "./Submenu.module.css";
 import { NavLink } from "react-router-dom";
 const Submenu = (props) => {
-  console.log(props.submen);
   return (
     <>
       <ul className={classes.subul}>

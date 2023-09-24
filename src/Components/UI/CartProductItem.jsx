@@ -17,8 +17,11 @@ const CartProductItem = (props) => {
   const isCartOn = props.isCartOn;
   const dispatch = useDispatch();
   const elem = props.elem;
-  const addItemHandler = (quantityRecieved) => {
+  const addItemHandler = () => {
     dispatch(actions.AddItemToCart(elem));
+  };
+  const removeItemFromCart_Handler = () => {
+    dispatch(actions.totalRemoveFromCart(elem));
   };
   return (
     <>
@@ -33,7 +36,7 @@ const CartProductItem = (props) => {
               <h4>{price}</h4>
             </div>
             <span className={classes.cross}>
-              <BsX />
+              <BsX onClick={removeItemFromCart_Handler} />
             </span>
           </div>
           <PlusMinusButton

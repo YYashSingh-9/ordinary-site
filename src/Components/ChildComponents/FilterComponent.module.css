@@ -1,12 +1,12 @@
 .searchNfilter {
   display: grid;
-  grid-template-rows: repeat(3fr);
+  grid-template-rows: 1fr 1fr 1fr 2fr;
   row-gap: 10%;
   justify-content: center;
   /* margin-top: 5%; */
   text-align: left;
 }
-.searchNfilter input {
+.searchNfilter .searchInput {
   border: none;
   outline: none;
   padding: 1rem 0.5rem;
@@ -17,4 +17,59 @@
   border: 0.1rem solid grey;
   border-radius: 0.5rem;
   color: gray;
+}
+.priceRangeDiv {
+  display: grid;
+  border: 0.1rem solid rgb(198, 198, 198);
+  border-radius: 0.6rem;
+  grid-template-rows: 50% 50%;
+  padding: 1rem 0rem;
+}
+.texts {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.min {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.max {
+  text-align: center;
+  font-size: 1.2rem;
+}
+.texts h4 {
+  border: 0.1rem solid rgb(225, 225, 225);
+  padding: 0.2rem 2rem;
+  border-radius: 0.2rem;
+}
+.rangeHandler {
+  text-align: center;
+}
+.range {
+  width: 40%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 0.2rem;
+  max-width: 50%;
+  margin-top: 2rem;
+  padding: 0;
+  outline: none;
+  background: transparent;
+}
+.range::-webkit-slider-runnable-track {
+  background: #161616;
+  height: 0.4rem;
+}
+.range::-moz-range-track {
+  background: #161616;
+  height: 0.4rem;
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  background-color: #292929;
+  height: 1rem;
+  width: 0.7rem;
 }

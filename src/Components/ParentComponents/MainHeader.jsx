@@ -7,14 +7,18 @@ import { BiRadioCircle } from "react-icons/bi";
 import logo from "../../assets/logo2.png";
 import { NavLink } from "react-router-dom";
 import { actions } from "../../Store/StoreSlice";
+import { useEffect } from "react";
 
 const MainHeader = () => {
   const navData = useSelector((state) => state.sliceOne.navItems);
   const CartData = useSelector((state) => state.sliceOne.AddToCart_Array);
+  const favouriteItems = useSelector((state) => state.sliceOne.FavouriteItems);
   const dispatch = useDispatch();
   const clickFunction = () => {
     dispatch(actions.searchModalToggler());
   };
+  console.log(favouriteItems);
+  const favStyle = favouriteItems.length > 0 ? classes.favOn : " ";
   return (
     <>
       <header className={classes.head}>
@@ -31,7 +35,7 @@ const MainHeader = () => {
           </ul>
           <div className={classes.navIcons}>
             <NavLink to={"/favourites"}>
-              <CiHeart className={classes.icons} />
+              <CiHeart className={`${classes.icons} ${favStyle}`} />
             </NavLink>
             <NavLink to={"/search"}>
               <CiSearch className={classes.icons} onClick={clickFunction} />

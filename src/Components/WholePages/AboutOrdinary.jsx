@@ -1,10 +1,21 @@
 import classes from "./AboutOrdinary.module.css";
 import aboutImage from "../../assets/blog2.jpg";
+import { useSelector, useDispatch } from "react-redux";
+import { actions } from "../../Store/StoreSlice";
 
 const AboutOrdinary = () => {
+  const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
+  const dispatch = useDispatch();
+  //THIS IS DONE TO REMOVE SUB MENU BECAUSE USER CLICKS THE SCREEN TO REMOVE POPUPS WHICH IS WE TARGET THIS DIV FOR THIS WORK
+  const submenuRemover = () => {
+    if (!catalogueState) {
+      return;
+    }
+    dispatch(actions.CatalogueToggler("removeSubMenu"));
+  };
   return (
     <>
-      <section className={classes.MainAboutSecDiv}>
+      <section className={classes.MainAboutSecDiv} onClick={submenuRemover}>
         <div className={classes.imageHere}>
           <img src={aboutImage} />
         </div>

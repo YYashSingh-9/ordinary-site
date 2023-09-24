@@ -2,7 +2,7 @@
   width: 100%;
   background-image: url("../assets/wall.png");
   background-repeat: no-repeat;
-  margin-top: 4%;
+  padding-top: 4%;
   height: auto;
   background-size: contain;
 }

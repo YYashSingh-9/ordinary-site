@@ -1,5 +1,6 @@
 import classes from "./BasicProductsPage.module.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { actions } from "../../Store/StoreSlice";
 import ProductItem from "../ChildComponents/ProductItem";
 import { CiFilter } from "react-icons/ci";
 import FilterComponent from "../ChildComponents/FilterComponent";
@@ -12,23 +13,58 @@ const paramConversion = (stringPassed) => {
     stringPassed.toString().slice(1);
   return returnParam;
 };
+const Pages = (props) => {
+  let type = props.type;
+  const pagerFunc = () => {
+    console.log(type);
+    props.fn_to_inc(type);
+  };
+  return <h3 onClick={pagerFunc}>{props.pg_n}</h3>;
+};
 
 const BasicProductsPage = () => {
   const { id } = useParams();
+  const productList = useSelector((state) => state.sliceOne.arrayOfProducts);
+  const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
+  const sliceVals = useSelector((state) => state.sliceOne.sliceValues);
+  const minPrice = useSelector((state) => state.sliceOne.minPriceVal);
+  const maxPrice = useSelector((state) => state.sliceOne.maxPriceVal);
+  const typeSelected = useSelector(
+    (state) => state.sliceOne.typeSelectVariable
+  );
+
+  const dispatch = useDispatch();
+  //THIS IS DONE TO REMOVE SUB MENU BECAUSE USER CLICKS THE SCREEN TO REMOVE POPUPS WHICH IS WE TARGET THIS DIV FOR THIS WORK
+  const submenuRemover = () => {
+    if (!catalogueState) {
+      return;
+    }
+    dispatch(actions.CatalogueToggler("removeSubMenu"));
+  };
+  const pagerFn = (type) => {
+    dispatch(actions.pageIncrement(type));
+  };
 
   const paramRecieved = paramConversion(id);
-  console.log(paramRecieved);
 
-  const productList = useSelector((state) => state.sliceOne.arrayOfProducts);
   const specificProductArray = productList.filter(
     (el) => el.catagory === paramRecieved
   );
-
-  const finalProductsArrayToDisplay =
+  let finalProductsArrayToDisplay =
     paramRecieved === "Bestsellers" ? productList : specificProductArray;
+  //USING/MANAGING FILTERS ON THE FINAL ARRAY..
+  //1.Range selection..
+  finalProductsArrayToDisplay = finalProductsArrayToDisplay.filter((el) => {
+    return el.price >= minPrice && el.price <= maxPrice;
+  });
+  //2.Type selection..
+  if (typeSelected !== null)
+    finalProductsArrayToDisplay = finalProductsArrayToDisplay.filter((el) => {
+      return el.catagory === typeSelected;
+    });
   return (
     <>
-      <section className={classes.thisSection}>
+      <section className={classes.thisSection} onClick={submenuRemover}>
         <div className={classes.routeDenoter}>
           {id === "bestsellers" ? (
             <p> Home / {id} </p>
@@ -38,20 +74,6 @@ const BasicProductsPage = () => {
         </div>
         <div className={`${classes.ParentProductsDiv} ${classes.nfilter}`}>
           <div className={classes.FiltersPart}>
-            {/* <div className={classes.searchNfilter}>
-              <h2>FILTER</h2>
-              <input type="text" placeholder="Search" />
-
-              <select name="Shop by" id="shopby">
-                <option value="Hair">Hair</option>
-                <option value="perfume">Perfumes</option>
-                <option value="Serums">Serums</option>
-              </select>
-              <select name="Price Range" id="pricerange">
-                <option value="2">+ $2</option>
-                <option value="3">+ $3</option>
-              </select>
-            </div> */}
             <FilterComponent />
           </div>
           <div className={classes.secondSideDiv}>
@@ -63,15 +85,16 @@ const BasicProductsPage = () => {
             <div className={classes.ProductsListPart}>
               {finalProductsArrayToDisplay
                 .map((el) => <ProductItem key={el.key} elem={el} />)
-                .slice(0, 9)}
+                .slice(sliceVals[0], sliceVals[1])}
             </div>
           </div>
         </div>
-        <div className={classes.pagination}>
-          <h3>1 ,</h3>
-          <h3>2 ,</h3>
-          <h3>3</h3>
-        </div>
+        {finalProductsArrayToDisplay.length > 10 && (
+          <div className={classes.pagination}>
+            <Pages pg_n="1 ," type="decrement" fn_to_inc={pagerFn} />
+            <Pages pg_n="2" type="increment" fn_to_inc={pagerFn} />
+          </div>
+        )}
       </section>
     </>
   );

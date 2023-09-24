@@ -42,10 +42,15 @@ const CartWhenItems = (props) => {
   const mrp = useSelector((state) => state.sliceOne.TotalMrp);
   const discPrice = useSelector((state) => state.sliceOne.DiscountPrice);
   let cartIsOn = true;
+
+  const subMenuToggler = () => {
+    props.subMenuToggler();
+  };
+
   return (
     <>
-      <section className={classes.CartSection}>
-        <div className={classes.cartHeading}>
+      <section className={classes.CartSection} onClick={subMenuToggler}>
+        <div className={classes.cartHeading} onClick={subMenuToggler}>
           <h2>CART ITEMS</h2>
         </div>
         <div className={classes.CartMain}>

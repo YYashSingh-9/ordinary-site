@@ -1,14 +1,16 @@
 import { useSelector, useDispatch } from "react-redux";
 import classes from "./Favourites.module.css";
-import CartProductItem from "../UI/CartProductItem";
-import ProductItem from "../ChildComponents/ProductItem";
+import { actions } from "../../Store/StoreSlice";
 import FavouriteCard from "../UI/FavouriteCard";
 import WithoutItems from "../UI/WithoutItems";
 const FavWhenItems = (props) => {
   let buttonState = true;
+  const submenuFn = () => {
+    props.subMenuToggler();
+  };
   return (
     <>
-      <section className={classes.CartSection}>
+      <section className={classes.CartSection} onClick={submenuFn}>
         <div className={classes.cartHeading}>
           <h2>CART ITEMS</h2>
         </div>
@@ -26,20 +28,30 @@ const FavWhenItems = (props) => {
 }
 const Favourites = () => {
   const productList = useSelector((state) => state.sliceOne.arrayOfProducts);
+  const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
+  const dispatch = useDispatch();
+  //THIS IS DONE TO REMOVE SUB MENU BECAUSE USER CLICKS THE SCREEN TO REMOVE POPUPS WHICH IS WE TARGET THIS DIV FOR THIS WORK
+  const submenuRemover = () => {
+    if (!catalogueState) {
+      return;
+    }
+    dispatch(actions.CatalogueToggler("removeSubMenu"));
+  };
   const favarray = productList.filter((elem) => {
     return elem.isFav === true;
   });
-  console.log(favarray);
+
   return (
     <>
       {favarray.length ? (
-        <FavWhenItems Favarray={favarray} />
+        <FavWhenItems Favarray={favarray} subMenuToggler={submenuRemover} />
       ) : (
         <WithoutItems
           link="/bestsellers"
           title={`Product says 'It Look so empty without me!`}
           subTitle={`Wishlist is empty , Let's find some products.`}
           btnText={`Add Items from Best Sellers`}
+          subMenuToggler={submenuRemover}
         />
       )}
     </>
