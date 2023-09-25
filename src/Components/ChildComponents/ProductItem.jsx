@@ -3,9 +3,10 @@ import LiCard from "../UI/LiCard";
 import { BsHeart } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
+import { NavLink } from "react-router-dom";
 
 const ProductItem = (props) => {
-  const { title, price, images, key, isFav } = props.elem;
+  const { title, price, images, key, isFav, catagory } = props.elem;
   const dispatch = useDispatch();
 
   const favouriteOnClick = () => {
@@ -27,9 +28,11 @@ const ProductItem = (props) => {
           </button>
         </div>
         <div className={classes.productInfo}>
-          <h2>{title}</h2>
+          <h2>
+            <NavLink to={`/${catagory}/${title}`}>{title}</NavLink>
+          </h2>
           <h3>${price}</h3>
-          {props.btnState && <button className={classes.addBtn}>Add </button>}
+          {props.btnState && <button className={classes.addBtn}>Add</button>}
         </div>
       </LiCard>
     </>

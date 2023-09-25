@@ -77,7 +77,7 @@ const allProducts = [
   },
   {
     key: 4,
-    title: "serumOne",
+    title: "SerumOne",
     price: 3,
     images: image4,
     isFav: false,
@@ -86,7 +86,7 @@ const allProducts = [
   },
   {
     key: 5,
-    title: "serumTwo",
+    title: "SerumTwo",
     price: 4,
     images: image5,
     isFav: false,
@@ -96,7 +96,7 @@ const allProducts = [
 
   {
     key: 6,
-    title: "serumThree",
+    title: "SerumThree",
     price: 3.7,
     images: image6,
     isFav: false,
@@ -105,7 +105,7 @@ const allProducts = [
   },
   {
     key: 7,
-    title: "serumFour",
+    title: "SerumFour",
     price: 3.2,
     images: image7,
     isFav: false,
@@ -114,7 +114,7 @@ const allProducts = [
   },
   {
     key: 8,
-    title: "serumFive",
+    title: "SerumFive",
     price: 3.1,
     images: image8,
     isFav: false,
@@ -123,7 +123,7 @@ const allProducts = [
   },
   {
     key: 9,
-    title: "serumSix",
+    title: "SerumSix",
     price: 3.4,
     images: image9,
     isFav: false,
@@ -132,7 +132,7 @@ const allProducts = [
   },
   {
     key: 10,
-    title: "serumSeven",
+    title: "SerumSeven",
     price: 3.5,
     images: image10,
     isFav: false,
@@ -141,7 +141,7 @@ const allProducts = [
   },
   {
     key: 11,
-    title: "serumEight",
+    title: "SerumEight",
     price: 3.6,
     images: image11,
     isFav: false,
@@ -150,7 +150,7 @@ const allProducts = [
   },
   {
     key: 12,
-    title: "serumNine",
+    title: "SerumNine",
     price: 3.3,
     images: image12,
     isFav: false,
@@ -159,7 +159,7 @@ const allProducts = [
   },
   {
     key: 13,
-    title: "serumTen",
+    title: "SerumTen",
     price: 3.5,
     images: image13,
     isFav: false,
@@ -168,7 +168,7 @@ const allProducts = [
   },
   {
     key: 14,
-    title: "serumEleven",
+    title: "SerumEleven",
     price: 3.8,
     images: image14,
     isFav: false,
@@ -177,7 +177,7 @@ const allProducts = [
   },
   {
     key: 15,
-    title: "serumTwelve",
+    title: "SerumTwelve",
     price: 4,
     images: image15,
     isFav: false,
@@ -246,6 +246,7 @@ const initialState_one = {
   minPriceVal: 0,
   maxPriceVal: 10,
   typeSelectVariable: null,
+  searchedTerm: "",
 };
 
 const StoreSlice = createSlice({
@@ -370,7 +371,18 @@ const StoreSlice = createSlice({
     },
     selectType(state, action) {
       const val = action.payload;
-      state.typeSelectVariable = val;
+      if (val === "none") {
+        state.typeSelectVariable = null;
+      } else {
+        state.typeSelectVariable = val;
+      }
+    },
+    searchFilter(state, action) {
+      let searchTerm = action.payload; //getting the searched string value
+      let searchTerm_uppercase = searchTerm.charAt(0).toUpperCase(); //taking out first element(letter) , converting to uppercase
+      let searchTerm_rest = searchTerm.slice(1); //taking out rest of string without first element(letter)
+      const finalSearchTerm = searchTerm_uppercase.concat(searchTerm_rest); // making it a whole search elem with first letter as capital
+      state.searchedTerm = finalSearchTerm;
     },
   },
 });

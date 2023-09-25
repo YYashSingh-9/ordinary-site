@@ -19,12 +19,9 @@ const FilterComponent = () => {
     const target = e.target.value;
     dispatch(actions.selectType(target));
   };
-  const testFn = (e) => {
-    const target = e.target.value.toString();
-    console.log(target);
-    let arr = ["serum", "Perfume", "Plain"];
-    const test = arr.filter((el) => el.includes(target));
-    console.log(test);
+  const searchtFn = (e) => {
+    const targetVal = e.target.value;
+    dispatch(actions.searchFilter(targetVal));
   };
   return (
     <>
@@ -34,7 +31,7 @@ const FilterComponent = () => {
           type="text"
           placeholder="Search (type ' serum ')"
           className={classes.searchInput}
-          onChange={testFn}
+          onChange={searchtFn}
         />
 
         <select
@@ -47,6 +44,7 @@ const FilterComponent = () => {
           <option value="Hair">Hair</option>
           <option value="Fragrences">Fragrences</option>
           <option value="Skincare">Skincare</option>
+          <option value="none">None</option>
         </select>
 
         <div className={classes.priceRangeDiv}>

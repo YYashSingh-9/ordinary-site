@@ -29,6 +29,7 @@ const BasicProductsPage = () => {
   const sliceVals = useSelector((state) => state.sliceOne.sliceValues);
   const minPrice = useSelector((state) => state.sliceOne.minPriceVal);
   const maxPrice = useSelector((state) => state.sliceOne.maxPriceVal);
+  const searchTerm = useSelector((state) => state.sliceOne.searchedTerm);
   const typeSelected = useSelector(
     (state) => state.sliceOne.typeSelectVariable
   );
@@ -52,6 +53,7 @@ const BasicProductsPage = () => {
   );
   let finalProductsArrayToDisplay =
     paramRecieved === "Bestsellers" ? productList : specificProductArray;
+
   //USING/MANAGING FILTERS ON THE FINAL ARRAY..
   //1.Range selection..
   finalProductsArrayToDisplay = finalProductsArrayToDisplay.filter((el) => {
@@ -62,6 +64,16 @@ const BasicProductsPage = () => {
     finalProductsArrayToDisplay = finalProductsArrayToDisplay.filter((el) => {
       return el.catagory === typeSelected;
     });
+  if (typeSelected === null) {
+    finalProductsArrayToDisplay =
+      paramRecieved === "Bestsellers" ? productList : specificProductArray;
+  }
+  //3.Search filtering
+  if (searchTerm)
+    finalProductsArrayToDisplay = finalProductsArrayToDisplay.filter((el) =>
+      el.title.includes(searchTerm)
+    );
+
   return (
     <>
       <section className={classes.thisSection} onClick={submenuRemover}>

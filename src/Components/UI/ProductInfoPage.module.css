@@ -1,17 +1,24 @@
 .mainProductDiv {
   display: grid;
-  grid-template-rows: 5% auto;
+  grid-template-rows: 5% 60rem;
 }
 .mainDiv {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100%;
   /* align-items: center; */
-  margin-top: 5%;
+  margin-top: 2%;
   column-gap: 2rem;
+}
+.topTitle {
+  padding-top: 2%;
+  font-size: 1.4rem;
+  text-transform: capitalize;
+  font-weight: 800;
 }
 .productDetails {
   display: grid;
-  grid-template-rows: 22% 78%;
+  grid-template-rows: 25% 75%;
 }
 .insideLogo {
   width: 95%;
@@ -25,11 +32,11 @@
 .details {
   margin-top: 1%;
   display: grid;
-  grid-template-rows: 20% 10% 30% 30%;
+  grid-template-rows: 10% 10% 30% 20% 30%;
 }
 .details h2 {
   font-weight: 700;
-  margin-top: 5%;
+  text-transform: uppercase;
 }
 .details p {
   font-size: 1.2rem;
@@ -47,19 +54,29 @@
 .actionBtns {
   display: flex;
   width: 100%;
+  height: 100%;
   justify-content: space-between;
+  border-bottom: 0.1rem solid rgb(178, 178, 178);
 }
 
 .btn {
-  max-height: 50%;
+  max-height: 70%;
   padding: 1rem 1rem;
-  border: 0.1rem solid black;
-  width: 70%;
+  background-color: rgb(36, 36, 36);
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 0.2rem 0.8rem;
+  color: rgb(239, 239, 239);
+  text-transform: uppercase;
+  font-weight: 600;
+  width: 48%;
 }
 .btn:hover {
-  background-color: black;
-  color: white;
+  background-color: transparent;
+  color: rgb(36, 36, 36);
   cursor: pointer;
+  transition: 0.1s ease-in-out;
 }
 
 .stars {
@@ -69,9 +86,10 @@
 .heading {
   display: flex;
   justify-content: space-between;
+  border-bottom: 0.1rem solid rgb(178, 178, 178);
 }
 .heartLogo {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 .heartLogo:hover {
   color: rgb(237, 53, 53);
@@ -87,4 +105,58 @@
 }
 .prices {
   display: flex;
+}
+.productImg {
+  max-width: 100%;
+  object-fit: contain;
+}
+.imgContainer {
+  width: inherit;
+  height: 100%;
+}
+.imgContainer img {
+  width: 100%;
+  max-height: 100%;
+}
+.pincode_check {
+  margin-top: 2%;
+  text-align: left;
+  font-weight: 700;
+}
+.fill_pincode input {
+  border: none;
+  outline: none;
+  border: 0.1rem solid rgb(98, 98, 98);
+  border-radius: 0.4rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.4rem;
+  margin-right: 2rem;
+}
+.fill_pincode button {
+  max-height: 70%;
+  padding: 0.8rem 1rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  border: 0.1rem solid rgb(189, 189, 189);
+  color: rgb(223, 64, 64);
+  text-transform: uppercase;
+  font-weight: 600;
+  width: 28%;
+}
+.fill_pincode button:hover {
+  cursor: pointer;
+
+  border: 0.1rem solid rgb(98, 98, 98);
+  transition: 0.1s ease-in-out;
+}
+.pincode_result {
+  text-transform: uppercase;
+  margin-top: 1.6rem;
+  font-weight: 800;
+  text-align: left;
+}
+.btn:disabled {
+  cursor: not-allowed;
 }

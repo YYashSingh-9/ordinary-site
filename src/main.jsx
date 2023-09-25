@@ -13,6 +13,7 @@ import Cart from "./Components/WholePages/Cart";
 import SearcBarModal from "./Components/UI/SearchBarModal";
 import Favourites from "./Components/WholePages/Favourites";
 import ContactUs from "./Components/WholePages/ContactUs";
+import ProductInfoPage from "./Components/UI/ProductInfoPage";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,7 @@ const router = createBrowserRouter([
       },
       { path: "/favourites", element: <Favourites /> },
       { path: "/contact-us", element: <ContactUs /> },
+      { path: "/:catagory/:id", element: <ProductInfoPage /> },
     ],
   },
 ]);
