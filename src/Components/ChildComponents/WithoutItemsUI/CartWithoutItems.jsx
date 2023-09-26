@@ -2,6 +2,7 @@ import classes from "./CartWithoutItems.module.css";
 import bagImg from "../../../assets/bag.png";
 import { NavLink } from "react-router-dom";
 
+// ANOTHER EITHER COMPONENT FOR SITUATIONAL RENDERS (can be seen when no items are there in Cart🛒/fav❤ page)
 const CartWithoutItems = () => {
   return (
     <>

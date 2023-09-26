@@ -14,6 +14,7 @@ import SearcBarModal from "./Components/UI/SearchBarModal";
 import Favourites from "./Components/WholePages/Favourites";
 import ContactUs from "./Components/WholePages/ContactUs";
 import ProductInfoPage from "./Components/UI/ProductInfoPage";
+import AccountsPage from "./Components/WholePages/AccountsPage";
 
 const router = createBrowserRouter([
   {
@@ -50,11 +51,12 @@ const router = createBrowserRouter([
       {
         path: "/search",
         element: <SearcBarModal />,
-        children: [{ path: "/search/:id", element: <BasicProductsPage /> }],
+        // children: [{ path: "/search/:id", element: <BasicProductsPage /> }],
       },
       { path: "/favourites", element: <Favourites /> },
       { path: "/contact-us", element: <ContactUs /> },
       { path: "/:catagory/:id", element: <ProductInfoPage /> },
+      { path: "/account-details", element: <AccountsPage /> },
     ],
   },
 ]);

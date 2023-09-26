@@ -3,6 +3,8 @@ import { useState } from "react";
 import { actions } from "../../Store/StoreSlice";
 import { useDispatch } from "react-redux";
 
+// THIS COMPONENT CAN BE SEEN IN PRODUCT SHOWN IN CART PAGE WHEN ADDED TO CART(BAG)
+// MADE THIS WAY BECAUSE IT WAS USED TWICE THRICE SO -> D.R.Y
 const PlusMinusButton = (props) => {
   const [quantityState, setQuantity] = useState(1);
   const dispatch = useDispatch();

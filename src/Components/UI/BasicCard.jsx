@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import classes from "./BasicCard.module.css";
 
+// THIS IS USED IN MAIN PAGE AS A WRAPPER - ONLY VALUES CHANGED (EX OF USAGE - BLOGS DIV IN MAIN PAGE)
 const BasicCard = (props) => {
   return (
     <>

@@ -5,7 +5,7 @@ import ProductItem from "../ChildComponents/ProductItem";
 import { CiFilter } from "react-icons/ci";
 import FilterComponent from "../ChildComponents/FilterComponent";
 import { useParams } from "react-router-dom";
-
+//THIS PAGE IS USED AS A SHELL FOR MANY ROUTES :) ONLY DATA CHANGES -D.R.Y
 //HELPER FUNCTIONS
 const paramConversion = (stringPassed) => {
   const returnParam =
@@ -13,6 +13,7 @@ const paramConversion = (stringPassed) => {
     stringPassed.toString().slice(1);
   return returnParam;
 };
+//RE-USABLE COMPONENT - D.R.Y
 const Pages = (props) => {
   let type = props.type;
   const pagerFunc = () => {

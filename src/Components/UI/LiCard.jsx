@@ -1,5 +1,6 @@
 import classes from "./LiCard.module.css";
 
+// THIS IS A WRAPPER COMPONENT.
 const LiCard = (props) => {
   return (
     <>

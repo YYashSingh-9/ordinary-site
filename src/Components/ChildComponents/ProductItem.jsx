@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
 import { NavLink } from "react-router-dom";
 
+// THIS IS THE PRODUCT CARDS(PRODUCTS) SEEN EVERYWHERE ..
 const ProductItem = (props) => {
   const { title, price, images, key, isFav, catagory } = props.elem;
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const ProductItem = (props) => {
   const favouriteOnClick = () => {
     dispatch(actions.FavouriteToggler(key));
   };
+  //This is done to disable clicking the heart again after it is pushed to fav list by user
   const DisableValue = !isFav ? false : true;
 
   return (

@@ -33,7 +33,7 @@ const SearchDiv = () => {
     const refValue = inputref.current.value;
     console.log(refValue);
     dispatch(actions.searchModalToggler());
-    navigate(`/search/${refValue}`);
+    navigate(`/${refValue}`);
   };
 
   return (

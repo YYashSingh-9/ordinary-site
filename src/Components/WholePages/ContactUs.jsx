@@ -5,6 +5,7 @@ import { Form } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
 
+// Re-usable component -> D.R.Y
 const QueryTypeLink = (props) => {
   return (
     <>

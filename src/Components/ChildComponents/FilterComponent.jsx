@@ -7,6 +7,7 @@ const FilterComponent = () => {
   const maxPrice = useSelector((state) => state.sliceOne.maxPriceVal);
   const dispatch = useDispatch();
 
+  // Range filter___👍
   const setMinPriceHandler = (e) => {
     const target = e.target.value;
     dispatch(actions.setMinPrice(target));
@@ -15,10 +16,12 @@ const FilterComponent = () => {
     const target = e.target.value;
     dispatch(actions.setMaxPrice(target));
   };
+  // Catagory type filter___👍
   const typeSelectHandler = (e) => {
     const target = e.target.value;
     dispatch(actions.selectType(target));
   };
+  // Product name search filter___👍
   const searchtFn = (e) => {
     const targetVal = e.target.value;
     dispatch(actions.searchFilter(targetVal));

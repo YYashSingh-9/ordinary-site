@@ -1,0 +1,75 @@
+.mainDiv {
+  display: grid;
+  grid-template-rows: 15% 85%;
+  padding: 1rem 17%;
+}
+.secondDiv {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 50rem;
+}
+.leftSideDiv {
+  display: grid;
+  grid-template-rows: repeat(4, 10rem);
+  border-right: 0.1rem solid lightgray;
+  padding-right: 2rem;
+}
+.sideDiv h3 {
+  margin-top: 1rem;
+  text-transform: uppercase;
+  color: gray;
+}
+.title {
+  border-bottom: 0.1rem solid lightgray;
+}
+.sideDiv {
+  border-bottom: 0.1rem solid lightgray;
+  border-width: 80%;
+  padding-top: 3rem;
+}
+.sideDiv h3 {
+  cursor: pointer;
+}
+.rightSideDiv {
+  margin-left: 1.6rem;
+  margin-top: 1.6rem;
+  border: 0.1rem solid lightgray;
+  width: 95%;
+  display: grid;
+  text-align: left;
+  padding: 3rem 10rem;
+  grid-template-rows: 15% 75% 10%;
+}
+.pTitle {
+  text-transform: uppercase;
+  word-spacing: 1rem;
+  letter-spacing: 0.1rem;
+  border-bottom: 0.1rem solid lightgray;
+  padding-left: 2rem;
+}
+
+.tableOne th {
+  font-size: 1.3rem;
+  text-transform: capitalize;
+  color: gray;
+  padding-left: 2rem;
+}
+tr {
+  height: 4rem;
+}
+.editBtn {
+  padding: 1rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  outline: none;
+  border: none;
+  background-color: rgb(227, 55, 55);
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 1rem 2rem -1rem;
+  cursor: pointer;
+  color: white;
+  letter-spacing: 0.2rem;
+}
+.editBtn:hover {
+  background-color: rgb(226, 47, 47);
+}

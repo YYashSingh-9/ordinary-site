@@ -4,14 +4,7 @@ import { useDispatch } from "react-redux";
 import PlusMinusButton from "../ChildComponents/PlusMinusButton";
 import { BsX } from "react-icons/bs";
 
-//  key: newItem.key,
-//           title: newItem.title,
-//           price: newItem.price,
-//           images: newItem.images,
-//           isFav: newItem.isFav,
-//           catagory: newItem.catagory,
-//           quantity: newItem.quantity,
-
+// PRODUCT WHICH SHOWS ON CART PAGE...
 const CartProductItem = (props) => {
   const { title, price, images, catagory, quantity, key } = props.elem;
   const isCartOn = props.isCartOn;

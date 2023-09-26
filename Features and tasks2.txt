@@ -1,0 +1,4 @@
+🎇FEATURES AND TASKS OF THIS APP.🛒 -->"BACK-END" 🗜🖲
+
+1.Build full functional backend 
+2.Build this app's REST API

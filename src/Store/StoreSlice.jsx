@@ -247,6 +247,10 @@ const initialState_one = {
   maxPriceVal: 10,
   typeSelectVariable: null,
   searchedTerm: "",
+  pincodeText: "",
+  pincodeState: false,
+  pincodeVal: "",
+  searchBarVal: "",
 };
 
 const StoreSlice = createSlice({
@@ -383,6 +387,33 @@ const StoreSlice = createSlice({
       let searchTerm_rest = searchTerm.slice(1); //taking out rest of string without first element(letter)
       const finalSearchTerm = searchTerm_uppercase.concat(searchTerm_rest); // making it a whole search elem with first letter as capital
       state.searchedTerm = finalSearchTerm;
+    },
+    pincodeToggle(state, action) {
+      state.pincodeText =
+        "Yey! It is available and can be delivered in 3 working days.";
+    },
+    pincodeFormToggler(state, action) {
+      state.pincodeState = !state.pincodeState;
+      if (state.pincodeState === false) {
+        state.pincodeVal = "";
+      }
+    },
+    pincodeTyper(state, action) {
+      const val = action.payload;
+      state.pincodeVal = val;
+    },
+    searchBarTyper(state, action) {
+      //this is an onchange function because our component is uncontrolled one..
+      //so we have to assign value of '' then change it with this to make it
+      // a controlled comp so that we can clear the field when search button is pressed.
+      const val = action.payload;
+      state.searchBarVal = val;
+    },
+    searchFieldClear(state, action) {
+      const checker = action.payload;
+      if (checker) {
+        state.searchBarVal = "";
+      }
     },
   },
 });

@@ -1,24 +1,51 @@
 import classes from "./MainHeader.module.css";
 import NavItem from "../ChildComponents/NavItems";
-import { Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { CiSearch, CiHeart, CiShoppingCart } from "react-icons/ci";
-import { BiRadioCircle } from "react-icons/bi";
+import { BiRadioCircle, BiSolidUser } from "react-icons/bi";
 import logo from "../../assets/logo2.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { actions } from "../../Store/StoreSlice";
-import { useEffect } from "react";
+import { useRef } from "react";
 
 const MainHeader = () => {
   const navData = useSelector((state) => state.sliceOne.navItems);
   const CartData = useSelector((state) => state.sliceOne.AddToCart_Array);
   const favouriteItems = useSelector((state) => state.sliceOne.FavouriteItems);
+  const searchbarValue = useSelector((state) => state.sliceOne.searchBarVal);
+  const inputref = useRef();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const clickFunction = () => {
-    dispatch(actions.searchModalToggler());
-  };
-  console.log(favouriteItems);
+
+  // Conditional style for red heart when item is added in fav item list..
   const favStyle = favouriteItems.length > 0 ? classes.favOn : " ";
+
+  // Search bar functionality.._________
+  const navigateOnSearchHandler = (e) => {
+    //Taking value
+    const value = inputref.current.value;
+    //When 'Enter' is pressed ..
+    if (e.key === "Enter" && value.length >= 4) {
+      dispatch(actions.searchFieldClear(true));
+      navigate(`/${value}`);
+    }
+    //When 'Mouse click' is done..
+    if (
+      e.nativeEvent.pointerType === "mouse" &&
+      e.nativeEvent.type === "click" &&
+      value.length >= 4
+    ) {
+      dispatch(actions.searchFieldClear(true));
+      navigate(`/${value}`);
+    }
+    //if above 2 conditions are not met then return and not execute the function
+    return;
+  };
+  const onChangeSearch = () => {
+    const value = inputref.current.value;
+    dispatch(actions.searchBarTyper(value));
+  };
+  //_____________________________________________
   return (
     <>
       <header className={classes.head}>
@@ -34,11 +61,27 @@ const MainHeader = () => {
             })}
           </ul>
           <div className={classes.navIcons}>
+            <div className={classes.searchBar}>
+              <input
+                type="search"
+                ref={inputref}
+                placeholder="search-Hair/bestsellers etc"
+                value={searchbarValue}
+                onChange={onChangeSearch}
+                onKeyDown={navigateOnSearchHandler}
+              />
+              <div>
+                <CiSearch
+                  className={classes.searchIcon}
+                  onClick={navigateOnSearchHandler}
+                />
+              </div>
+            </div>
+            <NavLink to={"/account-details"}>
+              <BiSolidUser className={classes.icons} />
+            </NavLink>
             <NavLink to={"/favourites"}>
               <CiHeart className={`${classes.icons} ${favStyle}`} />
-            </NavLink>
-            <NavLink to={"/search"}>
-              <CiSearch className={classes.icons} onClick={clickFunction} />
             </NavLink>
             <span>
               <NavLink to={"/cart"}>
@@ -59,7 +102,6 @@ const MainHeader = () => {
           </div>
         </nav>
       </header>
-      {/* <Outlet /> */}
     </>
   );
 };

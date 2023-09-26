@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
 import classes from "./DivCard.module.css";
 
+// FOR REUSABLITY - FOLLOWING D.R.Y
+//(THIS IS USED IN MAIN PAGE WHERE PRODUCTS ARE DISPLAYED HORIZONTALLY)
 const DivCard = (props) => {
+  const title = props.title.toString().toLowerCase();
   return (
     <>
       <section className={classes.card}>

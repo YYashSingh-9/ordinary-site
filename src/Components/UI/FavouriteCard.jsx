@@ -12,6 +12,7 @@ const FavouriteCard = (props) => {
     dispatch(actions.FavouriteToggler(key)); // this changes isFav=true to false which removes this item from favCart when re-evaluates
     dispatch(actions.AddItemToCart(props.elem));
   };
+  // WHEN CLICKED ON TOP-RIGHT CROSS -:>THIS FUNCTION RUNS
   const removeFavStatus = () => {
     dispatch(actions.FavouriteToggler(key));
   };

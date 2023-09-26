@@ -14,6 +14,9 @@ const NavItem = (props) => {
   const { key, title, url, submenu } = props.elems;
   let links = url;
 
+  // MANUAL TYPE WAY OF TOGGLING THE DROPDOWN FROM NAVBAR (NOT VERY OPTIMIZED OR DRY CODE)
+  // (can be improved .. better and not complicated way is to create a dropdown with css)
+  //(or use css library/framework like MUI,Tailwind CSS,Bootstrap👍)
   const catalogueToggle = () => {
     if (key === 1) {
       dispatch(actions.CatalogueToggler());

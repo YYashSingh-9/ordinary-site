@@ -12,7 +12,7 @@
 
 nav {
   display: grid;
-  grid-template-columns: 15% 70% 15%;
+  grid-template-columns: 15% 59% 26%;
   grid-template-rows: 5rem;
   align-items: center;
 }
@@ -39,10 +39,22 @@ nav {
 }
 .navIcons {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: left;
 }
+.navIcons input {
+  padding: 0.4rem 0.5rem;
+  outline: none;
+  outline: none;
+  background-color: transparent;
+  border: none;
+}
+
 .icons {
   font-size: 2.3rem;
   margin-left: 1rem;
+  margin-top: 0.4rem;
 }
 .icons:hover {
   cursor: pointer;
@@ -63,4 +75,16 @@ nav {
 }
 .favOn {
   color: rgb(248, 40, 40);
+}
+.searchBar {
+  display: flex;
+  border: 0.1rem solid rgb(64, 64, 64);
+  border-radius: 0.4rem;
+  justify-content: center;
+  padding: 0.1rem 1rem;
+}
+.searchIcon {
+  font-size: 2.3rem;
+  margin-top: 0.4rem;
+  cursor: pointer;
 }

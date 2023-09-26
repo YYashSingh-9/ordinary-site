@@ -1,9 +1,10 @@
 import classes from "./ProductInfoPage.module.css";
 import logo from "../../assets/logo2.png";
 import { BsStarFill, BsStar, BsStarHalf } from "react-icons/bs";
-import { NavLink, useParams } from "react-router-dom";
+import { Form, NavLink, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
+import { useRef } from "react";
 
 //THIS IS HOW THE RATINGS WILL BE DISPLAYED..
 const StarComponent = ({ starPassed }) => {
@@ -24,6 +25,7 @@ const StarComponent = ({ starPassed }) => {
   });
   return <div>{RatingStars}</div>;
 };
+// Reusable component
 const Button = (props) => {
   return (
     <button
@@ -40,7 +42,11 @@ const ProductInfoPage = () => {
   const addedProductsArray = useSelector(
     (state) => state.sliceOne.AddToCart_Array
   );
+  const pinCodeText = useSelector((state) => state.sliceOne.pincodeText);
+  const pincodeState = useSelector((state) => state.sliceOne.pincodeState);
+  const pincodeValue = useSelector((state) => state.sliceOne.pincodeVal);
   const { id, catagory } = useParams();
+  const ref = useRef();
   const dispatch = useDispatch();
 
   // Picking the product with id & catagory.
@@ -64,6 +70,20 @@ const ProductInfoPage = () => {
   const favouriteItemHandler = () => {
     dispatch(actions.FavouriteToggler(key));
   };
+
+  //Pincode functionalities V.1.0 ////______
+  const pinCodeToggle = () => {
+    let refVal = ref.current;
+    if (refVal.value.length >= 6) {
+      dispatch(actions.pincodeToggle());
+      dispatch(actions.pincodeFormToggler());
+    }
+  };
+  const pinOnchange = (e) => {
+    const value = e.target.value;
+    dispatch(actions.pincodeTyper(value));
+  };
+  //________________________________________
   return (
     <>
       <section className={classes.mainProductDiv}>
@@ -118,11 +138,19 @@ const ProductInfoPage = () => {
               </div>
               <div className={classes.pincode_check}>
                 <div className={classes.fill_pincode}>
-                  <input type="number" placeholder="ex-495001" />
-                  <button>check</button>
+                  <input
+                    type="number"
+                    placeholder="ex-495001"
+                    ref={ref}
+                    value={pincodeValue}
+                    onChange={pinOnchange}
+                  />
+                  <button type="submit" onClick={pinCodeToggle}>
+                    {!pincodeState ? "check" : "change"}
+                  </button>
                 </div>
                 <div className={classes.pincode_result}>
-                  <p>available</p>
+                  <p>{pincodeState && pinCodeText}</p>
                 </div>
               </div>
             </div>

@@ -8,7 +8,8 @@ import {
 import { BsArrowRight } from "react-icons/bs";
 import logo from "../../assets/logo2.png";
 import { NavLink } from "react-router-dom";
-import Popup from "reactjs-popup";
+
+// RE-USABLE COMPONENTS... D.R.Y
 const Linkss = (props) => {
   return (
     <>

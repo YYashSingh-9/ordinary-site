@@ -2,6 +2,7 @@ import classes from "./WithoutItems.module.css";
 import bagImg from "../../assets/bag.png";
 import { NavLink } from "react-router-dom";
 
+// Either situation component, also for reusablity - D.R.Y
 const WithoutItems = (props) => {
   const subMenuTogglers = () => props.subMenuToggler();
   return (
