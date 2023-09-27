@@ -1,0 +1,183 @@
+[
+  {
+    "key": 1,
+    "title": "PlainPerfume",
+    "price": 3.2,
+    "images": "PlainPerfume.png",
+    "isFav": false,
+    "catagory": "Fragrences",
+    "quantity": 1
+  },
+  {
+    "key": 2,
+    "title": "EauDeTollete",
+    "price": 3.5,
+    "images": "EauDeTollete.png",
+    "isFav": false,
+    "catagory": "Fragrences",
+    "quantity": 1
+  },
+  {
+    "key": 3,
+    "title": "EauDeTollete_2",
+    "price": 3,
+    "images": "EauDeTollete_2.png",
+    "isFav": false,
+    "catagory": "Fragrences",
+    "quantity": 1
+  },
+  {
+    "key": 4,
+    "title": "SerumOne",
+    "price": 3,
+    "images": "SerumOne.png",
+    "isFav": false,
+    "catagory": "Skincare",
+    "quantity": 1
+  },
+  {
+    "key": 5,
+    "title": "SerumTwo",
+    "price": 4,
+    "images": "SerumTwo.png",
+    "isFav": false,
+    "catagory": "Skincare",
+    "quantity": 1
+  },
+
+  {
+    "key": 6,
+    "title": "SerumThree",
+    "price": 3.7,
+    "images": "SerumThree.png",
+    "isFav": false,
+    "catagory": "Skincare",
+    "quantity": 1
+  },
+  {
+    "key": 7,
+    "title": "SerumFour",
+    "price": 3.2,
+    "images": "SerumFour.png",
+    "isFav": false,
+    "catagory": "Skincare",
+    "quantity": 1
+  },
+  {
+    "key": 8,
+    "title": "SerumFive",
+    "price": 3.1,
+    "images": "SerumFive.png",
+    "isFav": false,
+    "catagory": "Skincare",
+    "quantity": 1
+  },
+  {
+    "key": 9,
+    "title": "SerumSix",
+    "price": 3.4,
+    "images": "SerumSix.png",
+    "isFav": false,
+    "catagory": "Skincare",
+    "quantity": 1
+  },
+  {
+    "key": 10,
+    "title": "SerumSeven",
+    "price": 3.5,
+    "images": "SerumSeven.png",
+    "isFav": false,
+    "catagory": "Skincare",
+    "quantity": 1
+  },
+  {
+    "key": 11,
+    "title": "SerumEight",
+    "price": 3.6,
+    "images": "SerumEight.png",
+    "isFav": false,
+    "catagory": "Skincare",
+    "quantity": 1
+  },
+  {
+    "key": 12,
+    "title": "SerumNine",
+    "price": 3.3,
+    "images": "SerumNine.png",
+    "isFav": false,
+    "catagory": "Skincare",
+    "quantity": 1
+  },
+  {
+    "key": 13,
+    "title": "SerumTen",
+    "price": 3.5,
+    "images": "SerumTen.png",
+    "isFav": false,
+    "catagory": "Skincare",
+    "quantity": 1
+  },
+  {
+    "key": 14,
+    "title": "SerumEleven",
+    "price": 3.8,
+    "images": "SerumEleven.png",
+    "isFav": false,
+    "catagory": "Skincare",
+    "quantity": 1
+  },
+  {
+    "key": 15,
+    "title": "SerumTwelve",
+    "price": 4,
+    "images": "SerumTwelve.png",
+    "isFav": false,
+    "catagory": "Skincare",
+    "quantity": 1
+  },
+  {
+    "key": 16,
+    "title": "Cleaner",
+    "price": 2,
+    "images": "Cleaner.png",
+    "isFav": false,
+    "catagory": "Skincare",
+    "quantity": 1
+  },
+  {
+    "key": 17,
+    "title": "HairMask",
+    "price": 5,
+    "images": "HairMask.png",
+    "isFav": false,
+    "catagory": "Hair",
+    "quantity": 1
+  },
+  {
+    "key": 18,
+    "title": "HairCreme",
+    "price": 5,
+    "images": "HairCreme.png",
+    "isFav": false,
+    "catagory": "Hair",
+    "quantity": 1
+  },
+  {
+    "key": 19,
+    "title": "EauDeTollete_3",
+    "price": 6,
+    "images": "EauDeTollete_3.png",
+    "isFav": false,
+    "catagory": "Fragrences",
+    "quantity": 1
+  },
+  {
+    "key": 20,
+    "title": "DarkShampoo",
+    "price": 6,
+    "images": "DarkShampoo.png",
+    "isFav": false,
+    "catagory": "Hair",
+    "quantity": 1
+  }
+]

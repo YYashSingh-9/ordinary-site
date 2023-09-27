@@ -1,0 +1,15 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "two fragrance backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "YYashSingh-9"
+  },
+  "author": "Yash",
+  "license": "ISC"
+}
