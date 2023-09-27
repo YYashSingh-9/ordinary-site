@@ -1,4 +1,20 @@
 🎇FEATURES AND TASKS OF THIS APP.🛒 -->"BACK-END" 🗜🖲
 
-1.Build full functional backend 
-2.Build this app's REST API
+!Tech stack used here - (NodeJs,Express,MongoDB,Mongoose,JWT,Cookies,dotenv)
+
+1. Build full functional backend. 
+2. Build this app's REST API.
+3. Upload all the product data to data base(mongoDB) with mongoose.
+4. API, routes and route handlers for the GET req of all products data.
+5. Updating data in the backend (with PUT/PATCH) when the data is updated from the front-end part
+   (like updating isFav property for fav list,updating quantity of the product). 
+6. DELETE request when item is removed from cart
+7. My Orders placed functionality of individual with JWT checking.
+8. Payment Integration.
+
+//USER & AUTHENTICATIONS..
+1. Creating a user profile(with POST req).
+2. Updating a user profile(with PUT/PATCH).
+3. Sending JWT with cookie when user is created.
+4. Login/Sign-up functionality(Backend-end-part).
+5. Logout functionality.

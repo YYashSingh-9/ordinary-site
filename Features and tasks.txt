@@ -1,5 +1,8 @@
 🎇FEATURES AND TASKS OF THIS APP.🛒 -->"FRONT-END"💻 
 
+!Tech stack used here...-
+(React,Redux/Redux-Toolkit,React-Query,React-icons,React-router,CSS Modules)
+
 1. Toggle dropdown menu on Click. ✅
 2. Routes of each navbar items.✅ 
 3. Best seller route and page on showmore click.✅ 
@@ -33,11 +36,11 @@ clicked add-to-cart button then we should get re-directed to cart page when
 clicked on that button again.. ✅ 
 24. Small v.1 functionality of checking/toggling pincode in productinfo page.✅ 
 25. Show nice popup when item is added to fav list , when added to bag and when order is placed 
-26. Show loading spinner/text/pop-up when page is not full loaded. 
+26. Show loading spinner/text/pop-up when page is not fully loaded. 
 27. Removing Items once order is Placed. 
 28. Data must be saved and everything should be shown as per that (like
 saved fav's , added products in bag ). 
 29. Lazy loading for speed optimization.
 30. Responsive design( Mobile first ).
-31. Login/Sign-up functionality 
-32. User dashboard page.
+31. Login/Sign-up functionality(front-end-part)✅ 
+32. User dashboard page.✅

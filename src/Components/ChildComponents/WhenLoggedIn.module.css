@@ -1,7 +1,7 @@
 .mainDiv {
   display: grid;
   grid-template-rows: 15% 85%;
-  padding: 1rem 17%;
+  padding: 0rem 17%;
 }
 .secondDiv {
   display: grid;
@@ -72,4 +72,28 @@ tr {
 }
 .editBtn:hover {
   background-color: rgb(226, 47, 47);
+}
+.form label {
+  font-size: 1.2rem;
+  font-family: 800;
+  text-transform: uppercase;
+  word-spacing: 0.5rem;
+  margin-bottom: 1rem;
+}
+.form input {
+  margin-top: 0.5rem;
+  margin-bottom: 1.4rem;
+  padding: 0.5rem 1.5rem;
+  border: 0.1rem solid lightgray;
+  outline: none;
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 1rem 2rem -1rem;
+}
+.form input:hover {
+  border: 0.1rem solid black;
+}
+.gender {
+  margin-left: 3rem;
+}
+.form {
+  margin-top: 1rem;
 }
