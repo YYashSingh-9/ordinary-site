@@ -7,6 +7,7 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 const path = require("path");
 const productRouter = require("./routes/productsRouter");
+const UserRouter = require("./routes/userRouter");
 
 // creating an express app
 const app = express();
@@ -43,7 +44,8 @@ const limiter = rateLimit({
 app.use("/api", limiter);
 
 // Route Mounting with express.js
-app.use("/api/v2/products", productRouter);
+app.use("/api/v2/products", productRouter); //Products
+app.use("/api/v2/user", UserRouter); //Router
 
 const port = process.env.PORT || 8000;
 const server = app.listen(port, () => {
