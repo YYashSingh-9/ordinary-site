@@ -41,6 +41,7 @@ exports.updateProduct = async (req, res, next) => {
 exports.getOneProduct = async (req, res, next) => {
   try {
     const doc = await Product.findById(req.params.id);
+    // const doc = await Product.findOne({ slug: req.params.id });
     res.status(200).json({
       status: "Success",
       data: doc,

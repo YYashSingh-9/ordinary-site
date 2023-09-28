@@ -12,13 +12,16 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "express-rate-limit": "^7.0.2",
+    "i": "^0.3.7",
+    "npm": "^10.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-redux": "^8.1.1",
     "react-router-dom": "^6.14.0",
     "react-spinners": "^0.13.8",
-    "reactjs-popup": "^2.0.5"
+    "reactjs-popup": "^2.0.5",
+    "slugify": "^1.6.6"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",
