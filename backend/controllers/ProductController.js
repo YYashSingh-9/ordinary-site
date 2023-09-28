@@ -28,6 +28,9 @@ exports.updateProduct = async (req, res, next) => {
       new: true,
       runValidators: true,
     });
+    if (!doc) {
+      throw new Error("Error occured while updating..");
+    }
     res.status(200).json({
       status: "Success",
       data: doc,

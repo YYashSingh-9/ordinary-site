@@ -8,7 +8,7 @@ ProductRouter.route("/")
 
 ProductRouter.route("/:id")
   .get(ProductController.getOneProduct)
-  .post(ProductController.updateProduct);
+  .patch(ProductController.updateProduct);
 module.exports = ProductRouter;
 
 // No delete product request because there is no use case of this request in our e-com app

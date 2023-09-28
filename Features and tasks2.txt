@@ -12,6 +12,7 @@
 7. My Orders placed functionality of individual with JWT checking.
 8. Payment Integration.
 
+
 //USER & AUTHENTICATIONS..
 1. Creating a user profile(with POST req).
 2. Updating a user profile(with PUT/PATCH).
@@ -21,12 +22,13 @@
 
 
 //API DETAILS 
-1. Proper Documented API.
+1. Proper Documented API.✅
 2. Security middlewares :-
-   *1. Xss-clean (XSS Attacks)
-   *2. RateLimiter (BRUTE-FORCE/DOSS Attacks)
-   *3. Express-mongo-sanitize (NoSQL Injection Attacks)
-3. Compression added.
+   *1. Xss-clean (XSS Attacks)✅
+   *2. RateLimiter (BRUTE-FORCE/DOSS Attacks)✅
+   *3. Express-mongo-sanitize (NoSQL Injection Attacks)✅
+3. Compression added.✅
 4. Cors added. 
 5. API fully tested with POSTMAN.
 6. Proper Error handle management.
+7. Slugify (string to url friendly slug format) ✅
