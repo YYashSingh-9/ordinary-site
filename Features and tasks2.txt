@@ -21,6 +21,7 @@
 5. Logout functionality.
 
 
+
 //API DETAILS 
 1. Proper Documented API.✅
 2. Security middlewares :-
@@ -28,7 +29,8 @@
    *2. RateLimiter (BRUTE-FORCE/DOSS Attacks)✅
    *3. Express-mongo-sanitize (NoSQL Injection Attacks)✅
 3. Compression added.✅
-4. Cors added. 
+4. Cors added. ✅
 5. API fully tested with POSTMAN.
 6. Proper Error handle management.
 7. Slugify (string to url friendly slug format) ✅
+8. Hash Encrypted password.(bcrypt)✅

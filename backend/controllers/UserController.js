@@ -10,5 +10,7 @@ exports.createUser = async (req, res, next) => {
     if (!doc) {
       return new Error("Failed to create User");
     }
-  } catch (err) {}
+  } catch (err) {
+    console.log(err);
+  }
 };
