@@ -2,6 +2,13 @@ const express = require("express");
 const ProductController = require("../controllers/ProductController");
 const ProductRouter = express.Router();
 
-ProductRouter.route("/").get(ProductController.getAllProducts);
+ProductRouter.route("/")
+  .get(ProductController.getAllProducts)
+  .post(ProductController.createNewProduct);
 
+ProductRouter.route("/:id")
+  .get(ProductController.getOneProduct)
+  .post(ProductController.updateProduct);
 module.exports = ProductRouter;
+
+// No delete product request because there is no use case of this request in our e-com app

@@ -3,9 +3,9 @@
 !Tech stack used here - (NodeJs,Express,MongoDB,Mongoose,JWT,Cookies,dotenv)
 
 1. Build full functional backend. 
-2. Build this app's REST API.
-3. Upload all the product data to data base(mongoDB) with mongoose.
-4. API, routes and route handlers for the GET req of all products data.
+2. Build this app's REST API (proper documented with comments and onpoint function names ).
+3. Upload all the product data to data base(mongoDB) with mongoose.✅
+4. API, routes and route handlers for the GET req of all products data.✅
 5. Updating data in the backend (with PUT/PATCH) when the data is updated from the front-end part
    (like updating isFav property for fav list,updating quantity of the product). 
 6. DELETE request when item is removed from cart
@@ -18,3 +18,15 @@
 3. Sending JWT with cookie when user is created.
 4. Login/Sign-up functionality(Backend-end-part).
 5. Logout functionality.
+
+
+//API DETAILS 
+1. Proper Documented API.
+2. Security middlewares :-
+   *1. Xss-clean (XSS Attacks)
+   *2. RateLimiter (BRUTE-FORCE/DOSS Attacks)
+   *3. Express-mongo-sanitize (NoSQL Injection Attacks)
+3. Compression added.
+4. Cors added. 
+5. API fully tested with POSTMAN.
+6. Proper Error handle management.
