@@ -24,7 +24,7 @@ exports.loginUser = async (req, res, next) => {
   const { email, password } = req.body;
   //1. Checking if we recieved password and email , if not send error.
   if (!email || !password) {
-    next(new Error("something went wrong", 404));
+    return next(new Error("something went wrong", 404));
   }
 
   //2. Checking if user exists ?
@@ -33,7 +33,7 @@ exports.loginUser = async (req, res, next) => {
   //3. Checking if the password matches the on saved in DB
   const isPasswordCorrect = await user.correctPassword(password, user.password);
   if (!user || !isPasswordCorrect) {
-    next(new Error("Password is incorrect."));
+    return next(new Error("Password is incorrect.", 401));
   }
   //4. If all checks are clear then creating token and sending it
   const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {

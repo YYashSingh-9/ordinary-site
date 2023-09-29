@@ -57,10 +57,13 @@ app.use("/api/v2/products", productRouter); //Products
 app.use("/api/v2/user", UserRouter); //Router
 
 app.use((err, req, res, next) => {
-  console.log("💥💥💥💥", err, err.message);
-  res.status(400).json({
+  console.log("💥💥💥💥", err, err.message, err.stack);
+  const error = { ...err };
+  error.message = err.message || "message";
+  error.statusCode = err.statusCode || 500;
+  res.status(error.statusCode).json({
     status: "failed",
-    error: err,
+    error: error.message,
   });
 });
 
