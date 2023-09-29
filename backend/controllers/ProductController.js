@@ -1,4 +1,6 @@
 const Product = require("../Models/productModel");
+const AppError = require("../Util/appError");
+const catchAsync = require("../Util/CatchAsync");
 
 exports.getAllProducts = async (req, res, next) => {
   const doc = await Product.find();
@@ -29,7 +31,7 @@ exports.updateProduct = async (req, res, next) => {
       runValidators: true,
     });
     if (!doc) {
-      throw new Error("Error occured while updating..");
+      return next(new AppError("unable to update ", 401));
     }
     res.status(200).json({
       status: "Success",
@@ -41,16 +43,15 @@ exports.updateProduct = async (req, res, next) => {
   next();
 };
 
-exports.getOneProduct = async (req, res, next) => {
-  try {
-    const doc = await Product.findById(req.params.id);
-    // const doc = await Product.findOne({ slug: req.params.id });
-    res.status(200).json({
-      status: "Success",
-      data: doc,
-    });
-  } catch (err) {
-    console.log(err);
+exports.getOneProduct = catchAsync(async (req, res, next) => {
+  // const doc = await Product.findById(req.params.id);
+  const doc = await Product.findOne({ slug: req.params.id });
+  if (!doc) {
+    console.log("❤💜");
+    return next(new AppError("unable to find product", 400));
   }
-  next();
-};
+  res.status(200).json({
+    status: "Success",
+    data: doc,
+  });
+});

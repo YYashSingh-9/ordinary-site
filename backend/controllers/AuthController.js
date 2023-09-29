@@ -1,26 +1,23 @@
 const User = require("../Models/userModel");
 const jwt = require("jsonwebtoken");
 const AppError = require("../Util/appError");
+const catchAsync = require("../Util/CatchAsync");
 
-exports.signUpUser = async (req, res, next) => {
-  try {
-    const doc = await User.create(req.body);
-    const token = jwt.sign({ id: doc.id }, process.env.JWT_SECRET, {
-      expiresIn: process.env.JWT_EXPIRES_IN,
-    });
-    res.status(200).json({
-      status: "Success",
-      token,
-      data: doc,
-    });
-    if (!doc) {
-      return next(new AppError("Failed to create user", 404));
-    }
-  } catch (err) {
-    console.log(err);
+exports.signUpUser = catchAsync(async (req, res, next) => {
+  const doc = await User.create(req.body);
+  if (!doc) {
+    return next(new AppError("Failed to create user", 400));
   }
-  next();
-};
+  const token = jwt.sign({ id: doc.id }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRES_IN,
+  });
+
+  res.status(200).json({
+    status: "Success",
+    token,
+    data: doc,
+  });
+});
 
 exports.loginUser = async (req, res, next) => {
   const { email, password } = req.body;
