@@ -56,6 +56,14 @@ app.use(compression());
 app.use("/api/v2/products", productRouter); //Products
 app.use("/api/v2/user", UserRouter); //Router
 
+app.use((err, req, res, next) => {
+  console.log("💥💥💥💥", err, err.message);
+  res.status(400).json({
+    status: "failed",
+    error: err,
+  });
+});
+
 const port = process.env.PORT || 8000;
 const server = app.listen(port, () => {
   console.log(`Server started on port ${port}`);

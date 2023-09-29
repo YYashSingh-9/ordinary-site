@@ -1,5 +1,8 @@
 const User = require("../Models/userModel");
 
+const dotenv = require("dotenv");
+dotenv.config({ path: "./config.env" });
+// Helper function
 const filterObj = (obj, ...allowedFields) => {
   console.log(obj, allowedFields);
   const newObject = {};
@@ -9,21 +12,10 @@ const filterObj = (obj, ...allowedFields) => {
   });
   return newObject;
 };
-exports.createUser = async (req, res, next) => {
-  try {
-    const doc = await User.create(req.body);
-    res.status(200).json({
-      status: "Success",
-      data: doc,
-    });
-    if (!doc) {
-      return new Error("Failed to create User");
-    }
-  } catch (err) {
-    console.log(err);
-  }
-};
 
+// CREATING USER - SignUp functionality in authcontroller
+
+// UPDATING EVERYTHING EXCEPT PASSWORD.. (<-this is in authcontroller)
 exports.updateUser = async (req, res, next) => {
   //1. If user tried updating password then return.
   if (req.body.password || req.body.passwordConfirm) {
