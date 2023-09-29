@@ -10,6 +10,7 @@ const cors = require("cors");
 const path = require("path");
 const productRouter = require("./routes/productsRouter");
 const UserRouter = require("./routes/userRouter");
+const ErrorController = require("./controllers/ErrorController");
 
 // creating an express app
 const app = express();
@@ -56,16 +57,7 @@ app.use(compression());
 app.use("/api/v2/products", productRouter); //Products
 app.use("/api/v2/user", UserRouter); //Router
 
-app.use((err, req, res, next) => {
-  console.log("💥💥💥💥", err, err.message, err.stack);
-  const error = { ...err };
-  error.message = err.message || "message";
-  error.statusCode = err.statusCode || 500;
-  res.status(error.statusCode).json({
-    status: "failed",
-    error: error.message,
-  });
-});
+app.use(ErrorController);
 
 const port = process.env.PORT || 8000;
 const server = app.listen(port, () => {

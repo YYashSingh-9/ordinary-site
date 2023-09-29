@@ -1,12 +1,14 @@
-class appError extends Error {
+module.exports = class appError extends Error {
   constructor(message, statusCode) {
     super(message);
 
     this.statusCode = statusCode;
-    this.status;
+    this.status = `${statusCode}`.startsWith("4") ? "fail" : "error";
     this.isOperational = true;
+
+    Error.captureStackTrace(this, this.constructor);
   }
-}
+};
 
 /*ye app error me hum error ko extend kar rahe hai aur class me aisa hota h ki jisko extend
 krte hai uske variables hamare pass ajate hai yani child me jo ki hai yaha pe appError
