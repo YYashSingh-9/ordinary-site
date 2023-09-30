@@ -46,6 +46,7 @@ exports.updateProduct = async (req, res, next) => {
 exports.getOneProduct = catchAsync(async (req, res, next) => {
   const doc = await Product.findById(req.params.id);
   // const doc = await Product.findOne({ slug: req.params.id });
+
   if (!doc) {
     return next(new AppError("unable to find product", 400));
   }

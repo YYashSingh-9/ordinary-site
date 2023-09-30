@@ -5,6 +5,7 @@ const rateLimit = require("express-rate-limit");
 const morgan = require("morgan");
 const compression = require("compression");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 const path = require("path");
 const productRouter = require("./routes/productsRouter");
 const UserRouter = require("./routes/userRouter");
@@ -20,9 +21,11 @@ app.use(cors());
 // serving static files
 app.use(express.static(path.join(__dirname, "public")));
 
-// 1.Body parser middleware..
+// 1.Body parser middleware & Cookie parser
 // This is body parser..(v.v.imp) this parses the data comming from request.
 app.use(express.json());
+// This is cookie parser..
+app.use(cookieParser());
 // 2.Sanitizing from noSQL injections.
 app.use(mongoSanitize());
 // 3.Sanitizing from malicious HTMl code(XSS).

@@ -2,21 +2,38 @@ const User = require("../Models/userModel");
 const jwt = require("jsonwebtoken");
 const appError = require("../Util/appError");
 const catchAsync = require("../Util/CatchAsync");
+const dotenv = require("dotenv");
+dotenv.config({ path: "./config.env" });
 
+const signToken = (id) => {
+  const token = jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRES_IN,
+  });
+  return token;
+};
+const createSendToken_with_cookie = (user, statusCode, res) => {
+  const token = signToken(user.id);
+  const cookieOptions = {
+    httpOnly: true,
+    expires: new Date(
+      Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
+    ),
+  };
+  if (process.env.NODE_ENV === "production") cookieOptions.secure = true;
+  res.cookie("jwt", token, cookieOptions);
+  user.password = undefined;
+  res.status(statusCode).json({
+    status: "success",
+    token,
+    data: user,
+  });
+};
 exports.signUpUser = catchAsync(async (req, res, next) => {
   const doc = await User.create(req.body);
   if (!doc) {
     return next(new appError("Failed to create user", 400));
   }
-  const token = jwt.sign({ id: doc.id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_IN,
-  });
-
-  res.status(200).json({
-    status: "Success",
-    token,
-    data: doc,
-  });
+  createSendToken_with_cookie(doc, 200, res);
 });
 
 exports.loginUser = catchAsync(async (req, res, next) => {
@@ -33,11 +50,5 @@ exports.loginUser = catchAsync(async (req, res, next) => {
     return next(new appError("Password is incorrect.", 401));
   }
   //4. If all checks are clear then creating token and sending it
-  const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_IN,
-  });
-  res.status(200).json({
-    status: "success",
-    token,
-  });
+  createSendToken_with_cookie(user, 200, res);
 });

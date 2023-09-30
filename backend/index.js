@@ -5,7 +5,7 @@ dotenv.config({ path: "./config.env" });
 
 // HANDLING UNCAUGHT EXCPETIONS
 process.on("uncaughtException", (err) => {
-  console.log("💛💛", err);
+  console.log("UNCAUGHT ERROR->", err);
   process.exit(1);
 });
 
@@ -28,7 +28,7 @@ const server = app.listen(port, () => {
 });
 
 process.on("unhandledRejection", (err) => {
-  console.log("💛", err);
+  console.log("UNCAUGHT PROMISE REJECTION->", err);
   server.close(() => {
     process.exit(1);
   });

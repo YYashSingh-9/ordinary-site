@@ -16,8 +16,8 @@
 //USER & AUTHENTICATIONS..
 1. Creating a user profile(with POST req).✅
 2. Updating a user profile(with PUT/PATCH).✅
-3. Sending JWT with cookie when user signup/log-in.
-4. Login/Sign-up functionality(Backend-end-part).
+3. Sending JWT with cookie when user signup/log-in.✅
+4. Login/Sign-up functionality(Backend-end-part).✅
 5. Logout functionality.
 
 
