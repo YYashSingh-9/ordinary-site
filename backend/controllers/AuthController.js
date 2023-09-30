@@ -52,3 +52,21 @@ exports.loginUser = catchAsync(async (req, res, next) => {
   //4. If all checks are clear then creating token and sending it
   createSendToken_with_cookie(user, 200, res);
 });
+
+//UPDATING USER PASSWORD
+exports.updateMyPassword = catchAsync(async (req, res, next) => {
+  console.log(req.body);
+  if (!req.body.password || !req.body.passwordCurrent) {
+    return next(
+      new appError("Required Fields are not filled properly, try again.", 400)
+    );
+  }
+  const user = await User.findById(req.body.id).select("+password");
+  if (!(await user.correctPassword(req.body.passwordCurrent, user.password))) {
+    return next(new appError("Password sent is incorrect, try again.", 400));
+  }
+  user.password = req.body.password;
+  user.passwordConfirm = req.body.password;
+  await user.save(); //important - this saves the above changes
+  createSendToken_with_cookie(user, 200, res);
+});

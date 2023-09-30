@@ -10,6 +10,7 @@ const path = require("path");
 const productRouter = require("./routes/productsRouter");
 const UserRouter = require("./routes/userRouter");
 const ErrorController = require("./controllers/ErrorController");
+const appError = require("./Util/appError");
 
 // creating an express app
 const app = express();
@@ -43,7 +44,10 @@ app.use(compression());
 // Route Mounting with express.js
 app.use("/api/v2/products", productRouter); //Products
 app.use("/api/v2/user", UserRouter); //Router
-
+app.all("*", (req, res, next) => {
+  const err = new appError(`Can't identify this url${req.originalUrl}`, 400);
+  next(err);
+});
 app.use(ErrorController);
 
 module.exports = app;

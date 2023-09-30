@@ -1,7 +1,8 @@
 const User = require("../Models/userModel");
-
 const dotenv = require("dotenv");
+const CatchAsync = require("../Util/CatchAsync");
 dotenv.config({ path: "./config.env" });
+
 // Helper function
 const filterObj = (obj, ...allowedFields) => {
   console.log(obj, allowedFields);
@@ -14,6 +15,13 @@ const filterObj = (obj, ...allowedFields) => {
 };
 
 // CREATING USER - SignUp functionality in authcontroller
+exports.getAllUsers = CatchAsync(async (req, res, next) => {
+  const doc = await User.find();
+  res.status(200).json({
+    status: "Success",
+    data: doc,
+  });
+});
 
 // UPDATING EVERYTHING EXCEPT PASSWORD.. (<-this is in authcontroller)
 exports.updateUser = async (req, res, next) => {

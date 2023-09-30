@@ -19,6 +19,8 @@
 3. Sending JWT with cookie when user signup/log-in.✅
 4. Login/Sign-up functionality(Backend-end-part).✅
 5. Logout functionality.
+6. Is logged in? functionality.
+7. Update Password functionality.✅
 
 
 

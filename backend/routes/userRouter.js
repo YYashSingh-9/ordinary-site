@@ -6,7 +6,10 @@ const UserRouter = express.Router();
 // SIGNUP/LOGIN
 UserRouter.route("/signup").post(AuthController.signUpUser);
 UserRouter.route("/login").post(AuthController.loginUser);
+
+UserRouter.route("/updatePassword").patch(AuthController.updateMyPassword);
 //This will be done by admin only
 UserRouter.route("/:id").patch(UserController.updateUser);
+UserRouter.route("/").get(UserController.getAllUsers);
 
 module.exports = UserRouter;
