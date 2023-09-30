@@ -15,14 +15,14 @@ exports.getAllProducts = async (req, res, next) => {
   next();
 };
 
-exports.createNewProduct = async (req, res, next) => {
+exports.createNewProduct = catchAsync(async (req, res, next) => {
   const doc = await Product.create(req.body);
   res.status(200).json({
     status: "Success",
     data: doc,
   });
   next();
-};
+});
 
 exports.updateProduct = async (req, res, next) => {
   try {
@@ -44,10 +44,9 @@ exports.updateProduct = async (req, res, next) => {
 };
 
 exports.getOneProduct = catchAsync(async (req, res, next) => {
-  // const doc = await Product.findById(req.params.id);
-  const doc = await Product.findOne({ slug: req.params.id });
+  const doc = await Product.findById(req.params.id);
+  // const doc = await Product.findOne({ slug: req.params.id });
   if (!doc) {
-    console.log("❤💜");
     return next(new AppError("unable to find product", 400));
   }
   res.status(200).json({

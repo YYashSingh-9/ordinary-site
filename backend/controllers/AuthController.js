@@ -28,10 +28,8 @@ exports.loginUser = catchAsync(async (req, res, next) => {
 
   //2. Checking if user exists ?
   const user = await User.findOne({ email }).select("+password");
-
   //3. Checking if the password matches the on saved in DB
-  const isPasswordCorrect = await user.correctPassword(password, user.password);
-  if (!user || !isPasswordCorrect) {
+  if (!user || !(await user.correctPassword(password, user.password))) {
     return next(new appError("Password is incorrect.", 401));
   }
   //4. If all checks are clear then creating token and sending it
