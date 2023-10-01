@@ -1,7 +1,10 @@
 const User = require("../Models/userModel");
 const dotenv = require("dotenv");
 const CatchAsync = require("../Util/CatchAsync");
+const DefaultController = require("./DefaultController");
 dotenv.config({ path: "./config.env" });
+
+//FOLLOWED D.R.Y HERE..
 
 // Helper function
 const filterObj = (obj, ...allowedFields) => {
@@ -15,14 +18,6 @@ const filterObj = (obj, ...allowedFields) => {
 };
 
 // CREATING USER - SignUp functionality in authcontroller
-exports.getAllUsers = CatchAsync(async (req, res, next) => {
-  const doc = await User.find();
-  res.status(200).json({
-    status: "Success",
-    data: doc,
-  });
-});
-
 // UPDATING EVERYTHING EXCEPT PASSWORD.. (<-this is in authcontroller)
 exports.updateMe = async (req, res, next) => {
   //1. If user tried updating password then return.
@@ -50,3 +45,13 @@ exports.updateMe = async (req, res, next) => {
   }
   next();
 };
+
+// THIS SETS PARAMS.ID TO USER.ID FROM PROTECT MIDDLEWARE
+exports.Getme = (req, res, next) => {
+  req.params.id = req.user.id;
+  next();
+};
+// GET ONE USER.
+exports.getOneUser = DefaultController.DefaultGetOne(User);
+// GET ALL USERS.
+exports.getAllUsers = DefaultController.DefaultReadAll(User);

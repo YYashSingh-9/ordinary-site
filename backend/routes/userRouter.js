@@ -11,6 +11,7 @@ UserRouter.route("/login").post(AuthController.loginUser);
 UserRouter.use(AuthController.protect);
 
 UserRouter.route("/updatePassword").patch(AuthController.updateMyPassword);
+UserRouter.route("/me").get(UserController.Getme, UserController.getOneUser);
 //This will be done by admin only
 UserRouter.route("/:id").patch(UserController.updateMe);
 UserRouter.route("/").get(UserController.getAllUsers);

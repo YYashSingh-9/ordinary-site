@@ -11,4 +11,4 @@ ProductRouter.route("/:id")
   .patch(ProductController.updateProduct);
 module.exports = ProductRouter;
 
-// No delete product request because there is no use case of this request in our e-com app
+// No delete product request because there is no use case of this request in this part.

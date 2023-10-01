@@ -6,6 +6,7 @@ const catchAsync = require("../Util/CatchAsync");
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
 
+//HELPER FUNCTIONS
 const signToken = (id) => {
   const token = jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
@@ -29,6 +30,8 @@ const createSendToken_with_cookie = (user, statusCode, res) => {
     data: user,
   });
 };
+
+//SIGN-UP USER(CREATING A USER)
 exports.signUpUser = catchAsync(async (req, res, next) => {
   const doc = await User.create(req.body);
   if (!doc) {
@@ -37,6 +40,7 @@ exports.signUpUser = catchAsync(async (req, res, next) => {
   createSendToken_with_cookie(doc, 200, res);
 });
 
+//LOGIN USER
 exports.loginUser = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
   //1. Checking if we recieved password and email , if not send error.
