@@ -34,6 +34,7 @@ const createSendToken_with_cookie = (user, statusCode, res) => {
 //SIGN-UP USER(CREATING A USER)
 exports.signUpUser = catchAsync(async (req, res, next) => {
   const doc = await User.create(req.body);
+
   if (!doc) {
     return next(new appError("Failed to create user", 400));
   }

@@ -44,6 +44,8 @@ app.use(compression());
 // Route Mounting with express.js
 app.use("/api/v2/products", productRouter); //Products
 app.use("/api/v2/user", UserRouter); //Router
+app.use("/api/v2/cart", UserRouter); //Router
+
 app.all("*", (req, res, next) => {
   const err = new appError(`Can't identify this url${req.originalUrl}`, 400);
   next(err);
