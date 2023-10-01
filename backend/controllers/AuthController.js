@@ -99,3 +99,14 @@ exports.protect = catchAsync(async (req, res, next) => {
   req.user = current_user;
   next();
 });
+
+//LOGOUT USER
+exports.logoutUser = (req, res, next) => {
+  res.cookies("jwt", "logout", {
+    expiresIn: new Date(Date.now() + 2 * 1000),
+    httpOnly: true,
+  });
+  res.status(200).json({
+    status: "Success",
+  });
+};

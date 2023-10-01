@@ -6,6 +6,7 @@ const UserRouter = express.Router();
 // SIGNUP/LOGIN
 UserRouter.route("/signup").post(AuthController.signUpUser);
 UserRouter.route("/login").post(AuthController.loginUser);
+UserRouter.route("/logout").post(AuthController.logoutUser);
 
 // PROTECTION MIDDLEWARE..
 UserRouter.use(AuthController.protect);
