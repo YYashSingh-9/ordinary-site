@@ -10,6 +10,7 @@ const SideDivs = (props) => {
     </>
   );
 };
+
 const EditForm = () => {
   return (
     <>
@@ -96,7 +97,7 @@ const WhenLoggedIn = () => {
               <h2>Profile details</h2>
             </div>
             <EditForm />
-            <button className={classes.editBtn}>save</button>
+            <button className={classes.editBtn}>Save</button>
           </div>
         </div>
       </section>
