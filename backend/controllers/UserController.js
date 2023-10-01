@@ -24,7 +24,7 @@ exports.getAllUsers = CatchAsync(async (req, res, next) => {
 });
 
 // UPDATING EVERYTHING EXCEPT PASSWORD.. (<-this is in authcontroller)
-exports.updateUser = async (req, res, next) => {
+exports.updateMe = async (req, res, next) => {
   //1. If user tried updating password then return.
   if (req.body.password || req.body.passwordConfirm) {
     return new Error("Can't update this time..");
@@ -34,7 +34,7 @@ exports.updateUser = async (req, res, next) => {
     const filteredObject = filterObj(req.body, "name", "email", "mobilenumber");
     console.log(filteredObject);
     //3. Final update to account
-    const doc = await User.findByIdAndUpdate(req.params.id, filteredObject, {
+    const doc = await User.findByIdAndUpdate(req.user.id, filteredObject, {
       new: true,
       runValidators: true,
     });
