@@ -75,14 +75,23 @@ exports.updateMyPassword = catchAsync(async (req, res, next) => {
 //PROTECT MIDDLEWARE FOR SPECIFIC ROUTES
 exports.protect = catchAsync(async (req, res, next) => {
   let token;
+  //1.Checking for token..
   if (
     req.headers.authorization &&
     req.headers.authorization.startsWith("Bearer")
   ) {
     token = req.headers.authorization.split(" ")[1];
   }
+  //2.If no token then return.
+  if (!token) {
+    return next(new appError("Can't identify token , try again.", 400));
+  }
+  //3.Verifying token and extracting decoded object.
   // const decoded = jwt.verify(token, process.env.JWT_SECRET);✅
   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
-  console.log(decoded);
+  //4.Finding user with id from decoded object.
+  const current_user = await User.findById(decoded.id);
+  //5.Forwarding user to req so that secure routes can have access to user property
+  req.user = current_user;
   next();
 });

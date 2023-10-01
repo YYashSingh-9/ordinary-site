@@ -7,9 +7,12 @@ const UserRouter = express.Router();
 UserRouter.route("/signup").post(AuthController.signUpUser);
 UserRouter.route("/login").post(AuthController.loginUser);
 
+// PROTECTION MIDDLEWARE..
+UserRouter.use(AuthController.protect);
+
 UserRouter.route("/updatePassword").patch(AuthController.updateMyPassword);
 //This will be done by admin only
 UserRouter.route("/:id").patch(UserController.updateUser);
-UserRouter.route("/").get(AuthController.protect, UserController.getAllUsers);
+UserRouter.route("/").get(UserController.getAllUsers);
 
 module.exports = UserRouter;
