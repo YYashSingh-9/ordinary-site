@@ -17,7 +17,14 @@ const handleDuplicateError = (err) => {
   const message = `Got a duplicate field here ${value}`;
   return new appError(message, 400);
 };
-
+const handleJWTError = () => {
+  const message = "Invalid token , try again later.";
+  return new appError(message, 400);
+};
+const handleJWTExpiredError = () => {
+  const message = "Your valdation token expired try loging in again..";
+  return new appError(message, 400);
+};
 // ERRORS FOR DEVELOPMENT MODE->FOR DEVELOPER
 const developmentError = (err, req, res) => {
   //1.API
@@ -65,6 +72,9 @@ module.exports = (err, req, res, next) => {
     if (error.name === "CastError") error = handleCastError(error);
     if (error.name === "ValidationError") error = handleValidatorError(error);
     if (error.code === 11000) error = handleDuplicateError(error);
+    if (error.name === "JsonWebTokenError") error = handleJWTError(error);
+    if (error.name === "TokenExpiredError")
+      error = handleJWTExpiredError(error);
     productionError(error, req, res);
   }
 };

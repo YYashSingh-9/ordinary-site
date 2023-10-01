@@ -1,5 +1,6 @@
 const User = require("../Models/userModel");
 const jwt = require("jsonwebtoken");
+const { promisify } = require("util");
 const appError = require("../Util/appError");
 const catchAsync = require("../Util/CatchAsync");
 const dotenv = require("dotenv");
@@ -69,4 +70,19 @@ exports.updateMyPassword = catchAsync(async (req, res, next) => {
   user.passwordConfirm = req.body.password;
   await user.save(); //important - this saves the above changes
   createSendToken_with_cookie(user, 200, res);
+});
+
+//PROTECT MIDDLEWARE FOR SPECIFIC ROUTES
+exports.protect = catchAsync(async (req, res, next) => {
+  let token;
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  ) {
+    token = req.headers.authorization.split(" ")[1];
+  }
+  // const decoded = jwt.verify(token, process.env.JWT_SECRET);✅
+  const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+  console.log(decoded);
+  next();
 });

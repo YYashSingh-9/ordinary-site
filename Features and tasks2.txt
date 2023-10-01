@@ -9,7 +9,7 @@
 5. Updating data in the backend (with PUT/PATCH) when the data is updated from the front-end part
    (like updating isFav property for fav list,updating quantity of the product). 
 6. DELETE request when item is removed from cart
-7. My Orders placed functionality of individual with JWT checking.
+7. My-Orders-placed functionality of individual with JWT checking.
 8. Payment Integration.
 
 

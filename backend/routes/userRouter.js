@@ -10,6 +10,6 @@ UserRouter.route("/login").post(AuthController.loginUser);
 UserRouter.route("/updatePassword").patch(AuthController.updateMyPassword);
 //This will be done by admin only
 UserRouter.route("/:id").patch(UserController.updateUser);
-UserRouter.route("/").get(UserController.getAllUsers);
+UserRouter.route("/").get(AuthController.protect, UserController.getAllUsers);
 
 module.exports = UserRouter;
