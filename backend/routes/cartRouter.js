@@ -9,6 +9,9 @@ cartRouter
   .route("/")
   .post(cartController.addToCart)
   .get(cartController.getAllCartItem)
-  .patch(cartController.id_value_changer, cartController.updateCartItem);
+  .patch(cartController.id_value_changer, cartController.updateCartItem)
+  .delete(cartController.id_value_changer, cartController.deleteFromCart);
+
+cartRouter.route("/:id").get(cartController.getOneCartItem);
 
 module.exports = cartRouter;

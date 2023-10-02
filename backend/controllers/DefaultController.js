@@ -56,11 +56,11 @@ exports.DefaultReadAll = (model) =>
   });
 
 // Deleting a document
-// exports.DefaultDeleteOne = (model) =>
-//   CatchAsync(async (req, res, next) => {
-//     const doc = await model.findByIdAndDelete(req.cartId);
-//     res.status(200).json({
-//       status: "success",
-//       data: doc,
-//     });
-//   });
+exports.DefaultDeleteOne = (model) =>
+  CatchAsync(async (req, res, next) => {
+    const doc = await model.findByIdAndDelete(req.params.id);
+    res.status(200).json({
+      status: "success",
+      data: doc,
+    });
+  });
