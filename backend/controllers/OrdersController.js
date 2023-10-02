@@ -10,5 +10,6 @@ exports.modifyOrderMiddleware = CatchAsync(async (req, res, next) => {
   const cartIds = [...req.body.ids];
   const doc = await Cart.find({ _id: { $in: cartIds } });
   req.body = doc;
+  await Cart.deleteMany({ _id: { $in: cartIds } });
   next();
 });
