@@ -37,6 +37,10 @@ const CartSchema = new mongoose.Schema({
     required: [true, "Quantity of a product should be there."],
   },
   slug: String,
+  totalPrice: {
+    type: Number,
+    required: [true, "Please fill total price of this product."],
+  },
 });
 
 CartSchema.pre("save", function (next) {

@@ -33,7 +33,6 @@ exports.DefaultUpdateOne = (model) =>
     } catch (err) {
       console.log(err);
     }
-    next();
   });
 
 // Creating a Document.

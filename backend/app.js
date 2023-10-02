@@ -9,6 +9,7 @@ const cookieParser = require("cookie-parser");
 const path = require("path");
 const productRouter = require("./routes/productsRouter");
 const UserRouter = require("./routes/userRouter");
+const cartRouter = require("./routes/cartRouter");
 const ErrorController = require("./controllers/ErrorController");
 const appError = require("./Util/appError");
 
@@ -44,7 +45,7 @@ app.use(compression());
 // Route Mounting with express.js
 app.use("/api/v2/products", productRouter); //Products
 app.use("/api/v2/user", UserRouter); //Router
-app.use("/api/v2/cart", UserRouter); //Router
+app.use("/api/v2/cart", cartRouter); //Router
 
 app.all("*", (req, res, next) => {
   const err = new appError(`Can't identify this url${req.originalUrl}`, 400);
