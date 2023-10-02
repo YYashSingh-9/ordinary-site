@@ -15,7 +15,7 @@ import Favourites from "./Components/WholePages/Favourites";
 import ContactUs from "./Components/WholePages/ContactUs";
 import ProductInfoPage from "./Components/UI/ProductInfoPage";
 import AccountsPage from "./Components/WholePages/AccountsPage";
-
+import { loader as getAllProducts } from "./Store/ActionCreatorThunk";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +24,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <App />,
+        loader: getAllProducts,
       },
       { path: "/catalogue", element: <App /> },
       {

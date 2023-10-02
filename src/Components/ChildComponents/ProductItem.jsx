@@ -20,7 +20,7 @@ const ProductItem = (props) => {
     <>
       <LiCard>
         <div className={classes.imgDiv}>
-          <img src={images} />
+          <img src={require(`../../assets/products/${images}`).default} />
           <button
             className={classes.heartBtn}
             disabled={DisableValue}

@@ -415,6 +415,9 @@ const StoreSlice = createSlice({
         state.searchBarVal = "";
       }
     },
+    productsArray_Change(state, action) {
+      const arrayRecieved = action.payload;
+    },
   },
 });
 export const actions = StoreSlice.actions;

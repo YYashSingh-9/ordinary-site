@@ -3,8 +3,15 @@ import ProductsDiv from "./Components/ParentComponents/ProductsDiv";
 import CataloguesDiv from "./Components/ParentComponents/CataloguesDiv";
 import BlogDiv from "./Components/ParentComponents/BlogDiv";
 import AboutDiv from "./Components/ParentComponents/AboutDiv";
+import { useLoaderData } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { actions } from "./Store/StoreSlice";
 
 function App() {
+  const document = useLoaderData();
+  const dispatch = useDispatch();
+
+  dispatch(actions.productsArray_Change(document.data));
   return (
     <>
       <HeaderMiddle />
