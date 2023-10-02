@@ -8,6 +8,6 @@ OrdersRouter.use(AuthController.protect);
 
 OrdersRouter.route("/my-orders")
   .get(OrderController.getAllOrders)
-  .post(OrderController.postOrder);
+  .post(OrderController.modifyOrderMiddleware, OrderController.postOrder);
 
 module.exports = OrdersRouter;

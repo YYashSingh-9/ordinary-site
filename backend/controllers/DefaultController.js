@@ -38,7 +38,15 @@ exports.DefaultUpdateOne = (model) =>
 // Creating a Document.
 exports.DefaultCreateOne = (model) =>
   CatchAsync(async (req, res, next) => {
-    const doc = await model.create(req.body);
+    const isBodyAnArray = Array.isArray(req.body);
+    let doc;
+    if (isBodyAnArray) {
+      doc = await model.insertMany(req.body);
+    } else if (!isBodyAnArray) {
+      doc = await model.create(req.body);
+    }
+    console.log(isBodyAnArray);
+
     res.status(200).json({
       status: "Success",
       data: doc,

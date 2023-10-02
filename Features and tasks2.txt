@@ -9,7 +9,7 @@
 5. Updating data in the backend (with PUT/PATCH) when the data is updated from the front-end-part
    (like updating isFav property for fav list,updating quantity of the product). 
 6. DELETE request when item is removed from cart.✅
-7. My-Orders-placed functionality of individual with JWT checking.
+7. My-Orders-placed functionality of individual with JWT checking.✅
 8. Add-to-cart functionality and upating the added to cart product's values (price,quantity)✅
 8. Payment Integration.
 
@@ -32,7 +32,7 @@
    *3. Express-mongo-sanitize (NoSQL Injection Attacks)✅
 3. Compression added.✅
 4. Cors added. ✅
-5. API fully tested with POSTMAN.
+5. API fully tested with POSTMAN.✅
 6. Proper Error handle management.✅
 7. Slugify (string to url friendly slug format) ✅
 8. Hash Encrypted password.(bcrypt)✅

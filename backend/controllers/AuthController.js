@@ -96,9 +96,12 @@ exports.protect = catchAsync(async (req, res, next) => {
   }
   //3.Verifying token and extracting decoded object.
   // const decoded = jwt.verify(token, process.env.JWT_SECRET);✅
-  const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
-  //4.Finding user with id from decoded object.
-  const current_user = await User.findById(decoded.id);
+  const decodedToken = await promisify(jwt.verify)(
+    token,
+    process.env.JWT_SECRET
+  );
+  //4.Finding user with id from decodedToken object.
+  const current_user = await User.findById(decodedToken.id);
   //5.Forwarding user to req so that secure routes can have access to user property
   req.user = current_user;
   next();
