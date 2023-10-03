@@ -230,7 +230,28 @@ const allProducts = [
     quantity: 1,
   },
 ];
-
+const imagesArr = [
+  image1,
+  image2,
+  image3,
+  image4,
+  image5,
+  image6,
+  image7,
+  image8,
+  image9,
+  image10,
+  image11,
+  image12,
+  image13,
+  image14,
+  image15,
+  image16,
+  image17,
+  image18,
+  image19,
+  image20,
+];
 const initialState_one = {
   navItems: NavigationItems,
   arrayOfProducts: allProducts,
@@ -251,6 +272,7 @@ const initialState_one = {
   pincodeState: false,
   pincodeVal: "",
   searchBarVal: "",
+  imagesArray: imagesArr,
 };
 
 const StoreSlice = createSlice({
@@ -417,6 +439,13 @@ const StoreSlice = createSlice({
     },
     productsArray_Change(state, action) {
       const arrayRecieved = action.payload;
+      const imagesArray = state.imagesArray;
+      const dupArray = state.arrayOfProducts;
+      const arr = dupArray.map((el, ind) => {
+        return { ...arrayRecieved[ind], images: imagesArray[ind] };
+      });
+      state.arrayOfProducts = arr;
+      console.log(arr);
     },
   },
 });
