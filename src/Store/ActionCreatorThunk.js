@@ -33,15 +33,9 @@ export const favToggler = (data, route) => {
   data = { isFav: data };
   dataSendRequest("products", route, "PATCH", data);
 };
+
+export const loginRequest = () => {};
 //1.Getting all the products from server.
 export const loader = () => {
   return fetchFunction("products");
-};
-
-export const action = async ({ request }) => {
-  console.log("this works");
-  let formData = await request.formData();
-  let intent = formData.get("intent");
-  console.log(intent);
-  return intent;
 };

@@ -45,6 +45,7 @@ const ProductInfoPage = () => {
   const pinCodeText = useSelector((state) => state.sliceOne.pincodeText);
   const pincodeState = useSelector((state) => state.sliceOne.pincodeState);
   const pincodeValue = useSelector((state) => state.sliceOne.pincodeVal);
+  const isLoggedIn = useSelector((state) => state.sliceOne.isLoggedInState);
   const { id, catagory } = useParams();
   const ref = useRef();
   const dispatch = useDispatch();
@@ -62,7 +63,8 @@ const ProductInfoPage = () => {
   const extendedPrice = (price * 3).toFixed(2);
   // For toggling fav button
   const isFavStatus = isFav ? "Already in Favs" : " Favourite this!";
-
+  const logState_btn_text =
+    isLoggedIn === false ? "Please login" : "Check in cart";
   //FUNCTIONS..
   const AddItemToCartHandler = () => {
     dispatch(actions.AddItemToCart(productGot));
@@ -115,7 +117,7 @@ const ProductInfoPage = () => {
                 <h4>Discount of 25%</h4>
               </div>
               <div className={classes.actionBtns}>
-                {!addedProd ? (
+                {!addedProd && isLoggedIn ? (
                   <Button
                     title="Add to Basket"
                     fnc={AddItemToCartHandler}
@@ -124,8 +126,8 @@ const ProductInfoPage = () => {
                   />
                 ) : (
                   <Button
-                    title="Check in cart"
-                    disableState={false}
+                    title={logState_btn_text}
+                    disableState={isLoggedIn ? false : true}
                     navRoute="/cart"
                   />
                 )}

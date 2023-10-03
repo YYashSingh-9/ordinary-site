@@ -273,6 +273,7 @@ const initialState_one = {
   pincodeVal: "",
   searchBarVal: "",
   imagesArray: imagesArr,
+  isLoggedInState: false,
 };
 
 const StoreSlice = createSlice({
