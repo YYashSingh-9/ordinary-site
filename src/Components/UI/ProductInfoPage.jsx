@@ -63,8 +63,10 @@ const ProductInfoPage = () => {
   const extendedPrice = (price * 3).toFixed(2);
   // For toggling fav button
   const isFavStatus = isFav ? "Already in Favs" : " Favourite this!";
+  // For toggling btn text asper login state
   const logState_btn_text =
     isLoggedIn === false ? "Please login" : "Check in cart";
+
   //FUNCTIONS..
   const AddItemToCartHandler = () => {
     dispatch(actions.AddItemToCart(productGot));

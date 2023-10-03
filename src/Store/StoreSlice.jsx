@@ -274,6 +274,7 @@ const initialState_one = {
   searchBarVal: "",
   imagesArray: imagesArr,
   isLoggedInState: false,
+  signUpFormState: false,
 };
 
 const StoreSlice = createSlice({
@@ -447,6 +448,9 @@ const StoreSlice = createSlice({
       });
       state.arrayOfProducts = arr;
       console.log(arr);
+    },
+    signupFormToggler(state, action) {
+      state.signUpFormState = !state.signUpFormState;
     },
   },
 });

@@ -1,6 +1,8 @@
 import classes from "./WhenLoggedOut.module.css";
 import loginImage from "../../../assets/login-image.png";
 import { Form } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { actions } from "../../../Store/StoreSlice";
 // Conditional Components...
 const LoginForm = () => {
   return (
@@ -45,6 +47,12 @@ const SignupForm = () => {
   );
 };
 const WhenLoggedOut = (props) => {
+  const signUpState = useSelector((state) => state.sliceOne.signUpFormState);
+  const dispatch = useDispatch();
+
+  const signupFormToggle = () => {
+    dispatch(actions.signupFormToggler());
+  };
   return (
     <>
       <div className={classes.parent}>
@@ -55,12 +63,15 @@ const WhenLoggedOut = (props) => {
         </div>
         <div className={classes.childTwo}>
           <div className={classes.formDiv}>
-            <div className={classes.Formtitle}>Login..</div>
-
-            <SignupForm />
+            <div className={classes.Formtitle}>
+              {signUpState ? "Signup" : "Login"}
+            </div>
+            {signUpState ? <SignupForm /> : <LoginForm />}
           </div>
-          <button className={classes.signUpbtn}>
-            Already a user? Signup then.
+          <button className={classes.signUpbtn} onClick={signupFormToggle}>
+            {signUpState
+              ? "Already signed up? Login then"
+              : "Already a user? Signup then."}
           </button>
         </div>
       </div>
