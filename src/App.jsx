@@ -6,12 +6,15 @@ import AboutDiv from "./Components/ParentComponents/AboutDiv";
 import { useLoaderData } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { actions } from "./Store/StoreSlice";
+import { useEffect } from "react";
 
 function App() {
   const document = useLoaderData();
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(actions.productsArray_Change(document.data));
+  }, [document]);
 
-  dispatch(actions.productsArray_Change(document.data));
   return (
     <>
       <HeaderMiddle />

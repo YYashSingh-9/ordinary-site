@@ -35,7 +35,7 @@ app.use(mongoSanitize());
 app.use(xss());
 // 4.Sanitizing from Brute force/DOSS acttacks(rate limiter).
 const limiter = rateLimit({
-  max: 5,
+  max: 100,
   windowMs: 60 * 1000,
   message: "Too many requests from this IP. Please try again later",
 });

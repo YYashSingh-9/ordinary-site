@@ -2,19 +2,28 @@ import classes from "./FavouriteCard.module.css";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
+import { useMutation } from "@tanstack/react-query";
+import { favToggler } from "../../Store/ActionCreatorThunk";
+
 const FavouriteCard = (props) => {
-  const { title, price, images, key, isFav } = props.elem;
-  console.log(props.elem);
+  const { title, price, images, key, isFav, _id } = props.elem;
   const extendedPrice = (price * 3).toFixed(2);
   const dispatch = useDispatch();
-
+  const { mutate } = useMutation({
+    mutationKey: ["fav-state", key],
+    mutationFn: () => {
+      return favToggler(false, _id);
+    },
+  });
   const addItemToCartHandler = () => {
     dispatch(actions.FavouriteToggler(key)); // this changes isFav=true to false which removes this item from favCart when re-evaluates
     dispatch(actions.AddItemToCart(props.elem));
   };
+
   // WHEN CLICKED ON TOP-RIGHT CROSS -:>THIS FUNCTION RUNS
   const removeFavStatus = () => {
     dispatch(actions.FavouriteToggler(key));
+    mutate();
   };
   return (
     <>
