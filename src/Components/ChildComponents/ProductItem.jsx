@@ -6,6 +6,7 @@ import { actions } from "../../Store/StoreSlice";
 import { NavLink } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { favToggler } from "../../Store/ActionCreatorThunk";
+
 // THIS IS THE PRODUCT CARDS(PRODUCTS) SEEN EVERYWHERE ..
 const ProductItem = (props) => {
   const { title, price, images, key, isFav, catagory, _id } = props.elem;
@@ -18,7 +19,6 @@ const ProductItem = (props) => {
   });
 
   const favouriteOnClick = (e) => {
-    // e.preventDefault();
     dispatch(actions.FavouriteToggler(key));
     mutate();
   };
