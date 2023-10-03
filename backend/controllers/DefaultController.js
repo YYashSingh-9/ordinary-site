@@ -18,21 +18,17 @@ exports.DefaultGetOne = (model) =>
 // Updating One Document.
 exports.DefaultUpdateOne = (model) =>
   CatchAsync(async (req, res, next) => {
-    try {
-      const doc = await model.findByIdAndUpdate(req.params.id, req.body, {
-        new: true,
-        runValidators: true,
-      });
-      if (!doc) {
-        return next(new AppError("unable to update ", 401));
-      }
-      res.status(200).json({
-        status: "Success",
-        data: doc,
-      });
-    } catch (err) {
-      console.log(err);
+    const doc = await model.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    if (!doc) {
+      return next(new AppError("unable to update ", 401));
     }
+    res.status(200).json({
+      status: "Success",
+      data: doc,
+    });
   });
 
 // Creating a Document.
