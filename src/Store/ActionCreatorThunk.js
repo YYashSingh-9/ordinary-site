@@ -31,7 +31,7 @@ export const dataSendRequest = async (
 
 export const favToggler = (data, route) => {
   data = { isFav: data };
-  dataSendRequest("products", route, "PUT", data);
+  dataSendRequest("products", route, "PATCH", data);
 };
 //1.Getting all the products from server.
 export const loader = () => {

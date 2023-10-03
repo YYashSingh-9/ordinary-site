@@ -9,9 +9,8 @@ import { favToggler } from "../../Store/ActionCreatorThunk";
 // THIS IS THE PRODUCT CARDS(PRODUCTS) SEEN EVERYWHERE ..
 const ProductItem = (props) => {
   const { title, price, images, key, isFav, catagory, _id } = props.elem;
-  console.log(_id);
   const dispatch = useDispatch();
-  const { mutate, data } = useMutation({
+  const { mutate } = useMutation({
     mutationKey: ["fav-state", key],
     mutationFn: () => {
       return favToggler(isFav, _id);
@@ -20,7 +19,7 @@ const ProductItem = (props) => {
 
   const favouriteOnClick = (e) => {
     // e.preventDefault();
-    // dispatch(actions.FavouriteToggler(key));
+    dispatch(actions.FavouriteToggler(key));
     mutate();
   };
 
@@ -28,7 +27,7 @@ const ProductItem = (props) => {
   const DisableValue = !isFav ? false : true;
   return (
     <>
-      <LiCard>
+      <LiCard key={key}>
         <div className={classes.imgDiv}>
           <img src={images} />
           <button
