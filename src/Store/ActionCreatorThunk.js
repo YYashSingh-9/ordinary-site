@@ -36,7 +36,17 @@ export const favToggler = (data, route) => {
 
 export const login_Signup_Request = async ({ request }) => {
   const doc = await request.formData();
-  console.log(doc);
+  const doc2 = Object.fromEntries(doc);
+  const intent = doc.get("intent");
+  let dataToSend;
+  if (intent === "login") {
+    dataToSend = {
+      email: doc2.email,
+      password: doc2.password,
+    };
+    const returned_val = dataSendRequest("user", "login", "POST", dataToSend);
+    return returned_val;
+  }
 };
 //1.Getting all the products from server.
 export const loader = () => {

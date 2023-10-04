@@ -8,15 +8,18 @@ const LoginForm = () => {
   return (
     <>
       <div className={classes.form}>
-        <Form method="POST">
+        <Form method="POST" action="/account-details">
           <label>User Email</label>
           <br />
-          <input type="email" placeholder="user@example.com" />
+          <input type="email" placeholder="user@example.com" name="email" />
           <br />
           <label>User Password</label>
           <br />
-          <input type="password" />
-          <button type="submit">Login</button>
+          <input type="password" name="password" />
+          <br />
+          <button type="submit" name="intent" value="login">
+            Login
+          </button>
         </Form>
       </div>
     </>
@@ -42,6 +45,7 @@ const SignupForm = () => {
           <label>Confirm Password</label>
           <br />
           <input type="password" />
+          <br />
           <button type="submit">Sign-up</button>
         </Form>
       </div>
