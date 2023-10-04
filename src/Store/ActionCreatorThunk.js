@@ -18,10 +18,13 @@ export const dataSendRequest = async (
   additional ? (url += `/${additional}`) : "";
   let sending_data = JSON.stringify(data_to_send);
   const doc = await fetch(url, {
+    credentials: "include",
+    withCredentials: true,
     method: methodtype,
     headers: {
       "Content-type": "application/json",
-      withCredentials: "true",
+      Accept: "application/json",
+      "Access-Control-Allow-Origin": "http://localhost:3000",
     },
     body: sending_data,
   });
