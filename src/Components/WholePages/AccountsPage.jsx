@@ -15,9 +15,6 @@ const AccountsPage = () => {
   const isLoggedInState = useSelector(
     (state) => state.sliceOne.isLoggedInState
   );
-  const [cookies, setCookies] = useCookies(["jwt"]);
-  const token = cookies.get("jwt");
-  console.log(token);
 
   useEffect(() => {
     if (data) {
