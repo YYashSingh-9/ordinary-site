@@ -6,13 +6,19 @@ import { useActionData } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
 import { useEffect } from "react";
+import { useCookies } from "react-cookie";
 
 const AccountsPage = () => {
   const dispatch = useDispatch();
   const data = useActionData();
+
   const isLoggedInState = useSelector(
     (state) => state.sliceOne.isLoggedInState
   );
+  const [cookies, setCookies] = useCookies(["jwt"]);
+  const token = cookies.get("jwt");
+  console.log(token);
+
   useEffect(() => {
     if (data) {
       console.log("haha", data.status, data);

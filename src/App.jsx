@@ -7,7 +7,7 @@ import { useLoaderData } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { actions } from "./Store/StoreSlice";
 import { useEffect } from "react";
-
+import { CookiesProvider } from "react-cookie";
 function App() {
   const document = useLoaderData();
   const dispatch = useDispatch();
@@ -17,12 +17,14 @@ function App() {
 
   return (
     <>
-      <HeaderMiddle />
-      <ProductsDiv title="best sellers" sliceInit={0} sliceEnd={4} />
-      <CataloguesDiv />
-      <ProductsDiv title="popular" sliceInit={5} sliceEnd={9} />
-      <BlogDiv />
-      <AboutDiv />
+      <CookiesProvider>
+        <HeaderMiddle />
+        <ProductsDiv title="best sellers" sliceInit={0} sliceEnd={4} />
+        <CataloguesDiv />
+        <ProductsDiv title="popular" sliceInit={5} sliceEnd={9} />
+        <BlogDiv />
+        <AboutDiv />
+      </CookiesProvider>
     </>
   );
 }

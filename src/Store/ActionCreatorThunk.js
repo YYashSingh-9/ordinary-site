@@ -21,7 +21,7 @@ export const dataSendRequest = async (
     method: methodtype,
     headers: {
       "Content-type": "application/json",
-      credentials: "include",
+      withCredentials: "true",
     },
     body: sending_data,
   });
