@@ -1,7 +1,18 @@
 import { QueryClient } from "@tanstack/react-query";
 
+const data = {
+  productId: "651559154575ed53d5513fe2",
+  user: "65180dcdf7fb602bf80b66d5",
+  key: 3,
+  title: "EauDeTollete_2",
+  price: 3,
+  images: "EauDeTollete_2.png",
+  isFav: false,
+  catagory: "Fragrences",
+  quantity: 1,
+  totalPrice: 3,
+};
 export const queryClient = new QueryClient();
-
 export const fetchFunction = async () => {
   let url = `http://127.0.0.1:3000/api/v2/products`;
   const doc = await fetch(url);
@@ -32,12 +43,10 @@ export const dataSendRequest = async (
   console.log(doc2);
   return doc2;
 };
-
 export const favToggler = (data, route) => {
   data = { isFav: data };
   dataSendRequest("products", route, "PATCH", data);
 };
-
 export const login_Signup_Request = async ({ request }) => {
   const doc = await request.formData();
   const doc2 = Object.fromEntries(doc);
@@ -52,6 +61,10 @@ export const login_Signup_Request = async ({ request }) => {
     return returned_val;
   }
 };
+export const testCart = async () => {
+  dataSendRequest("cart", "", "POST", data);
+};
+
 //1.Getting all the products from server.
 export const loader = () => {
   return fetchFunction("products");
