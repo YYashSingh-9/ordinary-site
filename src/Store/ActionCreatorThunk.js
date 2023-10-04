@@ -61,8 +61,25 @@ export const login_Signup_Request = async ({ request }) => {
     return returned_val;
   }
 };
-export const testCart = async () => {
-  dataSendRequest("cart", "", "POST", data);
+export const testCart = async (cookie) => {
+  let url = `http://127.0.0.1:3000/api/v2/cart/`;
+
+  let sending_data = JSON.stringify(data);
+  const doc = await fetch(url, {
+    credentials: "include",
+    withCredentials: true,
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+      Accept: "application/json",
+      "Access-Control-Allow-Origin": "http://localhost:3000",
+      cookie: `${cookie}`,
+    },
+    body: sending_data,
+  });
+  const doc3 = await doc.json();
+  console.log(doc3);
+  return doc3;
 };
 
 //1.Getting all the products from server.
