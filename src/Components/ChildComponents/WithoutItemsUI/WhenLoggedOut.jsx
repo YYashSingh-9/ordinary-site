@@ -25,7 +25,7 @@ const SignupForm = () => {
   return (
     <>
       <div className={classes.form}>
-        <Form>
+        <Form method="POST">
           <label>User Name</label>
           <br />
           <input type="text" placeholder="Yash.." />
