@@ -3,13 +3,23 @@ import WhenLoggedOut from "../ChildComponents/WithoutItemsUI/WhenLoggedOut";
 import WhenLoggedIn from "../ChildComponents/WhenLoggedIn";
 import { useSelector } from "react-redux";
 import { useActionData } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { actions } from "../../Store/StoreSlice";
+import { useEffect } from "react";
 
 const AccountsPage = () => {
+  const dispatch = useDispatch();
+  const data = useActionData();
   const isLoggedInState = useSelector(
     (state) => state.sliceOne.isLoggedInState
   );
-  const data = useActionData();
-  console.log(data);
+  useEffect(() => {
+    if (data) {
+      console.log("haha", data.status, data);
+      data.status === "success" && dispatch(actions.loginStateToggle());
+    }
+  }, [data]);
+  //youngestbillionaire
   return (
     <>
       <section className={classes.mainDiv}>

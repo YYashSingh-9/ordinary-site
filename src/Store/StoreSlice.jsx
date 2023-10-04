@@ -452,6 +452,10 @@ const StoreSlice = createSlice({
     signupFormToggler(state, action) {
       state.signUpFormState = !state.signUpFormState;
     },
+    loginStateToggle(state, action) {
+      console.log("working");
+      state.isLoggedInState = !state.isLoggedInState;
+    },
   },
 });
 export const actions = StoreSlice.actions;

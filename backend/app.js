@@ -19,7 +19,7 @@ const app = express();
 // MIDDLEWARES START FROM HERE ___
 
 // * Global middleware (CORS) (Cross Origin Resource Sharing)
-app.use(cors());
+app.use(cors({ credentials: true }));
 
 // serving static files
 app.use(express.static(path.join(__dirname, "public")));
