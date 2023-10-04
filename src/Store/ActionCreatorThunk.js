@@ -34,7 +34,10 @@ export const favToggler = (data, route) => {
   dataSendRequest("products", route, "PATCH", data);
 };
 
-export const loginRequest = () => {};
+export const login_Signup_Request = async ({ request }) => {
+  const doc = await request.formData();
+  console.log(doc);
+};
 //1.Getting all the products from server.
 export const loader = () => {
   return fetchFunction("products");

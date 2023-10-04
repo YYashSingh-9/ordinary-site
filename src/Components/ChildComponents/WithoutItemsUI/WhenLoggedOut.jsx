@@ -8,7 +8,7 @@ const LoginForm = () => {
   return (
     <>
       <div className={classes.form}>
-        <Form>
+        <Form method="POST">
           <label>User Email</label>
           <br />
           <input type="email" placeholder="user@example.com" />
@@ -16,6 +16,7 @@ const LoginForm = () => {
           <label>User Password</label>
           <br />
           <input type="password" />
+          <button type="submit">Login</button>
         </Form>
       </div>
     </>
@@ -41,6 +42,7 @@ const SignupForm = () => {
           <label>Confirm Password</label>
           <br />
           <input type="password" />
+          <button type="submit">Sign-up</button>
         </Form>
       </div>
     </>

@@ -16,6 +16,8 @@ import ContactUs from "./Components/WholePages/ContactUs";
 import ProductInfoPage from "./Components/UI/ProductInfoPage";
 import AccountsPage from "./Components/WholePages/AccountsPage";
 import { loader as getAllProducts } from "./Store/ActionCreatorThunk";
+import { login_Signup_Request } from "./Store/ActionCreatorThunk";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -57,7 +59,11 @@ const router = createBrowserRouter([
       { path: "/favourites", element: <Favourites /> },
       { path: "/contact-us", element: <ContactUs /> },
       { path: "/:catagory/:id", element: <ProductInfoPage /> },
-      { path: "/account-details", element: <AccountsPage /> },
+      {
+        path: "/account-details",
+        element: <AccountsPage />,
+        action: login_Signup_Request,
+      },
     ],
   },
 ]);
