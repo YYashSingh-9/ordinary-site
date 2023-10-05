@@ -82,8 +82,13 @@ const WhenLoggedIn = () => {
     <>
       <section className={classes.mainDiv}>
         <div className={classes.title}>
-          <h2>Account</h2>
-          <h3>Yash</h3>
+          <div className={classes.headings}>
+            <h2>Account</h2>
+            <h3>Yash</h3>
+          </div>
+          <div className={classes.logoutBtn}>
+            <button>Logout</button>
+          </div>
         </div>
         <div className={classes.secondDiv}>
           <div className={classes.leftSideDiv}>
@@ -96,8 +101,8 @@ const WhenLoggedIn = () => {
             <div className={classes.pTitle}>
               <h2>Profile details</h2>
             </div>
-            <EditForm />
-            <button className={classes.editBtn}>Save</button>
+            <TableComponent />
+            <button className={classes.editBtn}>Edit</button>
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 .mainDiv {
+  padding-bottom: 5rem;
   display: grid;
-  grid-template-rows: 15% 85%;
+  grid-template-rows: 9% 91%;
   max-height: 100vh;
 }
 .info {
@@ -11,7 +12,8 @@
   font-size: 2rem;
   font-weight: 800;
   text-align: center;
-  padding-top: 4rem;
+  padding-top: 2rem;
+
   word-spacing: 0.8rem;
   padding-right: 7rem;
 }
