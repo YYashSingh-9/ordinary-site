@@ -21,12 +21,24 @@ const EditForm = (props) => {
   const formToggle = () => {
     props.clickfn();
   };
+  const { data, isError, isFetching } = useQuery({
+    queryKey: ["form-details", props.currentUser],
+    queryFn: async () => {
+      return await fetchPrefillFormData(props.cookie);
+    },
+  });
+  console.log(data);
   return (
     <>
       <Form className={classes.form} method="PATCH">
         <label>User Name</label>
         <br />
-        <input type="text" placeholder="Yash.." name="name" />
+        <input
+          type="text"
+          placeholder="Yash.."
+          name="name"
+          value={data.data.name}
+        />
         <br />
         <label>User Email</label>
         <br />
@@ -117,13 +129,6 @@ const WhenLoggedIn = () => {
   const Navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { data, isError } = useQuery({
-    queryKey: ["form-details", currentUser],
-    queryFn: async () => {
-      fetchPrefillFormData(cookieToken);
-    },
-  });
-  console.log(data, isError);
   const logoutFnc = () => {
     logoutSendFunction(cookieToken);
     dispatch(actions.logout_cookie_remover());
@@ -156,7 +161,11 @@ const WhenLoggedIn = () => {
               <h2>Profile details</h2>
             </div>
             {formState ? (
-              <EditForm clickfn={formStateToggle} />
+              <EditForm
+                clickfn={formStateToggle}
+                cookie={cookieToken}
+                currentUser={currentUser}
+              />
             ) : (
               <TableComponent clickfn={formStateToggle} />
             )}
