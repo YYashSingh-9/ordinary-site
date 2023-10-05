@@ -4,6 +4,7 @@ import { Form, useNavigate } from "react-router-dom";
 import { logoutSendFunction } from "../../Store/ActionCreatorThunk";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
+import { fetchPrefillFormData } from "../../Store/ActionCreatorThunk";
 
 const SideDivs = (props) => {
   return (
@@ -116,11 +117,13 @@ const WhenLoggedIn = () => {
   const Navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { data } = useQuery({
+  const { data, isError } = useQuery({
     queryKey: ["form-details", currentUser],
-    // queryFn:
+    queryFn: async () => {
+      fetchPrefillFormData(cookieToken);
+    },
   });
-
+  console.log(data, isError);
   const logoutFnc = () => {
     logoutSendFunction(cookieToken);
     dispatch(actions.logout_cookie_remover());

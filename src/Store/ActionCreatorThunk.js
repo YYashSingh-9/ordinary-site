@@ -96,9 +96,21 @@ export const logoutSendFunction = async (cookie) => {
   const data = await dataSendRequest("user", "logout", "POST", "", cookie);
   return data;
 };
-export const fetchPrefillFormData = async (id) => {
-  const dataToSend = { user: id };
-  const data = await fetchFunction();
+export const fetchPrefillFormData = async (cookie) => {
+  const doc = await fetch("http://127.0.0.1:3000/api/v2/user/me", {
+    credentials: "include",
+    withCredentials: true,
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+      Accept: "application/json",
+      "Access-Control-Allow-Origin": "http://localhost:3000",
+      cookie: `${cookie}`,
+    },
+  });
+  const doc2 = await doc.json();
+  console.log(doc2);
+  return doc2;
 };
 
 //1.Getting all the products from server.

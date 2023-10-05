@@ -9,7 +9,7 @@ const LoginForm = () => {
     <>
       <div className={classes.form}>
         <Form method="POST" action="/account-details">
-          <label for="emailInput">User Email</label>
+          <label htmlFor="emailInput">User Email</label>
           <br />
           <input
             type="email"
@@ -18,7 +18,7 @@ const LoginForm = () => {
             id="emailInput"
           />
           <br />
-          <label for="passwordInput">User Password</label>
+          <label htmlFor="passwordInput">User Password</label>
           <br />
           <input type="password" name="password" id="passwordInput" />
           <br />
@@ -35,11 +35,11 @@ const SignupForm = () => {
     <>
       <div className={classes.form}>
         <Form method="POST">
-          <label for="name_input">User Name</label>
+          <label htmlFor="name_input">User Name</label>
           <br />
           <input type="text" placeholder="Yash.." name="name" id="name_input" />
           <br />
-          <label for="email_input">User Email</label>
+          <label htmlFor="email_input">User Email</label>
           <br />
           <input
             type="email"
@@ -48,11 +48,11 @@ const SignupForm = () => {
             id="email_input"
           />
           <br />
-          <label for="password_input">Initial Password</label>
+          <label htmlFor="password_input">Initial Password</label>
           <br />
           <input type="password" name="password" id="password_input" />
           <br />
-          <label for="cpassword_input">Confirm Password</label>
+          <label htmlFor="cpassword_input">Confirm Password</label>
           <br />
           <input type="password" name="confirm password" id="cpassword_input" />
           <br />

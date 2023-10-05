@@ -13,8 +13,8 @@ UserRouter.route("/logout").post(AuthController.logoutUser);
 
 UserRouter.route("/updatePassword").patch(AuthController.updateMyPassword);
 UserRouter.route("/me").get(UserController.Getme, UserController.getOneUser);
-//This will be done by admin only
 UserRouter.route("/:id").patch(UserController.updateMe);
+//This will be done by admin only
 UserRouter.route("/").get(UserController.getAllUsers);
 
 module.exports = UserRouter;
