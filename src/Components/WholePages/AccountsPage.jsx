@@ -14,12 +14,14 @@ const AccountsPage = () => {
   const isLoggedInState = useSelector(
     (state) => state.sliceOne.isLoggedInState
   );
+  const cookieToken = useSelector((state) => state.sliceOne.cookieTokenVal);
 
   useEffect(() => {
+    dispatch(actions.get_token_from_localStorage());
     if (data) {
       console.log("haha", data.status, data);
       data.status === "success" && dispatch(actions.loginStateToggle());
-      dispatch(actions.testFn(data.token));
+      data.token && dispatch(actions.set_token_to_localStorage(data.token));
     }
   }, [data]);
   //youngestbillionaire
@@ -27,11 +29,13 @@ const AccountsPage = () => {
   return (
     <>
       <section className={classes.mainDiv}>
-        <div className={classes.title} onClick={clickfn}>
-          Your Accounts Page
-        </div>
+        <div className={classes.title}>Your Accounts Page</div>
         <div className={classes.infoDiv}>
-          {isLoggedInState ? <WhenLoggedIn /> : <WhenLoggedOut />}
+          {cookieToken || isLoggedInState ? (
+            <WhenLoggedIn />
+          ) : (
+            <WhenLoggedOut />
+          )}
         </div>
       </section>
     </>

@@ -275,6 +275,7 @@ const initialState_one = {
   imagesArray: imagesArr,
   isLoggedInState: false,
   signUpFormState: false,
+  cookieTokenVal: "",
 };
 
 const StoreSlice = createSlice({
@@ -455,6 +456,19 @@ const StoreSlice = createSlice({
     loginStateToggle(state, action) {
       console.log("working");
       state.isLoggedInState = !state.isLoggedInState;
+    },
+    set_token_to_localStorage(state, action) {
+      const token = action.payload;
+
+      localStorage.clear();
+      localStorage.setItem("cookie", token);
+      const cookieToken = localStorage.getItem("cookie");
+      state.cookieTokenVal = cookieToken;
+      console.log(cookieToken);
+    },
+    get_token_from_localStorage(state, action) {
+      const cookieToken = localStorage.getItem("cookie");
+      state.cookieTokenVal = cookieToken;
     },
   },
 });
