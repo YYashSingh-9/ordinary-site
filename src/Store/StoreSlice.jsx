@@ -275,7 +275,6 @@ const initialState_one = {
   imagesArray: imagesArr,
   isLoggedInState: false,
   signUpFormState: false,
-  testState: "",
 };
 
 const StoreSlice = createSlice({
@@ -456,10 +455,6 @@ const StoreSlice = createSlice({
     loginStateToggle(state, action) {
       console.log("working");
       state.isLoggedInState = !state.isLoggedInState;
-    },
-    testFn(state, action) {
-      const token = action.payload;
-      state.testState = token;
     },
   },
 });

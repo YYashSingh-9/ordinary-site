@@ -14,7 +14,6 @@ const AccountsPage = () => {
   const isLoggedInState = useSelector(
     (state) => state.sliceOne.isLoggedInState
   );
-  const cookieState = useSelector((state) => state.sliceOne.testState);
 
   useEffect(() => {
     if (data) {
@@ -24,9 +23,7 @@ const AccountsPage = () => {
     }
   }, [data]);
   //youngestbillionaire
-  const clickfn = () => {
-    testCart(cookieState);
-  };
+
   return (
     <>
       <section className={classes.mainDiv}>
