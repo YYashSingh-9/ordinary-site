@@ -21,6 +21,9 @@
 }
 .title {
   border-bottom: 0.1rem solid lightgray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .sideDiv {
   border-bottom: 0.1rem solid lightgray;
@@ -96,4 +99,19 @@ tr {
 }
 .form {
   margin-top: 1rem;
+}
+.logoutBtn button {
+  outline: none;
+  border: none;
+  background-color: rgb(227, 55, 55);
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 1rem 2rem -1rem;
+  padding: 0.5rem 2rem;
+  border-radius: 0.2rem;
+  color: white;
+  text-transform: uppercase;
+  margin-right: 1.8rem;
+}
+.logoutBtn button:hover {
+  background-color: rgb(227, 35, 35);
+  cursor: pointer;
 }
