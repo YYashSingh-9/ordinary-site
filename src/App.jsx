@@ -15,11 +15,10 @@ function App() {
 
   useEffect(() => {
     dispatch(actions.productsArray_Change(document.data));
-    console.log("one");
   }, [document]);
   useEffect(() => {
     dispatch(actions.get_token_from_localStorage());
-    console.log("two");
+    console.log("two ran");
   }, [cookieToken]);
 
   return (

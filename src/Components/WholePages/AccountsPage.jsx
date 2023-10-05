@@ -8,21 +8,22 @@ import { actions } from "../../Store/StoreSlice";
 import { useEffect } from "react";
 
 const AccountsPage = () => {
-  const dispatch = useDispatch();
-  const data = useActionData();
   const isLoggedInState = useSelector(
     (state) => state.sliceOne.isLoggedInState
   );
   const cookieToken = useSelector((state) => state.sliceOne.cookieTokenVal);
+  const dispatch = useDispatch();
+  const data = useActionData();
 
   useEffect(() => {
+    dispatch(actions.get_token_from_localStorage());
+
     if (data) {
       console.log("haha", data.status, data);
       data.status === "success" && dispatch(actions.loginStateToggle());
       data.token && dispatch(actions.set_token_to_localStorage(data.token));
     }
   }, [data]);
-  //youngestbillionaire
 
   return (
     <>
