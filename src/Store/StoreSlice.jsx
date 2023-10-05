@@ -455,7 +455,7 @@ const StoreSlice = createSlice({
     },
     loginStateToggle(state, action) {
       console.log("working");
-      state.isLoggedInState = !state.isLoggedInState;
+      state.isLoggedInState = true;
     },
     set_token_to_localStorage(state, action) {
       const token = action.payload;
@@ -468,7 +468,11 @@ const StoreSlice = createSlice({
     },
     get_token_from_localStorage(state, action) {
       const cookieToken = localStorage.getItem("cookie");
-      state.cookieTokenVal = cookieToken;
+      if (cookieToken.length > 5) {
+        state.cookieTokenVal = cookieToken;
+        state.isLoggedInState = true;
+        console.log(cookieToken);
+      }
     },
   },
 });

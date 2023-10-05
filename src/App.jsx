@@ -4,16 +4,23 @@ import CataloguesDiv from "./Components/ParentComponents/CataloguesDiv";
 import BlogDiv from "./Components/ParentComponents/BlogDiv";
 import AboutDiv from "./Components/ParentComponents/AboutDiv";
 import { useLoaderData } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { actions } from "./Store/StoreSlice";
 import { useEffect } from "react";
 import { CookiesProvider } from "react-cookie";
 function App() {
   const document = useLoaderData();
   const dispatch = useDispatch();
+  const cookieToken = useSelector((state) => state.sliceOne.cookieTokenVal);
+
   useEffect(() => {
     dispatch(actions.productsArray_Change(document.data));
+    console.log("one");
   }, [document]);
+  useEffect(() => {
+    dispatch(actions.get_token_from_localStorage());
+    console.log("two");
+  }, [cookieToken]);
 
   return (
     <>
