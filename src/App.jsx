@@ -22,14 +22,12 @@ function App() {
 
   return (
     <>
-      <CookiesProvider>
-        <HeaderMiddle />
-        <ProductsDiv title="best sellers" sliceInit={0} sliceEnd={4} />
-        <CataloguesDiv />
-        <ProductsDiv title="popular" sliceInit={5} sliceEnd={9} />
-        <BlogDiv />
-        <AboutDiv />
-      </CookiesProvider>
+      <HeaderMiddle />
+      <ProductsDiv title="best sellers" sliceInit={0} sliceEnd={4} />
+      <CataloguesDiv />
+      <ProductsDiv title="popular" sliceInit={5} sliceEnd={9} />
+      <BlogDiv />
+      <AboutDiv />
     </>
   );
 }

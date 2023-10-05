@@ -41,7 +41,7 @@
   display: grid;
   text-align: left;
   padding: 3rem 10rem;
-  grid-template-rows: 10% 83% 7%;
+  grid-template-rows: 10% 90%;
 }
 .pTitle {
   text-transform: uppercase;
@@ -71,6 +71,7 @@ tr {
   box-shadow: rgba(33, 35, 38, 0.1) 0px 1rem 2rem -1rem;
   cursor: pointer;
   color: white;
+  width: 100%;
   letter-spacing: 0.2rem;
 }
 .editBtn:hover {

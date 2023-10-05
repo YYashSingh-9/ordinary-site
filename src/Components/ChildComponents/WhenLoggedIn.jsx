@@ -54,6 +54,8 @@ const EditForm = () => {
         <label>Confirm Password</label>
         <br />
         <input type="text" />
+        <br />
+        <button className={classes.editBtn}>Edit</button>
       </Form>
     </>
   );
@@ -124,7 +126,6 @@ const WhenLoggedIn = () => {
             </div>
             {/* <TableComponent /> */}
             <EditForm />
-            <button className={classes.editBtn}>Edit</button>
           </div>
         </div>
       </section>

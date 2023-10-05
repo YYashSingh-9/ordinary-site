@@ -276,6 +276,7 @@ const initialState_one = {
   isLoggedInState: false,
   signUpFormState: false,
   cookieTokenVal: "",
+  currentUserId: "",
 };
 
 const StoreSlice = createSlice({
@@ -458,13 +459,14 @@ const StoreSlice = createSlice({
       state.isLoggedInState = true;
     },
     set_token_to_localStorage(state, action) {
-      const token = action.payload;
-
+      const actionObj = action.payload;
+      const token = actionObj.token;
+      const userId = actionObj.data.id;
       localStorage.clear();
       localStorage.setItem("cookie", token);
       const cookieToken = localStorage.getItem("cookie");
+      state.currentUserId = userId;
       state.cookieTokenVal = cookieToken;
-      console.log(cookieToken);
     },
     get_token_from_localStorage(state, action) {
       const cookieToken = localStorage.getItem("cookie");
