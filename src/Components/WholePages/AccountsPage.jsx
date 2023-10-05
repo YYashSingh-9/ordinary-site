@@ -16,7 +16,6 @@ const AccountsPage = () => {
   const cookieToken = useSelector((state) => state.sliceOne.cookieTokenVal);
 
   useEffect(() => {
-    // dispatch(actions.get_token_from_localStorage());
     if (data) {
       console.log("haha", data.status, data);
       data.status === "success" && dispatch(actions.loginStateToggle());
