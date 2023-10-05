@@ -1,12 +1,12 @@
 .mainDiv {
   display: grid;
-  grid-template-rows: 15% 85%;
+  grid-template-rows: 15% 60rem;
   padding: 0rem 17%;
 }
 .secondDiv {
   display: grid;
   grid-template-columns: 20% 80%;
-  grid-template-rows: 50rem;
+  grid-template-rows: 60rem;
 }
 .leftSideDiv {
   display: grid;
@@ -41,7 +41,7 @@
   display: grid;
   text-align: left;
   padding: 3rem 10rem;
-  grid-template-rows: 15% 75% 10%;
+  grid-template-rows: 10% 83% 7%;
 }
 .pTitle {
   text-transform: uppercase;

@@ -46,6 +46,14 @@ const EditForm = () => {
         <label>Mobile number</label>
         <br />
         <input type="text" />
+        <br />
+        <label>Update Password</label>
+        <br />
+        <input type="text" />
+        <br />
+        <label>Confirm Password</label>
+        <br />
+        <input type="text" />
       </Form>
     </>
   );
@@ -89,6 +97,7 @@ const WhenLoggedIn = () => {
   const logoutFnc = () => {
     logoutSendFunction(cookieToken);
     dispatch(actions.logout_cookie_remover());
+    Navigate("/");
   };
   return (
     <>
@@ -113,7 +122,8 @@ const WhenLoggedIn = () => {
             <div className={classes.pTitle}>
               <h2>Profile details</h2>
             </div>
-            <TableComponent />
+            {/* <TableComponent /> */}
+            <EditForm />
             <button className={classes.editBtn}>Edit</button>
           </div>
         </div>
