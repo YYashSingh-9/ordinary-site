@@ -477,6 +477,7 @@ const StoreSlice = createSlice({
     logout_cookie_remover(state, action) {
       localStorage.clear();
       state.isLoggedInState = false;
+      state.cookieTokenVal = "";
     },
   },
 });

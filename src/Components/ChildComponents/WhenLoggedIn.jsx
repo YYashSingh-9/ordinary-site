@@ -89,7 +89,6 @@ const WhenLoggedIn = () => {
   const logoutFnc = () => {
     logoutSendFunction(cookieToken);
     dispatch(actions.logout_cookie_remover());
-    Navigate("/");
   };
   return (
     <>
