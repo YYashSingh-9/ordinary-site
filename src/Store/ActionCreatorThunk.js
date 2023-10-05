@@ -28,7 +28,7 @@ export const dataSendRequest = async (
 ) => {
   let url = `http://127.0.0.1:3000/api/v2/${type}`;
   additional ? (url += `/${additional}`) : "";
-  let sending_data = JSON.stringify(data_to_send);
+  let sending_data = data_to_send ? JSON.stringify(data_to_send) : "";
   const doc = await fetch(url, {
     credentials: "include",
     withCredentials: true,
@@ -84,7 +84,10 @@ export const testCart = async (cookie) => {
   return doc3;
 };
 export const logoutSendFunction = async (cookie) => {
-  dataSendRequest("user", "logout", "POST", "", cookie);
+  const data = await dataSendRequest("user", "logout", "POST", "", cookie);
+
+  console.log(data);
+  return data;
 };
 //1.Getting all the products from server.
 export const loader = () => {

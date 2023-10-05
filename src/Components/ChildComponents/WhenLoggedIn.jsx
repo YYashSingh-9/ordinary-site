@@ -85,10 +85,11 @@ const WhenLoggedIn = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.sliceOne.isLoggedInState);
   const cookieToken = useSelector((state) => state.sliceOne.cookieTokenVal);
+  const Navigate = useNavigate();
   const logoutFnc = () => {
     logoutSendFunction(cookieToken);
     dispatch(actions.logout_cookie_remover());
-    redirect("/account-details");
+    Navigate("/");
   };
   return (
     <>
