@@ -13,6 +13,7 @@ const data = {
   totalPrice: 3,
 };
 export const queryClient = new QueryClient();
+// FETCH TEMPLATE FUNCTION _____
 export const fetchFunction = async () => {
   let url = `http://127.0.0.1:3000/api/v2/products`;
   const doc = await fetch(url);
@@ -45,9 +46,12 @@ export const dataSendRequest = async (
   console.log(doc2);
   return doc2;
 };
-export const favToggler = (data, route) => {
+//_________________
+
+// FETCH TEMPLATE FUNCTION USE-CASES___
+export const favToggler = async (data, route) => {
   data = { isFav: data };
-  dataSendRequest("products", route, "PATCH", data);
+  await dataSendRequest("products", route, "PATCH", data);
 };
 export const login_Signup_Request = async ({ request }) => {
   const doc = await request.formData();
@@ -59,7 +63,12 @@ export const login_Signup_Request = async ({ request }) => {
       email: doc2.email,
       password: doc2.password,
     };
-    const returned_val = dataSendRequest("user", "login", "POST", dataToSend);
+    const returned_val = await dataSendRequest(
+      "user",
+      "login",
+      "POST",
+      dataToSend
+    );
     return returned_val;
   }
 };
@@ -87,6 +96,11 @@ export const logoutSendFunction = async (cookie) => {
   const data = await dataSendRequest("user", "logout", "POST", "", cookie);
   return data;
 };
+export const fetchPrefillFormData = async (id) => {
+  const dataToSend = { user: id };
+  const data = await fetchFunction();
+};
+
 //1.Getting all the products from server.
 export const loader = () => {
   return fetchFunction("products");

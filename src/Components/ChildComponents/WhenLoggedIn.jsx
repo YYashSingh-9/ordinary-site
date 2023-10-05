@@ -117,7 +117,8 @@ const WhenLoggedIn = () => {
   const dispatch = useDispatch();
 
   const { data } = useQuery({
-    queryKey: ["form-details"],
+    queryKey: ["form-details", currentUser],
+    // queryFn:
   });
 
   const logoutFnc = () => {
