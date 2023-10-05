@@ -1,5 +1,9 @@
 import classes from "./WhenLoggedIn.module.css";
-import { Form } from "react-router-dom";
+import { Form, useNavigate, redirect } from "react-router-dom";
+import { logoutSendFunction } from "../../Store/ActionCreatorThunk";
+import { useDispatch, useSelector } from "react-redux";
+import { actions } from "../../Store/StoreSlice";
+
 const SideDivs = (props) => {
   return (
     <>
@@ -78,6 +82,14 @@ const TableComponent = () => {
   );
 };
 const WhenLoggedIn = () => {
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state) => state.sliceOne.isLoggedInState);
+  const cookieToken = useSelector((state) => state.sliceOne.cookieTokenVal);
+  const logoutFnc = () => {
+    logoutSendFunction(cookieToken);
+    dispatch(actions.logout_cookie_remover());
+    redirect("/account-details");
+  };
   return (
     <>
       <section className={classes.mainDiv}>
@@ -87,7 +99,7 @@ const WhenLoggedIn = () => {
             <h3>Yash</h3>
           </div>
           <div className={classes.logoutBtn}>
-            <button>Logout</button>
+            {isLoggedIn && <button onClick={logoutFnc}>Logout</button>}
           </div>
         </div>
         <div className={classes.secondDiv}>
