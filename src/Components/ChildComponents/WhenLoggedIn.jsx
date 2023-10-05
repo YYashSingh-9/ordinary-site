@@ -1,5 +1,6 @@
 import classes from "./WhenLoggedIn.module.css";
-import { Form, useNavigate, redirect } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { Form, useNavigate } from "react-router-dom";
 import { logoutSendFunction } from "../../Store/ActionCreatorThunk";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
@@ -15,17 +16,20 @@ const SideDivs = (props) => {
   );
 };
 
-const EditForm = () => {
+const EditForm = (props) => {
+  const formToggle = () => {
+    props.clickfn();
+  };
   return (
     <>
-      <Form className={classes.form}>
+      <Form className={classes.form} method="PATCH">
         <label>User Name</label>
         <br />
-        <input type="text" placeholder="Yash.." />
+        <input type="text" placeholder="Yash.." name="name" />
         <br />
         <label>User Email</label>
         <br />
-        <input type="email" placeholder="user@example.com" />
+        <input type="email" placeholder="user@example.com" name="email" />
         <br />
         <label>Gender</label>
         <select
@@ -34,34 +38,43 @@ const EditForm = () => {
           defaultValue=""
           placeholder=""
         >
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
+          <option value="Male" id="male">
+            Male
+          </option>
+          <option value="Female" id="female">
+            Female
+          </option>
         </select>
         <br />
         <br />
         <label>Date-of-Birth</label>
         <br />
-        <input type="date" />
+        <input type="date" name="dob" />
         <br />
         <label>Mobile number</label>
         <br />
-        <input type="text" />
+        <input type="text" name="contact number" />
         <br />
         <label>Update Password</label>
         <br />
-        <input type="text" />
+        <input type="text" name="password" />
         <br />
         <label>Confirm Password</label>
         <br />
-        <input type="text" />
+        <input type="text" name="confirm password" />
         <br />
-        <button className={classes.editBtn}>Edit</button>
+        <button className={classes.editBtn} type="submit" onClick={formToggle}>
+          Save
+        </button>
       </Form>
     </>
   );
 };
 
-const TableComponent = () => {
+const TableComponent = (props) => {
+  const formToggle = () => {
+    props.clickfn();
+  };
   return (
     <>
       <table className={classes.tableOne}>
@@ -88,18 +101,32 @@ const TableComponent = () => {
           </tr>
         </tbody>
       </table>
+      <button className={classes.editBtn} type="submit" onClick={formToggle}>
+        Edit
+      </button>
     </>
   );
 };
+
 const WhenLoggedIn = () => {
-  const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.sliceOne.isLoggedInState);
   const cookieToken = useSelector((state) => state.sliceOne.cookieTokenVal);
+  const formState = useSelector((state) => state.sliceOne.whichFormToShow);
+  const currentUser = useSelector((state) => state.sliceOne.currentUserId);
   const Navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { data } = useQuery({
+    queryKey: ["form-details"],
+  });
+
   const logoutFnc = () => {
     logoutSendFunction(cookieToken);
     dispatch(actions.logout_cookie_remover());
     Navigate("/");
+  };
+  const formStateToggle = () => {
+    dispatch(actions.whichFormToShowToggler());
   };
   return (
     <>
@@ -124,8 +151,11 @@ const WhenLoggedIn = () => {
             <div className={classes.pTitle}>
               <h2>Profile details</h2>
             </div>
-            {/* <TableComponent /> */}
-            <EditForm />
+            {formState ? (
+              <EditForm clickfn={formStateToggle} />
+            ) : (
+              <TableComponent clickfn={formStateToggle} />
+            )}
           </div>
         </div>
       </section>

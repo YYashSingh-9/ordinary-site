@@ -9,13 +9,18 @@ const LoginForm = () => {
     <>
       <div className={classes.form}>
         <Form method="POST" action="/account-details">
-          <label>User Email</label>
+          <label for="emailInput">User Email</label>
           <br />
-          <input type="email" placeholder="user@example.com" name="email" />
+          <input
+            type="email"
+            placeholder="user@example.com"
+            name="email"
+            id="emailInput"
+          />
           <br />
-          <label>User Password</label>
+          <label for="passwordInput">User Password</label>
           <br />
-          <input type="password" name="password" />
+          <input type="password" name="password" id="passwordInput" />
           <br />
           <button type="submit" name="intent" value="login">
             Login
@@ -30,21 +35,26 @@ const SignupForm = () => {
     <>
       <div className={classes.form}>
         <Form method="POST">
-          <label>User Name</label>
+          <label for="name_input">User Name</label>
           <br />
-          <input type="text" placeholder="Yash.." />
+          <input type="text" placeholder="Yash.." name="name" id="name_input" />
           <br />
-          <label>User Email</label>
+          <label for="email_input">User Email</label>
           <br />
-          <input type="email" placeholder="user@example.com" />
+          <input
+            type="email"
+            placeholder="user@example.com"
+            name="email"
+            id="email_input"
+          />
           <br />
-          <label>Initial Password</label>
+          <label for="password_input">Initial Password</label>
           <br />
-          <input type="password" />
+          <input type="password" name="password" id="password_input" />
           <br />
-          <label>Confirm Password</label>
+          <label for="cpassword_input">Confirm Password</label>
           <br />
-          <input type="password" />
+          <input type="password" name="confirm password" id="cpassword_input" />
           <br />
           <button type="submit">Sign-up</button>
         </Form>

@@ -7,7 +7,7 @@ import { useLoaderData } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "./Store/StoreSlice";
 import { useEffect } from "react";
-import { CookiesProvider } from "react-cookie";
+
 function App() {
   const document = useLoaderData();
   const dispatch = useDispatch();

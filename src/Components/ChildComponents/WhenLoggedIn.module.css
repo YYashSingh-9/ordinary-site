@@ -41,7 +41,7 @@
   display: grid;
   text-align: left;
   padding: 3rem 10rem;
-  grid-template-rows: 10% 90%;
+  grid-template-rows: 10% 82%;
 }
 .pTitle {
   text-transform: uppercase;

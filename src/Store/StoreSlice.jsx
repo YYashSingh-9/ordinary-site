@@ -277,6 +277,7 @@ const initialState_one = {
   signUpFormState: false,
   cookieTokenVal: "",
   currentUserId: "",
+  whichFormToShow: false,
 };
 
 const StoreSlice = createSlice({
@@ -460,11 +461,11 @@ const StoreSlice = createSlice({
     },
     set_token_to_localStorage(state, action) {
       const actionObj = action.payload;
-      const token = actionObj.token;
-      const userId = actionObj.data.id;
       localStorage.clear();
-      localStorage.setItem("cookie", token);
-      const cookieToken = localStorage.getItem("cookie");
+      localStorage.setItem("user_data", JSON.stringify(actionObj));
+      const user_data = JSON.parse(localStorage.getItem("user_data"));
+      const cookieToken = user_data.token;
+      const userId = user_data.data._id;
       state.currentUserId = userId;
       state.cookieTokenVal = cookieToken;
     },
@@ -480,6 +481,9 @@ const StoreSlice = createSlice({
       localStorage.clear();
       state.isLoggedInState = false;
       state.cookieTokenVal = "";
+    },
+    whichFormToShowToggler(state, action) {
+      state.whichFormToShow = !state.whichFormToShow;
     },
   },
 });
