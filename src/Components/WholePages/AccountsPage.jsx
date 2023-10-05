@@ -17,7 +17,6 @@ const AccountsPage = () => {
 
   useEffect(() => {
     dispatch(actions.get_token_from_localStorage());
-
     if (data) {
       console.log("haha", data.status, data);
       data.status === "success" && dispatch(actions.loginStateToggle());

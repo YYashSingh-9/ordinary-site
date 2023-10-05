@@ -23,7 +23,8 @@ export const dataSendRequest = async (
   type,
   additional,
   methodtype,
-  data_to_send
+  data_to_send,
+  cookie
 ) => {
   let url = `http://127.0.0.1:3000/api/v2/${type}`;
   additional ? (url += `/${additional}`) : "";
@@ -36,6 +37,7 @@ export const dataSendRequest = async (
       "Content-type": "application/json",
       Accept: "application/json",
       "Access-Control-Allow-Origin": "http://localhost:3000",
+      cookie: `${cookie}`,
     },
     body: sending_data,
   });
@@ -81,7 +83,9 @@ export const testCart = async (cookie) => {
   console.log(doc3);
   return doc3;
 };
-
+export const logoutSendFunction = async (cookie) => {
+  dataSendRequest("user", "logout", "POST", "", cookie);
+};
 //1.Getting all the products from server.
 export const loader = () => {
   return fetchFunction("products");
