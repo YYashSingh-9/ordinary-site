@@ -28,6 +28,7 @@ const EditForm = (props) => {
     },
   });
   console.log(data);
+
   return (
     <>
       <Form className={classes.form} method="PATCH">

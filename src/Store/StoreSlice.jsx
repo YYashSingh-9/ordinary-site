@@ -470,9 +470,9 @@ const StoreSlice = createSlice({
       state.cookieTokenVal = cookieToken;
     },
     get_token_from_localStorage(state, action) {
-      const cookieToken = localStorage.getItem("user_data");
-      if (cookieToken && cookieToken.length > 5) {
-        state.cookieTokenVal = cookieToken;
+      const cookieToken = JSON.parse(localStorage.getItem("user_data"));
+      if (cookieToken.token && cookieToken.token.length > 5) {
+        state.cookieTokenVal = cookieToken.token;
         state.isLoggedInState = true;
         console.log(cookieToken);
       }
