@@ -18,7 +18,6 @@ function App() {
   }, [document]);
   useEffect(() => {
     dispatch(actions.get_token_from_localStorage());
-    console.log("two ran");
   }, [cookieToken]);
 
   return (
