@@ -16,13 +16,14 @@ const SideDivs = (props) => {
 };
 
 const EditForm = (props) => {
+  const cookieToken = useSelector((state) => state.sliceOne.cookieTokenVal);
   const formToggle = () => {
     props.clickfn();
   };
 
   return (
     <>
-      <Form className={classes.form} method="PATCH">
+      <Form className={classes.form} method="PATCH" action="/account-details">
         <label>User Name</label>
         <br />
         <input type="text" placeholder="Yash.." name="name" />
@@ -63,7 +64,12 @@ const EditForm = (props) => {
         <br />
         <input type="text" name="confirm password" />
         <br />
-        <button className={classes.editBtn} type="submit" onClick={formToggle}>
+        <button
+          className={classes.editBtn}
+          type="submit"
+          name="intent"
+          value={cookieToken}
+        >
           Save
         </button>
       </Form>
