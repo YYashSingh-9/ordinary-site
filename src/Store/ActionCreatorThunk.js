@@ -92,7 +92,6 @@ export const login_Signup_Request = async ({ request }) => {
     method: "PATCH",
     headers: {
       "Content-type": "application/json",
-      Accept: "application/json",
       "Access-Control-Allow-Origin": "http://localhost:3000",
       cookie: `${intent}`,
     },

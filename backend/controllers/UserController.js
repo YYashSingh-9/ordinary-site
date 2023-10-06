@@ -49,6 +49,7 @@ exports.updateMe = async (req, res, next) => {
 // THIS SETS PARAMS.ID TO USER.ID FROM PROTECT MIDDLEWARE
 exports.Getme = (req, res, next) => {
   req.params.id = req.user.id;
+  console.log("💜💛😄");
   next();
 };
 // GET ONE USER.
