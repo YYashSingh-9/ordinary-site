@@ -1,18 +1,7 @@
 import { QueryClient } from "@tanstack/react-query";
 
-const data = {
-  productId: "651559154575ed53d5513fe2",
-  user: "65180dcdf7fb602bf80b66d5",
-  key: 3,
-  title: "EauDeTollete_2",
-  price: 3,
-  images: "EauDeTollete_2.png",
-  isFav: false,
-  catagory: "Fragrences",
-  quantity: 1,
-  totalPrice: 3,
-};
 export const queryClient = new QueryClient();
+
 // FETCH TEMPLATE FUNCTION _____
 export const fetchFunction = async () => {
   let url = `http://127.0.0.1:3000/api/v2/products`;
@@ -33,7 +22,7 @@ export const dataSendRequest = async (
   const doc = await fetch(url, {
     credentials: "include",
     withCredentials: true,
-    method: methodtype,
+    method: "PATCH",
     headers: {
       "Content-type": "application/json",
       Accept: "application/json",
@@ -73,15 +62,6 @@ export const login_Signup_Request = async ({ request }) => {
     return returned_val;
   }
   if (intent.length > 10) {
-    const returned_val = await dataSendRequest(
-      "user",
-      "update-me",
-      "PATCH",
-      doc2,
-      intent
-    );
-    console.log(returned_val);
-    return returned_val;
   }
 };
 export const testCart = async (cookie) => {

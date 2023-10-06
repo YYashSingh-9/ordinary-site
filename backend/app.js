@@ -24,6 +24,7 @@ app.use(
     origin: "http://localhost:5173",
     credentials: true,
     exposedHeaders: ["SET-COOKIE"],
+    methods: ["PATCH", "GET", "PUT", "POST", "HEAD", "DELETE"],
   })
 );
 
