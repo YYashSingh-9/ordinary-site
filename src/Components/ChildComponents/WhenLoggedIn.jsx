@@ -34,7 +34,8 @@ const EditForm = (props) => {
     props.clickfn();
   };
 
-  const manualFunction = (data) => {
+  const manualFunction = () => {
+    if (!data) return;
     // <-this is not the best solution .. obviously
     dispatch(
       formAction.inputFieldValHandler({
