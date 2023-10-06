@@ -20,13 +20,20 @@ const filterObj = (obj, ...allowedFields) => {
 // CREATING USER - SignUp functionality in authcontroller
 // UPDATING EVERYTHING EXCEPT PASSWORD.. (<-this is in authcontroller)
 exports.updateMe = async (req, res, next) => {
+  console.log("💛💛 This works");
   //1. If user tried updating password then return.
   if (req.body.password || req.body.passwordConfirm) {
     return new Error("Can't update this time..");
   }
   try {
     //2. Filtering unwanted fields ..
-    const filteredObject = filterObj(req.body, "name", "email", "mobilenumber");
+    const filteredObject = filterObj(
+      req.body,
+      "name",
+      "email",
+      "mobilenumber",
+      "dob"
+    );
     console.log(filteredObject);
     //3. Final update to account
     const doc = await User.findByIdAndUpdate(req.user.id, filteredObject, {

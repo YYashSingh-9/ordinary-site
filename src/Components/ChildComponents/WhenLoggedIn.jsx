@@ -22,7 +22,7 @@ const EditForm = (props) => {
 
   return (
     <>
-      <Form className={classes.form} method="PATCH" action="/account-details">
+      <Form className={classes.form} method="PATCH">
         <label>User Name</label>
         <br />
         <input type="text" placeholder="Yash.." name="name" />

@@ -58,48 +58,31 @@ export const login_Signup_Request = async ({ request }) => {
   const doc2 = Object.fromEntries(doc);
   const intent = doc.get("intent");
   let dataToSend;
-  // if (intent === "login") {
-  //   dataToSend = {
-  //     email: doc2.email,
-  //     password: doc2.password,
-  //   };
-  //   const returned_val = await dataSendRequest(
-  //     "user",
-  //     "login",
-  //     "POST",
-  //     dataToSend
-  //   );
-  //   console.log(returned_val);
-  //   return returned_val;
-  // }
-  // if (intent.length > 10) {
-  //   const returned_val = await dataSendRequest(
-  //     "user",
-  //     "updateMe",
-  //     "PATCH",
-  //     doc2,
-  //     intent
-  //   );
-  //   console.log(returned_val);
-  //   return returned_val;
-  // }
-  let url = `http://127.0.0.1:3000/api/v2/user/hulu`;
-  //  additional ? (url += `/${additional}`) : "";
-  let sending_data = JSON.stringify(doc2);
-  const document = await fetch(url, {
-    credentials: "include",
-    withCredentials: true,
-    method: "PATCH",
-    headers: {
-      "Content-type": "application/json",
-      "Access-Control-Allow-Origin": "http://localhost:3000",
-      cookie: `${intent}`,
-    },
-    body: sending_data,
-  });
-  const document2 = await document.json();
-  console.log(document2);
-  return document2;
+  if (intent === "login") {
+    dataToSend = {
+      email: doc2.email,
+      password: doc2.password,
+    };
+    const returned_val = await dataSendRequest(
+      "user",
+      "login",
+      "POST",
+      dataToSend
+    );
+    console.log(returned_val);
+    return returned_val;
+  }
+  if (intent.length > 10) {
+    const returned_val = await dataSendRequest(
+      "user",
+      "update-me",
+      "PATCH",
+      doc2,
+      intent
+    );
+    console.log(returned_val);
+    return returned_val;
+  }
 };
 export const testCart = async (cookie) => {
   let url = `http://127.0.0.1:3000/api/v2/cart/`;

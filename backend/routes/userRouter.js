@@ -11,12 +11,12 @@ UserRouter.route("/login").post(AuthController.loginUser);
 UserRouter.use(AuthController.protect);
 UserRouter.route("/logout").post(AuthController.logoutUser);
 
+UserRouter.route("/update-me").patch(
+  UserController.Getme,
+  UserController.updateMe
+);
 UserRouter.route("/updatePassword").patch(AuthController.updateMyPassword);
 UserRouter.route("/me").get(UserController.Getme, UserController.getOneUser);
-UserRouter.route("/updateMe").patch(
-  UserController.Getme
-  // UserController.updateMe
-);
 //This will be done by admin only
 UserRouter.route("/").get(UserController.getAllUsers);
 
