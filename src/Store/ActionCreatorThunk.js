@@ -72,10 +72,17 @@ export const login_Signup_Request = async ({ request }) => {
     console.log(returned_val);
     return returned_val;
   }
-  // if (intent.length > 10) {
-  //   console.log(intent, doc2);
-  //   return intent;
-  // }
+  if (intent.length > 10) {
+    const returned_val = await dataSendRequest(
+      "user",
+      "updateMe",
+      "PATCH",
+      doc2,
+      intent
+    );
+    console.log(returned_val);
+    return returned_val;
+  }
 };
 export const testCart = async (cookie) => {
   let url = `http://127.0.0.1:3000/api/v2/cart/`;

@@ -16,7 +16,6 @@ const SideDivs = (props) => {
 };
 
 const EditForm = (props) => {
-  const cookieToken = useSelector((state) => state.sliceOne.cookieTokenVal);
   const formToggle = () => {
     props.clickfn();
   };
@@ -34,7 +33,7 @@ const EditForm = (props) => {
         <br />
         <label>Gender</label>
         <select
-          name="Select-Gender"
+          name="gender"
           className={classes.gender}
           defaultValue=""
           placeholder=""
@@ -54,13 +53,13 @@ const EditForm = (props) => {
         <br />
         <label>Mobile number</label>
         <br />
-        <input type="text" name="contact number" />
+        <input type="text" name="mobilenumber" />
         <br />
         <button
           className={classes.editBtn}
           type="submit"
           name="intent"
-          value={cookieToken}
+          value={props.cookie}
         >
           Save
         </button>
