@@ -1,12 +1,8 @@
 import classes from "./WhenLoggedIn.module.css";
-import { useQuery } from "@tanstack/react-query";
 import { Form, useNavigate } from "react-router-dom";
 import { logoutSendFunction } from "../../Store/ActionCreatorThunk";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
-import { formAction } from "../../Store/FormInputsSlice";
-import { fetchPrefillFormData } from "../../Store/ActionCreatorThunk";
-import { useEffect } from "react";
 
 const SideDivs = (props) => {
   return (
@@ -20,41 +16,8 @@ const SideDivs = (props) => {
 };
 
 const EditForm = (props) => {
-  const nameInput = useSelector((state) => state.sliceTwo.nameInput);
-  const emailInput = useSelector((state) => state.sliceTwo.emailInput);
-  const mobileNumber = useSelector((state) => state.sliceTwo.mobileNumberInput);
-  const dispatch = useDispatch();
-  const { data, isError, isFetching } = useQuery({
-    queryKey: ["form-details", props.currentUser],
-    queryFn: async () => {
-      return await fetchPrefillFormData(props.cookie);
-    },
-  });
   const formToggle = () => {
     props.clickfn();
-  };
-
-  const manualFunction = () => {
-    if (!data) return;
-    // <-this is not the best solution .. obviously
-    dispatch(
-      formAction.inputFieldValHandler({
-        field_Name: "name",
-        input: data.data.name,
-      })
-    );
-    dispatch(
-      formAction.inputFieldValHandler({
-        field_Name: "email",
-        input: data.data.email,
-      })
-    );
-    dispatch(
-      formAction.inputFieldValHandler({
-        field_Name: "mobile",
-        input: data.data.mobilenumber,
-      })
-    );
   };
 
   return (
@@ -62,23 +25,11 @@ const EditForm = (props) => {
       <Form className={classes.form} method="PATCH">
         <label>User Name</label>
         <br />
-        <input
-          type="text"
-          placeholder="Yash.."
-          name="name"
-          value={nameInput}
-          onChange={manualFunction}
-        />
+        <input type="text" placeholder="Yash.." name="name" />
         <br />
         <label>User Email</label>
         <br />
-        <input
-          type="email"
-          placeholder="user@example.com"
-          name="email"
-          value={emailInput}
-          onChange={manualFunction}
-        />
+        <input type="email" placeholder="user@example.com" name="email" />
         <br />
         <label>Gender</label>
         <select
@@ -102,12 +53,7 @@ const EditForm = (props) => {
         <br />
         <label>Mobile number</label>
         <br />
-        <input
-          type="text"
-          name="contact number"
-          value={mobileNumber}
-          onChange={manualFunction}
-        />
+        <input type="text" name="contact number" />
         <br />
         <label>Update Password</label>
         <br />

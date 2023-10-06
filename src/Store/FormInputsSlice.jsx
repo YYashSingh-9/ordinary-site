@@ -13,9 +13,11 @@ const FormSlice = createSlice({
     inputFieldValHandler(state, action) {
       const inputObj = action.payload;
       inputObj.field_name === "name" ? (state.nameInput = inputObj.input) : "";
-      inputObj.field_name === "email" ? (state.nameInput = inputObj.input) : "";
+      inputObj.field_name === "email"
+        ? (state.emailInput = inputObj.input)
+        : "";
       inputObj.field_name === "mobile"
-        ? (state.nameInput = inputObj.input)
+        ? (state.mobileNumberInput = inputObj.input)
         : "";
       console.log("rendered here ");
     },
