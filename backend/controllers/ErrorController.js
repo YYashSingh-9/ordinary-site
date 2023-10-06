@@ -29,6 +29,7 @@ const handleJWTExpiredError = () => {
 const developmentError = (err, req, res) => {
   //1.API
   const error = err.errors;
+  console.log(err);
   if (req.originalUrl.startsWith("/api")) {
     res.status(err.statusCode).json({
       err,
