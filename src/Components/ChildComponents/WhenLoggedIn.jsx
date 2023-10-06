@@ -4,7 +4,9 @@ import { Form, useNavigate } from "react-router-dom";
 import { logoutSendFunction } from "../../Store/ActionCreatorThunk";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
+import { formAction } from "../../Store/FormInputsSlice";
 import { fetchPrefillFormData } from "../../Store/ActionCreatorThunk";
+import { useEffect } from "react";
 
 const SideDivs = (props) => {
   return (
@@ -20,15 +22,8 @@ const SideDivs = (props) => {
 const EditForm = (props) => {
   const nameInput = useSelector((state) => state.sliceTwo.nameInput);
   const emailInput = useSelector((state) => state.sliceTwo.emailInput);
-  const passowrdInput = useSelector((state) => state.sliceTwo.passowrdInput);
-  const passowrdConfirmInput = useSelector(
-    (state) => state.sliceTwo.passowrdConfirmInput
-  );
-  const date_of_birth_Input = useSelector(
-    (state) => state.sliceTwo.date_of_birth_Input
-  );
   const mobileNumber = useSelector((state) => state.sliceTwo.mobileNumberInput);
-
+  const dispatch = useDispatch();
   const { data, isError, isFetching } = useQuery({
     queryKey: ["form-details", props.currentUser],
     queryFn: async () => {
@@ -38,7 +33,28 @@ const EditForm = (props) => {
   const formToggle = () => {
     props.clickfn();
   };
-  console.log(data);
+
+  const manualFunction = (data) => {
+    // <-this is not the best solution .. obviously
+    dispatch(
+      formAction.inputFieldValHandler({
+        field_Name: "name",
+        input: data.data.name,
+      })
+    );
+    dispatch(
+      formAction.inputFieldValHandler({
+        field_Name: "email",
+        input: data.data.email,
+      })
+    );
+    dispatch(
+      formAction.inputFieldValHandler({
+        field_Name: "mobile",
+        input: data.data.mobilenumber,
+      })
+    );
+  };
 
   return (
     <>
@@ -49,12 +65,19 @@ const EditForm = (props) => {
           type="text"
           placeholder="Yash.."
           name="name"
-          value={data.data.name}
+          value={nameInput}
+          onChange={manualFunction}
         />
         <br />
         <label>User Email</label>
         <br />
-        <input type="email" placeholder="user@example.com" name="email" />
+        <input
+          type="email"
+          placeholder="user@example.com"
+          name="email"
+          value={emailInput}
+          onChange={manualFunction}
+        />
         <br />
         <label>Gender</label>
         <select
@@ -78,7 +101,12 @@ const EditForm = (props) => {
         <br />
         <label>Mobile number</label>
         <br />
-        <input type="text" name="contact number" />
+        <input
+          type="text"
+          name="contact number"
+          value={mobileNumber}
+          onChange={manualFunction}
+        />
         <br />
         <label>Update Password</label>
         <br />
