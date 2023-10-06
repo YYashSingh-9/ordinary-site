@@ -18,15 +18,26 @@ const SideDivs = (props) => {
 };
 
 const EditForm = (props) => {
-  const formToggle = () => {
-    props.clickfn();
-  };
+  const nameInput = useSelector((state) => state.sliceTwo.nameInput);
+  const emailInput = useSelector((state) => state.sliceTwo.emailInput);
+  const passowrdInput = useSelector((state) => state.sliceTwo.passowrdInput);
+  const passowrdConfirmInput = useSelector(
+    (state) => state.sliceTwo.passowrdConfirmInput
+  );
+  const date_of_birth_Input = useSelector(
+    (state) => state.sliceTwo.date_of_birth_Input
+  );
+  const mobileNumber = useSelector((state) => state.sliceTwo.mobileNumberInput);
+
   const { data, isError, isFetching } = useQuery({
     queryKey: ["form-details", props.currentUser],
     queryFn: async () => {
       return await fetchPrefillFormData(props.cookie);
     },
   });
+  const formToggle = () => {
+    props.clickfn();
+  };
   console.log(data);
 
   return (
