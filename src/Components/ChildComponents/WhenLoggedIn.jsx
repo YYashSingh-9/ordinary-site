@@ -56,14 +56,6 @@ const EditForm = (props) => {
         <br />
         <input type="text" name="contact number" />
         <br />
-        <label>Update Password</label>
-        <br />
-        <input type="text" name="password" />
-        <br />
-        <label>Confirm Password</label>
-        <br />
-        <input type="text" name="confirm password" />
-        <br />
         <button
           className={classes.editBtn}
           type="submit"
@@ -71,6 +63,9 @@ const EditForm = (props) => {
           value={cookieToken}
         >
           Save
+        </button>
+        <button className={classes.editBtn} onClick={formToggle}>
+          back
         </button>
       </Form>
     </>

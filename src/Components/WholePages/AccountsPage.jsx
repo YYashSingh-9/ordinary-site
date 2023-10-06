@@ -17,10 +17,12 @@ const AccountsPage = () => {
 
   useEffect(() => {
     dispatch(actions.get_token_from_localStorage());
-    if (data.token) {
+    if (data) {
       console.log(data.status, data);
-      data.status === "success" && dispatch(actions.loginStateToggle());
-      data.token && dispatch(actions.set_token_to_localStorage(data));
+      if (data.token) {
+        data.status === "success" && dispatch(actions.loginStateToggle());
+        data.token && dispatch(actions.set_token_to_localStorage(data));
+      }
     }
   }, [data]);
 
