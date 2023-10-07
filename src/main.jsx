@@ -16,6 +16,7 @@ import ContactUs from "./Components/WholePages/ContactUs";
 import ProductInfoPage from "./Components/UI/ProductInfoPage";
 import AccountsPage from "./Components/WholePages/AccountsPage";
 import Edit_detailsPage from "./Components/ChildComponents/Edit_detailsPage";
+import MyOrders from "./Components/WholePages/MyOrders";
 import { loader as getAllProducts } from "./Store/ActionCreatorThunk";
 import { login_Signup_Request } from "./Store/ActionCreatorThunk";
 
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
         path: "/account-details/edit",
         element: <Edit_detailsPage />,
         action: login_Signup_Request,
+      },
+      {
+        path: "/My_Orders",
+        element: <MyOrders />,
       },
     ],
   },
