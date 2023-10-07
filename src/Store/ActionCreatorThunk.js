@@ -24,12 +24,14 @@ export const dataSendRequest = async (
     withCredentials: true,
     method: methodtype,
     headers: {
+      Authorization: `Bearer ${cookie}`,
       "Content-type": "application/json",
       Accept: "application/json",
       "Access-Control-Allow-Origin": "http://localhost:3000",
-      cookie: `${cookie}`,
+      cookie: `jwt=${cookie}`,
     },
     body: sending_data,
+    redirect: "follow",
   });
   const doc2 = await doc.json();
   console.log(doc2);
@@ -62,25 +64,23 @@ export const login_Signup_Request = async ({ request }) => {
     return returned_val;
   }
   if (intent.length > 10) {
-    let url = "http://127.0.0.1:3000/api/v2/user/update-me";
-    let sending_data = JSON.stringify(doc2);
-    const doc = await fetch(url, {
-      credentials: "include",
-      withCredentials: true,
-      method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${intent}`,
-        "Content-type": "application/json",
-        Accept: "application/json",
-        "Access-Control-Allow-Origin": "http://localhost:3000",
-        cookie: `jwt=${intent}`,
-      },
-      body: sending_data,
-      redirect: "follow",
-    });
-    const doc3 = await doc.json();
-    console.log(doc3);
-    return doc3;
+    let dataToSend = { ...doc2 };
+    const returned_val =
+      dataToSend.name &&
+      (await dataSendRequest("user", "update-me", "PATCH", dataToSend, intent));
+
+    const returned_val_PW =
+      dataToSend.password &&
+      (await dataSendRequest(
+        "user",
+        "updatePassword",
+        "PATCH",
+        dataToSend,
+        intent
+      ));
+
+    const finalVal = returned_val ? returned_val : returned_val_PW;
+    return finalVal;
   }
 };
 export const testCart = async (cookie) => {

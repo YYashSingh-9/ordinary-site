@@ -87,10 +87,14 @@ const EditForm = (props) => {
     dispatch(actions.whichFormToShowToggler());
   };
   useEffect(() => {
-    if (actionData) {
-      dispatch(actions.update_token_from_localStorage(actionData.data));
-      Navigate("/account-details");
-    }
+    if (actionData)
+      if (actionData.token) {
+        dispatch(actions.set_token_to_localStorage(actionData));
+        Navigate("/account-details");
+      } else if (!actionData.token && actionData.data) {
+        dispatch(actions.update_token_from_localStorage(actionData.data));
+        Navigate("/account-details");
+      }
   }, [actionData]);
   return (
     <>

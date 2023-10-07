@@ -475,6 +475,7 @@ const StoreSlice = createSlice({
       state.currentUserObject = user_data.data;
       state.currentUserId = user_data.data._id;
       state.cookieTokenVal = user_data.token;
+      console.log("this worked set");
     },
     get_token_from_localStorage(state, action) {
       const cookieToken = JSON.parse(localStorage.getItem("user_data"));
@@ -492,7 +493,7 @@ const StoreSlice = createSlice({
       oldData.data = newData;
       localStorage.setItem("user_data", JSON.stringify(oldData));
       state.currentUserObject = oldData.data;
-      console.log(state.currentUserObject);
+      console.log("💜", state.currentUserObject);
     },
     logout_cookie_remover(state, action) {
       localStorage.clear();
