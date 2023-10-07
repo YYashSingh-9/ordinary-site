@@ -285,6 +285,7 @@ const initialState_one = {
   currentUserId: "",
   whichFormToShow: false,
   currentUserObject: currentUser,
+  whichFormToShow: true,
 };
 
 const StoreSlice = createSlice({

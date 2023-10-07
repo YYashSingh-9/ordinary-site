@@ -68,7 +68,7 @@ exports.updateMyPassword = catchAsync(async (req, res, next) => {
       new appError("Required Fields are not filled properly, try again.", 400)
     );
   }
-  const user = await User.findById(req.body.id).select("+password");
+  const user = await User.findById(req.user._id).select("+password");
   if (!(await user.correctPassword(req.body.passwordCurrent, user.password))) {
     return next(new appError("Password sent is incorrect, try again.", 400));
   }
