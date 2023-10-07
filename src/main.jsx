@@ -72,7 +72,7 @@ const router = createBrowserRouter([
         action: login_Signup_Request,
       },
       {
-        path: "/My_Orders",
+        path: "/account-details/my_orders",
         element: <MyOrders />,
       },
     ],

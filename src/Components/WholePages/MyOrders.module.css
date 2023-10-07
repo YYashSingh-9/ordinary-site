@@ -1,0 +1,75 @@
+.CartSection {
+  margin-top: 2%;
+  display: grid;
+  grid-template-rows: 5rem auto;
+}
+.cartProductListDiv {
+  display: grid;
+  grid-template-rows: repeat(2, 33rem);
+  grid-template-columns: repeat(6, 20rem);
+  column-gap: 1%;
+}
+.favCardParentDiv {
+  max-width: 20rem;
+  max-height: 35rem;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 19rem 7rem 9rem;
+  border: 0.1rem solid rgb(205, 205, 205);
+}
+.imgAndCloseDiv {
+  width: 100%;
+  position: relative;
+}
+.imgAndCloseDiv button {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+}
+.favImg img {
+  object-fit: contain;
+  max-width: 100%;
+}
+.productInfos {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 100%;
+}
+.title {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+.prices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.prices h4 {
+  margin-left: 0.7rem;
+  font-size: 1.2rem;
+}
+.cuttedPrice {
+  text-decoration: line-through;
+}
+.offerPrice {
+  color: rgb(241, 131, 46);
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.closeLogo {
+  font-size: 2rem;
+  color: rgb(57, 57, 57);
+}
+.orderId h3 {
+  text-transform: uppercase;
+  text-align: center;
+}
+.orderId {
+  text-align: center;
+}

@@ -42,7 +42,8 @@ export const dataSendRequest = async (
 // FETCH TEMPLATE FUNCTION USE-CASES___
 export const favToggler = async (data, route) => {
   data = { isFav: data };
-  await dataSendRequest("products", route, "PATCH", data);
+  console.log(data, route);
+  await dataSendRequest("products", route, "PATCH", data, "");
 };
 export const login_Signup_Request = async ({ request }) => {
   const doc = await request.formData();
