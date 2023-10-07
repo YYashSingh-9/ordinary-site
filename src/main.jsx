@@ -65,7 +65,11 @@ const router = createBrowserRouter([
         element: <AccountsPage />,
         action: login_Signup_Request,
       },
-      { path: "/account-details/edit", element: <Edit_detailsPage /> },
+      {
+        path: "/account-details/edit",
+        element: <Edit_detailsPage />,
+        action: login_Signup_Request,
+      },
     ],
   },
 ]);

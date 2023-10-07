@@ -3,9 +3,11 @@ import { useSelector } from "react-redux";
 import { Form, NavLink } from "react-router-dom";
 const EditForm = (props) => {
   const currentUser = useSelector((state) => state.sliceOne.currentUserObject);
+  const cookieToken = useSelector((state) => state.sliceOne.cookieTokenVal);
   let user = { ...currentUser };
-  user.dobb = new Date(currentUser.dob);
-
+  user.dob = new Date(currentUser.dob).toString();
+  user.mobilenumber = user.mobilenumber - 0;
+  console.log(user);
   return (
     <>
       <section className={classes.formSection}>
@@ -47,12 +49,12 @@ const EditForm = (props) => {
           <br />
           <label>Date-of-Birth</label>
           <br />
-          <input type="date" name="dob" defaultValue={user.dobb} />
+          <input type="date" name="dob" defaultValue={user.dob} />
           <br />
           <label>Mobile number</label>
           <br />
           <input
-            type="text"
+            type="number"
             name="mobilenumber"
             defaultValue={user.mobilenumber}
           />
@@ -61,7 +63,7 @@ const EditForm = (props) => {
             className={classes.editBtn}
             type="submit"
             name="intent"
-            value={props.cookie}
+            value={cookieToken}
           >
             Save
           </button>
