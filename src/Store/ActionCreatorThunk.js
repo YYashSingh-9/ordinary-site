@@ -62,6 +62,24 @@ export const login_Signup_Request = async ({ request }) => {
     return returned_val;
   }
   if (intent.length > 10) {
+    let url = "http://127.0.0.1:3000/api/v2/";
+    let sending_data = JSON.stringify(doc2);
+    const doc = await fetch(url, {
+      credentials: "include",
+      withCredentials: true,
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${intent}`,
+        "Content-type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3000",
+        cookie: `jwt=${intent}`,
+      },
+      body: sending_data,
+    });
+    const doc2 = await doc.json();
+    console.log(doc2);
+    return doc2;
   }
 };
 export const testCart = async (cookie) => {
