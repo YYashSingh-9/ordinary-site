@@ -47,3 +47,4 @@ saved fav's , added products in bag ).
 33. Update Password.✅
 34. Update Account Data(name,email etc).cart✅
 35. Allowing to perform main(secure route)features only when user is loggedin(with jwt token).✅
+36. My-orders functionality and dedicated page. 
