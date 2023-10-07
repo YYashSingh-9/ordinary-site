@@ -22,7 +22,7 @@ export const dataSendRequest = async (
   const doc = await fetch(url, {
     credentials: "include",
     withCredentials: true,
-    method: "PATCH",
+    method: methodtype,
     headers: {
       "Content-type": "application/json",
       Accept: "application/json",
@@ -62,7 +62,7 @@ export const login_Signup_Request = async ({ request }) => {
     return returned_val;
   }
   if (intent.length > 10) {
-    let url = "http://127.0.0.1:3000/api/v2/";
+    let url = "http://127.0.0.1:3000/api/v2/user/update-me";
     let sending_data = JSON.stringify(doc2);
     const doc = await fetch(url, {
       credentials: "include",
@@ -76,10 +76,11 @@ export const login_Signup_Request = async ({ request }) => {
         cookie: `jwt=${intent}`,
       },
       body: sending_data,
+      redirect: "follow",
     });
-    const doc2 = await doc.json();
-    console.log(doc2);
-    return doc2;
+    const doc3 = await doc.json();
+    console.log(doc3);
+    return doc3;
   }
 };
 export const testCart = async (cookie) => {

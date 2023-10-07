@@ -16,6 +16,11 @@ const SideDivs = (props) => {
 };
 
 const EditForm = (props) => {
+  const nameInput = useSelector((state) => state.sliceOne.nameInput);
+  const emailInput = useSelector((state) => state.sliceOne.emailInput);
+  const mobilenumber = useSelector((state) => state.sliceOne.mobilenumber);
+  const dob = useSelector((state) => state.sliceOne.dob);
+
   const formToggle = () => {
     props.clickfn();
   };
@@ -25,11 +30,16 @@ const EditForm = (props) => {
       <Form className={classes.form} method="PATCH">
         <label>User Name</label>
         <br />
-        <input type="text" placeholder="Yash.." name="name" />
+        <input type="text" placeholder="Yash.." name="name" value={nameInput} />
         <br />
         <label>User Email</label>
         <br />
-        <input type="email" placeholder="user@example.com" name="email" />
+        <input
+          type="email"
+          placeholder="user@example.com"
+          name="email"
+          value={emailInput}
+        />
         <br />
         <label>Gender</label>
         <select
@@ -49,11 +59,11 @@ const EditForm = (props) => {
         <br />
         <label>Date-of-Birth</label>
         <br />
-        <input type="date" name="dob" />
+        <input type="date" name="dob" value={dob} />
         <br />
         <label>Mobile number</label>
         <br />
-        <input type="text" name="mobilenumber" />
+        <input type="text" name="mobilenumber" value={mobilenumber} />
         <br />
         <button
           className={classes.editBtn}
