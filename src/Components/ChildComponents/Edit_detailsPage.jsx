@@ -7,13 +7,13 @@ import { actions } from "../../Store/StoreSlice";
 const P_w_updateForm = () => {
   return (
     <>
-      <label>Your Password</label>
+      <label>Your New Password</label>
       <br />
       <input type="text" placeholder="password" name="password" />
       <br />
       <label>Your Current Password</label>
       <br />
-      <input type="password" placeholder="" name="Currentpassword" />
+      <input type="password" placeholder="" name="passwordCurrent" />
     </>
   );
 };
