@@ -481,7 +481,7 @@ const StoreSlice = createSlice({
         return;
       } else if (cookieToken.token && cookieToken.token.length > 5) {
         state.cookieTokenVal = cookieToken.token;
-        state.currentUserObject = cookieToken;
+        state.currentUserObject = cookieToken.data;
         state.isLoggedInState = true;
       }
     },

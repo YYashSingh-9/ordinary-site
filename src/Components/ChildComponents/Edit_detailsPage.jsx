@@ -1,12 +1,10 @@
 import classes from "./Edit_detailsPage.module.css";
 import { useSelector } from "react-redux";
-import { Form } from "react-router-dom";
+import { Form, NavLink } from "react-router-dom";
 const EditForm = (props) => {
   const currentUser = useSelector((state) => state.sliceOne.currentUserObject);
-
-  const formToggle = () => {
-    props.clickfn();
-  };
+  let user = { ...currentUser };
+  user.dobb = new Date(currentUser.dob);
 
   return (
     <>
@@ -19,7 +17,7 @@ const EditForm = (props) => {
             type="text"
             placeholder="Yash.."
             name="name"
-            value={currentUser.name}
+            defaultValue={user.name}
           />
           <br />
           <label>User Email</label>
@@ -28,7 +26,7 @@ const EditForm = (props) => {
             type="email"
             placeholder="user@example.com"
             name="email"
-            value={currentUser.email}
+            defaultValue={user.email}
           />
           <br />
           <label>Gender</label>
@@ -49,14 +47,14 @@ const EditForm = (props) => {
           <br />
           <label>Date-of-Birth</label>
           <br />
-          <input type="date" name="dob" value={currentUser.dob} />
+          <input type="date" name="dob" defaultValue={user.dobb} />
           <br />
           <label>Mobile number</label>
           <br />
           <input
             type="text"
             name="mobilenumber"
-            value={currentUser.mobilenumber}
+            defaultValue={user.mobilenumber}
           />
           <br />
           <button
@@ -67,7 +65,9 @@ const EditForm = (props) => {
           >
             Save
           </button>
-          <button className={classes.editBtn}>back</button>
+          <NavLink to="/account-details">
+            <button className={classes.editBtn}>back</button>
+          </NavLink>
         </Form>
       </section>
     </>

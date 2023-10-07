@@ -111,9 +111,9 @@ const TableComponent = (props) => {
           </tr>
         </tbody>
       </table>
-      <button className={classes.editBtn}>
-        <NavLink to="/account-details/edit">Edit</NavLink>
-      </button>
+      <NavLink to="/account-details/edit">
+        <button className={classes.editBtn}>Edit</button>
+      </NavLink>
     </>
   );
 };
