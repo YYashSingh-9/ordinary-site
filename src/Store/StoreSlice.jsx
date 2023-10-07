@@ -483,6 +483,7 @@ const StoreSlice = createSlice({
         state.cookieTokenVal = cookieToken.token;
         state.currentUserObject = cookieToken.data;
         state.isLoggedInState = true;
+        console.log(state.currentUserObject);
       }
     },
     logout_cookie_remover(state, action) {

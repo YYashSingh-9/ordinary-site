@@ -40,7 +40,7 @@
 }
 .form {
   margin-top: 1rem;
-  border: 0.1rem solid grey;
+  border: 0.1rem solid rgb(177, 177, 177);
   padding: 1rem 1.6rem;
   border-radius: 0.7rem;
 }

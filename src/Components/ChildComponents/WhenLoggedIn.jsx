@@ -15,99 +15,30 @@ const SideDivs = (props) => {
   );
 };
 
-const EditForm = (props) => {
-  const nameInput = useSelector((state) => state.sliceOne.nameInput);
-  const emailInput = useSelector((state) => state.sliceOne.emailInput);
-  const mobilenumber = useSelector((state) => state.sliceOne.mobilenumber);
-  const dob = useSelector((state) => state.sliceOne.dob);
-
-  const formToggle = () => {
-    props.clickfn();
-  };
-
-  return (
-    <>
-      <Form className={classes.form} method="PATCH">
-        <label>User Name</label>
-        <br />
-        <input type="text" placeholder="Yash.." name="name" value={nameInput} />
-        <br />
-        <label>User Email</label>
-        <br />
-        <input
-          type="email"
-          placeholder="user@example.com"
-          name="email"
-          value={emailInput}
-        />
-        <br />
-        <label>Gender</label>
-        <select
-          name="gender"
-          className={classes.gender}
-          defaultValue=""
-          placeholder=""
-        >
-          <option value="Male" id="male">
-            Male
-          </option>
-          <option value="Female" id="female">
-            Female
-          </option>
-        </select>
-        <br />
-        <br />
-        <label>Date-of-Birth</label>
-        <br />
-        <input type="date" name="dob" value={dob} />
-        <br />
-        <label>Mobile number</label>
-        <br />
-        <input type="text" name="mobilenumber" value={mobilenumber} />
-        <br />
-        <button
-          className={classes.editBtn}
-          type="submit"
-          name="intent"
-          value={props.cookie}
-        >
-          Save
-        </button>
-        <button className={classes.editBtn} onClick={formToggle}>
-          back
-        </button>
-      </Form>
-    </>
-  );
-};
-
 const TableComponent = (props) => {
-  const formToggle = () => {
-    props.clickfn();
-  };
   return (
     <>
       <table className={classes.tableOne}>
         <tbody>
           <tr>
             <th>Name</th>
-            <th>Yash</th>
+            <th>{props.user.name}</th>
           </tr>
           <tr>
             <th>E-mail</th>
-            <th>yyashsngh@gmail.com</th>
+            <th>{props.user.email}</th>
           </tr>
           <tr>
             <th>Gender</th>
-            <th>Male</th>
+            <th>{props.user.gender}</th>
           </tr>
           <tr>
             <th>Date of birth</th>
-            <th>-not-added-</th>
+            <th>{!props.user.dob === null ? props.user.dob : "Set D-O-B"}</th>
           </tr>
           <tr>
             <th>Mobile number</th>
-            <th>-not-added-</th>
+            <th>{props.user.mobilenumber}</th>
           </tr>
         </tbody>
       </table>
@@ -121,8 +52,7 @@ const TableComponent = (props) => {
 const WhenLoggedIn = () => {
   const isLoggedIn = useSelector((state) => state.sliceOne.isLoggedInState);
   const cookieToken = useSelector((state) => state.sliceOne.cookieTokenVal);
-  const formState = useSelector((state) => state.sliceOne.whichFormToShow);
-  const currentUser = useSelector((state) => state.sliceOne.currentUserId);
+  const currentUser = useSelector((state) => state.sliceOne.currentUserObject);
   const Navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -131,9 +61,7 @@ const WhenLoggedIn = () => {
     dispatch(actions.logout_cookie_remover());
     Navigate("/");
   };
-  const formStateToggle = () => {
-    dispatch(actions.whichFormToShowToggler());
-  };
+
   return (
     <>
       <section className={classes.mainDiv}>
@@ -157,15 +85,7 @@ const WhenLoggedIn = () => {
             <div className={classes.pTitle}>
               <h2>Profile details</h2>
             </div>
-            {formState ? (
-              <EditForm
-                clickfn={formStateToggle}
-                cookie={cookieToken}
-                currentUser={currentUser}
-              />
-            ) : (
-              <TableComponent clickfn={formStateToggle} />
-            )}
+            <TableComponent user={currentUser} />
           </div>
         </div>
       </section>

@@ -20,7 +20,6 @@ const filterObj = (obj, ...allowedFields) => {
 // CREATING USER - SignUp functionality in authcontroller
 // UPDATING EVERYTHING EXCEPT PASSWORD.. (<-this is in authcontroller)
 exports.updateMe = CatchAsync(async (req, res, next) => {
-  console.log("💛💛 This works");
   //1. If user tried updating password then return.
   if (req.body.password || req.body.passwordConfirm) {
     return new Error("Can't update this time..");
@@ -51,7 +50,6 @@ exports.updateMe = CatchAsync(async (req, res, next) => {
 // THIS SETS PARAMS.ID TO USER.ID FROM PROTECT MIDDLEWARE
 exports.Getme = (req, res, next) => {
   req.params.id = req.user.id;
-  console.log("💜💛😄This works");
   next();
 };
 // GET ONE USER.
