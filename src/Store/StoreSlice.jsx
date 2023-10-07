@@ -483,8 +483,15 @@ const StoreSlice = createSlice({
         state.cookieTokenVal = cookieToken.token;
         state.currentUserObject = cookieToken.data;
         state.isLoggedInState = true;
-        console.log(state.currentUserObject);
       }
+    },
+    update_token_from_localStorage(state, action) {
+      const newData = action.payload;
+      const oldData = JSON.parse(localStorage.getItem("user_data"));
+      oldData.data = newData;
+      localStorage.setItem("user_data", JSON.stringify(oldData));
+      state.currentUserObject = oldData.data;
+      console.log(state.currentUserObject);
     },
     logout_cookie_remover(state, action) {
       localStorage.clear();

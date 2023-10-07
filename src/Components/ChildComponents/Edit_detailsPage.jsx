@@ -1,13 +1,24 @@
+import { useEffect } from "react";
 import classes from "./Edit_detailsPage.module.css";
-import { useSelector } from "react-redux";
-import { Form, NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { Form, NavLink, useActionData, useNavigate } from "react-router-dom";
+import { actions } from "../../Store/StoreSlice";
 const EditForm = (props) => {
   const currentUser = useSelector((state) => state.sliceOne.currentUserObject);
   const cookieToken = useSelector((state) => state.sliceOne.cookieTokenVal);
   let user = { ...currentUser };
   user.dob = new Date(currentUser.dob).toString();
   user.mobilenumber = user.mobilenumber - 0;
-  console.log(user);
+  const actionData = useActionData();
+  const dispatch = useDispatch();
+  const Navigate = useNavigate();
+
+  useEffect(() => {
+    if (actionData) {
+      dispatch(actions.update_token_from_localStorage(actionData.data));
+      Navigate("/account-details");
+    }
+  }, [actionData]);
   return (
     <>
       <section className={classes.formSection}>
