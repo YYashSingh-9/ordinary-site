@@ -40,4 +40,18 @@
 }
 .form {
   margin-top: 1rem;
+  border: 0.1rem solid grey;
+  padding: 1rem 1.6rem;
+  border-radius: 0.7rem;
+}
+.formSection {
+  max-width: 40%;
+  margin: auto;
+  display: grid;
+  grid-template-rows: 10% auto;
+  margin-top: 2%;
+}
+.formSection h2 {
+  text-transform: uppercase;
+  text-align: center;
 }

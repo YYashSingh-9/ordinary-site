@@ -1,5 +1,5 @@
 import classes from "./WhenLoggedIn.module.css";
-import { Form, useNavigate } from "react-router-dom";
+import { Form, NavLink, useNavigate } from "react-router-dom";
 import { logoutSendFunction } from "../../Store/ActionCreatorThunk";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
@@ -111,8 +111,8 @@ const TableComponent = (props) => {
           </tr>
         </tbody>
       </table>
-      <button className={classes.editBtn} type="submit" onClick={formToggle}>
-        Edit
+      <button className={classes.editBtn}>
+        <NavLink to="/account-details/edit">Edit</NavLink>
       </button>
     </>
   );

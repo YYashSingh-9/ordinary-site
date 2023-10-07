@@ -64,10 +64,8 @@ const router = createBrowserRouter([
         path: "/account-details",
         element: <AccountsPage />,
         action: login_Signup_Request,
-        children: [
-          { path: "/account-details/edit", element: <Edit_detailsPage /> },
-        ],
       },
+      { path: "/account-details/edit", element: <Edit_detailsPage /> },
     ],
   },
 ]);

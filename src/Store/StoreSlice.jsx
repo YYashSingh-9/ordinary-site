@@ -252,6 +252,12 @@ const imagesArr = [
   image19,
   image20,
 ];
+const currentUser = {
+  name: "",
+  email: "",
+  mobilenumber: "",
+  dob: "",
+};
 const initialState_one = {
   navItems: NavigationItems,
   arrayOfProducts: allProducts,
@@ -278,10 +284,7 @@ const initialState_one = {
   cookieTokenVal: "",
   currentUserId: "",
   whichFormToShow: false,
-  nameInput: "",
-  emailInput: "",
-  mobilenumber: "",
-  dob: "",
+  currentUserObject: currentUser,
 };
 
 const StoreSlice = createSlice({
@@ -468,19 +471,9 @@ const StoreSlice = createSlice({
       localStorage.clear();
       localStorage.setItem("user_data", JSON.stringify(actionObj));
       const user_data = JSON.parse(localStorage.getItem("user_data"));
+      state.currentUserObject = user_data.data;
       state.currentUserId = user_data.data._id;
-      state.nameInput = user_data.data.name;
-      state.emailInput = user_data.data.email;
-      state.mobilenumber = user_data.data.mobilenumber;
-      state.dob = user_data.data.dob;
       state.cookieTokenVal = user_data.token;
-      console.log(
-        state.currentUserId,
-        state.nameInput,
-        state.emailInput,
-        state.mobilenumber,
-        state.dob
-      );
     },
     get_token_from_localStorage(state, action) {
       const cookieToken = JSON.parse(localStorage.getItem("user_data"));
@@ -488,8 +481,8 @@ const StoreSlice = createSlice({
         return;
       } else if (cookieToken.token && cookieToken.token.length > 5) {
         state.cookieTokenVal = cookieToken.token;
+        state.currentUserObject = cookieToken;
         state.isLoggedInState = true;
-        console.log(cookieToken);
       }
     },
     logout_cookie_remover(state, action) {
