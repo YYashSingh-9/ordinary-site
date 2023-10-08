@@ -42,7 +42,7 @@ const CartProductItem = (props) => {
           <div className={classes.titleNprice}>
             <div>
               <h3>{title}</h3>
-              <h4>{price}</h4>
+              <h4>${price}</h4>
             </div>
             <span className={classes.cross}>
               <BsX onClick={removeItemFromCart_Handler} />

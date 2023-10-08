@@ -509,6 +509,7 @@ const StoreSlice = createSlice({
       const newArray = action.payload;
       state.AddToCart_Array = newArray;
       state.isCartEmpty = false;
+      console.log("array changed");
     },
     cartProduct_Patch(state, action) {
       const productId = action.payload;

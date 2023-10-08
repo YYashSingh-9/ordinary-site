@@ -6,11 +6,12 @@ import { useDispatch } from "react-redux";
 // THIS COMPONENT CAN BE SEEN IN PRODUCT SHOWN IN CART PAGE WHEN ADDED TO CART(BAG)
 // MADE THIS WAY BECAUSE IT WAS USED TWICE THRICE SO -> D.R.Y
 const PlusMinusButton = (props) => {
-  const [quantityState, setQuantity] = useState(1);
+  const [quantityState, setQuantity] = useState(props.elems.quantity);
   const dispatch = useDispatch();
 
   const incrementHandler = () => {
-    dispatch(actions.AddItemToCart(props.elems));
+    // dispatch(actions.AddItemToCart(props.elems));
+    props.addItemFunction();
     setQuantity((state) => {
       return state + 1;
     });
