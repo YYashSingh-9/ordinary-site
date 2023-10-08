@@ -11,11 +11,14 @@ const Cart = () => {
   const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
   const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
   const dispatch = useDispatch();
+
+  const enableVal = cookie ? true : false;
   const { data, isError, isPending } = useQuery({
     queryKey: ["cartProd"],
     queryFn: async () => {
       return cartProductsLoader(cookie);
     },
+    enabled: enableVal,
   });
   const submenuRemover = () => {
     if (!catalogueState) {
@@ -27,12 +30,12 @@ const Cart = () => {
   useEffect(() => {
     dispatch(actions.get_token_from_localStorage());
     if (data === undefined) return;
-
     if (data.status === "success") {
       console.log(data.data);
       dispatch(actions.cartArray_Change(data.data));
     }
-  }, [data]);
+  }, [data, cookie]);
+
   return (
     <>
       {isCartEmpty ? (

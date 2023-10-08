@@ -14,9 +14,9 @@ const MainHeader = () => {
   const favouriteItems = useSelector((state) => state.sliceOne.FavouriteItems);
   const searchbarValue = useSelector((state) => state.sliceOne.searchBarVal);
   const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
-  const inputref = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const inputref = useRef();
 
   // Conditional style for red heart when item is added in fav item list..
   const favStyle = favouriteItems.length > 0 ? classes.favOn : " ";
