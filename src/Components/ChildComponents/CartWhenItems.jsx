@@ -56,7 +56,7 @@ const CartWhenItems = (props) => {
         <div className={classes.CartMain}>
           <div className={classes.cartProductListDiv}>
             {productList.map((el) => (
-              <CartProductItem key={el.key} elem={el} />
+              <CartProductItem key={el._id} elem={el} />
             ))}
           </div>
           <div className={classes.cartOrderDiv}>
