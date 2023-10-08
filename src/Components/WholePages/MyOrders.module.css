@@ -14,7 +14,7 @@
   max-height: 35rem;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 19rem 7rem 9rem;
+  grid-template-rows: 19rem 6rem 8rem;
   border: 0.1rem solid rgb(205, 205, 205);
 }
 .imgAndCloseDiv {
@@ -71,5 +71,11 @@
   text-align: center;
 }
 .orderId {
+  max-height: 9rem;
   text-align: center;
+  padding-top: 1rem;
+}
+.orderId h4 {
+  text-transform: capitalize;
+  padding-top: 1rem;
 }

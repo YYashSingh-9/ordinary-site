@@ -31,9 +31,8 @@ const OrderCard = (props) => {
         <div className={classes.orderId}>
           <h3>Order ID:</h3>
           <p>34y913y491y3741734y1734y8</p>
-          <span>
-            <h3>Your order will be delivered in 3 days</h3>
-          </span>
+
+          <h4>Your order will be delivered in 3 days</h4>
         </div>
       </div>
     </>
@@ -50,7 +49,7 @@ const MyOrders = () => {
     <>
       <section className={classes.CartSection}>
         <div className={classes.cartHeading}>
-          <h2>CART ITEMS</h2>
+          <h2>MY ORDERS</h2>
         </div>
         <div className={classes.cartProductListDiv}>
           {productList
