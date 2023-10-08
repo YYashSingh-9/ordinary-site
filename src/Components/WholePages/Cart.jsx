@@ -14,7 +14,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const { data, isError, isPending } = useQuery({
     queryKey: ["cartProd"],
-    queryFn: () => {
+    queryFn: async () => {
       return cartProductsLoader(cookie);
     },
   });

@@ -10,3 +10,14 @@ exports.id_value_changer = (req, res, next) => {
   req.params.id = req.body.id;
   next();
 };
+
+exports.cartModifier = async (req, res, next) => {
+  const userId = req.user._id;
+  const doc = await Cart.find({ user: { $in: userId } });
+  req.body = doc;
+  console.log(doc);
+  res.status(200).json({
+    status: "success",
+    data: doc,
+  });
+};

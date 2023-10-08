@@ -7,7 +7,7 @@ cartRouter.use(AuthController.protect);
 cartRouter
   .route("/")
   .post(cartController.addToCart)
-  .get(cartController.getAllCartItem)
+  .get(cartController.cartModifier)
   .patch(cartController.id_value_changer, cartController.updateCartItem)
   .delete(cartController.id_value_changer, cartController.deleteFromCart);
 
