@@ -18,7 +18,10 @@ import AccountsPage from "./Components/WholePages/AccountsPage";
 import Edit_detailsPage from "./Components/ChildComponents/Edit_detailsPage";
 import MyOrders from "./Components/WholePages/MyOrders";
 import { loader as getAllProducts } from "./Store/ActionCreatorThunk";
-import { login_Signup_Request } from "./Store/ActionCreatorThunk";
+import {
+  login_Signup_Request,
+  cartProductsLoader,
+} from "./Store/ActionCreatorThunk";
 
 const router = createBrowserRouter([
   {

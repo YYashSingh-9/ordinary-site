@@ -3,11 +3,31 @@ import { QueryClient } from "@tanstack/react-query";
 export const queryClient = new QueryClient();
 
 // FETCH TEMPLATE FUNCTION _____
-export const fetchFunction = async () => {
-  let url = `http://127.0.0.1:3000/api/v2/products`;
-  const doc = await fetch(url);
-  const doc2 = await doc.json();
-  return doc2;
+export const fetchFunction = async (type, cookie) => {
+  let url = `http://127.0.0.1:3000/api/v2/${type}`;
+  if (!cookie) {
+    const doc = await fetch(url);
+    const doc2 = await doc.json();
+    return doc2;
+  }
+  if (cookie) {
+    console.log("this ran");
+    const doc = await fetch(url, {
+      credentials: "include",
+      withCredentials: true,
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${cookie}`,
+        "Content-type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3000",
+        cookie: `jwt=${cookie}`,
+      },
+      redirect: "follow",
+    });
+    const doc2 = await doc.json();
+    return doc2;
+  }
 };
 export const dataSendRequest = async (
   type,
@@ -130,6 +150,11 @@ export const addToCart_Function = async (userId, data, cookie) => {
   );
   console.log(returnedData);
   return returnedData;
+};
+export const cartProductsLoader = async (cookie) => {
+  const dataReceived = await fetchFunction("cart", cookie);
+  console.log(dataReceived);
+  return dataReceived;
 };
 //1.Getting all the products from server.
 export const loader = () => {
