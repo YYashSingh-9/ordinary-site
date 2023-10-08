@@ -32,7 +32,7 @@ const OrderCard = (props) => {
           <h3>Order ID:</h3>
           <p>34y913y491y3741734y1734y8</p>
 
-          <h4>Your order will be delivered in 3 days</h4>
+          <h4>Your order will be delivered in 3 days.</h4>
         </div>
       </div>
     </>
