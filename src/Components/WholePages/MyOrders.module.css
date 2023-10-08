@@ -79,3 +79,34 @@
   text-transform: capitalize;
   padding-top: 1rem;
 }
+
+.mainCart {
+  display: grid;
+  grid-template-rows: 20rem 8rem;
+  text-align: center;
+  padding-top: 8%;
+}
+.cartImg {
+  object-fit: contain;
+  max-height: 10rem;
+  max-width: 15rem;
+  margin: auto;
+}
+.cartImg img {
+  height: 100%;
+  width: 100%;
+}
+button {
+  margin-top: 1.5rem;
+  padding: 1rem 3%;
+  border-radius: 0.8rem;
+  font-size: 1.4rem;
+  border: 0.1rem solid rgb(232, 72, 72);
+  background-color: white;
+  color: rgb(232, 72, 72);
+}
+button:hover {
+  background-color: rgb(232, 72, 72);
+  color: white;
+  cursor: pointer;
+}

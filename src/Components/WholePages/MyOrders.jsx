@@ -3,6 +3,8 @@ import FavouriteCard from "../UI/FavouriteCard";
 import { useSelector } from "react-redux";
 import emptyCartImage from "../../assets/market.png";
 import { NavLink } from "react-router-dom";
+
+//HELPER JSX COMPONENTS
 const OrderCard = (props) => {
   const { title, price, images, key, isFav, _id } = props.elem;
   return (
@@ -47,8 +49,8 @@ const EmptyCart = () => {
           <img src={emptyCartImage} />
         </div>
         <div className={classes.title}>
-          <h3>Your orders Cart is empty.. let's make an order</h3>
-          <NavLink to="bestseller">
+          <h4>Your orders Cart is empty.. let's make an order</h4>
+          <NavLink to="/bestsellers">
             <button>Click here</button>
           </NavLink>
         </div>
@@ -56,6 +58,7 @@ const EmptyCart = () => {
     </>
   );
 };
+
 const MyOrders = () => {
   const productList = useSelector((state) => state.sliceOne.arrayOfProducts);
   console.log(productList);
@@ -65,7 +68,8 @@ const MyOrders = () => {
   console.log(favarray);
   return (
     <>
-      <section className={classes.CartSection}>
+      <EmptyCart />
+      {/* <section className={classes.CartSection}>
         <div className={classes.cartHeading}>
           <h2>MY ORDERS</h2>
         </div>
@@ -74,7 +78,7 @@ const MyOrders = () => {
             .map((el) => <OrderCard key={el.key} elem={el} />)
             .slice(0, 2)}
         </div>
-      </section>
+      </section> */}
     </>
   );
 };
