@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
 import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useLoaderData } from "react-router-dom";
 import { cartProductsLoader } from "../../Store/ActionCreatorThunk";
 
 const Cart = () => {

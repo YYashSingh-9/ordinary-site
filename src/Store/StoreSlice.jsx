@@ -504,6 +504,10 @@ const StoreSlice = createSlice({
     whichFormToShowToggler(state, action) {
       state.whichFormToShow = !state.whichFormToShow;
     },
+    cartArray_Change(state, action) {
+      const newArray = action.payload;
+      state.AddToCart_Array = newArray;
+    },
   },
 });
 export const actions = StoreSlice.actions;
