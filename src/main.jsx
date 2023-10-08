@@ -65,6 +65,7 @@ const router = createBrowserRouter([
         path: "/account-details",
         element: <AccountsPage />,
         action: login_Signup_Request,
+        loader: getAllProducts,
       },
       {
         path: "/account-details/edit",

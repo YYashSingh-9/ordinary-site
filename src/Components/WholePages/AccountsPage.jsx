@@ -2,7 +2,7 @@ import classes from "./AccountsPage.module.css";
 import WhenLoggedOut from "../ChildComponents/WithoutItemsUI/WhenLoggedOut";
 import WhenLoggedIn from "../ChildComponents/WhenLoggedIn";
 import { useSelector } from "react-redux";
-import { useActionData } from "react-router-dom";
+import { useActionData, useLoaderData } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
 import { useEffect } from "react";
@@ -15,6 +15,7 @@ const AccountsPage = () => {
   const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
   const dispatch = useDispatch();
   const data = useActionData();
+  const loaderData = useLoaderData();
 
   //THIS IS DONE TO REMOVE SUB MENU BECAUSE USER CLICKS THE SCREEN TO REMOVE POPUPS WHICH IS WE TARGET THIS DIV FOR THIS WORK
   const submenuRemover = () => {
@@ -25,6 +26,9 @@ const AccountsPage = () => {
   };
   useEffect(() => {
     dispatch(actions.get_token_from_localStorage());
+    if (loaderData.status === "success") {
+      dispatch(actions.productsArray_Change(loaderData.data));
+    }
     if (data) {
       console.log(data.status, data);
       if (data.token) {

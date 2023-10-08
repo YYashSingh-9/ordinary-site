@@ -61,7 +61,6 @@ export const login_Signup_Request = async ({ request }) => {
       "POST",
       dataToSend
     );
-    console.log(returned_val);
     return returned_val;
   }
   if (intent.length > 10) {
@@ -108,8 +107,21 @@ export const logoutSendFunction = async (cookie) => {
   const data = await dataSendRequest("user", "logout", "POST", "", cookie);
   return data;
 };
-export const addToCart_Function = async (data) => {
-  console.log();
+export const addToCart_Function = async (userId, data) => {
+  console.log(data);
+  const dataToSend = {
+    productId: data._id,
+    user: userId,
+    catagory: data.catagory,
+    isFav: data.isFav,
+    images: data.images,
+    key: data.key,
+    price: data.price,
+    quantity: data.quantity,
+    slug: data.slug,
+    title: data.title,
+  };
+  console.log(dataToSend);
   // await dataSendRequest("products", route, "PATCH", data, "");
 };
 //1.Getting all the products from server.

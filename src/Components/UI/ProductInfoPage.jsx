@@ -59,11 +59,11 @@ const ProductInfoPage = () => {
   const productGot = productGotFromArray[0];
   // Getting all infos to fill in jsx.
   const { title, price, isFav, images, key, _id } = productGot;
-
+  console.log(currentUser);
   const { mutate } = useMutation({
     mutationKey: ["fav-state", key],
-    mutationFn: () => {
-      return addToCart_Function(currentUser.data._id, productGot);
+    mutationFn: async () => {
+      return await addToCart_Function(currentUser._id, productGot);
     },
   });
 
@@ -79,12 +79,12 @@ const ProductInfoPage = () => {
 
   //FUNCTIONS..
   const AddItemToCartHandler = () => {
+    mutate();
     dispatch(actions.AddItemToCart(productGot));
   };
   const favouriteItemHandler = () => {
     dispatch(actions.FavouriteToggler(key));
   };
-
   //Pincode functionalities V.1.0 ////______
   const pinCodeToggle = () => {
     let refVal = ref.current;
