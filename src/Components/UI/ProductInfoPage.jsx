@@ -1,10 +1,12 @@
 import classes from "./ProductInfoPage.module.css";
 import logo from "../../assets/logo2.png";
 import { BsStarFill, BsStar, BsStarHalf } from "react-icons/bs";
-import { Form, NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { useMutation } from "@tanstack/react-query";
 import { actions } from "../../Store/StoreSlice";
 import { useRef } from "react";
+import { addToCart_Function } from "../../Store/ActionCreatorThunk";
 
 //THIS IS HOW THE RATINGS WILL BE DISPLAYED..
 const StarComponent = ({ starPassed }) => {
@@ -46,10 +48,10 @@ const ProductInfoPage = () => {
   const pincodeState = useSelector((state) => state.sliceOne.pincodeState);
   const pincodeValue = useSelector((state) => state.sliceOne.pincodeVal);
   const isLoggedIn = useSelector((state) => state.sliceOne.isLoggedInState);
+  const currentUser = useSelector((state) => state.sliceOne.currentUserObject);
   const { id, catagory } = useParams();
   const ref = useRef();
   const dispatch = useDispatch();
-
   // Picking the product with id & catagory.
   const productGotFromArray = allProducts.filter((el) => {
     return el.title === id && el.catagory === catagory;
@@ -57,7 +59,14 @@ const ProductInfoPage = () => {
   const productGot = productGotFromArray[0];
   // Getting all infos to fill in jsx.
   const { title, price, isFav, images, key, _id } = productGot;
-  console.log(productGot, _id);
+
+  const { mutate } = useMutation({
+    mutationKey: ["fav-state", key],
+    mutationFn: () => {
+      return addToCart_Function(currentUser.data._id, productGot);
+    },
+  });
+
   // Checking if this product is added or not previously.
   const addedProd = addedProductsArray.find((el) => el.key === key);
   // For showing line-through price.

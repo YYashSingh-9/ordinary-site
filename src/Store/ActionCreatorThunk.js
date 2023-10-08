@@ -108,7 +108,10 @@ export const logoutSendFunction = async (cookie) => {
   const data = await dataSendRequest("user", "logout", "POST", "", cookie);
   return data;
 };
-
+export const addToCart_Function = async (data) => {
+  console.log();
+  // await dataSendRequest("products", route, "PATCH", data, "");
+};
 //1.Getting all the products from server.
 export const loader = () => {
   return fetchFunction("products");

@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { favToggler } from "../../Store/ActionCreatorThunk";
 
-// THIS IS THE PRODUCT CARDS(PRODUCTS) SEEN EVERYWHERE ..
+// THIS IS THE PRODUCT CARD(PRODUCTS) SEEN EVERYWHERE ..
 const ProductItem = (props) => {
   const { title, price, images, key, isFav, catagory, _id } = props.elem;
   const dispatch = useDispatch();
