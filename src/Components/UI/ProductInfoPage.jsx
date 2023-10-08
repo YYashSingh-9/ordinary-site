@@ -49,6 +49,8 @@ const ProductInfoPage = () => {
   const pincodeValue = useSelector((state) => state.sliceOne.pincodeVal);
   const isLoggedIn = useSelector((state) => state.sliceOne.isLoggedInState);
   const currentUser = useSelector((state) => state.sliceOne.currentUserObject);
+  const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
+
   const { id, catagory } = useParams();
   const ref = useRef();
   const dispatch = useDispatch();
@@ -63,7 +65,7 @@ const ProductInfoPage = () => {
   const { mutate } = useMutation({
     mutationKey: ["fav-state", key],
     mutationFn: async () => {
-      return await addToCart_Function(currentUser._id, productGot);
+      return await addToCart_Function(currentUser._id, productGot, cookie);
     },
   });
 
