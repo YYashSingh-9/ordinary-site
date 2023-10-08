@@ -56,7 +56,8 @@ const ProductInfoPage = () => {
   });
   const productGot = productGotFromArray[0];
   // Getting all infos to fill in jsx.
-  const { title, price, isFav, images, key } = productGot;
+  const { title, price, isFav, images, key, _id } = productGot;
+  console.log(productGot, _id);
   // Checking if this product is added or not previously.
   const addedProd = addedProductsArray.find((el) => el.key === key);
   // For showing line-through price.

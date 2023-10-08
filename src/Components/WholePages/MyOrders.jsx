@@ -1,7 +1,8 @@
 import classes from "./MyOrders.module.css";
 import FavouriteCard from "../UI/FavouriteCard";
 import { useSelector } from "react-redux";
-
+import emptyCartImage from "../../assets/market.png";
+import { NavLink } from "react-router-dom";
 const OrderCard = (props) => {
   const { title, price, images, key, isFav, _id } = props.elem;
   return (
@@ -33,6 +34,23 @@ const OrderCard = (props) => {
           <p>34y913y491y3741734y1734y8</p>
 
           <h4>Your order will be delivered in 3 days.</h4>
+        </div>
+      </div>
+    </>
+  );
+};
+const EmptyCart = () => {
+  return (
+    <>
+      <div className={classes.mainCart}>
+        <div className={classes.cartImg}>
+          <img src={emptyCartImage} />
+        </div>
+        <div className={classes.title}>
+          <h3>Your orders Cart is empty.. let's make an order</h3>
+          <NavLink to="bestseller">
+            <button>Click here</button>
+          </NavLink>
         </div>
       </div>
     </>
