@@ -156,8 +156,9 @@ export const cartProductsLoader = async (cookie) => {
   console.log(dataReceived);
   return dataReceived;
 };
-export const cartProductPATCH = async () => {
-  const data = await dataSendRequest();
+export const cartProductPATCH = async (data, cookie) => {
+  const doc = await dataSendRequest("cart", "", "PATCH", data, cookie);
+  console.log(doc);
 };
 //1.Getting all the products from server.
 export const loader = () => {

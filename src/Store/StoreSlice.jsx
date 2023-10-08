@@ -286,6 +286,7 @@ const initialState_one = {
   whichFormToShow: false,
   currentUserObject: currentUser,
   whichFormToShow: true,
+  cartProductToBePatched: "",
 };
 
 const StoreSlice = createSlice({
@@ -508,6 +509,12 @@ const StoreSlice = createSlice({
       const newArray = action.payload;
       state.AddToCart_Array = newArray;
       state.isCartEmpty = false;
+    },
+    cartProduct_Patch(state, action) {
+      const productId = action.payload;
+      console.log("store");
+      const product = state.AddToCart_Array.find((el) => el._id === productId);
+      state.cartProductToBePatched = product;
     },
   },
 });

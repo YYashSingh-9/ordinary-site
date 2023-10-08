@@ -20,6 +20,7 @@ const Cart = () => {
     },
     enabled: enableVal,
   });
+
   const submenuRemover = () => {
     if (!catalogueState) {
       return;
