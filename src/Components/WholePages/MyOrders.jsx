@@ -1,8 +1,9 @@
 import classes from "./MyOrders.module.css";
 import FavouriteCard from "../UI/FavouriteCard";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import emptyCartImage from "../../assets/market.png";
 import { NavLink } from "react-router-dom";
+import { actions } from "../../Store/StoreSlice.jsx";
 
 //HELPER JSX COMPONENTS
 const OrderCard = (props) => {
@@ -41,17 +42,17 @@ const OrderCard = (props) => {
     </>
   );
 };
-const EmptyCart = () => {
+const EmptyCart = (props) => {
   return (
     <>
-      <div className={classes.mainCart}>
+      <div className={classes.mainCart} onClick={props.toggleFn}>
         <div className={classes.cartImg}>
           <img src={emptyCartImage} />
         </div>
         <div className={classes.title}>
           <h4>Your orders Cart is empty.. let's make an order</h4>
           <NavLink to="/bestsellers">
-            <button>Click here</button>
+            <button className={classes.linkBtn}>Click here</button>
           </NavLink>
         </div>
       </div>
@@ -61,14 +62,22 @@ const EmptyCart = () => {
 
 const MyOrders = () => {
   const productList = useSelector((state) => state.sliceOne.arrayOfProducts);
-  console.log(productList);
+  const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
+  const dispatch = useDispatch();
+  //THIS IS DONE TO REMOVE SUB MENU BECAUSE USER CLICKS THE SCREEN TO REMOVE POPUPS WHICH IS WE TARGET THIS DIV FOR THIS WORK
+  const submenuRemover = () => {
+    if (!catalogueState) {
+      return;
+    }
+    dispatch(actions.CatalogueToggler("removeSubMenu"));
+  };
   const favarray = productList.filter((elem) => {
     return elem.isFav === true;
   });
-  console.log(favarray);
+
   return (
     <>
-      <EmptyCart />
+      <EmptyCart toggleFn={submenuRemover} />
       {/* <section className={classes.CartSection}>
         <div className={classes.cartHeading}>
           <h2>MY ORDERS</h2>

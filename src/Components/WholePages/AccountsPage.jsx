@@ -12,9 +12,17 @@ const AccountsPage = () => {
     (state) => state.sliceOne.isLoggedInState
   );
   const cookieToken = useSelector((state) => state.sliceOne.cookieTokenVal);
+  const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
   const dispatch = useDispatch();
   const data = useActionData();
 
+  //THIS IS DONE TO REMOVE SUB MENU BECAUSE USER CLICKS THE SCREEN TO REMOVE POPUPS WHICH IS WE TARGET THIS DIV FOR THIS WORK
+  const submenuRemover = () => {
+    if (!catalogueState) {
+      return;
+    }
+    dispatch(actions.CatalogueToggler("removeSubMenu"));
+  };
   useEffect(() => {
     dispatch(actions.get_token_from_localStorage());
     if (data) {
@@ -28,7 +36,7 @@ const AccountsPage = () => {
 
   return (
     <>
-      <section className={classes.mainDiv}>
+      <section className={classes.mainDiv} onClick={submenuRemover}>
         <div className={classes.title}>Your Accounts Page</div>
         <div className={classes.infoDiv}>
           {cookieToken || isLoggedInState ? (

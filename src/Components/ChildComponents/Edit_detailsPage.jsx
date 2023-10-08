@@ -75,10 +75,17 @@ const EditForm = (props) => {
   const whichFormToShow = useSelector(
     (state) => state.sliceOne.whichFormToShow
   );
+  const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
   const actionData = useActionData();
   const dispatch = useDispatch();
   const Navigate = useNavigate();
-
+  //THIS IS DONE TO REMOVE SUB MENU BECAUSE USER CLICKS THE SCREEN TO REMOVE POPUPS WHICH IS WE TARGET THIS DIV FOR THIS WORK
+  const submenuRemover = () => {
+    if (!catalogueState) {
+      return;
+    }
+    dispatch(actions.CatalogueToggler("removeSubMenu"));
+  };
   let user = { ...currentUser };
   user.dob = new Date(currentUser.dob).toString();
   user.mobilenumber = user.mobilenumber - 0;
@@ -98,7 +105,7 @@ const EditForm = (props) => {
   }, [actionData]);
   return (
     <>
-      <section className={classes.formSection}>
+      <section className={classes.formSection} onClick={submenuRemover}>
         <h2>Update your details</h2>
         <Form className={classes.form} method="PATCH">
           {whichFormToShow ? (
