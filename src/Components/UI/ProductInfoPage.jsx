@@ -61,11 +61,12 @@ const ProductInfoPage = () => {
   const productGot = productGotFromArray[0];
   // Getting all infos to fill in jsx.
   const { title, price, isFav, images, key, _id } = productGot;
-  console.log(currentUser);
+  const productForCart = addedProductsArray.find((el) => el._id === _id);
+
   const { mutate } = useMutation({
     mutationKey: ["fav-state", key],
     mutationFn: async () => {
-      return await addToCart_Function(currentUser._id, productGot, cookie);
+      return await addToCart_Function(currentUser._id, productForCart, cookie);
     },
   });
 
@@ -81,8 +82,8 @@ const ProductInfoPage = () => {
 
   //FUNCTIONS..
   const AddItemToCartHandler = () => {
-    mutate();
     dispatch(actions.AddItemToCart(productGot));
+    mutate();
   };
   const favouriteItemHandler = () => {
     dispatch(actions.FavouriteToggler(key));

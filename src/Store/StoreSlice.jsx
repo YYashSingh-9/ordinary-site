@@ -334,6 +334,7 @@ const StoreSlice = createSlice({
           catagory: newItem.catagory,
           quantity: newItem.quantity,
           totalPrice: newItem.price,
+          _id: newItem._id,
         });
         price_per_product = newItem.price * newItem.quantity;
         state.TotalMrp = state.TotalMrp + price_per_product;

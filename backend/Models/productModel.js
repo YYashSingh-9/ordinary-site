@@ -34,6 +34,7 @@ const ProductSchema = new mongoose.Schema({
     required: [true, "Quantity of a product should be there."],
   },
   slug: String,
+  totalPrice: Number,
 });
 
 ProductSchema.pre("save", function (next) {

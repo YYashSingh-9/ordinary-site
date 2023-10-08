@@ -119,6 +119,7 @@ export const addToCart_Function = async (userId, data, cookie) => {
     quantity: data.quantity,
     slug: data.slug,
     title: data.title,
+    totalPrice: data.totalPrice,
   };
   const returnedData = await dataSendRequest(
     "cart",
