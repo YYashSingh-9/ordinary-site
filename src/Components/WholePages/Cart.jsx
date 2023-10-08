@@ -18,7 +18,6 @@ const Cart = () => {
       return cartProductsLoader(cookie);
     },
   });
-  //THIS IS DONE TO REMOVE SUB MENU BECAUSE USER CLICKS THE SCREEN TO REMOVE POPUPS WHICH IS WE TARGET THIS DIV FOR THIS WORK
   const submenuRemover = () => {
     if (!catalogueState) {
       return;
@@ -26,6 +25,9 @@ const Cart = () => {
     dispatch(actions.CatalogueToggler("removeSubMenu"));
   };
 
+  useEffect(() => {
+    dispatch(actions.get_token_from_localStorage());
+  }, [data]);
   return (
     <>
       {isCartEmpty ? (
