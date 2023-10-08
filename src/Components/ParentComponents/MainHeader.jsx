@@ -13,13 +13,20 @@ const MainHeader = () => {
   const CartData = useSelector((state) => state.sliceOne.AddToCart_Array);
   const favouriteItems = useSelector((state) => state.sliceOne.FavouriteItems);
   const searchbarValue = useSelector((state) => state.sliceOne.searchBarVal);
+  const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
   const inputref = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   // Conditional style for red heart when item is added in fav item list..
   const favStyle = favouriteItems.length > 0 ? classes.favOn : " ";
-
+  //THIS IS DONE TO REMOVE SUB MENU BECAUSE USER CLICKS THE SCREEN TO REMOVE POPUPS WHICH IS WE TARGET THIS DIV FOR THIS WORK
+  const submenuRemover = () => {
+    if (!catalogueState) {
+      return;
+    }
+    dispatch(actions.CatalogueToggler("removeSubMenu"));
+  };
   // Search bar functionality.._________
   const navigateOnSearchHandler = (e) => {
     //Taking value
@@ -48,7 +55,7 @@ const MainHeader = () => {
   //_____________________________________________
   return (
     <>
-      <header className={classes.head}>
+      <header className={classes.head} onClick={submenuRemover}>
         <nav>
           <div className={classes.logo}>
             <NavLink to={".."}>
