@@ -510,6 +510,14 @@ const StoreSlice = createSlice({
       state.AddToCart_Array = newArray;
       state.isCartEmpty = false;
       console.log("array changed");
+      let mrp = 0;
+      // for (let i = 0; i < state.AddToCart_Array.length; i++) {
+      //   mrp +=
+      // }
+      //  price_per_product = newItem.price * newItem.quantity;
+      //  state.TotalMrp = state.TotalMrp + price_per_product;
+      //  state.DiscountPrice = (state.TotalMrp * 15) / 100;
+      //  state.CartTotal = state.TotalMrp - state.DiscountPrice;
     },
     cartProduct_Patch(state, action) {
       const productId = action.payload;
