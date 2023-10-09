@@ -179,7 +179,6 @@ export const placeOrder_Function = async (productIDs, cookie) => {
     data_to_send,
     cookie
   );
-  console.log(data);
 };
 //1.Getting all the products from server.
 export const loader = () => {
