@@ -69,7 +69,7 @@ const CartWhenItems = (props) => {
 
   const placeOrderHandler = () => {
     mutate();
-    Navigate();
+    Navigate("/my_orders/redirect-to-order");
   };
   return (
     <>
