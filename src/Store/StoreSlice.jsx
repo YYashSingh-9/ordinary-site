@@ -361,7 +361,7 @@ const StoreSlice = createSlice({
 
       if (itemToBeRemoved.quantity === 1) {
         const filteredArray = state.AddToCart_Array.filter(
-          (elem) => elem.key !== itemToBeRemoved.key
+          (elem) => elem.productId !== itemToBeRemoved.productId
         );
         state.AddToCart_Array = filteredArray;
       } else {
