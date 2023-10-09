@@ -170,8 +170,16 @@ export const cartProductPATCH = async (data, cookie, patchtype) => {
     );
   }
 };
-export const placeOrder_Function = async (productIDs) => {
-  console.log(productIDs);
+export const placeOrder_Function = async (productIDs, cookie) => {
+  const data_to_send = { ids: productIDs };
+  const data = await dataSendRequest(
+    "orders",
+    "my-orders",
+    "POST",
+    data_to_send,
+    cookie
+  );
+  console.log(data);
 };
 //1.Getting all the products from server.
 export const loader = () => {

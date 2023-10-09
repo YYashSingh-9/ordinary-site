@@ -45,15 +45,16 @@ const CartWhenItems = (props) => {
   const totalAmount = useSelector((state) => state.sliceOne.CartTotal);
   const mrp = useSelector((state) => state.sliceOne.TotalMrp);
   const discPrice = useSelector((state) => state.sliceOne.DiscountPrice);
-
+  const cookieToken = useSelector((state) => state.sliceOne.cookieTokenVal);
+  console.log(cookieToken);
   //Getting all the product ids in cart for order.
   let orderProductIDs = [];
   for (let key in productList) {
-    orderProductIDs.push(productList[key].productId);
+    orderProductIDs.push(productList[key]._id);
   }
   const { mutate } = useMutation({
     mutationFn: () => {
-      return placeOrder_Function(orderProductIDs);
+      return placeOrder_Function(orderProductIDs, cookieToken);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["cartProd"] });
@@ -113,7 +114,7 @@ const CartWhenItems = (props) => {
                   <h3>${totalAmount}</h3>
                 </div>
                 <div className={classes.btnDiv}>
-                  <button>Place Order</button>
+                  <button onClick={placeOrderHandler}>Place Order</button>
                 </div>
               </div>
             </div>
