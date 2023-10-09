@@ -59,6 +59,7 @@ const ProductInfoPage = () => {
     return el.title === id && el.catagory === catagory;
   });
   const productGot = productGotFromArray[0];
+  console.log(productGot);
   // Getting all infos to fill in jsx.
   const { title, price, isFav, images, key, _id } = productGot;
   const productForCart = addedProductsArray.find((el) => el._id === _id);
