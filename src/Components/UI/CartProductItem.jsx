@@ -13,10 +13,10 @@ const CartProductItem = (props) => {
     (state) => state.sliceOne.cartProductToBePatched
   );
   const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
+  const dispatch = useDispatch();
 
   const { title, price, images, catagory, quantity, key, _id } = props.elem;
   const isCartOn = props.isCartOn;
-  const dispatch = useDispatch();
   const elem = props.elem;
 
   const { mutate, data, isLoading } = useMutation({

@@ -62,7 +62,6 @@ export const dataSendRequest = async (
 // FETCH TEMPLATE FUNCTION USE-CASES___
 export const favToggler = async (data, route) => {
   data = { isFav: data };
-  console.log(data, route);
   await dataSendRequest("products", route, "PATCH", data, "");
 };
 export const login_Signup_Request = async ({ request }) => {
@@ -120,7 +119,7 @@ export const testCart = async (cookie) => {
     body: sending_data,
   });
   const doc3 = await doc.json();
-  console.log(doc3);
+
   return doc3;
 };
 export const logoutSendFunction = async (cookie) => {
@@ -148,12 +147,12 @@ export const addToCart_Function = async (userId, data, cookie) => {
     dataToSend,
     cookie
   );
-  console.log(returnedData);
+
   return returnedData;
 };
 export const cartProductsLoader = async (cookie) => {
   const dataReceived = await fetchFunction("cart", cookie);
-  console.log(dataReceived);
+
   return dataReceived;
 };
 export const cartProductPATCH = async (data, cookie, patchtype) => {
@@ -169,8 +168,10 @@ export const cartProductPATCH = async (data, cookie, patchtype) => {
       docId,
       cookie
     );
-    console.log(doc);
   }
+};
+export const placeOrder_Function = async (productIDs) => {
+  console.log(productIDs);
 };
 //1.Getting all the products from server.
 export const loader = () => {

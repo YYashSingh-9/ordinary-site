@@ -1,7 +1,11 @@
 import { useSelector } from "react-redux";
 import classes from "./CartWhenItems.module.css";
 import CartProductItem from "../UI/CartProductItem";
-
+import { useMutation } from "@tanstack/react-query";
+import {
+  queryClient,
+  placeOrder_Function,
+} from "../../Store/ActionCreatorThunk";
 // ________ ADDITIONAL COMPONENT
 const CouponComponent = () => {
   return (
@@ -41,12 +45,28 @@ const CartWhenItems = (props) => {
   const totalAmount = useSelector((state) => state.sliceOne.CartTotal);
   const mrp = useSelector((state) => state.sliceOne.TotalMrp);
   const discPrice = useSelector((state) => state.sliceOne.DiscountPrice);
-  let cartIsOn = true;
 
+  //Getting all the product ids in cart for order.
+  let orderProductIDs = [];
+  for (let key in productList) {
+    orderProductIDs.push(productList[key].productId);
+  }
+  const { mutate } = useMutation({
+    mutationFn: () => {
+      return placeOrder_Function(orderProductIDs);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["cartProd"] });
+    },
+  });
+  console.log(orderProductIDs);
   const subMenuToggler = () => {
     props.subMenuToggler();
   };
 
+  const placeOrderHandler = () => {
+    mutate();
+  };
   return (
     <>
       <section className={classes.CartSection} onClick={subMenuToggler}>
