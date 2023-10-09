@@ -1,0 +1,31 @@
+.mainORPage {
+  display: grid;
+  padding: 5rem 10%;
+  grid-template-rows: 60% 40%;
+  height: 40rem;
+  text-align: center;
+}
+.heading {
+  font-size: 5rem;
+  text-decoration: dotted;
+  text-transform: uppercase;
+  margin-top: auto;
+  font-weight: 700;
+}
+.redirectBtn {
+  margin-top: 2rem;
+}
+.rBtn {
+  border: 0.1rem solid rgb(251, 67, 67);
+  outline: none;
+  font-size: 2rem;
+  border-radius: 0.4rem;
+  background-color: rgb(251, 67, 67);
+  padding: 1rem 2rem;
+  cursor: pointer;
+  color: white;
+}
+.rBtn:hover {
+  background-color: rgb(250, 47, 47);
+  transition: 0.2s ease-in-out;
+}

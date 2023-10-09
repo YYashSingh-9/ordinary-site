@@ -17,6 +17,7 @@ import ProductInfoPage from "./Components/UI/ProductInfoPage";
 import AccountsPage from "./Components/WholePages/AccountsPage";
 import Edit_detailsPage from "./Components/ChildComponents/Edit_detailsPage";
 import MyOrders from "./Components/WholePages/MyOrders";
+import OrderRedirectPage from "./Components/UI/OrderRedirectPage";
 import { loader as getAllProducts } from "./Store/ActionCreatorThunk";
 import {
   login_Signup_Request,
@@ -79,6 +80,7 @@ const router = createBrowserRouter([
         path: "/account-details/my_orders",
         element: <MyOrders />,
       },
+      { path: "/my_orders/redirect-to-order", element: <OrderRedirectPage /> },
     ],
   },
 ]);
