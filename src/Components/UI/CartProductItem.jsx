@@ -35,8 +35,8 @@ const CartProductItem = (props) => {
     mutate("normal_patch");
   };
   const removeItemFromCart_Handler = () => {
-    // dispatch(actions.totalRemoveFromCart(elem));
-    mutate("delete_patch");
+    dispatch(actions.totalRemoveFromCart(elem));
+    mutate({ type: "delete_patch", id: elem._id });
   };
   return (
     <>

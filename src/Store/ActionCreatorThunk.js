@@ -159,11 +159,18 @@ export const cartProductsLoader = async (cookie) => {
 export const cartProductPATCH = async (data, cookie, patchtype) => {
   if (patchtype === "normal_patch") {
     const doc = await dataSendRequest("cart", "", "PATCH", data, cookie);
-  } else if (patchtype === "delete_patch") {
-    const docId = data._id;
-    const doc = await dataSendRequest("cart", "", "DELETE", docId, cookie);
+  } else if (patchtype.type === "delete_patch") {
+    const docId = { _id: patchtype.id };
+
+    const doc = await dataSendRequest(
+      "cart",
+      "delete_product",
+      "DELETE",
+      docId,
+      cookie
+    );
+    console.log(doc);
   }
-  console.log(doc);
 };
 //1.Getting all the products from server.
 export const loader = () => {

@@ -505,17 +505,26 @@ const StoreSlice = createSlice({
       state.whichFormToShow = !state.whichFormToShow;
     },
     cartArray_Change(state, action) {
-      const newArray = action.payload;
-      state.AddToCart_Array = newArray;
-      state.isCartEmpty = false;
+      let newArray = action.payload;
       let mrp = 0;
+      const cartArray = JSON.parse(localStorage.getItem("cart-data"));
+      if (!cartArray) {
+        return;
+      }
+      localStorage.clear();
+      localStorage.setItem("cart-data", JSON.stringify(newArray));
+      newArray = localStorage.getItem("cart-data");
+      state.AddToCart_Array = newArray;
+
       for (let key in state.AddToCart_Array) {
         mrp += state.AddToCart_Array[key].totalPrice;
-        console.log(key);
       }
       state.TotalMrp = mrp;
       state.DiscountPrice = (state.TotalMrp * 15) / 100;
       state.CartTotal = state.TotalMrp - state.DiscountPrice;
+      state.AddToCart_Array.length > 0
+        ? (state.isCartEmpty = false)
+        : (state.isCartEmpty = true);
     },
     cartProduct_Patch(state, action) {
       const productId = action.payload;
