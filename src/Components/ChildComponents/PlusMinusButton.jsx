@@ -18,7 +18,7 @@ const PlusMinusButton = (props) => {
   };
 
   const decrementHandler = () => {
-    dispatch(actions.RemoveItemfromCart(props.elems));
+    props.deductItemFnc();
     quantityState > 0
       ? setQuantity((state) => {
           return state - 1;

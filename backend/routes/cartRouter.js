@@ -12,5 +12,8 @@ cartRouter
   .delete(cartController.id_value_changer, cartController.deleteFromCart);
 
 cartRouter.route("/:id").get(cartController.getOneCartItem);
+cartRouter
+  .route("/delete_product")
+  .delete(cartController.id_value_changer, cartController.deleteFromCart);
 
 module.exports = cartRouter;

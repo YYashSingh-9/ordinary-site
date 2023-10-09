@@ -156,8 +156,13 @@ export const cartProductsLoader = async (cookie) => {
   console.log(dataReceived);
   return dataReceived;
 };
-export const cartProductPATCH = async (data, cookie) => {
-  const doc = await dataSendRequest("cart", "", "PATCH", data, cookie);
+export const cartProductPATCH = async (data, cookie, patchtype) => {
+  if (patchtype === "normal_patch") {
+    const doc = await dataSendRequest("cart", "", "PATCH", data, cookie);
+  } else if (patchtype === "delete_patch") {
+    const docId = data._id;
+    const doc = await dataSendRequest("cart", "", "DELETE", docId, cookie);
+  }
   console.log(doc);
 };
 //1.Getting all the products from server.

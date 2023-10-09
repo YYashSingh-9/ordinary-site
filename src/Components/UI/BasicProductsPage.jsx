@@ -5,6 +5,7 @@ import ProductItem from "../ChildComponents/ProductItem";
 import { CiFilter } from "react-icons/ci";
 import FilterComponent from "../ChildComponents/FilterComponent";
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 //THIS PAGE IS USED AS A SHELL FOR MANY ROUTES :) ONLY DATA CHANGES -D.R.Y
 //HELPER FUNCTIONS
 const paramConversion = (stringPassed) => {
@@ -34,8 +35,8 @@ const BasicProductsPage = () => {
   const typeSelected = useSelector(
     (state) => state.sliceOne.typeSelectVariable
   );
-
   const dispatch = useDispatch();
+
   //THIS IS DONE TO REMOVE SUB MENU BECAUSE USER CLICKS THE SCREEN TO REMOVE POPUPS WHICH IS WE TARGET THIS DIV FOR THIS WORK
   const submenuRemover = () => {
     if (!catalogueState) {

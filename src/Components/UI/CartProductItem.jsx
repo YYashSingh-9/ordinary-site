@@ -19,18 +19,24 @@ const CartProductItem = (props) => {
 
   const { mutate, data } = useMutation({
     mutationKey: ["cartPatch"],
-    mutationFn: async () => {
-      return cartProductPATCH(productToBePatched, cookie);
+    mutationFn: async (patchtype) => {
+      return cartProductPATCH(productToBePatched, cookie, patchtype);
     },
   });
 
   const addItemHandler = () => {
     dispatch(actions.AddItemToCart(elem));
     dispatch(actions.cartProduct_Patch(_id));
-    mutate();
+    mutate("normal_patch");
+  };
+  const item_deduct_fnc = () => {
+    dispatch(actions.RemoveItemfromCart(elem));
+    dispatch(actions.cartProduct_Patch(_id));
+    mutate("normal_patch");
   };
   const removeItemFromCart_Handler = () => {
-    dispatch(actions.totalRemoveFromCart(elem));
+    // dispatch(actions.totalRemoveFromCart(elem));
+    mutate("delete_patch");
   };
   return (
     <>
@@ -52,6 +58,7 @@ const CartProductItem = (props) => {
             addItemFunction={addItemHandler}
             cartisOn={isCartOn}
             elems={elem}
+            deductItemFnc={item_deduct_fnc}
           />
         </div>
       </div>

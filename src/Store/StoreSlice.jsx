@@ -369,7 +369,7 @@ const StoreSlice = createSlice({
         itemToBeRemoved.totalPrice =
           itemToBeRemoved.totalPrice - itemToBeRemoved.price;
       }
-      if (state.AddToCart_Array.length === 0) state.isCartEmpty = true;
+      state.AddToCart_Array.length === 0 && (state.isCartEmpty = true);
     },
     totalRemoveFromCart(state, action) {
       const removingItemGot = action.payload;
@@ -384,12 +384,15 @@ const StoreSlice = createSlice({
         (el) => el.key !== removingItemFound.key
       );
       state.AddToCart_Array = filteredArray;
-      if (state.AddToCart_Array.length === 0) state.isCartEmpty = true;
+      if (state.AddToCart_Array.length > 0) {
+        return;
+      } else {
+        state.isCartEmpty = true;
+      }
     },
     pageIncrement(state, action) {
       const actionType = action.payload;
       const copyArray = [...state.sliceValues];
-      console.log(copyArray);
       if (actionType === "increment") {
         copyArray[0] = copyArray[1];
         copyArray[1] = copyArray[1] + 10;
@@ -460,13 +463,11 @@ const StoreSlice = createSlice({
         return { ...arrayRecieved[ind], images: imagesArray[ind] };
       });
       state.arrayOfProducts = arr;
-      console.log(arr);
     },
     signupFormToggler(state, action) {
       state.signUpFormState = !state.signUpFormState;
     },
     loginStateToggle(state, action) {
-      console.log("working");
       state.isLoggedInState = true;
     },
     set_token_to_localStorage(state, action) {
@@ -477,7 +478,6 @@ const StoreSlice = createSlice({
       state.currentUserObject = user_data.data;
       state.currentUserId = user_data.data._id;
       state.cookieTokenVal = user_data.token;
-      console.log("this worked set");
     },
     get_token_from_localStorage(state, action) {
       const cookieToken = JSON.parse(localStorage.getItem("user_data"));
@@ -495,7 +495,6 @@ const StoreSlice = createSlice({
       oldData.data = newData;
       localStorage.setItem("user_data", JSON.stringify(oldData));
       state.currentUserObject = oldData.data;
-      console.log("💜", state.currentUserObject);
     },
     logout_cookie_remover(state, action) {
       localStorage.clear();
@@ -509,24 +508,17 @@ const StoreSlice = createSlice({
       const newArray = action.payload;
       state.AddToCart_Array = newArray;
       state.isCartEmpty = false;
-      console.log("array changed");
       let mrp = 0;
-      // for (let i = 0; i < state.AddToCart_Array.length; i++) {
-      //   mrp +=
-      // }
       for (let key in state.AddToCart_Array) {
         mrp += state.AddToCart_Array[key].totalPrice;
         console.log(key);
       }
-      console.log(mrp);
-
       state.TotalMrp = mrp;
       state.DiscountPrice = (state.TotalMrp * 15) / 100;
       state.CartTotal = state.TotalMrp - state.DiscountPrice;
     },
     cartProduct_Patch(state, action) {
       const productId = action.payload;
-      console.log("store");
       const product = state.AddToCart_Array.find((el) => el._id === productId);
       state.cartProductToBePatched = product;
     },
