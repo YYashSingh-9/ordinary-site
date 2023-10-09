@@ -60,6 +60,7 @@ const CartWhenItems = (props) => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["cartProd"] });
+      Navigate("/my_orders/redirect-to-order");
     },
   });
   console.log(orderProductIDs);
@@ -69,7 +70,6 @@ const CartWhenItems = (props) => {
 
   const placeOrderHandler = () => {
     mutate();
-    Navigate("/my_orders/redirect-to-order");
   };
   return (
     <>
