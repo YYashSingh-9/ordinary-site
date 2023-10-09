@@ -6,6 +6,7 @@ import {
   queryClient,
   placeOrder_Function,
 } from "../../Store/ActionCreatorThunk";
+import { useNavigate } from "react-router-dom";
 // ________ ADDITIONAL COMPONENT
 const CouponComponent = () => {
   return (
@@ -46,6 +47,7 @@ const CartWhenItems = (props) => {
   const mrp = useSelector((state) => state.sliceOne.TotalMrp);
   const discPrice = useSelector((state) => state.sliceOne.DiscountPrice);
   const cookieToken = useSelector((state) => state.sliceOne.cookieTokenVal);
+  const Navigate = useNavigate();
   console.log(cookieToken);
   //Getting all the product ids in cart for order.
   let orderProductIDs = [];
@@ -67,6 +69,7 @@ const CartWhenItems = (props) => {
 
   const placeOrderHandler = () => {
     mutate();
+    Navigate();
   };
   return (
     <>
@@ -80,6 +83,7 @@ const CartWhenItems = (props) => {
               <CartProductItem key={el._id} elem={el} />
             ))}
           </div>
+
           <div className={classes.cartOrderDiv}>
             <div className={classes.Inside}>
               <div className={classes.couponSection}>

@@ -40,7 +40,7 @@ const Cart = () => {
 
   return (
     <>
-      {isCartEmpty && isLoggedIn ? (
+      {isCartEmpty ? (
         <WithoutItems
           link="/favourites"
           title={`Product says 'It Look so empty without me!`}
