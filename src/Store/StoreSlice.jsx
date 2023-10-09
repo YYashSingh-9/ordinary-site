@@ -505,7 +505,7 @@ const StoreSlice = createSlice({
       state.whichFormToShow = !state.whichFormToShow;
     },
     cartArray_Change(state, action) {
-      let newArray = action.payload;
+      const newArray = action.payload;
       let mrp = 0;
       state.AddToCart_Array = newArray;
       for (let key in state.AddToCart_Array) {

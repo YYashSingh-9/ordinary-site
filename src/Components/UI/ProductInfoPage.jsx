@@ -3,10 +3,13 @@ import logo from "../../assets/logo2.png";
 import { BsStarFill, BsStar, BsStarHalf } from "react-icons/bs";
 import { NavLink, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { actions } from "../../Store/StoreSlice";
 import { useRef } from "react";
-import { addToCart_Function } from "../../Store/ActionCreatorThunk";
+import {
+  addToCart_Function,
+  cartProductsLoader,
+} from "../../Store/ActionCreatorThunk";
 
 //THIS IS HOW THE RATINGS WILL BE DISPLAYED..
 const StarComponent = ({ starPassed }) => {
@@ -50,29 +53,40 @@ const ProductInfoPage = () => {
   const isLoggedIn = useSelector((state) => state.sliceOne.isLoggedInState);
   const currentUser = useSelector((state) => state.sliceOne.currentUserObject);
   const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
-
   const { id, catagory } = useParams();
   const ref = useRef();
   const dispatch = useDispatch();
+
   // Picking the product with id & catagory.
   const productGotFromArray = allProducts.filter((el) => {
     return el.title === id && el.catagory === catagory;
   });
   const productGot = productGotFromArray[0];
-  console.log(productGot);
   // Getting all infos to fill in jsx.
   const { title, price, isFav, images, key, _id } = productGot;
   const productForCart = addedProductsArray.find((el) => el._id === _id);
 
+  //SENDING THE REQUEST
   const { mutate } = useMutation({
     mutationKey: ["fav-state", key],
     mutationFn: async () => {
       return await addToCart_Function(currentUser._id, productForCart, cookie);
     },
   });
+  //GETTING THE CART ARRAY
+  const enableVal = cookie ? true : false;
+  const { data, isError, isPending } = useQuery({
+    queryKey: ["cartProd"],
+    queryFn: async () => {
+      return cartProductsLoader(cookie);
+    },
+    enabled: enableVal,
+  });
 
   // Checking if this product is added or not previously.
-  const addedProd = addedProductsArray.find((el) => el.key === key);
+  let mainArrayToFilter = !data === undefined ? data : addedProductsArray;
+  const addedProd = mainArrayToFilter.find((el) => el.productId === _id);
+
   // For showing line-through price.
   const extendedPrice = (price * 3).toFixed(2);
   // For toggling fav button
