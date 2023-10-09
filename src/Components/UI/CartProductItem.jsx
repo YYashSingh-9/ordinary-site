@@ -37,7 +37,11 @@ const CartProductItem = (props) => {
   const item_deduct_fnc = () => {
     dispatch(actions.RemoveItemfromCart(elem));
     dispatch(actions.cartProduct_Patch(_id));
-    mutate("normal_patch");
+    if (quantity > 1) {
+      mutate("normal_patch");
+    } else if (quantity === 1) {
+      mutate({ type: "delete_patch", id: elem._id });
+    }
   };
   const removeItemFromCart_Handler = () => {
     dispatch(actions.totalRemoveFromCart(elem));
@@ -46,32 +50,28 @@ const CartProductItem = (props) => {
 
   return (
     <>
-      {isLoading ? (
-        <p>loading</p>
-      ) : (
-        <div className={classes.cartItem}>
-          <div className={classes.cartImg} onClick={addItemHandler}>
-            <img src={images} />
-          </div>
-          <div className={classes.details}>
-            <div className={classes.titleNprice}>
-              <div>
-                <h3>{title}</h3>
-                <h4>${price}</h4>
-              </div>
-              <span className={classes.cross}>
-                <BsX onClick={removeItemFromCart_Handler} />
-              </span>
-            </div>
-            <PlusMinusButton
-              addItemFunction={addItemHandler}
-              cartisOn={isCartOn}
-              elems={elem}
-              deductItemFnc={item_deduct_fnc}
-            />
-          </div>
+      <div className={classes.cartItem}>
+        <div className={classes.cartImg} onClick={addItemHandler}>
+          <img src={images} />
         </div>
-      )}
+        <div className={classes.details}>
+          <div className={classes.titleNprice}>
+            <div>
+              <h3>{title}</h3>
+              <h4>${price}</h4>
+            </div>
+            <span className={classes.cross}>
+              <BsX onClick={removeItemFromCart_Handler} />
+            </span>
+          </div>
+          <PlusMinusButton
+            addItemFunction={addItemHandler}
+            cartisOn={isCartOn}
+            elems={elem}
+            deductItemFnc={item_deduct_fnc}
+          />
+        </div>
+      </div>
     </>
   );
 };
