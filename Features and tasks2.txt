@@ -12,7 +12,7 @@
 7. My-Orders-placed functionality of individual with JWT checking.✅
 8. Add-to-cart functionality and upating the added to cart product's values (price,quantity)✅
 9. Multiple orders together from cart & removing them when ordered ✅
-10. Payment Integration.
+10.Payment gateway (In future updates).
 
 
 //USER & AUTHENTICATIONS..

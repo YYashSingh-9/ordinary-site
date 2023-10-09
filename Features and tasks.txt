@@ -39,7 +39,7 @@ clicked on that button again.. ✅
 26. Show loading spinner/text/pop-up when page is not fully loaded. 
 27. Removing Items once order is Placed. 
 28. Data must be saved and everything should be shown as per that (like
-saved fav's , added products in bag ). 
+saved fav's , added products in bag ). ✅
 29. Lazy loading for speed optimization.
 30. Responsive design( Mobile first ).
 31. Login/Sign-up functionality(front-end-part)✅ 
