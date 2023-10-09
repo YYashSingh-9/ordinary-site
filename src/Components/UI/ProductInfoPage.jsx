@@ -5,12 +5,9 @@ import { NavLink, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { actions } from "../../Store/StoreSlice";
-import { useRef } from "react";
-import {
-  addToCart_Function,
-  cartProductsLoader,
-} from "../../Store/ActionCreatorThunk";
-
+import { useRef, useState } from "react";
+import { addToCart_Function } from "../../Store/ActionCreatorThunk";
+import { queryClient } from "../../Store/ActionCreatorThunk";
 //THIS IS HOW THE RATINGS WILL BE DISPLAYED..
 const StarComponent = ({ starPassed }) => {
   const RatingStars = Array.from({ length: 5 }, (elem, index) => {
@@ -43,6 +40,7 @@ const Button = (props) => {
   );
 };
 const ProductInfoPage = () => {
+  const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
   const allProducts = useSelector((state) => state.sliceOne.arrayOfProducts);
   const addedProductsArray = useSelector(
     (state) => state.sliceOne.AddToCart_Array
@@ -52,7 +50,7 @@ const ProductInfoPage = () => {
   const pincodeValue = useSelector((state) => state.sliceOne.pincodeVal);
   const isLoggedIn = useSelector((state) => state.sliceOne.isLoggedInState);
   const currentUser = useSelector((state) => state.sliceOne.currentUserObject);
-  const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
+  const [btnState, setBtnState] = useState(true);
   const { id, catagory } = useParams();
   const ref = useRef();
   const dispatch = useDispatch();
@@ -72,19 +70,13 @@ const ProductInfoPage = () => {
     mutationFn: async () => {
       return await addToCart_Function(currentUser._id, productForCart, cookie);
     },
-  });
-  //GETTING THE CART ARRAY
-  const enableVal = cookie ? true : false;
-  const { data, isError, isPending } = useQuery({
-    queryKey: ["cartProd"],
-    queryFn: async () => {
-      return cartProductsLoader(cookie);
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["cartProd"] });
     },
-    enabled: enableVal,
   });
 
   // Checking if this product is added or not previously.
-  let mainArrayToFilter = !data === undefined ? data : addedProductsArray;
+  let mainArrayToFilter = addedProductsArray;
   const addedProd = mainArrayToFilter.find((el) => el.productId === _id);
 
   // For showing line-through price.
@@ -98,6 +90,7 @@ const ProductInfoPage = () => {
   //FUNCTIONS..
   const AddItemToCartHandler = () => {
     dispatch(actions.AddItemToCart(productGot));
+    setBtnState(false);
     mutate();
   };
   const favouriteItemHandler = () => {
@@ -147,7 +140,7 @@ const ProductInfoPage = () => {
                 <h4>Discount of 25%</h4>
               </div>
               <div className={classes.actionBtns}>
-                {!addedProd && isLoggedIn ? (
+                {!addedProd && btnState && isLoggedIn ? (
                   <Button
                     title="Add to Basket"
                     fnc={AddItemToCartHandler}

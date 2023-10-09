@@ -374,16 +374,17 @@ const StoreSlice = createSlice({
     totalRemoveFromCart(state, action) {
       const removingItemGot = action.payload;
       const removingItemFound = state.AddToCart_Array.find(
-        (el) => el.key === removingItemGot.key
+        (el) => el.productId === removingItemGot.productId
       );
-      if (removingItemFound)
+      if (removingItemFound) {
         state.TotalMrp = state.TotalMrp - removingItemFound.totalPrice;
-      state.DiscountPrice = (state.TotalMrp * 15) / 100;
-      state.CartTotal = state.TotalMrp - state.DiscountPrice;
-      const filteredArray = state.AddToCart_Array.filter(
-        (el) => el.key !== removingItemFound.key
-      );
-      state.AddToCart_Array = filteredArray;
+        state.DiscountPrice = (state.TotalMrp * 15) / 100;
+        state.CartTotal = state.TotalMrp - state.DiscountPrice;
+        const filteredArray = state.AddToCart_Array.filter(
+          (el) => el.productId !== removingItemFound.key
+        );
+        state.AddToCart_Array = filteredArray;
+      }
       if (state.AddToCart_Array.length > 0) {
         return;
       } else {
