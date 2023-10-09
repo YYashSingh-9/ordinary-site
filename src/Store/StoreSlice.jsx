@@ -507,15 +507,8 @@ const StoreSlice = createSlice({
     cartArray_Change(state, action) {
       let newArray = action.payload;
       let mrp = 0;
-      const cartArray = JSON.parse(localStorage.getItem("cart-data"));
-      if (!cartArray) {
-        return;
-      }
-      localStorage.clear();
-      localStorage.setItem("cart-data", JSON.stringify(newArray));
-      newArray = localStorage.getItem("cart-data");
       state.AddToCart_Array = newArray;
-
+      console.log(newArray);
       for (let key in state.AddToCart_Array) {
         mrp += state.AddToCart_Array[key].totalPrice;
       }

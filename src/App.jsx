@@ -12,14 +12,10 @@ function App() {
   const document = useLoaderData();
   const dispatch = useDispatch();
   const cookieToken = useSelector((state) => state.sliceOne.cookieTokenVal);
-  const cartArray = useSelector((state) => state.sliceOne.AddToCart_Array);
 
   useEffect(() => {
     dispatch(actions.productsArray_Change(document.data));
-    if (cartArray.length > 0) {
-      dispatch(actions.cartArray_Change(cartArray));
-    }
-  }, [document, cartArray]);
+  }, [document]);
   useEffect(() => {
     dispatch(actions.get_token_from_localStorage());
   }, [cookieToken]);
