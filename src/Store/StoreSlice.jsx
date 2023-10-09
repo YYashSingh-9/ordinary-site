@@ -508,7 +508,6 @@ const StoreSlice = createSlice({
       let newArray = action.payload;
       let mrp = 0;
       state.AddToCart_Array = newArray;
-      console.log(newArray);
       for (let key in state.AddToCart_Array) {
         mrp += state.AddToCart_Array[key].totalPrice;
       }
