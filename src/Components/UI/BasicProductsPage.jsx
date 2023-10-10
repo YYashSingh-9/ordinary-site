@@ -78,9 +78,9 @@ const BasicProductsPage = () => {
     finalProductsArrayToDisplay = finalProductsArrayToDisplay.filter((el) => {
       return el.catagory === typeSelected;
     });
-  if (typeSelected === null) {
+  if (typeSelected === "none") {
     finalProductsArrayToDisplay =
-      paramRecieved === "bestsellers" ? productList : specificProductArray;
+      paramRecieved === "Bestsellers" ? productList : specificProductArray;
   }
   //3.Search filtering
   if (searchTerm)
