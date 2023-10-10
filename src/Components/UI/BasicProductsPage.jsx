@@ -72,7 +72,6 @@ const BasicProductsPage = () => {
   finalProductsArrayToDisplay = finalProductsArrayToDisplay.filter((el) => {
     return el.price >= minPrice && el.price <= maxPrice;
   });
-  console.log(finalProductsArrayToDisplay);
   //2.Type selection..
   if (typeSelected !== null)
     finalProductsArrayToDisplay = finalProductsArrayToDisplay.filter((el) => {
@@ -81,6 +80,7 @@ const BasicProductsPage = () => {
   if (typeSelected === "none") {
     finalProductsArrayToDisplay =
       paramRecieved === "Bestsellers" ? productList : specificProductArray;
+    console.log(finalProductsArrayToDisplay);
   }
   //3.Search filtering
   if (searchTerm)
