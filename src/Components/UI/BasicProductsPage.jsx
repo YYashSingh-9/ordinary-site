@@ -1,12 +1,13 @@
 import classes from "./BasicProductsPage.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
-import ProductItem from "../ChildComponents/ProductItem";
-import { CiFilter } from "react-icons/ci";
-import FilterComponent from "../ChildComponents/FilterComponent";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { CiFilter } from "react-icons/ci";
+import { cartProductsLoader } from "../../Store/ActionCreatorThunk";
+import ProductItem from "../ChildComponents/ProductItem";
+import FilterComponent from "../ChildComponents/FilterComponent";
 
 //THIS PAGE IS USED AS A SHELL FOR MANY ROUTES :) ONLY DATA CHANGES -D.R.Y
 //HELPER FUNCTIONS
