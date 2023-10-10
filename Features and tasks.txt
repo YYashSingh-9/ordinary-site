@@ -37,7 +37,7 @@ clicked on that button again.. ✅
 24. Small v.1 functionality of checking/toggling pincode in productinfo page.✅ 
 25. Show nice popup when item is added to fav list , when added to bag and when order is placed 
 26. Show loading spinner/text/pop-up when page is not fully loaded. 
-27. Removing Items once order is Placed. 
+27. Removing Items once order is Placed. ✅
 28. Data must be saved and everything should be shown as per that (like
 saved fav's , added products in bag ). ✅
 29. Lazy loading for speed optimization.
@@ -47,4 +47,4 @@ saved fav's , added products in bag ). ✅
 33. Update Password.✅
 34. Update Account Data(name,email etc).cart✅
 35. Allowing to perform main(secure route)features only when user is loggedin(with jwt token).✅
-36. My-orders functionality and dedicated page. 
+36. My-orders functionality and dedicated page. ✅
