@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import emptyCartImage from "../../assets/market.png";
 import { NavLink } from "react-router-dom";
 import { actions } from "../../Store/StoreSlice.jsx";
+import { getMyOrders } from "../../Store/ActionCreatorThunk";
 
 //HELPER JSX COMPONENTS
 const OrderCard = (props) => {

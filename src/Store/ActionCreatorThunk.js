@@ -181,6 +181,11 @@ export const placeOrder_Function = async (productIDs, cookie) => {
     cookie
   );
 };
+export const getMyOrders = async (cookie) => {
+  const doc = await fetchFunction("orders", cookie);
+  console.log(doc);
+  return doc;
+};
 //1.Getting all the products from server.
 export const loader = () => {
   return fetchFunction("products");
