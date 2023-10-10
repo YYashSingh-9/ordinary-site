@@ -36,7 +36,14 @@ const BasicProductsPage = () => {
     (state) => state.sliceOne.typeSelectVariable
   );
   const dispatch = useDispatch();
-
+  const enableVal = cookie ? true : false;
+  const { data, isError, isPending } = useQuery({
+    queryKey: ["cartProd"],
+    queryFn: async () => {
+      return cartProductsLoader(cookie);
+    },
+    enabled: enableVal,
+  });
   //THIS IS DONE TO REMOVE SUB MENU BECAUSE USER CLICKS THE SCREEN TO REMOVE POPUPS WHICH IS WE TARGET THIS DIV FOR THIS WORK
   const submenuRemover = () => {
     if (!catalogueState) {
