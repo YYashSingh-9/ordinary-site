@@ -82,7 +82,7 @@ const WhenLoggedIn = () => {
             <SideDivs
               title="overview"
               pThere={false}
-              link="/my_orders/redirect-to-order"
+              link="/account-details/my_orders"
             />
             <SideDivs
               title="orders"
