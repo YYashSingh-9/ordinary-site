@@ -6,6 +6,8 @@ import { CiFilter } from "react-icons/ci";
 import FilterComponent from "../ChildComponents/FilterComponent";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+
 //THIS PAGE IS USED AS A SHELL FOR MANY ROUTES :) ONLY DATA CHANGES -D.R.Y
 //HELPER FUNCTIONS
 const paramConversion = (stringPassed) => {
@@ -83,6 +85,14 @@ const BasicProductsPage = () => {
       el.title.includes(searchTerm)
     );
 
+  useEffect(() => {
+    dispatch(actions.get_token_from_localStorage());
+    if (data === undefined) return;
+    if (data.status === "success") {
+      console.log(data.data);
+      dispatch(actions.cartArray_Change(data.data));
+    }
+  }, [data, cookie]);
   return (
     <>
       <section className={classes.thisSection} onClick={submenuRemover}>

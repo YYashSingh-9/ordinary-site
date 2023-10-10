@@ -8,7 +8,6 @@ import { cartProductsLoader } from "../../Store/ActionCreatorThunk";
 
 const Cart = () => {
   const isCartEmpty = useSelector((state) => state.sliceOne.isCartEmpty);
-  const isLoggedIn = useSelector((state) => state.sliceOne.isLoggedInState);
   const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
   const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
   const dispatch = useDispatch();
