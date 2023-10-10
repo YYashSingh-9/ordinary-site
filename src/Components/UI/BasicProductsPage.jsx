@@ -80,7 +80,6 @@ const BasicProductsPage = () => {
   if (typeSelected === "none") {
     finalProductsArrayToDisplay =
       paramRecieved === "Bestsellers" ? productList : specificProductArray;
-    console.log(finalProductsArrayToDisplay);
   }
   //3.Search filtering
   if (searchTerm)
