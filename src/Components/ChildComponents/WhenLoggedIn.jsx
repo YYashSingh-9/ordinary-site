@@ -5,10 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
 
 const SideDivs = (props) => {
+  const link = props.link ? props.link : "";
   return (
     <>
       <div className={classes.sideDiv}>
-        <h3>{props.title}</h3>
+        <h3>
+          <NavLink to={link}>{props.title}</NavLink>
+        </h3>
         {props.pThere && <p>{props.pText}</p>}
       </div>
     </>
@@ -76,10 +79,29 @@ const WhenLoggedIn = () => {
         </div>
         <div className={classes.secondDiv}>
           <div className={classes.leftSideDiv}>
-            <SideDivs title="overview" pThere={false} />
-            <SideDivs title="orders" pThere={true} pText="orders & returns" />
-            <SideDivs title="credits" pThere={true} pText="coupons" />
-            <SideDivs title="legal" pThere={true} pText="terms of use" />
+            <SideDivs
+              title="overview"
+              pThere={false}
+              link="/my_orders/redirect-to-order"
+            />
+            <SideDivs
+              title="orders"
+              pThere={true}
+              pText="orders & returns"
+              link={false}
+            />
+            <SideDivs
+              title="credits"
+              pThere={true}
+              pText="coupons"
+              link={false}
+            />
+            <SideDivs
+              title="legal"
+              pThere={true}
+              pText="terms of use"
+              link={false}
+            />
           </div>
           <div className={classes.rightSideDiv}>
             <div className={classes.pTitle}>

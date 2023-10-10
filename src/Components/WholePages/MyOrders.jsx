@@ -5,6 +5,7 @@ import emptyCartImage from "../../assets/market.png";
 import { NavLink } from "react-router-dom";
 import { actions } from "../../Store/StoreSlice.jsx";
 import { getMyOrders } from "../../Store/ActionCreatorThunk";
+import { useQuery } from "@tanstack/react-query";
 
 //HELPER JSX COMPONENTS
 const OrderCard = (props) => {
@@ -64,6 +65,13 @@ const EmptyCart = (props) => {
 const MyOrders = () => {
   const productList = useSelector((state) => state.sliceOne.arrayOfProducts);
   const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
+  const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
+  const { data } = useQuery({
+    queryKey: ["ordersProd"],
+    queryFn: () => {
+      return getMyOrders(cookie);
+    },
+  });
   const dispatch = useDispatch();
   //THIS IS DONE TO REMOVE SUB MENU BECAUSE USER CLICKS THE SCREEN TO REMOVE POPUPS WHICH IS WE TARGET THIS DIV FOR THIS WORK
   const submenuRemover = () => {
@@ -72,9 +80,6 @@ const MyOrders = () => {
     }
     dispatch(actions.CatalogueToggler("removeSubMenu"));
   };
-  const favarray = productList.filter((elem) => {
-    return elem.isFav === true;
-  });
 
   return (
     <>
