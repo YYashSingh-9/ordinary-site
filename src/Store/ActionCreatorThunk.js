@@ -3,8 +3,9 @@ import { QueryClient } from "@tanstack/react-query";
 export const queryClient = new QueryClient();
 
 // FETCH TEMPLATE FUNCTION _____
-export const fetchFunction = async (type, cookie) => {
+export const fetchFunction = async (type, cookie, additional) => {
   let url = `http://127.0.0.1:3000/api/v2/${type}`;
+  additional ? (url += `/${additional}`) : "";
   if (!cookie) {
     const doc = await fetch(url);
     const doc2 = await doc.json();
@@ -182,7 +183,7 @@ export const placeOrder_Function = async (productIDs, cookie) => {
   );
 };
 export const getMyOrders = async (cookie) => {
-  const doc = await fetchFunction("orders", cookie);
+  const doc = await fetchFunction("orders", cookie, "my-orders");
   console.log(doc);
   return doc;
 };

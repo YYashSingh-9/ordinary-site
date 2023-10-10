@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import { actions } from "../../Store/StoreSlice.jsx";
 import { getMyOrders } from "../../Store/ActionCreatorThunk";
 import { useQuery } from "@tanstack/react-query";
-
+import { useEffect } from "react";
 //HELPER JSX COMPONENTS
 const OrderCard = (props) => {
   const { title, price, images, key, isFav, _id } = props.elem;
@@ -66,14 +66,15 @@ const MyOrders = () => {
   const productList = useSelector((state) => state.sliceOne.arrayOfProducts);
   const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
   const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
+  const dispatch = useDispatch();
+  const enableVal = cookie ? true : false;
   const { data } = useQuery({
     queryKey: ["ordersProd"],
     queryFn: () => {
       return getMyOrders(cookie);
     },
+    enabled: enableVal,
   });
-  console.log(data);
-  const dispatch = useDispatch();
   //THIS IS DONE TO REMOVE SUB MENU BECAUSE USER CLICKS THE SCREEN TO REMOVE POPUPS WHICH IS WE TARGET THIS DIV FOR THIS WORK
   const submenuRemover = () => {
     if (!catalogueState) {
@@ -81,7 +82,9 @@ const MyOrders = () => {
     }
     dispatch(actions.CatalogueToggler("removeSubMenu"));
   };
-
+  useEffect(() => {
+    dispatch(actions.get_token_from_localStorage());
+  }, [cookie]);
   return (
     <>
       <EmptyCart toggleFn={submenuRemover} />
