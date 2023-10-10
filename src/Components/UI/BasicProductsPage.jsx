@@ -89,10 +89,8 @@ const BasicProductsPage = () => {
 
   useEffect(() => {
     dispatch(actions.get_token_from_localStorage());
-    console.log("gc");
     if (data === undefined) return;
     if (data.status === "success") {
-      console.log(data.data);
       dispatch(actions.cartArray_Change(data.data));
     }
   }, [data, cookie]);

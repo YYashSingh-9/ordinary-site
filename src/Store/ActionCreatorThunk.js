@@ -26,7 +26,7 @@ export const fetchFunction = async (type, cookie) => {
       redirect: "follow",
     });
     const doc2 = await doc.json();
-    console.log(doc2);
+
     return doc2;
   }
 };
