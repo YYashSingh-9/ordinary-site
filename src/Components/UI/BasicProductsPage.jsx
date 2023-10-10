@@ -34,6 +34,7 @@ const BasicProductsPage = () => {
   const minPrice = useSelector((state) => state.sliceOne.minPriceVal);
   const maxPrice = useSelector((state) => state.sliceOne.maxPriceVal);
   const searchTerm = useSelector((state) => state.sliceOne.searchedTerm);
+  const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
   const typeSelected = useSelector(
     (state) => state.sliceOne.typeSelectVariable
   );
