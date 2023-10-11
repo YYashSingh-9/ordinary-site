@@ -60,7 +60,9 @@ const SignupForm = () => {
           <br />
           <input type="password" name="passwordConfirm" id="cpassword_input" />
           <br />
-          <button type="submit">Sign-up</button>
+          <button type="submit" name="intent" value="signup">
+            Sign-up
+          </button>
         </Form>
       </div>
     </>

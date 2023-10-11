@@ -103,6 +103,11 @@ export const login_Signup_Request = async ({ request }) => {
     const finalVal = returned_val ? returned_val : returned_val_PW;
     return finalVal;
   }
+  if (intent === "signup") {
+    console.log(doc2);
+    const data = await dataSendRequest("user", "signup", "POST", doc2);
+    return data;
+  }
 };
 export const testCart = async (cookie) => {
   let url = `http://127.0.0.1:3000/api/v2/cart/`;
