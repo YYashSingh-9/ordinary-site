@@ -13,3 +13,13 @@ exports.modifyOrderMiddleware = CatchAsync(async (req, res, next) => {
   await Cart.deleteMany({ _id: { $in: cartIds } });
   next();
 });
+exports.orderModifier = async (req, res, next) => {
+  const userId = req.user._id;
+  const doc = await Order.find({ user: { $in: userId } });
+  req.body = doc;
+  console.log(doc);
+  res.status(200).json({
+    status: "success",
+    data: doc,
+  });
+};

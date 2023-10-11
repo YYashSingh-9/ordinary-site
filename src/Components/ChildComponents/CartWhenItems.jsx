@@ -59,7 +59,7 @@ const CartWhenItems = (props) => {
       return placeOrder_Function(orderProductIDs, cookieToken);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["cartProd"] });
+      queryClient.invalidateQueries({ queryKey: ["cartProd", "ordersProd"] });
       Navigate("/my_orders/redirect-to-order");
     },
   });

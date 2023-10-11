@@ -7,7 +7,8 @@ const OrdersRouter = express.Router();
 OrdersRouter.use(AuthController.protect);
 
 OrdersRouter.route("/my-orders")
-  .get(OrderController.getAllOrders)
+  .get(OrderController.orderModifier)
   .post(OrderController.modifyOrderMiddleware, OrderController.postOrder);
 
+OrdersRouter.route("/all-orders").get(OrderController.getAllOrders);
 module.exports = OrdersRouter;
