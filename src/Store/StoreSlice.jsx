@@ -542,6 +542,7 @@ const StoreSlice = createSlice({
         return {
           ...el,
           isFav: arrayGot.find((al) => el.title === al.title)?.isFav,
+          favId: arrayGot.find((al) => el.title === al.title)?._id,
         };
       });
       state.arrayOfProducts = arrayMain;
