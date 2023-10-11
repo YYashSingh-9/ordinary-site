@@ -287,6 +287,7 @@ const initialState_one = {
   currentUserObject: currentUser,
   whichFormToShow: true,
   cartProductToBePatched: "",
+  myOrders: [],
 };
 
 const StoreSlice = createSlice({
@@ -530,7 +531,7 @@ const StoreSlice = createSlice({
       const arr = arrayReceived.map((el) => {
         return { ...el, images: `../assets/products/${el.images}` };
       });
-      console.log(arr);
+      state.myOrders = arr;
     },
   },
 });

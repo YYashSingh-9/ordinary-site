@@ -13,11 +13,6 @@ const OrderCard = (props) => {
   return (
     <>
       <div className={classes.favCardParentDiv}>
-        <div className={classes.imgAndCloseDiv}>
-          <div className={classes.favImg}>
-            <img src={images} />
-          </div>
-        </div>
         <div className={classes.productInfos}>
           <div className={classes.title}>
             <h3>{title}</h3>
@@ -63,7 +58,7 @@ const EmptyCart = (props) => {
 };
 
 const MyOrders = () => {
-  const productList = useSelector((state) => state.sliceOne.arrayOfProducts);
+  const myOrders = useSelector((state) => state.sliceOne.myOrders);
   const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
   const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
   const dispatch = useDispatch();
@@ -90,17 +85,20 @@ const MyOrders = () => {
   }, [cookie]);
   return (
     <>
-      <EmptyCart toggleFn={submenuRemover} />
-      {/* <section className={classes.CartSection}>
-        <div className={classes.cartHeading}>
-          <h2>MY ORDERS</h2>
-        </div>
-        <div className={classes.cartProductListDiv}>
-          {productList
-            .map((el) => <OrderCard key={el.key} elem={el} />)
-            .slice(0, 2)}
-        </div>
-      </section> */}
+      {myOrders.length ? (
+        <section className={classes.CartSection}>
+          <div className={classes.cartHeading}>
+            <h2>MY ORDERS</h2>
+          </div>
+          <div className={classes.cartProductListDiv}>
+            {myOrders.map((el) => (
+              <OrderCard key={el._id} elem={el} />
+            ))}
+          </div>
+        </section>
+      ) : (
+        <EmptyCart toggleFn={submenuRemover} />
+      )}
     </>
   );
 };

@@ -11,10 +11,10 @@
 }
 .favCardParentDiv {
   max-width: 20rem;
-  max-height: 35rem;
+  max-height: 25rem;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 19rem 6rem 8rem;
+  grid-template-rows: 14rem 6rem;
   border: 0.1rem solid rgb(205, 205, 205);
 }
 .imgAndCloseDiv {
