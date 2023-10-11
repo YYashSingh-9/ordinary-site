@@ -11,6 +11,7 @@ const productRouter = require("./routes/productsRouter");
 const UserRouter = require("./routes/userRouter");
 const cartRouter = require("./routes/cartRouter");
 const OrderRouter = require("./routes/ordersRouter");
+const FavsRouter = require("./routes/FavRouter");
 const ErrorController = require("./controllers/ErrorController");
 const appError = require("./Util/appError");
 
@@ -55,6 +56,7 @@ app.use("/api/v2/products", productRouter); //Products.
 app.use("/api/v2/user", UserRouter); //Users.
 app.use("/api/v2/cart", cartRouter); //Cart.
 app.use("/api/v2/orders", OrderRouter); //Orders.
+app.use("/api/v2/favs", FavsRouter); //Favs.
 
 app.all("*", (req, res, next) => {
   const err = new appError(`Can't identify this url${req.originalUrl}`, 400);

@@ -3,7 +3,8 @@ const DefaultController = require("./DefaultController");
 const CatchAsync = require("../Util/CatchAsync");
 
 exports.postFavProduct = DefaultController.DefaultCreateOne(Fav);
-exports.getYourFavs = CatchAsync(async () => {
+exports.updateFavState = DefaultController.DefaultUpdateOne(Fav);
+exports.getYourFavs = CatchAsync(async (req, res, next) => {
   const userId = req.user._id;
   const doc = await Fav.find({ user: { $in: userId } });
   req.body = doc;

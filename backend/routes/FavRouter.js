@@ -6,6 +6,6 @@ const FavsRouter = express.Router();
 FavsRouter.use(AuthController.protect);
 FavsRouter.route("/my-favs")
   .get(FavController.getYourFavs)
-  .post(FavController.postFavProduct);
-
+  .post(FavController.postFavProduct)
+  .patch(FavController.updateFavState);
 module.exports = FavsRouter;
