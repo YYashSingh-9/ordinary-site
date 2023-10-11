@@ -58,7 +58,6 @@ const EmptyCart = (props) => {
 };
 
 const MyOrders = () => {
-  const myOrders = useSelector((state) => state.sliceOne.myOrders);
   const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
   const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
   const dispatch = useDispatch();
@@ -79,19 +78,16 @@ const MyOrders = () => {
   };
   useEffect(() => {
     dispatch(actions.get_token_from_localStorage());
-    if (data) {
-      dispatch(actions.orderedProductsChange(data.data));
-    }
   }, [cookie]);
   return (
     <>
-      {myOrders.length >= 1 ? (
+      {data.data.length >= 1 ? (
         <section className={classes.CartSection}>
           <div className={classes.cartHeading}>
             <h2>MY ORDERS</h2>
           </div>
           <div className={classes.cartProductListDiv}>
-            {myOrders.map((el) => (
+            {data.data.map((el) => (
               <OrderCard key={el._id} elem={el} />
             ))}
           </div>

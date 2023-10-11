@@ -287,7 +287,6 @@ const initialState_one = {
   currentUserObject: currentUser,
   whichFormToShow: true,
   cartProductToBePatched: "",
-  myOrders: [],
 };
 
 const StoreSlice = createSlice({
@@ -525,13 +524,6 @@ const StoreSlice = createSlice({
       const productId = action.payload;
       const product = state.AddToCart_Array.find((el) => el._id === productId);
       state.cartProductToBePatched = product;
-    },
-    orderedProductsChange(state, action) {
-      const arrayReceived = action.payload;
-      const arr = arrayReceived.map((el) => {
-        return { ...el, images: `../assets/products/${el.images}` };
-      });
-      state.myOrders = arr;
     },
   },
 });
