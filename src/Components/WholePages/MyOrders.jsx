@@ -84,6 +84,9 @@ const MyOrders = () => {
   };
   useEffect(() => {
     dispatch(actions.get_token_from_localStorage());
+    if (data) {
+      dispatch(actions.orderedProductsChange(data.data));
+    }
   }, [cookie]);
   return (
     <>

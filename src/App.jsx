@@ -25,6 +25,7 @@ function App() {
   });
   useEffect(() => {
     dispatch(actions.productsArray_Change(document.data));
+    console.log(document.data);
     if (data === undefined) return;
     if (data.status === "success") {
       console.log(data.data);

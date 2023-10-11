@@ -460,6 +460,7 @@ const StoreSlice = createSlice({
       const arrayRecieved = action.payload;
       const imagesArray = state.imagesArray;
       const dupArray = state.arrayOfProducts;
+      console.log(current(dupArray));
       const arr = dupArray.map((el, ind) => {
         return { ...arrayRecieved[ind], images: imagesArray[ind] };
       });
@@ -523,6 +524,13 @@ const StoreSlice = createSlice({
       const productId = action.payload;
       const product = state.AddToCart_Array.find((el) => el._id === productId);
       state.cartProductToBePatched = product;
+    },
+    orderedProductsChange(state, action) {
+      const arrayReceived = action.payload;
+      const arr = arrayReceived.map((el) => {
+        return { ...el, images: `../assets/products/${el.images}` };
+      });
+      console.log(arr);
     },
   },
 });
