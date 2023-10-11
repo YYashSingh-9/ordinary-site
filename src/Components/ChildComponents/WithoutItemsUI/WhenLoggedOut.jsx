@@ -48,13 +48,17 @@ const SignupForm = () => {
             id="email_input"
           />
           <br />
+          <label htmlFor="mobile_number">Mobile Number</label>
+          <br />
+          <input type="number" name="mobilenumber" id="mobile_number" />
+          <br />
           <label htmlFor="password_input">Initial Password</label>
           <br />
           <input type="password" name="password" id="password_input" />
           <br />
           <label htmlFor="cpassword_input">Confirm Password</label>
           <br />
-          <input type="password" name="confirm password" id="cpassword_input" />
+          <input type="password" name="passwordConfirm" id="cpassword_input" />
           <br />
           <button type="submit">Sign-up</button>
         </Form>

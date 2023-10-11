@@ -9,7 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 //HELPER JSX COMPONENTS
 const OrderCard = (props) => {
-  const { title, price, images, key, isFav, _id } = props.elem;
+  const { title, price } = props.elem;
   return (
     <>
       <div className={classes.favCardParentDiv}>
