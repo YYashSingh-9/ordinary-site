@@ -192,6 +192,10 @@ export const getMyOrders = async (cookie) => {
   console.log(doc);
   return doc;
 };
+export const getMyFavs = async (cookie) => {
+  const data = await fetchFunction("favs", cookie, "my-favs");
+  return data;
+};
 //1.Getting all the products from server.
 export const loader = () => {
   return fetchFunction("products");

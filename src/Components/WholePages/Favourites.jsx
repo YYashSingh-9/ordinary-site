@@ -1,8 +1,10 @@
-import { useSelector, useDispatch } from "react-redux";
 import classes from "./Favourites.module.css";
-import { actions } from "../../Store/StoreSlice";
 import FavouriteCard from "../UI/FavouriteCard";
 import WithoutItems from "../UI/WithoutItems";
+import { useSelector, useDispatch } from "react-redux";
+import { actions } from "../../Store/StoreSlice";
+import { useQuery } from "@tanstack/react-query";
+import { getMyFavs } from "../../Store/ActionCreatorThunk";
 const FavWhenItems = (props) => {
   let buttonState = true;
   const submenuFn = () => {
@@ -23,12 +25,20 @@ const FavWhenItems = (props) => {
     </>
   );
 };
-{
-  /* <CartProductItem key={el.key} elem={el} />; */
-}
+
 const Favourites = () => {
   const productList = useSelector((state) => state.sliceOne.arrayOfProducts);
   const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
+  const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
+  const enableVal = cookie ? true : false;
+  const { data, isError, isPending } = useQuery({
+    queryKey: ["cartProd"],
+    queryFn: async () => {
+      return getMyFavs(cookie);
+    },
+    enabled: enableVal,
+  });
+  console.log(data);
   const dispatch = useDispatch();
   //THIS IS DONE TO REMOVE SUB MENU BECAUSE USER CLICKS THE SCREEN TO REMOVE POPUPS WHICH IS WE TARGET THIS DIV FOR THIS WORK
   const submenuRemover = () => {
