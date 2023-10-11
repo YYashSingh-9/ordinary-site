@@ -9,4 +9,6 @@ FavsRouter.route("/my-favs")
   .get(FavController.getYourFavs)
   .post(FavController.postFavProduct)
   .patch(CartController.id_value_changer, FavController.updateFavState);
+
+FavsRouter.route("/delete-fav").delete(FavController.deleteFav);
 module.exports = FavsRouter;
