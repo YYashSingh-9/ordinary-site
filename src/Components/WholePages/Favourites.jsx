@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
 import { useQuery } from "@tanstack/react-query";
 import { getMyFavs } from "../../Store/ActionCreatorThunk";
+import { useEffect } from "react";
 const FavWhenItems = (props) => {
   let buttonState = true;
   const submenuFn = () => {
@@ -38,7 +39,6 @@ const Favourites = () => {
     },
     enabled: enableVal,
   });
-  console.log(data);
   const dispatch = useDispatch();
   //THIS IS DONE TO REMOVE SUB MENU BECAUSE USER CLICKS THE SCREEN TO REMOVE POPUPS WHICH IS WE TARGET THIS DIV FOR THIS WORK
   const submenuRemover = () => {
@@ -50,7 +50,13 @@ const Favourites = () => {
   const favarray = productList.filter((elem) => {
     return elem.isFav === true;
   });
-
+  useEffect(() => {
+    dispatch(actions.get_token_from_localStorage());
+    if (data && data.status === "success") {
+      console.log(data);
+      dispatch(actions.products_Modified_With_Fav(data));
+    }
+  }, [cookie, data]);
   return (
     <>
       {favarray.length ? (

@@ -263,6 +263,7 @@ const initialState_one = {
   arrayOfProducts: allProducts,
   catalogueState: false,
   FavouriteItems: [],
+  isThereAFav: false,
   CartTotal: 0,
   DiscountPrice: 0,
   TotalMrp: 0,
@@ -314,6 +315,7 @@ const StoreSlice = createSlice({
       let filteredArray = state.arrayOfProducts.filter(
         (el) => el.isFav === true
       );
+      state.isThereAFav = true;
       state.FavouriteItems = filteredArray;
     },
     searchModalToggler(state, action) {
@@ -533,7 +535,20 @@ const StoreSlice = createSlice({
       });
       state.myOrders = arr;
     },
+    products_Modified_With_Fav(state, action) {
+      const arrayGot = action.payload.data;
+      const defaultArray = state.arrayOfProducts;
+      const arrayMain = defaultArray.map((el) => {
+        return {
+          ...el,
+          isFav: arrayGot.find((al) => el.title === al.title)?.isFav,
+        };
+      });
+      state.arrayOfProducts = arrayMain;
+      state.isThereAFav = true;
+    },
   },
 });
+// el.isFav = arrayGot.find((al) => el.title === al.title);
 export const actions = StoreSlice.actions;
 export default StoreSlice;

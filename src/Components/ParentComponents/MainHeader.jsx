@@ -12,6 +12,7 @@ const MainHeader = () => {
   const navData = useSelector((state) => state.sliceOne.navItems);
   const CartData = useSelector((state) => state.sliceOne.AddToCart_Array);
   const favouriteItems = useSelector((state) => state.sliceOne.FavouriteItems);
+  const favState = useSelector((state) => state.sliceOne.isThereAFav);
   const searchbarValue = useSelector((state) => state.sliceOne.searchBarVal);
   const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ const MainHeader = () => {
   const inputref = useRef();
 
   // Conditional style for red heart when item is added in fav item list..
-  const favStyle = favouriteItems.length > 0 ? classes.favOn : " ";
+  const favStyle = favState ? classes.favOn : " ";
   //THIS IS DONE TO REMOVE SUB MENU BECAUSE USER CLICKS THE SCREEN TO REMOVE POPUPS WHICH IS WE TARGET THIS DIV FOR THIS WORK
   const submenuRemover = () => {
     if (!catalogueState) {
