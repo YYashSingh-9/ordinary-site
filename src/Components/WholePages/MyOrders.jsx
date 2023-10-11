@@ -81,7 +81,7 @@ const MyOrders = () => {
   }, [cookie]);
   return (
     <>
-      {data.data.length >= 1 ? (
+      {myOrders.length >= 1 ? (
         <section className={classes.CartSection}>
           <div className={classes.cartHeading}>
             <h2>MY ORDERS</h2>
