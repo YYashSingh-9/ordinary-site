@@ -13,7 +13,7 @@ exports.modifyOrderMiddleware = CatchAsync(async (req, res, next) => {
   await Cart.deleteMany({ _id: { $in: cartIds } });
   next();
 });
-exports.orderModifier = async (req, res, next) => {
+exports.orderModifier = CatchAsync(async (req, res, next) => {
   const userId = req.user._id;
   const doc = await Order.find({ user: { $in: userId } });
   req.body = doc;
@@ -22,4 +22,4 @@ exports.orderModifier = async (req, res, next) => {
     status: "success",
     data: doc,
   });
-};
+});
