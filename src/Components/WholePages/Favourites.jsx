@@ -31,15 +31,16 @@ const Favourites = () => {
   const productList = useSelector((state) => state.sliceOne.arrayOfProducts);
   const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
   const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
+  const dispatch = useDispatch();
   const enableVal = cookie ? true : false;
   const { data, isError, isPending } = useQuery({
-    queryKey: ["cartProd"],
+    queryKey: ["favProd"],
     queryFn: async () => {
       return getMyFavs(cookie);
     },
     enabled: enableVal,
   });
-  const dispatch = useDispatch();
+
   //THIS IS DONE TO REMOVE SUB MENU BECAUSE USER CLICKS THE SCREEN TO REMOVE POPUPS WHICH IS WE TARGET THIS DIV FOR THIS WORK
   const submenuRemover = () => {
     if (!catalogueState) {

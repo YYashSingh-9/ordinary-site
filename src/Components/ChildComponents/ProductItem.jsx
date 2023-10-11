@@ -1,26 +1,33 @@
 import classes from "./ProductItem.module.css";
 import LiCard from "../UI/LiCard";
 import { BsHeart } from "react-icons/bs";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
 import { NavLink } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
-import { favToggler } from "../../Store/ActionCreatorThunk";
+import { postFav } from "../../Store/ActionCreatorThunk";
 
 // THIS IS THE PRODUCT CARD(PRODUCTS) SEEN EVERYWHERE ..
 const ProductItem = (props) => {
-  const { title, price, images, key, isFav, catagory, _id } = props.elem;
+  const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
+  const currentUser = useSelector((state) => state.sliceOne.currentUserObject);
   const dispatch = useDispatch();
+  const { title, price, images, key, isFav, catagory, _id } = props.elem;
   const { mutate } = useMutation({
-    mutationKey: ["fav-state", key],
-    mutationFn: () => {
-      return favToggler(isFav, _id);
+    mutationKey: ["fav-state-post", key],
+    mutationFn: (condition) => {
+      return postFav(props.elem, cookie, currentUser._id, condition);
     },
   });
 
   const favouriteOnClick = (e) => {
+    if (!isFav) {
+      mutate("postFav");
+    }
+    if (isFav) {
+      mutate("deleteFav");
+    }
     dispatch(actions.FavouriteToggler(key));
-    mutate();
   };
 
   //This is done to disable clicking the heart again after it is pushed to fav list by user

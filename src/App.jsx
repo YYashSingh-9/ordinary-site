@@ -8,7 +8,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { actions } from "./Store/StoreSlice";
 import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { cartProductsLoader } from "./Store/ActionCreatorThunk";
+import { cartProductsLoader, getMyFavs } from "./Store/ActionCreatorThunk";
+
+const customQueryHook = (enableVal, cookie) => {
+  const productLoader = useQuery({
+    queryKey: ["cartProd"],
+    queryFn: async () => {
+      return cartProductsLoader(cookie);
+    },
+    enabled: enableVal,
+  });
+  const favsLoader = useQuery({
+    queryKey: ["favProd"],
+    queryFn: async () => {
+      return getMyFavs(cookie);
+    },
+    enabled: enableVal,
+  });
+  return [productLoader, favsLoader];
+};
 
 function App() {
   const document = useLoaderData();
@@ -16,16 +34,23 @@ function App() {
   const cookieToken = useSelector((state) => state.sliceOne.cookieTokenVal);
 
   const enableVal = cookieToken ? true : false;
-  const { data, isError, isPending } = useQuery({
-    queryKey: ["cartProd"],
-    queryFn: async () => {
-      return cartProductsLoader(cookieToken);
-    },
-    enabled: enableVal,
-  });
+  // const { data, isError, isPending } = useQuery({
+  //   queryKey: ["cartProd"],
+  //   queryFn: async () => {
+  //     return cartProductsLoader(cookieToken);
+  //   },
+  //   enabled: enableVal,
+  // });
+  const [{ data: ProdData }, { data: FavData }] = customQueryHook(
+    enableVal,
+    cookieToken
+  );
+
+  const data = ProdData;
+  const data2 = FavData;
+  console.log(data2);
   useEffect(() => {
     dispatch(actions.productsArray_Change(document.data));
-    console.log(document.data);
     if (data === undefined) return;
     if (data.status === "success") {
       console.log(data.data);

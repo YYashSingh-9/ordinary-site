@@ -196,6 +196,27 @@ export const getMyFavs = async (cookie) => {
   const data = await fetchFunction("favs", cookie, "my-favs");
   return data;
 };
+export const postFav = async (productObj, cookie, userId, condition) => {
+  if (condition === "postFav") {
+    const data_to_send = {
+      productId: productObj._id,
+      user: userId,
+      title: productObj.title,
+      price: productObj.price,
+      isFav: productObj.isFav,
+    };
+    const doc = await dataSendRequest(
+      "favs",
+      "my-favs",
+      "POST",
+      data_to_send,
+      cookie
+    );
+    console.log(doc);
+    return doc;
+  } else if (condition === "deleteFav") {
+  }
+};
 //1.Getting all the products from server.
 export const loader = () => {
   return fetchFunction("products");
