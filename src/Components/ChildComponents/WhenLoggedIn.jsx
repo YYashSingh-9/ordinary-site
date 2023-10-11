@@ -79,16 +79,12 @@ const WhenLoggedIn = () => {
         </div>
         <div className={classes.secondDiv}>
           <div className={classes.leftSideDiv}>
-            <SideDivs
-              title="overview"
-              pThere={false}
-              link="/account-details/my_orders"
-            />
+            <SideDivs title="overview" pThere={false} link={false} />
             <SideDivs
               title="orders"
               pThere={true}
               pText="orders & returns"
-              link={false}
+              link="/account-details/my_orders"
             />
             <SideDivs
               title="credits"
