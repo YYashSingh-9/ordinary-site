@@ -50,7 +50,7 @@ function App() {
   const data2 = FavData;
   console.log(data2);
   useEffect(() => {
-    dispatch(actions.productsArray_Change({ array1: data, array2: data2 }));
+    dispatch(actions.productsArray_Change({ array1: document, array2: data2 }));
     if (data2 && data2.data.status === "success") {
       dispatch(actions.products_Modified_With_Fav(data2));
     }

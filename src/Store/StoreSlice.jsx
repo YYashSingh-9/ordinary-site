@@ -466,9 +466,15 @@ const StoreSlice = createSlice({
       const imagesArray = state.imagesArray;
       const dupArray = state.arrayOfProducts;
       let arrayMain = [];
-      if (dataArray2.data && dataArray2.status === "success") {
+
+      // const arrayMain2 = arrayMain.length > 1 ? arrayMain : dupArray;
+      let arr = dataArray1.data.map((el, ind) => {
+        return { ...el, images: imagesArray[ind] };
+      });
+
+      if (dataArray2 && dataArray2.status === "success") {
         // state.isThereAFav = true;
-        arrayMain = dupArray.map((el) => {
+        arrayMain = arr.map((el) => {
           return {
             ...el,
             isFav: dataArray2.data.find((al) => el.title === al.title)?.isFav,
@@ -477,12 +483,8 @@ const StoreSlice = createSlice({
         });
         state.isThereAFav = true;
       }
-      console.log(current(arrayMain));
-      const arr = arrayMain.map((el, ind) => {
-        return { ...dataArray1.data[ind], images: imagesArray[ind] };
-      });
-      state.arrayOfProducts = arr;
-      console.log("this is main one", current(state.arrayOfProducts));
+      const arrayy = arrayMain.length > 1 ? arrayMain : arr;
+      state.arrayOfProducts = arrayy;
     },
     signupFormToggler(state, action) {
       state.signUpFormState = !state.signUpFormState;

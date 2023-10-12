@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
 import { NavLink } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
-import { postFav } from "../../Store/ActionCreatorThunk";
+import { postFav, queryClient } from "../../Store/ActionCreatorThunk";
 
 // THIS IS THE PRODUCT CARD(PRODUCTS) SEEN EVERYWHERE ..
 const ProductItem = (props) => {
@@ -17,6 +17,9 @@ const ProductItem = (props) => {
     mutationKey: ["fav-state-post", key],
     mutationFn: (condition) => {
       return postFav(props.elem, cookie, currentUser._id, condition);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["favProd"] });
     },
   });
 
