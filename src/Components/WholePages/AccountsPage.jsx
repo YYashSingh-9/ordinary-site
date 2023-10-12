@@ -27,7 +27,7 @@ const AccountsPage = () => {
   useEffect(() => {
     dispatch(actions.get_token_from_localStorage());
     if (loaderData.status === "success") {
-      dispatch(actions.productsArray_Change(loaderData.data));
+      dispatch(actions.productsArray_Change({ array1: loaderData }));
     }
     if (data) {
       console.log(data.status, data);

@@ -4,7 +4,7 @@ export const queryClient = new QueryClient();
 
 // FETCH TEMPLATE FUNCTION _____
 export const fetchFunction = async (type, cookie, additional) => {
-  let url = `http://127.0.0.1:3000/api/v2/${type}`;
+  let url = `https://ecom-backend-8xde.onrender.com/api/v2/${type}`;
   additional ? (url += `/${additional}`) : "";
   if (!cookie) {
     const doc = await fetch(url);
@@ -38,7 +38,7 @@ export const dataSendRequest = async (
   data_to_send,
   cookie
 ) => {
-  let url = `http://127.0.0.1:3000/api/v2/${type}`;
+  let url = `https://ecom-backend-8xde.onrender.com/api/v2/${type}`;
   additional ? (url += `/${additional}`) : "";
   let sending_data = data_to_send ? JSON.stringify(data_to_send) : "";
   const doc = await fetch(url, {
