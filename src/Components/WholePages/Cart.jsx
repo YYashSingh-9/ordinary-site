@@ -1,5 +1,6 @@
 import CartWhenItems from "../ChildComponents/CartWhenItems";
 import WithoutItems from "../UI/WithoutItems";
+
 import { useSelector, useDispatch } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
 import { useEffect } from "react";
@@ -13,7 +14,7 @@ const Cart = () => {
   const dispatch = useDispatch();
 
   const enableVal = cookie ? true : false;
-  const { data, isError, isPending } = useQuery({
+  const { data, isError, isPending, isLoading } = useQuery({
     queryKey: ["cartProd"],
     queryFn: async () => {
       return cartProductsLoader(cookie);

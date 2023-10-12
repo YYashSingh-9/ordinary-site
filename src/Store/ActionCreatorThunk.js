@@ -197,7 +197,6 @@ export const getMyFavs = async (cookie) => {
   return data;
 };
 export const postFav = async (productObj, cookie, userId, condition) => {
-  console.log(productObj);
   const data_to_send = {
     productId: productObj._id,
     user: userId,
