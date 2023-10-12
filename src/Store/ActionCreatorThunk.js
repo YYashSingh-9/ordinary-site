@@ -12,7 +12,6 @@ export const fetchFunction = async (type, cookie, additional) => {
     return doc2;
   }
   if (cookie) {
-    console.log("this ran");
     const doc = await fetch(url, {
       credentials: "include",
       withCredentials: true,

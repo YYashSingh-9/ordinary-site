@@ -315,10 +315,7 @@ const StoreSlice = createSlice({
       let filteredArray = state.arrayOfProducts.filter(
         (el) => el.isFav === true
       );
-      state.isThereAFav =
-        state.isThereAFav === false
-          ? (state.isThereAFav = true)
-          : (state.isThereAFav = false);
+      state.isThereAFav = true;
       state.FavouriteItems = filteredArray;
     },
     searchModalToggler(state, action) {

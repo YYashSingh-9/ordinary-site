@@ -3,6 +3,7 @@ import ProductsDiv from "./Components/ParentComponents/ProductsDiv";
 import CataloguesDiv from "./Components/ParentComponents/CataloguesDiv";
 import BlogDiv from "./Components/ParentComponents/BlogDiv";
 import AboutDiv from "./Components/ParentComponents/AboutDiv";
+import LoadingSpinner from "./Components/Utils/LoadingSpinner";
 import { useLoaderData } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "./Store/StoreSlice";
@@ -41,10 +42,10 @@ function App() {
   //   },
   //   enabled: enableVal,
   // });
-  const [{ data: ProdData }, { data: FavData }] = customQueryHook(
-    enableVal,
-    cookieToken
-  );
+  const [
+    { data: ProdData, isLoading: loading1 },
+    { data: FavData, isLoading: loading2 },
+  ] = customQueryHook(enableVal, cookieToken);
 
   const data = ProdData;
   const data2 = FavData;
@@ -61,7 +62,8 @@ function App() {
 
   return (
     <>
-      <HeaderMiddle />
+      {loading1 && loading2 ? <LoadingSpinner /> : <HeaderMiddle />}
+
       <ProductsDiv title="best sellers" sliceInit={0} sliceEnd={4} />
       <CataloguesDiv />
       <ProductsDiv title="popular" sliceInit={5} sliceEnd={9} />
