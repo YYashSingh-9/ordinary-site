@@ -315,7 +315,10 @@ const StoreSlice = createSlice({
       let filteredArray = state.arrayOfProducts.filter(
         (el) => el.isFav === true
       );
-      state.isThereAFav = true;
+      state.isThereAFav =
+        state.isThereAFav === false
+          ? (state.isThereAFav = true)
+          : (state.isThereAFav = false);
       state.FavouriteItems = filteredArray;
     },
     searchModalToggler(state, action) {
@@ -464,7 +467,6 @@ const StoreSlice = createSlice({
       const dataArray1 = arraysRecieved.array1;
       const dataArray2 = arraysRecieved.array2;
       const imagesArray = state.imagesArray;
-      const dupArray = state.arrayOfProducts;
       let arrayMain = [];
 
       // const arrayMain2 = arrayMain.length > 1 ? arrayMain : dupArray;
@@ -481,9 +483,7 @@ const StoreSlice = createSlice({
             favId: dataArray2.data.find((al) => el.title === al.title)?._id,
           };
         });
-        dataArray2.status === "success" && dataArray2.data.length >= 1
-          ? (state.isThereAFav = true)
-          : false;
+        dataArray2.data.length > 0 ? (state.isThereAFav = true) : false;
       }
       const arrayy = arrayMain.length > 1 ? arrayMain : arr;
       state.arrayOfProducts = arrayy;
