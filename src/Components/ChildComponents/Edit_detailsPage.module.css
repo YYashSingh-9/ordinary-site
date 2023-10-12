@@ -55,3 +55,14 @@
   text-transform: uppercase;
   text-align: center;
 }
+.titleHead {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  text-align: center;
+  justify-content: center;
+}
+.progressBar {
+  width: 100%;
+  accent-color: rgb(45, 45, 45);
+  padding: 0.1rem 1rem;
+}

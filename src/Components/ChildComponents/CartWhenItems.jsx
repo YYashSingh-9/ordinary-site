@@ -78,13 +78,13 @@ const CartWhenItems = (props) => {
   };
   return (
     <>
-      <section className={classes.CartSection} onClick={subMenuToggler}>
-        <div className={classes.cartHeading} onClick={subMenuToggler}>
-          <h2>CART ITEMS</h2>
-        </div>
-        {isLoading ? (
-          <LoadingSpinner />
-        ) : (
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <section className={classes.CartSection} onClick={subMenuToggler}>
+          <div className={classes.cartHeading} onClick={subMenuToggler}>
+            <h2>CART ITEMS</h2>
+          </div>
           <div className={classes.CartMain}>
             <div className={classes.cartProductListDiv}>
               {productList.map((el) => (
@@ -132,8 +132,8 @@ const CartWhenItems = (props) => {
               </div>
             </div>
           </div>
-        )}
-      </section>
+        </section>
+      )}
     </>
   );
 };

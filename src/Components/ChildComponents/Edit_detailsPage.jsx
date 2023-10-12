@@ -1,8 +1,15 @@
 import { useEffect } from "react";
 import classes from "./Edit_detailsPage.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { Form, NavLink, useActionData, useNavigate } from "react-router-dom";
+import {
+  Form,
+  NavLink,
+  useActionData,
+  useNavigate,
+  useNavigation,
+} from "react-router-dom";
 import { actions } from "../../Store/StoreSlice";
+import LoadingSpinner from "../Utils/LoadingSpinner";
 
 const P_w_updateForm = () => {
   return (
@@ -78,6 +85,7 @@ const EditForm = (props) => {
   const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
   const actionData = useActionData();
   const dispatch = useDispatch();
+  const Navigation = useNavigation();
   const Navigate = useNavigate();
   //THIS IS DONE TO REMOVE SUB MENU BECAUSE USER CLICKS THE SCREEN TO REMOVE POPUPS WHICH IS WE TARGET THIS DIV FOR THIS WORK
   const submenuRemover = () => {
@@ -93,6 +101,7 @@ const EditForm = (props) => {
   const p_wFormToggle = () => {
     dispatch(actions.whichFormToShowToggler());
   };
+
   useEffect(() => {
     if (actionData)
       if (actionData.token) {
@@ -106,7 +115,10 @@ const EditForm = (props) => {
   return (
     <>
       <section className={classes.formSection} onClick={submenuRemover}>
-        <h2>Update your details</h2>
+        <div className={classes.titleHead}>
+          <progress className={classes.progressBar} />
+          <h2 className={classes.ech}>Update your details</h2>
+        </div>
         <Form className={classes.form} method="PATCH">
           {whichFormToShow ? (
             <User_info_updates user={user} />
@@ -124,7 +136,7 @@ const EditForm = (props) => {
           </button>
           {whichFormToShow ? (
             <NavLink to="/account-details">
-              <button className={classes.editBtn}>back</button>
+              <button className={classes.editBtn}>Back</button>
             </NavLink>
           ) : (
             <button className={classes.editBtn} onClick={p_wFormToggle}>
