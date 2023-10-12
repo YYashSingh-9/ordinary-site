@@ -11,15 +11,22 @@ const FavouriteCard = (props) => {
   const currentUser = useSelector((state) => state.sliceOne.currentUserObject);
   const extendedPrice = (price * 3).toFixed(2);
   const dispatch = useDispatch();
+
+  //SENDING FAV REQUEST & SENDING DATA TO CART
   const { mutate } = useMutation({
     mutationKey: ["fav-state", key],
     mutationFn: (condition) => {
       return postFav(props.elem, cookie, currentUser._id, condition);
     },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["cartProd"] });
+    },
   });
+
   const addItemToCartHandler = () => {
     dispatch(actions.FavouriteToggler(key)); // this changes isFav=true to false which removes this item from favCart when re-evaluates
     dispatch(actions.AddItemToCart(props.elem));
+    mutate("deleteFav");
   };
 
   // WHEN CLICKED ON TOP-RIGHT CROSS -:>THIS FUNCTION RUNS

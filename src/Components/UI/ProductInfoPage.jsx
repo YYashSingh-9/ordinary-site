@@ -66,7 +66,7 @@ const ProductInfoPage = () => {
 
   //SENDING THE REQUEST
   const { mutate } = useMutation({
-    mutationKey: ["fav-state", key],
+    mutationKey: ["cartProd-send", key],
     mutationFn: async () => {
       return await addToCart_Function(currentUser._id, productForCart, cookie);
     },

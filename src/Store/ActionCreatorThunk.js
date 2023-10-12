@@ -143,7 +143,6 @@ export const addToCart_Function = async (userId, data, cookie) => {
     key: data.key,
     price: data.price,
     quantity: data.quantity,
-    slug: data.slug,
     title: data.title,
     totalPrice: data.totalPrice,
   };
@@ -226,6 +225,28 @@ export const postFav = async (productObj, cookie, userId, condition) => {
     );
     console.log(doc);
     return doc;
+  } else if (condition === "add-to-cart") {
+    const dataToSend = {
+      productId: productObj._id,
+      user: userId,
+      catagory: productObj.catagory,
+      isFav: productObj.isFav,
+      images: productObj.images,
+      key: productObj.key,
+      price: productObj.price,
+      quantity: productObj.quantity,
+      title: productObj.title,
+      totalPrice: productObj.totalPrice,
+    };
+    const returnedData = await dataSendRequest(
+      "cart",
+      "",
+      "POST",
+      dataToSend,
+      cookie
+    );
+
+    return returnedData;
   }
 };
 //1.Getting all the products from server.
