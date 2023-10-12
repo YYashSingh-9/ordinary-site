@@ -197,14 +197,15 @@ export const getMyFavs = async (cookie) => {
   return data;
 };
 export const postFav = async (productObj, cookie, userId, condition) => {
+  const data_to_send = {
+    productId: productObj._id,
+    user: userId,
+    title: productObj.title,
+    price: productObj.price,
+    isFav: productObj.isFav,
+    _id: productObj.favId,
+  };
   if (condition === "postFav") {
-    const data_to_send = {
-      productId: productObj._id,
-      user: userId,
-      title: productObj.title,
-      price: productObj.price,
-      isFav: productObj.isFav,
-    };
     const doc = await dataSendRequest(
       "favs",
       "my-favs",
@@ -215,6 +216,16 @@ export const postFav = async (productObj, cookie, userId, condition) => {
     console.log(doc);
     return doc;
   } else if (condition === "deleteFav") {
+    console.log(cookie);
+    const doc = await dataSendRequest(
+      "favs",
+      "delete-fav",
+      "DELETE",
+      data_to_send,
+      cookie
+    );
+    console.log(doc);
+    return doc;
   }
 };
 //1.Getting all the products from server.

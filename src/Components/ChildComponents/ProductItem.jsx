@@ -22,10 +22,8 @@ const ProductItem = (props) => {
 
   const favouriteOnClick = (e) => {
     if (!isFav) {
+      console.log("posted fav");
       mutate("postFav");
-    }
-    if (isFav) {
-      mutate("deleteFav");
     }
     dispatch(actions.FavouriteToggler(key));
   };

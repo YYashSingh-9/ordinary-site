@@ -460,14 +460,29 @@ const StoreSlice = createSlice({
       }
     },
     productsArray_Change(state, action) {
-      const arrayRecieved = action.payload;
+      const arraysRecieved = action.payload;
+      const dataArray1 = arraysRecieved.array1;
+      const dataArray2 = arraysRecieved.array2;
       const imagesArray = state.imagesArray;
       const dupArray = state.arrayOfProducts;
-      console.log(current(dupArray));
-      const arr = dupArray.map((el, ind) => {
-        return { ...arrayRecieved[ind], images: imagesArray[ind] };
+      let arrayMain = [];
+      if (dataArray2.data && dataArray2.status === "success") {
+        // state.isThereAFav = true;
+        arrayMain = dupArray.map((el) => {
+          return {
+            ...el,
+            isFav: dataArray2.data.find((al) => el.title === al.title)?.isFav,
+            favId: dataArray2.data.find((al) => el.title === al.title)?._id,
+          };
+        });
+        state.isThereAFav = true;
+      }
+      console.log(current(arrayMain));
+      const arr = arrayMain.map((el, ind) => {
+        return { ...dataArray1.data[ind], images: imagesArray[ind] };
       });
       state.arrayOfProducts = arr;
+      console.log("this is main one", current(state.arrayOfProducts));
     },
     signupFormToggler(state, action) {
       state.signUpFormState = !state.signUpFormState;
@@ -547,6 +562,7 @@ const StoreSlice = createSlice({
       });
       state.arrayOfProducts = arrayMain;
       state.isThereAFav = true;
+      console.log("this modified");
     },
   },
 });

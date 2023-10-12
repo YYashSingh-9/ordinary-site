@@ -1,18 +1,20 @@
 import classes from "./FavouriteCard.module.css";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
 import { useMutation } from "@tanstack/react-query";
-import { favToggler } from "../../Store/ActionCreatorThunk";
+import { postFav } from "../../Store/ActionCreatorThunk";
 
 const FavouriteCard = (props) => {
-  const { title, price, images, key, isFav, _id } = props.elem;
+  const { title, price, images, key, isFav, catagory, _id } = props.elem;
+  const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
+  const currentUser = useSelector((state) => state.sliceOne.currentUserObject);
   const extendedPrice = (price * 3).toFixed(2);
   const dispatch = useDispatch();
   const { mutate } = useMutation({
     mutationKey: ["fav-state", key],
-    mutationFn: () => {
-      return favToggler(false, _id);
+    mutationFn: (condition) => {
+      return postFav(props.elem, cookie, currentUser._id, condition);
     },
   });
   const addItemToCartHandler = () => {
@@ -23,7 +25,10 @@ const FavouriteCard = (props) => {
   // WHEN CLICKED ON TOP-RIGHT CROSS -:>THIS FUNCTION RUNS
   const removeFavStatus = () => {
     dispatch(actions.FavouriteToggler(key));
-    mutate();
+    if (isFav) {
+      console.log("deleted fav");
+      mutate("deleteFav");
+    }
   };
   return (
     <>
