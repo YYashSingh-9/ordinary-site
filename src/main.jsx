@@ -1,9 +1,11 @@
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.css";
 import React from "react";
 import App from "./App";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { loader as getAllProducts } from "./Store/ActionCreatorThunk";
+import { login_Signup_Request } from "./Store/ActionCreatorThunk";
 import { Provider } from "react-redux";
+import "./index.css";
 import MainStore from "./Store/MainStore.jsx";
 import MainRootElement from "./MainRootElement";
 import BasicProductsPage from "./Components/UI/BasicProductsPage";
@@ -18,11 +20,7 @@ import AccountsPage from "./Components/WholePages/AccountsPage";
 import Edit_detailsPage from "./Components/ChildComponents/Edit_detailsPage";
 import MyOrders from "./Components/WholePages/MyOrders";
 import OrderRedirectPage from "./Components/UI/OrderRedirectPage";
-import { loader as getAllProducts } from "./Store/ActionCreatorThunk";
-import {
-  login_Signup_Request,
-  cartProductsLoader,
-} from "./Store/ActionCreatorThunk";
+import ErrorDisplay from "./Components/Utils/ErrorDisplay";
 
 const router = createBrowserRouter([
   {
@@ -81,6 +79,7 @@ const router = createBrowserRouter([
         element: <MyOrders />,
       },
       { path: "/my_orders/redirect-to-order", element: <OrderRedirectPage /> },
+      { path: "/redirect/error-occured", element: <ErrorDisplay /> },
     ],
   },
 ]);

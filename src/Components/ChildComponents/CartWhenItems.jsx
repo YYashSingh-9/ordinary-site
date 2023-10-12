@@ -1,13 +1,15 @@
 import { useSelector } from "react-redux";
-import classes from "./CartWhenItems.module.css";
-import CartProductItem from "../UI/CartProductItem";
-import LoadingSpinner from "../Utils/LoadingSpinner";
 import { useMutation } from "@tanstack/react-query";
 import {
   queryClient,
   placeOrder_Function,
 } from "../../Store/ActionCreatorThunk";
 import { useNavigate } from "react-router-dom";
+import classes from "./CartWhenItems.module.css";
+import CartProductItem from "../UI/CartProductItem";
+import LoadingSpinner from "../Utils/LoadingSpinner";
+import ErrorDisplay from "../Utils/ErrorDisplay";
+
 // ________ ADDITIONAL COMPONENT
 const CouponComponent = () => {
   return (
@@ -54,13 +56,16 @@ const CartWhenItems = (props) => {
   for (let key in productList) {
     orderProductIDs.push(productList[key]._id);
   }
-  const { mutate, isLoading } = useMutation({
+  const { mutate, isLoading, isError } = useMutation({
     mutationFn: () => {
       return placeOrder_Function(orderProductIDs, cookieToken);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["cartProd", "ordersProd"] });
       Navigate("/my_orders/redirect-to-order");
+    },
+    onError: () => {
+      Navigate("/redirect/error-occured");
     },
   });
 

@@ -1,0 +1,37 @@
+.mainError {
+  display: grid;
+  width: 62%;
+  grid-template-rows: 10rem 8rem;
+  margin: auto;
+  text-align: center;
+  padding-top: 10%;
+}
+.titleh3 {
+  font-size: 3rem;
+  text-transform: capitalize;
+  color: rgb(56, 56, 56);
+}
+.errorBtn {
+  margin-top: 2rem;
+  font-size: 1.7rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.4rem;
+  border: 0.1rem solid rgb(255, 82, 82);
+  background: none;
+  color: rgb(255, 82, 82);
+}
+.errorBtn:hover {
+  cursor: pointer;
+  background-color: rgb(255, 82, 82);
+  color: white;
+  transition: 0.2s ease-in-out;
+}
+.titleDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.error_icon {
+  font-size: 3rem;
+  color: rgb(56, 56, 56);
+}
