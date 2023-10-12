@@ -213,7 +213,6 @@ export const postFav = async (productObj, cookie, userId, condition) => {
       data_to_send,
       cookie
     );
-    console.log(doc);
     return doc;
   } else if (condition === "deleteFav") {
     console.log(cookie);
@@ -224,7 +223,6 @@ export const postFav = async (productObj, cookie, userId, condition) => {
       data_to_send,
       cookie
     );
-    console.log(doc);
     return doc;
   } else if (condition === "add-to-cart") {
     const dataToSend = {
@@ -246,7 +244,6 @@ export const postFav = async (productObj, cookie, userId, condition) => {
       dataToSend,
       cookie
     );
-
     return returnedData;
   }
 };
