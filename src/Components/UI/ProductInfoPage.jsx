@@ -63,7 +63,6 @@ const ProductInfoPage = () => {
   // Getting all infos to fill in jsx.
   const { title, price, isFav, images, key, _id } = productGot;
   const productForCart = addedProductsArray.find((el) => el._id === _id);
-
   //SENDING THE REQUEST
   const { mutate } = useMutation({
     mutationKey: ["cartProd-send", key],

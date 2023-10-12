@@ -134,6 +134,7 @@ export const logoutSendFunction = async (cookie) => {
   return data;
 };
 export const addToCart_Function = async (userId, data, cookie) => {
+  console.log(data);
   const dataToSend = {
     productId: data._id,
     user: userId,
@@ -236,7 +237,7 @@ export const postFav = async (productObj, cookie, userId, condition) => {
       price: productObj.price,
       quantity: productObj.quantity,
       title: productObj.title,
-      totalPrice: productObj.totalPrice,
+      totalPrice: productObj.price,
     };
     const returnedData = await dataSendRequest(
       "cart",

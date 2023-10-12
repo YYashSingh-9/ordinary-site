@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
 import { useMutation } from "@tanstack/react-query";
 import { postFav } from "../../Store/ActionCreatorThunk";
+import { queryClient } from "../../Store/ActionCreatorThunk";
 
 const FavouriteCard = (props) => {
   const { title, price, images, key, isFav, catagory, _id } = props.elem;
+  console.log(props.elem);
   const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
   const currentUser = useSelector((state) => state.sliceOne.currentUserObject);
   const extendedPrice = (price * 3).toFixed(2);
@@ -27,6 +29,7 @@ const FavouriteCard = (props) => {
     dispatch(actions.FavouriteToggler(key)); // this changes isFav=true to false which removes this item from favCart when re-evaluates
     dispatch(actions.AddItemToCart(props.elem));
     mutate("deleteFav");
+    mutate("add-to-cart");
   };
 
   // WHEN CLICKED ON TOP-RIGHT CROSS -:>THIS FUNCTION RUNS
