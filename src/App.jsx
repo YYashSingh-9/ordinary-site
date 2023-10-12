@@ -48,15 +48,10 @@ function App() {
 
   const data = ProdData;
   const data2 = FavData;
-  console.log(data2);
   useEffect(() => {
     dispatch(actions.productsArray_Change({ array1: document, array2: data2 }));
-    if (data2 && data2.data.status === "success") {
-      dispatch(actions.products_Modified_With_Fav(data2));
-    }
     if (data === undefined) return;
     if (data.status === "success") {
-      console.log(data.data);
       dispatch(actions.cartArray_Change(data.data));
     }
   }, [document, data, data2]);

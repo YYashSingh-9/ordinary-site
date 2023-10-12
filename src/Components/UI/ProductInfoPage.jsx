@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { actions } from "../../Store/StoreSlice";
 import { useRef, useState } from "react";
-import { addToCart_Function } from "../../Store/ActionCreatorThunk";
+import { postFav } from "../../Store/ActionCreatorThunk";
 import { queryClient } from "../../Store/ActionCreatorThunk";
 //THIS IS HOW THE RATINGS WILL BE DISPLAYED..
 const StarComponent = ({ starPassed }) => {
@@ -63,11 +63,13 @@ const ProductInfoPage = () => {
   // Getting all infos to fill in jsx.
   const { title, price, isFav, images, key, _id } = productGot;
   const productForCart = addedProductsArray.find((el) => el._id === _id);
+  const finalProductToSend =
+    !productForCart === undefined ? productForCart : productGot;
   //SENDING THE REQUEST
   const { mutate } = useMutation({
     mutationKey: ["cartProd-send", key],
-    mutationFn: async () => {
-      return await addToCart_Function(currentUser._id, productForCart, cookie);
+    mutationFn: async (condition) => {
+      return postFav(finalProductToSend, cookie, currentUser._id, condition);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["cartProd"] });
@@ -90,11 +92,15 @@ const ProductInfoPage = () => {
   const AddItemToCartHandler = () => {
     dispatch(actions.AddItemToCart(productGot));
     setBtnState(false);
-    mutate();
+    mutate("add-to-cart");
   };
   const favouriteItemHandler = () => {
     dispatch(actions.FavouriteToggler(key));
+    if (!isFav) {
+      mutate("postFav");
+    }
   };
+
   //Pincode functionalities V.1.0 ////______
   const pinCodeToggle = () => {
     let refVal = ref.current;

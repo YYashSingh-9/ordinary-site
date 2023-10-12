@@ -483,7 +483,9 @@ const StoreSlice = createSlice({
             favId: dataArray2.data.find((al) => el.title === al.title)?._id,
           };
         });
-        dataArray2.data.length > 0 ? (state.isThereAFav = true) : false;
+        dataArray2.data.length > 0
+          ? (state.isThereAFav = true)
+          : (state.isThereAFav = false);
       }
       const arrayy = arrayMain.length > 1 ? arrayMain : arr;
       state.arrayOfProducts = arrayy;
