@@ -103,7 +103,6 @@ export const login_Signup_Request = async ({ request }) => {
     return finalVal;
   }
   if (intent === "signup") {
-    console.log(doc2);
     const data = await dataSendRequest("user", "signup", "POST", doc2);
     return data;
   }
@@ -188,7 +187,6 @@ export const placeOrder_Function = async (productIDs, cookie) => {
 };
 export const getMyOrders = async (cookie) => {
   const doc = await fetchFunction("orders", cookie, "my-orders");
-  console.log(doc);
   return doc;
 };
 export const getMyFavs = async (cookie) => {

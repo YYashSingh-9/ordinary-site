@@ -63,12 +63,19 @@ function App() {
   return (
     <>
       {loading1 && loading2 ? <LoadingSpinner /> : <HeaderMiddle />}
-
-      <ProductsDiv title="best sellers" sliceInit={0} sliceEnd={4} />
-      <CataloguesDiv />
-      <ProductsDiv title="popular" sliceInit={5} sliceEnd={9} />
-      <BlogDiv />
-      <AboutDiv />
+      {loading1 && loading2 ? (
+        <LoadingSpinner />
+      ) : (
+        <ProductsDiv title="best sellers" sliceInit={0} sliceEnd={4} />
+      )}
+      {loading1 && loading2 ? <LoadingSpinner /> : <CataloguesDiv />}
+      {loading1 && loading2 ? (
+        <LoadingSpinner />
+      ) : (
+        <ProductsDiv title="popular" sliceInit={5} sliceEnd={9} />
+      )}
+      {loading1 && loading2 ? <LoadingSpinner /> : <BlogDiv />}
+      {loading1 && loading2 ? <LoadingSpinner /> : <AboutDiv />}
     </>
   );
 }
