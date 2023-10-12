@@ -41,7 +41,8 @@ const Cart = () => {
 
   return (
     <>
-      {isCartEmpty ? (
+      {isLoading && <LoadingSpinner />}
+      {!isLoading && isCartEmpty && (
         <WithoutItems
           link="/favourites"
           title={`Product says 'It Look so empty without me!`}
@@ -49,9 +50,8 @@ const Cart = () => {
           btnText={`Add Items from Favourite Lists`}
           subMenuToggler={submenuRemover}
         />
-      ) : (
-        <CartWhenItems subMenuToggler={submenuRemover} />
       )}
+      {!isCartEmpty && <CartWhenItems subMenuToggler={submenuRemover} />}
     </>
   );
 };

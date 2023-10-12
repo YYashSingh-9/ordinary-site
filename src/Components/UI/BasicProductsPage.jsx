@@ -8,6 +8,7 @@ import { CiFilter } from "react-icons/ci";
 import { cartProductsLoader } from "../../Store/ActionCreatorThunk";
 import ProductItem from "../ChildComponents/ProductItem";
 import FilterComponent from "../ChildComponents/FilterComponent";
+import LoadingSpinner from "../Utils/LoadingSpinner";
 
 //THIS PAGE IS USED AS A SHELL FOR MANY ROUTES :) ONLY DATA CHANGES -D.R.Y
 //HELPER FUNCTIONS
@@ -41,7 +42,7 @@ const BasicProductsPage = () => {
   );
   const dispatch = useDispatch();
   const enableVal = cookie ? true : false;
-  const { data, isError, isPending } = useQuery({
+  const { data, isError, isLoading } = useQuery({
     queryKey: ["cartProd"],
     queryFn: async () => {
       return cartProductsLoader(cookie);
@@ -96,38 +97,42 @@ const BasicProductsPage = () => {
   }, [data, cookie]);
   return (
     <>
-      <section className={classes.thisSection} onClick={submenuRemover}>
-        <div className={classes.routeDenoter}>
-          {id === "bestsellers" ? (
-            <p> Home / {id} </p>
-          ) : (
-            <p> Home /catalogue/{id} </p>
-          )}
-        </div>
-        <div className={`${classes.ParentProductsDiv} ${classes.nfilter}`}>
-          <div className={classes.FiltersPart}>
-            <FilterComponent />
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <section className={classes.thisSection} onClick={submenuRemover}>
+          <div className={classes.routeDenoter}>
+            {id === "bestsellers" ? (
+              <p> Home / {id} </p>
+            ) : (
+              <p> Home /catalogue/{id} </p>
+            )}
           </div>
-          <div className={classes.secondSideDiv}>
-            <div className={classes.heading}>
-              <h2 className={classes.ech2}>{id}</h2>
-              <CiFilter className={classes.filterlogo} />
+          <div className={`${classes.ParentProductsDiv} ${classes.nfilter}`}>
+            <div className={classes.FiltersPart}>
+              <FilterComponent />
             </div>
+            <div className={classes.secondSideDiv}>
+              <div className={classes.heading}>
+                <h2 className={classes.ech2}>{id}</h2>
+                <CiFilter className={classes.filterlogo} />
+              </div>
 
-            <div className={classes.ProductsListPart}>
-              {finalProductsArrayToDisplay
-                .map((el) => <ProductItem key={el.key} elem={el} />)
-                .slice(sliceVals[0], sliceVals[1])}
+              <div className={classes.ProductsListPart}>
+                {finalProductsArrayToDisplay
+                  .map((el) => <ProductItem key={el.key} elem={el} />)
+                  .slice(sliceVals[0], sliceVals[1])}
+              </div>
             </div>
           </div>
-        </div>
-        {finalProductsArrayToDisplay.length > 10 && (
-          <div className={classes.pagination}>
-            <Pages pg_n="1 ," type="decrement" fn_to_inc={pagerFn} />
-            <Pages pg_n="2" type="increment" fn_to_inc={pagerFn} />
-          </div>
-        )}
-      </section>
+          {finalProductsArrayToDisplay.length > 10 && (
+            <div className={classes.pagination}>
+              <Pages pg_n="1 ," type="decrement" fn_to_inc={pagerFn} />
+              <Pages pg_n="2" type="increment" fn_to_inc={pagerFn} />
+            </div>
+          )}
+        </section>
+      )}
     </>
   );
 };

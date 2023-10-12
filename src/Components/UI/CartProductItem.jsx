@@ -6,6 +6,7 @@ import { cartProductPATCH } from "../../Store/ActionCreatorThunk";
 import PlusMinusButton from "../ChildComponents/PlusMinusButton";
 import { BsX } from "react-icons/bs";
 import { queryClient } from "../../Store/ActionCreatorThunk";
+import SmallSpinner from "../Utils/SmallSpinner";
 
 // PRODUCT WHICH SHOWS ON CART PAGE...
 const CartProductItem = (props) => {
@@ -56,10 +57,15 @@ const CartProductItem = (props) => {
         </div>
         <div className={classes.details}>
           <div className={classes.titleNprice}>
-            <div>
-              <h3>{title}</h3>
-              <h4>${price}</h4>
-            </div>
+            {isLoading ? (
+              <SmallSpinner />
+            ) : (
+              <div>
+                <h3>{title}</h3>
+                <h4>${price}</h4>
+              </div>
+            )}
+
             <span className={classes.cross}>
               <BsX onClick={removeItemFromCart_Handler} />
             </span>

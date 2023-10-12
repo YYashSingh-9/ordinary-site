@@ -3,6 +3,7 @@ import { Form, NavLink, useNavigate } from "react-router-dom";
 import { logoutSendFunction } from "../../Store/ActionCreatorThunk";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
+import LoadingSpinner from "../Utils/LoadingSpinner";
 
 const SideDivs = (props) => {
   const link = props.link ? props.link : "";
@@ -67,46 +68,50 @@ const WhenLoggedIn = () => {
 
   return (
     <>
-      <section className={classes.mainDiv}>
-        <div className={classes.title}>
-          <div className={classes.headings}>
-            <h2>Account</h2>
-            <h3>Yash</h3>
-          </div>
-          <div className={classes.logoutBtn}>
-            {isLoggedIn && <button onClick={logoutFnc}>Logout</button>}
-          </div>
-        </div>
-        <div className={classes.secondDiv}>
-          <div className={classes.leftSideDiv}>
-            <SideDivs title="overview" pThere={false} link={false} />
-            <SideDivs
-              title="orders"
-              pThere={true}
-              pText="orders & returns"
-              link="/account-details/my_orders"
-            />
-            <SideDivs
-              title="credits"
-              pThere={true}
-              pText="coupons"
-              link={false}
-            />
-            <SideDivs
-              title="legal"
-              pThere={true}
-              pText="terms of use"
-              link={false}
-            />
-          </div>
-          <div className={classes.rightSideDiv}>
-            <div className={classes.pTitle}>
-              <h2>Profile details</h2>
+      {!currentUser ? (
+        <LoadingSpinner />
+      ) : (
+        <section className={classes.mainDiv}>
+          <div className={classes.title}>
+            <div className={classes.headings}>
+              <h2>Account</h2>
+              <h3>Yash</h3>
             </div>
-            <TableComponent user={currentUser} />
+            <div className={classes.logoutBtn}>
+              {isLoggedIn && <button onClick={logoutFnc}>Logout</button>}
+            </div>
           </div>
-        </div>
-      </section>
+          <div className={classes.secondDiv}>
+            <div className={classes.leftSideDiv}>
+              <SideDivs title="overview" pThere={false} link={false} />
+              <SideDivs
+                title="orders"
+                pThere={true}
+                pText="orders & returns"
+                link="/account-details/my_orders"
+              />
+              <SideDivs
+                title="credits"
+                pThere={true}
+                pText="coupons"
+                link={false}
+              />
+              <SideDivs
+                title="legal"
+                pThere={true}
+                pText="terms of use"
+                link={false}
+              />
+            </div>
+            <div className={classes.rightSideDiv}>
+              <div className={classes.pTitle}>
+                <h2>Profile details</h2>
+              </div>
+              <TableComponent user={currentUser} />
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 };
