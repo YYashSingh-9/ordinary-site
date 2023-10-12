@@ -1,7 +1,8 @@
 import classes from "./MyOrders.module.css";
 import FavouriteCard from "../UI/FavouriteCard";
-import { useSelector, useDispatch } from "react-redux";
+import LoadingSpinner from "../Utils/LoadingSpinner";
 import emptyCartImage from "../../assets/market.png";
+import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { actions } from "../../Store/StoreSlice.jsx";
 import { getMyOrders } from "../../Store/ActionCreatorThunk";
@@ -63,7 +64,7 @@ const MyOrders = () => {
   const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
   const dispatch = useDispatch();
   const enableVal = cookie ? true : false;
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["ordersProd"],
     queryFn: () => {
       return getMyOrders(cookie);
@@ -77,6 +78,7 @@ const MyOrders = () => {
     }
     dispatch(actions.CatalogueToggler("removeSubMenu"));
   };
+
   useEffect(() => {
     dispatch(actions.get_token_from_localStorage());
 
@@ -86,7 +88,8 @@ const MyOrders = () => {
   }, [cookie, data]);
   return (
     <>
-      {myOrders.length >= 1 ? (
+      {isLoading ? <LoadingSpinner /> : <EmptyCart toggleFn={submenuRemover} />}
+      {myOrders.length >= 1 && (
         <section className={classes.CartSection}>
           <div className={classes.cartHeading}>
             <h2>MY ORDERS</h2>
@@ -97,8 +100,6 @@ const MyOrders = () => {
             ))}
           </div>
         </section>
-      ) : (
-        <EmptyCart toggleFn={submenuRemover} />
       )}
     </>
   );

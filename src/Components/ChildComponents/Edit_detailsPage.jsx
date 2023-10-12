@@ -85,8 +85,8 @@ const EditForm = (props) => {
   const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
   const actionData = useActionData();
   const dispatch = useDispatch();
-  const Navigation = useNavigation();
   const Navigate = useNavigate();
+  const navigation = useNavigation();
   //THIS IS DONE TO REMOVE SUB MENU BECAUSE USER CLICKS THE SCREEN TO REMOVE POPUPS WHICH IS WE TARGET THIS DIV FOR THIS WORK
   const submenuRemover = () => {
     if (!catalogueState) {
@@ -94,6 +94,7 @@ const EditForm = (props) => {
     }
     dispatch(actions.CatalogueToggler("removeSubMenu"));
   };
+
   let user = { ...currentUser };
   user.dob = new Date(currentUser.dob).toString();
   user.mobilenumber = user.mobilenumber - 0;
@@ -116,7 +117,10 @@ const EditForm = (props) => {
     <>
       <section className={classes.formSection} onClick={submenuRemover}>
         <div className={classes.titleHead}>
-          <progress className={classes.progressBar} />
+          {navigation.state === "submitting" ||
+            (navigation.state === "loading" && (
+              <progress className={classes.progressBar} />
+            ))}
           <h2 className={classes.ech}>Update your details</h2>
         </div>
         <Form className={classes.form} method="PATCH">
