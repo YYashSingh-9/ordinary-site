@@ -1,10 +1,20 @@
 import classes from "./WhenLoggedIn.module.css";
-import { Form, NavLink, useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import { NavLink, useNavigate } from "react-router-dom";
 import { logoutSendFunction } from "../../Store/ActionCreatorThunk";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
 import LoadingSpinner from "../Utils/LoadingSpinner";
 
+// THIS IS NOTIFICATION HELPER FUNCTION
+const notifyFn = () => {
+  return toast.info("User Logged Out", {
+    position: "top-right",
+    theme: "light",
+    autoClose: 2000,
+  });
+};
 const SideDivs = (props) => {
   const link = props.link ? props.link : "";
   return (
@@ -63,6 +73,7 @@ const WhenLoggedIn = () => {
   const logoutFnc = () => {
     logoutSendFunction(cookieToken);
     dispatch(actions.logout_cookie_remover());
+    notifyFn();
     Navigate("/");
   };
 
@@ -110,6 +121,7 @@ const WhenLoggedIn = () => {
               <TableComponent user={currentUser} />
             </div>
           </div>
+          <ToastContainer />
         </section>
       )}
     </>

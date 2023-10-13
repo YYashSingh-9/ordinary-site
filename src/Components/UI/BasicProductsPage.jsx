@@ -42,7 +42,7 @@ const BasicProductsPage = () => {
   );
   const dispatch = useDispatch();
   const enableVal = cookie ? true : false;
-  const { data, isError, isLoading } = useQuery({
+  const { data, isError, isLoading, isFetching } = useQuery({
     queryKey: ["cartProd"],
     queryFn: async () => {
       return cartProductsLoader(cookie);
@@ -97,7 +97,7 @@ const BasicProductsPage = () => {
   }, [data, cookie]);
   return (
     <>
-      {isLoading ? (
+      {isLoading & !data ? (
         <LoadingSpinner />
       ) : (
         <section className={classes.thisSection} onClick={submenuRemover}>

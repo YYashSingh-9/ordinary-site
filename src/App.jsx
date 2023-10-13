@@ -4,7 +4,7 @@ import CataloguesDiv from "./Components/ParentComponents/CataloguesDiv";
 import BlogDiv from "./Components/ParentComponents/BlogDiv";
 import AboutDiv from "./Components/ParentComponents/AboutDiv";
 import LoadingSpinner from "./Components/Utils/LoadingSpinner";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "./Store/StoreSlice";
 import { useEffect } from "react";
@@ -33,19 +33,13 @@ function App() {
   const document = useLoaderData();
   const dispatch = useDispatch();
   const cookieToken = useSelector((state) => state.sliceOne.cookieTokenVal);
-
+  const navigation = useNavigation();
   const enableVal = cookieToken ? true : false;
-  // const { data, isError, isPending } = useQuery({
-  //   queryKey: ["cartProd"],
-  //   queryFn: async () => {
-  //     return cartProductsLoader(cookieToken);
-  //   },
-  //   enabled: enableVal,
-  // });
-  const [
-    { data: ProdData, isLoading: loading1 },
-    { data: FavData, isLoading: loading2 },
-  ] = customQueryHook(enableVal, cookieToken);
+
+  const [{ data: ProdData }, { data: FavData }] = customQueryHook(
+    enableVal,
+    cookieToken
+  );
 
   const data = ProdData;
   const data2 = FavData;
@@ -62,20 +56,20 @@ function App() {
 
   return (
     <>
-      {loading1 && loading2 ? <LoadingSpinner /> : <HeaderMiddle />}
-      {loading1 && loading2 ? (
+      {navigation.state === "loading" ? <LoadingSpinner /> : <HeaderMiddle />}
+      {navigation.state === "loading" ? (
         <LoadingSpinner />
       ) : (
         <ProductsDiv title="best sellers" sliceInit={0} sliceEnd={4} />
       )}
-      {loading1 && loading2 ? <LoadingSpinner /> : <CataloguesDiv />}
-      {loading1 && loading2 ? (
+      {navigation.state === "loading" ? <LoadingSpinner /> : <CataloguesDiv />}
+      {navigation.state === "loading" ? (
         <LoadingSpinner />
       ) : (
         <ProductsDiv title="popular" sliceInit={5} sliceEnd={9} />
       )}
-      {loading1 && loading2 ? <LoadingSpinner /> : <BlogDiv />}
-      {loading1 && loading2 ? <LoadingSpinner /> : <AboutDiv />}
+      {navigation.state === "loading" ? <LoadingSpinner /> : <BlogDiv />}
+      {navigation.state === "loading" ? <LoadingSpinner /> : <AboutDiv />}
     </>
   );
 }
