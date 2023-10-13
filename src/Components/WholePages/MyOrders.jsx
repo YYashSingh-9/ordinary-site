@@ -88,7 +88,10 @@ const MyOrders = () => {
   }, [cookie, data]);
   return (
     <>
-      {isLoading ? <LoadingSpinner /> : <EmptyCart toggleFn={submenuRemover} />}
+      {isLoading && <LoadingSpinner />}
+      {!isLoading && myOrders.length === 0 && (
+        <EmptyCart toggleFn={submenuRemover} />
+      )}
       {myOrders.length >= 1 && (
         <section className={classes.CartSection}>
           <div className={classes.cartHeading}>
