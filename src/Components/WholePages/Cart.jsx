@@ -43,7 +43,7 @@ const Cart = () => {
   return (
     <>
       {isLoading && isLoggedIn && <LoadingSpinner />}
-      {!isLoading && isCartEmpty && !isLoggedIn && isLoggedIn && (
+      {!isLoading && isCartEmpty && (
         <WithoutItems
           link="/favourites"
           title={`Product says 'It Look so empty without me!`}

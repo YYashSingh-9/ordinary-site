@@ -1,5 +1,8 @@
-import { useEffect } from "react";
 import classes from "./Edit_detailsPage.module.css";
+import "react-toastify/dist/ReactToastify.css";
+import { actions } from "../../Store/StoreSlice";
+import { useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
 import {
   Form,
@@ -8,7 +11,29 @@ import {
   useNavigate,
   useNavigation,
 } from "react-router-dom";
-import { actions } from "../../Store/StoreSlice";
+
+// THIS IS NOTIFICATION HELPER FUNCTION
+const notifyFn = (type, text) => {
+  if (type === "info") {
+    return toast.success("User info updated.😁", {
+      position: "top-right",
+      theme: "colored",
+      autoClose: 2000,
+    });
+  } else if (type === "password") {
+    return toast.success("Password updated.👍", {
+      position: "top-right",
+      theme: "colored",
+      autoClose: 2000,
+    });
+  } else if (type === "fail") {
+    return toast.error(`${text}.👍`, {
+      position: "top-right",
+      theme: "colored",
+      autoClose: 2000,
+    });
+  }
+};
 
 const P_w_updateForm = () => {
   return (
@@ -103,14 +128,24 @@ const EditForm = (props) => {
   };
 
   useEffect(() => {
-    if (actionData)
+    if (actionData) {
+      if (actionData.status === "fail") {
+        notifyFn("fail", actionData.message);
+      }
       if (actionData.token) {
         dispatch(actions.set_token_to_localStorage(actionData));
-        Navigate("/account-details");
+        notifyFn("password");
+        setTimeout(() => {
+          Navigate("/account-details");
+        }, 2600);
       } else if (!actionData.token && actionData.data) {
         dispatch(actions.update_token_from_localStorage(actionData.data));
-        Navigate("/account-details");
+        notifyFn("info");
+        setTimeout(() => {
+          Navigate("/account-details");
+        }, 2600);
       }
+    }
   }, [actionData]);
   return (
     <>
@@ -156,6 +191,7 @@ const EditForm = (props) => {
           )}
         </Form>
       </section>
+      <ToastContainer />
     </>
   );
 };

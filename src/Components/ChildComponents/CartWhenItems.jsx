@@ -1,14 +1,16 @@
 import { useSelector } from "react-redux";
 import { useMutation } from "@tanstack/react-query";
+import { ToastContainer, toast } from "react-toastify";
+
 import {
   queryClient,
   placeOrder_Function,
 } from "../../Store/ActionCreatorThunk";
 import { useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 import classes from "./CartWhenItems.module.css";
 import CartProductItem from "../UI/CartProductItem";
 import LoadingSpinner from "../Utils/LoadingSpinner";
-import ErrorDisplay from "../Utils/ErrorDisplay";
 
 // ________ ADDITIONAL COMPONENT
 const CouponComponent = () => {
@@ -132,6 +134,7 @@ const CartWhenItems = (props) => {
               </div>
             </div>
           </div>
+          <ToastContainer />
         </section>
       )}
     </>
