@@ -3,8 +3,7 @@ import ProductsDiv from "./Components/ParentComponents/ProductsDiv";
 import CataloguesDiv from "./Components/ParentComponents/CataloguesDiv";
 import BlogDiv from "./Components/ParentComponents/BlogDiv";
 import AboutDiv from "./Components/ParentComponents/AboutDiv";
-import LoadingSpinner from "./Components/Utils/LoadingSpinner";
-import { useLoaderData, useNavigation } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "./Store/StoreSlice";
 import { useEffect } from "react";
@@ -33,7 +32,6 @@ function App() {
   const document = useLoaderData();
   const dispatch = useDispatch();
   const cookieToken = useSelector((state) => state.sliceOne.cookieTokenVal);
-  const navigation = useNavigation();
   const enableVal = cookieToken ? true : false;
 
   const [{ data: ProdData }, { data: FavData }] = customQueryHook(
