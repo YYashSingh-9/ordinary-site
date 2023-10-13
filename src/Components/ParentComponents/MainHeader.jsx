@@ -2,7 +2,7 @@ import classes from "./MainHeader.module.css";
 import NavItem from "../ChildComponents/NavItems";
 import { useDispatch, useSelector } from "react-redux";
 import { CiSearch, CiHeart, CiShoppingCart } from "react-icons/ci";
-import { BiRadioCircle, BiSolidUser } from "react-icons/bi";
+import { BiRadioCircle, BiSolidUser, BiMenu } from "react-icons/bi";
 import logo from "../../assets/logo2.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import { actions } from "../../Store/StoreSlice";
@@ -11,7 +11,6 @@ import { useRef } from "react";
 const MainHeader = () => {
   const navData = useSelector((state) => state.sliceOne.navItems);
   const CartData = useSelector((state) => state.sliceOne.AddToCart_Array);
-  const favouriteItems = useSelector((state) => state.sliceOne.FavouriteItems);
   const favState = useSelector((state) => state.sliceOne.isThereAFav);
   const searchbarValue = useSelector((state) => state.sliceOne.searchBarVal);
   const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
@@ -107,6 +106,7 @@ const MainHeader = () => {
                 </span>
               )}
             </span>
+            <BiMenu className={classes.menuIcon} />
           </div>
         </nav>
       </header>

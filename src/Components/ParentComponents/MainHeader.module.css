@@ -88,3 +88,34 @@ nav {
   margin-top: 0.4rem;
   cursor: pointer;
 }
+.menuIcon {
+  font-size: 5rem;
+  display: none;
+}
+
+@media (min-width: 280px) and (max-width: 576px) {
+  .searchBar {
+    display: none;
+  }
+  .unorderdList {
+    padding: 0;
+    margin-right: auto;
+    font-size: 0.6rem;
+    display: none;
+  }
+  nav {
+    grid-template-columns: 50% 50%;
+  }
+  .menuIcon {
+    font-size: 2rem;
+    display: block;
+  }
+  .navIcons {
+    justify-content: right;
+  }
+  .icons {
+    margin-left: 0;
+    font-size: 2rem;
+    margin-left: 0.4rem;
+  }
+}

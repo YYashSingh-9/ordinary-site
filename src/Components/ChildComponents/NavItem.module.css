@@ -15,3 +15,8 @@
 /* .lis h3 {
   display: inline-block;inline-block is ignored due to the float. If 'float' has a value other than 'none', the box is floated and 'display' is treated as 'block'
 } */
+@media (min-width: 280px) and (max-width: 576px) {
+  .lis {
+    margin: 0rem 0.3rem;
+  }
+}
