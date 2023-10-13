@@ -1,12 +1,37 @@
 import classes from "./CartProductItem.module.css";
+import PlusMinusButton from "../ChildComponents/PlusMinusButton";
+import SmallSpinner from "../Utils/SmallSpinner";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import { actions } from "../../Store/StoreSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useMutation } from "@tanstack/react-query";
 import { cartProductPATCH } from "../../Store/ActionCreatorThunk";
-import PlusMinusButton from "../ChildComponents/PlusMinusButton";
 import { BsX } from "react-icons/bs";
 import { queryClient } from "../../Store/ActionCreatorThunk";
-import SmallSpinner from "../Utils/SmallSpinner";
+
+// THIS IS NOTIFICATION HELPER FUNCTION
+const notifyFn = (type) => {
+  if (type === "deduct") {
+    return toast.info("Product deducted.🙁", {
+      position: "top-right",
+      theme: "light",
+      autoClose: 2000,
+    });
+  } else if (type === "add") {
+    return toast.info("Quantity increased.👍", {
+      position: "top-right",
+      theme: "light",
+      autoClose: 2000,
+    });
+  } else if (type === "totalremove") {
+    return toast.error("Product removed.🛒", {
+      position: "top-right",
+      theme: "color",
+      autoClose: 2000,
+    });
+  }
+};
 
 // PRODUCT WHICH SHOWS ON CART PAGE...
 const CartProductItem = (props) => {
@@ -33,19 +58,23 @@ const CartProductItem = (props) => {
   const addItemHandler = () => {
     dispatch(actions.AddItemToCart(elem));
     dispatch(actions.cartProduct_Patch(_id));
+    notifyFn("add");
     mutate("normal_patch");
   };
   const item_deduct_fnc = () => {
     dispatch(actions.RemoveItemfromCart(elem));
     dispatch(actions.cartProduct_Patch(_id));
     if (quantity > 1) {
+      notifyFn("deduct");
       mutate("normal_patch");
     } else if (quantity === 1) {
+      notifyFn("totalremove");
       mutate({ type: "delete_patch", id: elem._id });
     }
   };
   const removeItemFromCart_Handler = () => {
     dispatch(actions.totalRemoveFromCart(elem));
+    notifyFn("totalremove");
     mutate({ type: "delete_patch", id: elem._id });
   };
 

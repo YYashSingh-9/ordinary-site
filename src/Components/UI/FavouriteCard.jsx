@@ -1,10 +1,29 @@
 import classes from "./FavouriteCard.module.css";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
 import { useMutation } from "@tanstack/react-query";
 import { postFav } from "../../Store/ActionCreatorThunk";
 import { queryClient } from "../../Store/ActionCreatorThunk";
+
+// THIS IS NOTIFICATION HELPER FUNCTION
+const notifyFn = (type) => {
+  if (type === "removeFav") {
+    return toast.error("Product removed.🙁", {
+      position: "top-right",
+      theme: "light",
+      autoClose: 3000,
+    });
+  } else if (type === "addToCart") {
+    return toast.success("Product added to cart.👍", {
+      position: "top-right",
+      theme: "light",
+      autoClose: 3000,
+    });
+  }
+};
 
 const FavouriteCard = (props) => {
   const { title, price, images, key, isFav, catagory, _id } = props.elem;
@@ -30,6 +49,7 @@ const FavouriteCard = (props) => {
     dispatch(actions.AddItemToCart(props.elem));
     mutate("deleteFav");
     mutate("add-to-cart");
+    notifyFn("addToCart");
   };
 
   // WHEN CLICKED ON TOP-RIGHT CROSS -:>THIS FUNCTION RUNS
@@ -38,6 +58,7 @@ const FavouriteCard = (props) => {
     if (isFav) {
       console.log("deleted fav");
       mutate("deleteFav");
+      notifyFn("removeFav");
     }
   };
   return (
@@ -75,6 +96,7 @@ const FavouriteCard = (props) => {
             Add to bag
           </button>
         </div>
+        <ToastContainer />
       </div>
     </>
   );
