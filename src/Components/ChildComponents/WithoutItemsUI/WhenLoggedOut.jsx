@@ -1,8 +1,11 @@
 import classes from "./WhenLoggedOut.module.css";
 import loginImage from "../../../assets/login-image.png";
-import { Form } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import { Form, useActionData, useLoaderData } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../../Store/StoreSlice";
+import { useEffect } from "react";
 // Conditional Components...
 const LoginForm = () => {
   return (
@@ -68,13 +71,32 @@ const SignupForm = () => {
     </>
   );
 };
+// THIS IS NOTIFICATION HELPER FUNCTION
+const notifyFn = (type, text) => {
+  if (type === "fail") {
+    return toast.error(`${text}🙁`, {
+      position: "top-right",
+      theme: "light",
+      autoClose: 2000,
+    });
+  }
+};
 const WhenLoggedOut = (props) => {
   const signUpState = useSelector((state) => state.sliceOne.signUpFormState);
   const dispatch = useDispatch();
-
-  const signupFormToggle = () => {
+  const actionData = useActionData();
+  console.log(actionData);
+  const signupFormToggle = async () => {
     dispatch(actions.signupFormToggler());
   };
+
+  useEffect(() => {
+    if (!actionData === undefined) {
+      if (actionData.status === "fail") {
+        notifyFn("fail", actionData.message);
+      }
+    }
+  }, [actionData]);
   return (
     <>
       <div className={classes.parent}>
@@ -96,6 +118,7 @@ const WhenLoggedOut = (props) => {
               : "Already a user? Signup then."}
           </button>
         </div>
+        <ToastContainer />
       </div>
     </>
   );

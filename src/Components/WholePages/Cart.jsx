@@ -12,6 +12,7 @@ const Cart = () => {
   const isCartEmpty = useSelector((state) => state.sliceOne.isCartEmpty);
   const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
   const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
+  const isLoggedIn = useSelector((state) => state.sliceOne.isLoggedInState);
   const dispatch = useDispatch();
 
   const enableVal = cookie ? true : false;
@@ -41,13 +42,22 @@ const Cart = () => {
 
   return (
     <>
-      {isLoading && <LoadingSpinner />}
-      {!isLoading && isCartEmpty && (
+      {isLoading && isLoggedIn && <LoadingSpinner />}
+      {!isLoading && isCartEmpty && !isLoggedIn && isLoggedIn && (
         <WithoutItems
           link="/favourites"
           title={`Product says 'It Look so empty without me!`}
           subTitle={`Bag is empty , Let's add some products`}
           btnText={`Add Items from Favourite Lists`}
+          subMenuToggler={submenuRemover}
+        />
+      )}
+      {!isLoggedIn && (
+        <WithoutItems
+          link="/account-details"
+          title={`Product says 'It Look so empty without me!`}
+          subTitle={`Let's login first ..shall we ?`}
+          btnText={`Login/Signup now`}
           subMenuToggler={submenuRemover}
         />
       )}

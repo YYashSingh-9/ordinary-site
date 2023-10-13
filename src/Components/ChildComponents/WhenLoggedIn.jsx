@@ -6,14 +6,23 @@ import { logoutSendFunction } from "../../Store/ActionCreatorThunk";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
 import LoadingSpinner from "../Utils/LoadingSpinner";
+import { useEffect } from "react";
 
 // THIS IS NOTIFICATION HELPER FUNCTION
-const notifyFn = () => {
-  return toast.info("User Logged Out", {
-    position: "top-right",
-    theme: "light",
-    autoClose: 2000,
-  });
+const notifyFn = (type) => {
+  if (type === "logout") {
+    return toast.info("User Logged Out", {
+      position: "top-right",
+      theme: "light",
+      autoClose: 2000,
+    });
+  } else if (type === "firstlogin") {
+    return toast.success("user currently is logged in😁", {
+      position: "top-right",
+      theme: "colored",
+      autoClose: 2000,
+    });
+  }
 };
 const SideDivs = (props) => {
   const link = props.link ? props.link : "";
@@ -72,11 +81,15 @@ const WhenLoggedIn = () => {
 
   const logoutFnc = () => {
     logoutSendFunction(cookieToken);
-    dispatch(actions.logout_cookie_remover());
-    notifyFn();
-    Navigate("/");
+    notifyFn("logout");
+    setTimeout(() => {
+      dispatch(actions.logout_cookie_remover());
+      Navigate("/");
+    }, 2600);
   };
-
+  useEffect(() => {
+    notifyFn("firstlogin");
+  }, []);
   return (
     <>
       {!currentUser ? (
