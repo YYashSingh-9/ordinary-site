@@ -1,11 +1,18 @@
 import classes from "./ProductItem.module.css";
 import LiCard from "../UI/LiCard";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import { BsHeart } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../Store/StoreSlice";
 import { NavLink } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { postFav, queryClient } from "../../Store/ActionCreatorThunk";
+
+// THIS IS NOTIFICATION HELPER FUNCTION
+const notifyFn = () => {
+  return toast;
+};
 
 // THIS IS THE PRODUCT CARD(PRODUCTS) SEEN EVERYWHERE ..
 const ProductItem = (props) => {
@@ -55,6 +62,7 @@ const ProductItem = (props) => {
           {props.btnState && <button className={classes.addBtn}>Add</button>}
         </div>
       </LiCard>
+      <ToastContainer />
     </>
   );
 };
