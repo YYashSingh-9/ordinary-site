@@ -44,3 +44,13 @@
 .productInfo h2 {
   font-size: 1.5rem;
 }
+@media (min-width: 280px) and (max-width: 576px) {
+  .productInfo h2 {
+    font-size: 1rem;
+    padding-top: 2rem;
+  }
+  .heartLogo {
+    font-size: 1.3rem;
+    /* z-index: 99; */
+  }
+}
