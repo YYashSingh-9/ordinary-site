@@ -15,19 +15,19 @@ const notifyFn = (type) => {
   if (type === "deduct") {
     return toast.info("Product deducted.🙁", {
       position: "top-right",
-      theme: "light",
+      theme: "colored",
       autoClose: 2000,
     });
   } else if (type === "add") {
     return toast.info("Quantity increased.👍", {
       position: "top-right",
-      theme: "light",
+      theme: "colored",
       autoClose: 2000,
     });
   } else if (type === "totalremove") {
     return toast.error("Product removed.🛒", {
       position: "top-right",
-      theme: "color",
+      theme: "colored",
       autoClose: 2000,
     });
   }
@@ -106,6 +106,7 @@ const CartProductItem = (props) => {
             deductItemFnc={item_deduct_fnc}
           />
         </div>
+        <ToastContainer />
       </div>
     </>
   );

@@ -1,5 +1,7 @@
 import classes from "./ProductInfoPage.module.css";
 import logo from "../../assets/logo2.png";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import { BsStarFill, BsStar, BsStarHalf } from "react-icons/bs";
 import { NavLink, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,6 +10,7 @@ import { actions } from "../../Store/StoreSlice";
 import { useRef, useState } from "react";
 import { postFav } from "../../Store/ActionCreatorThunk";
 import { queryClient } from "../../Store/ActionCreatorThunk";
+
 //THIS IS HOW THE RATINGS WILL BE DISPLAYED..
 const StarComponent = ({ starPassed }) => {
   const RatingStars = Array.from({ length: 5 }, (elem, index) => {
@@ -39,6 +42,24 @@ const Button = (props) => {
     </button>
   );
 };
+
+// THIS IS NOTIFICATION HELPER FUNCTION
+const notifyFn = (type) => {
+  if (type === "addToFav") {
+    return toast.success("Added to favourites.😁", {
+      position: "top-right",
+      theme: "colored",
+      autoClose: 2000,
+    });
+  } else if (type === "addToCart") {
+    return toast.success("Product added to cart.👍", {
+      position: "top-right",
+      theme: "colored",
+      autoClose: 2000,
+    });
+  }
+};
+
 const ProductInfoPage = () => {
   const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
   const allProducts = useSelector((state) => state.sliceOne.arrayOfProducts);
@@ -92,11 +113,13 @@ const ProductInfoPage = () => {
   const AddItemToCartHandler = () => {
     dispatch(actions.AddItemToCart(productGot));
     setBtnState(false);
+    notifyFn("addToCart");
     mutate("add-to-cart");
   };
   const favouriteItemHandler = () => {
     dispatch(actions.FavouriteToggler(key));
     if (!isFav) {
+      notifyFn("addToFav");
       mutate("postFav");
     }
   };
@@ -186,6 +209,7 @@ const ProductInfoPage = () => {
             </div>
           </div>
         </section>
+        <ToastContainer />
       </section>
     </>
   );
