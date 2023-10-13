@@ -11,7 +11,10 @@ import { postFav, queryClient } from "../../Store/ActionCreatorThunk";
 
 // THIS IS NOTIFICATION HELPER FUNCTION
 const notifyFn = () => {
-  return toast;
+  return toast.success("Added to your favourites!.😁", {
+    position: "top-right",
+    theme: "light",
+  });
 };
 
 // THIS IS THE PRODUCT CARD(PRODUCTS) SEEN EVERYWHERE ..
@@ -32,9 +35,9 @@ const ProductItem = (props) => {
 
   const favouriteOnClick = (e) => {
     if (!isFav) {
-      console.log("posted fav");
       mutate("postFav");
     }
+    notifyFn();
     dispatch(actions.FavouriteToggler(key));
   };
 
@@ -61,8 +64,8 @@ const ProductItem = (props) => {
           <h3>${price}</h3>
           {props.btnState && <button className={classes.addBtn}>Add</button>}
         </div>
+        <ToastContainer />
       </LiCard>
-      <ToastContainer />
     </>
   );
 };
