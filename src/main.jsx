@@ -21,6 +21,7 @@ import Edit_detailsPage from "./Components/ChildComponents/Edit_detailsPage";
 import MyOrders from "./Components/WholePages/MyOrders";
 import OrderRedirectPage from "./Components/UI/OrderRedirectPage";
 import ErrorDisplay from "./Components/Utils/ErrorDisplay";
+import SideMenu from "./Components/Utils/SideMenuModal";
 
 const router = createBrowserRouter([
   {
@@ -80,6 +81,7 @@ const router = createBrowserRouter([
       },
       { path: "/my_orders/redirect-to-order", element: <OrderRedirectPage /> },
       { path: "/redirect/error-occured", element: <ErrorDisplay /> },
+      { path: "/redirect/sidemenu", element: <SideMenu /> },
     ],
   },
 ]);

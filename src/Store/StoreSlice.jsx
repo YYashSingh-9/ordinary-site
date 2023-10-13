@@ -289,6 +289,7 @@ const initialState_one = {
   whichFormToShow: true,
   cartProductToBePatched: "",
   myOrders: [],
+  sideMenuState: false,
 };
 
 const StoreSlice = createSlice({

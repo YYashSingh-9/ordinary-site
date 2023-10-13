@@ -1,9 +1,10 @@
 import classes from "./MainHeader.module.css";
 import NavItem from "../ChildComponents/NavItems";
+import SideMenu from "../Utils/SideMenuModal";
+import logo from "../../assets/logo2.png";
 import { useDispatch, useSelector } from "react-redux";
 import { CiSearch, CiHeart, CiShoppingCart } from "react-icons/ci";
 import { BiRadioCircle, BiSolidUser, BiMenu } from "react-icons/bi";
-import logo from "../../assets/logo2.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import { actions } from "../../Store/StoreSlice";
 import { useRef } from "react";
@@ -109,6 +110,7 @@ const MainHeader = () => {
             <BiMenu className={classes.menuIcon} />
           </div>
         </nav>
+        <SideMenu />
       </header>
     </>
   );
