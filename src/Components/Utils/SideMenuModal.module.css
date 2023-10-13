@@ -14,13 +14,21 @@
   margin: 0;
   font-size: 1.2rem;
   height: 100%;
-  width: 0%;
+  width: 50%;
   position: fixed;
   border-top-left-radius: 2rem;
   top: 0%;
   background-color: white;
   right: 0%;
   z-index: 99;
-  transition: 2s ease;
+  transition: 1s ease;
 }
 /* .menuInCenter */
+@media (min-width: 576px) {
+  .unorderdList {
+    display: none;
+  }
+  .Backdrop {
+    display: none;
+  }
+}
