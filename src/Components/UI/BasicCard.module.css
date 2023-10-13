@@ -23,3 +23,17 @@ h2 {
 .childOne h3 {
   text-decoration: underline;
 }
+
+@media (min-width: 280px) and (max-width: 576px) {
+  .BasicCard {
+    grid-template-rows: 2rem auto;
+    margin-top: 5%;
+  }
+  .childTwo {
+    max-height: 22rem;
+    /* margin-top: 1%; */
+  }
+  h2 {
+    font-size: 1rem;
+  }
+}

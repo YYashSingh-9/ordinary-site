@@ -39,3 +39,33 @@ hr {
 .spans:hover {
   cursor: pointer;
 }
+
+@media (min-width: 280px) and (max-width: 576px) {
+  .sideImg {
+    width: 100%;
+    height: 22rem;
+    background-color: rgb(53, 53, 51);
+  }
+  .sideImg img {
+    height: 100%;
+  }
+  .infos {
+    font-size: 0.8rem;
+    overflow-y: scroll;
+  }
+  .infos::-webkit-scrollbar {
+    display: none;
+  }
+  .spans p {
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  .linklogo {
+    font-size: 0.8rem;
+  }
+  .sideInfo {
+    grid-template-rows: 10rem 10rem;
+    row-gap: 2rem;
+    max-height: 22rem;
+  }
+}
