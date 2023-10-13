@@ -15,6 +15,7 @@ const MainHeader = () => {
   const favState = useSelector((state) => state.sliceOne.isThereAFav);
   const searchbarValue = useSelector((state) => state.sliceOne.searchBarVal);
   const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
+  const sideMenuState = useSelector((state) => state.sliceOne.sideMenuState);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const inputref = useRef();
@@ -54,6 +55,9 @@ const MainHeader = () => {
     dispatch(actions.searchBarTyper(value));
   };
   //_____________________________________________
+  const sideMenuToggler = () => {
+    dispatch(actions.sideMenuToggle());
+  };
   return (
     <>
       <header className={classes.head} onClick={submenuRemover}>
@@ -107,10 +111,10 @@ const MainHeader = () => {
                 </span>
               )}
             </span>
-            <BiMenu className={classes.menuIcon} />
+            <BiMenu className={classes.menuIcon} onClick={sideMenuToggler} />
           </div>
         </nav>
-        <SideMenu />
+        {sideMenuState && <SideMenu />}
       </header>
     </>
   );

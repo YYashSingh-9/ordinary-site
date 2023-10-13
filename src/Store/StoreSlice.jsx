@@ -571,6 +571,9 @@ const StoreSlice = createSlice({
 
       console.log("this modified");
     },
+    sideMenuToggle(state, action) {
+      state.sideMenuState = !state.sideMenuState;
+    },
   },
 });
 // el.isFav = arrayGot.find((al) => el.title === al.title);

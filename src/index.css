@@ -18,6 +18,7 @@
 
 body {
   margin: 1% 10%;
+  overflow-x: hidden;
 }
 
 /* TO HIDE THE SCROLLBAR BUT STLL FUNCTIONAL */
