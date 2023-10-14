@@ -76,3 +76,30 @@
   font-size: 2rem;
   color: rgb(57, 57, 57);
 }
+
+@media (min-width: 280px) and (max-width: 576px) {
+  .favCardParentDiv {
+    max-width: 10rem;
+    max-height: 18rem;
+    grid-template-rows: 9rem 5rem 4rem;
+  }
+  .title {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+  .prices h4 {
+    margin-left: 0.7rem;
+    font-size: 0.8rem;
+  }
+  .closeLogo {
+    font-size: 1.3rem;
+  }
+  .addBtn {
+    font-size: 1.1rem;
+    width: 80%;
+    padding: 0.8rem 0.5rem;
+
+    border-radius: 0.2rem;
+    margin-top: 0.5rem;
+  }
+}

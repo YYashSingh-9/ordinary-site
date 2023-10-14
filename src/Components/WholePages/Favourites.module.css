@@ -9,3 +9,18 @@
   grid-template-columns: repeat(6, 20rem);
   column-gap: 1%;
 }
+
+@media (min-width: 280px) and (max-width: 576px) {
+  .cartProductListDiv {
+    grid-template-rows: repeat(2, 20rem);
+    grid-template-columns: repeat(2, 10rem);
+    column-gap: 2rem;
+    row-gap: 2rem;
+    justify-content: center;
+    overflow-y: scroll;
+    max-height: 50rem;
+  }
+  .cartProductListDiv::-webkit-scrollbar {
+    display: none;
+  }
+}

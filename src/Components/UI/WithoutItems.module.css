@@ -38,3 +38,10 @@
   color: white;
   cursor: pointer;
 }
+
+@media (min-width: 280px) and (max-width: 576px) {
+  .ImgDiv img {
+    /* width: 80%; */
+    height: 70%;
+  }
+}
