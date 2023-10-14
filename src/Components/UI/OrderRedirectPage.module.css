@@ -29,3 +29,13 @@
   background-color: rgb(250, 47, 47);
   transition: 0.2s ease-in-out;
 }
+
+@media (min-width: 280px) and (max-width: 576px) {
+  .heading {
+    font-size: 2rem;
+  }
+  .rBtn {
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+  }
+}
