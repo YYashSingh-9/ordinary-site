@@ -37,12 +37,13 @@ const BasicProductsPage = () => {
   const maxPrice = useSelector((state) => state.sliceOne.maxPriceVal);
   const searchTerm = useSelector((state) => state.sliceOne.searchedTerm);
   const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
+  const filterShowState = useSelector((state) => state.sliceOne.filterState);
   const typeSelected = useSelector(
     (state) => state.sliceOne.typeSelectVariable
   );
   const dispatch = useDispatch();
   const enableVal = cookie ? true : false;
-  const { data, isError, isLoading, isFetching } = useQuery({
+  const { data } = useQuery({
     queryKey: ["cartProd"],
     queryFn: async () => {
       return cartProductsLoader(cookie);
@@ -59,9 +60,7 @@ const BasicProductsPage = () => {
   const pagerFn = (type) => {
     dispatch(actions.pageIncrement(type));
   };
-
   const paramRecieved = paramConversion(id);
-
   const specificProductArray = productList.filter(
     (el) => el.catagory === paramRecieved
   );
@@ -88,6 +87,11 @@ const BasicProductsPage = () => {
       el.title.includes(searchTerm)
     );
 
+  //Show filter function
+  const addClass = filterShowState ? classes.toShow : "";
+  const filterToggle = () => {
+    dispatch(actions.FilterToggle());
+  };
   useEffect(() => {
     dispatch(actions.get_token_from_localStorage());
     if (data === undefined) return;
@@ -106,13 +110,13 @@ const BasicProductsPage = () => {
           )}
         </div>
         <div className={`${classes.ParentProductsDiv} ${classes.nfilter}`}>
-          <div className={classes.FiltersPart}>
+          <div className={`${classes.FiltersPart}${addClass}`}>
             <FilterComponent />
           </div>
           <div className={classes.secondSideDiv}>
             <div className={classes.heading}>
               <h2 className={classes.ech2}>{id}</h2>
-              <CiFilter className={classes.filterlogo} />
+              <CiFilter className={classes.filterlogo} onClick={filterToggle} />
             </div>
 
             <div className={classes.ProductsListPart}>

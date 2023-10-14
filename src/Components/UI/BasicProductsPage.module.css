@@ -90,4 +90,8 @@
   .heading {
     min-height: 3rem;
   }
+  .toShow {
+    display: block;
+    border: 0.1rem solid rgb(180, 180, 180);
+  }
 }

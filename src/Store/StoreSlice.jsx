@@ -290,6 +290,7 @@ const initialState_one = {
   cartProductToBePatched: "",
   myOrders: [],
   sideMenuState: false,
+  filterState: false,
 };
 
 const StoreSlice = createSlice({
@@ -573,6 +574,9 @@ const StoreSlice = createSlice({
     },
     sideMenuToggle(state, action) {
       state.sideMenuState = !state.sideMenuState;
+    },
+    FilterToggle(state, action) {
+      state.filterState = !state.filterState;
     },
   },
 });
