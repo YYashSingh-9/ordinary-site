@@ -21,6 +21,8 @@ const NavItem = (props) => {
     if (key === 1) {
       dispatch(actions.CatalogueToggler());
     } else if (key >= 2) {
+      props.togglefnc();
+
       dispatch(actions.CatalogueToggler("removeSubMenu"));
     }
   };

@@ -16,12 +16,22 @@ const Backdrop = (props) => {
 const MenuItemPart = (props) => {
   const navData = props.navItems;
   const additionalClass = props.menuState ? classes.menuInCenter : "";
+  const menutoggler = () => {
+    props.menutoggle();
+  };
   return (
     <>
       <div>
         <ul className={`${classes.unorderdList} ${additionalClass}`}>
           {navData.map((el, index) => {
-            return <NavItem elems={el} key={index} keys={index} />;
+            return (
+              <NavItem
+                elems={el}
+                key={index}
+                keys={index}
+                togglefnc={menutoggler}
+              />
+            );
           })}
         </ul>
       </div>
@@ -41,7 +51,11 @@ const SideMenu = () => {
     <>
       {createPortal(<Backdrop menuRemover={sideMenuToggler} />, portalPlace)}
       {createPortal(
-        <MenuItemPart navItems={navData} menuState={sideMenu} />,
+        <MenuItemPart
+          navItems={navData}
+          menuState={sideMenu}
+          menutoggle={sideMenuToggler}
+        />,
         portalPlace
       )}
     </>
