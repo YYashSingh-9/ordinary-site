@@ -31,3 +31,31 @@
 .parentDiv:hover {
   cursor: pointer;
 }
+
+@media (min-width: 280px) and (max-width: 576px) {
+  .parentDiv {
+    grid-template-rows: 8rem 2rem 5rem;
+  }
+  .imageUsed {
+    width: 100%;
+  }
+  .imageUsed img {
+    width: 100%;
+  }
+  .interationInfo {
+    display: flex;
+    margin: 0;
+  }
+  .interationInfo p {
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+    color: grey;
+  }
+  .title_N_info {
+    margin-top: 0.2rem;
+  }
+
+  .title_N_info p {
+    font-size: 0.9rem;
+  }
+}
