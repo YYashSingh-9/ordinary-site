@@ -73,3 +73,31 @@
   height: 1rem;
   width: 0.7rem;
 }
+
+@media (min-width: 280px) and (max-width: 576px) {
+  .searchNfilter {
+    grid-template-rows: 2rem 2rem 2rem 14rem;
+    grid-template-columns: 15rem;
+    row-gap: 5%;
+    max-width: 22rem;
+    height: 28rem;
+    border: 0.1rem solid rgb(180, 180, 180);
+  }
+  .searchNfilter .searchInput {
+    padding: 0.1rem 1rem;
+    max-width: 13rem;
+    margin: auto;
+  }
+  .searchNfilter select {
+    max-width: 13rem;
+    padding: 0.2rem 2rem;
+    margin: auto;
+  }
+  .priceRangeDiv {
+    max-width: 13rem;
+    margin: auto;
+  }
+  .searchNfilter h2 {
+    text-align: center;
+  }
+}
