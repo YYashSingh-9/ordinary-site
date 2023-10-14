@@ -118,3 +118,63 @@ tr {
   background-color: rgb(227, 35, 35);
   cursor: pointer;
 }
+
+@media (min-width: 280px) and (max-width: 576px) {
+  .mainDiv {
+    grid-template-columns: 100%;
+    grid-template-rows: 15% 50rem;
+    padding: 0rem 0rem;
+    padding-bottom: 0rem;
+  }
+  .secondDiv {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10rem 40rem;
+  }
+  .leftSideDiv {
+    grid-template-columns: 25% 25% 25% 25%;
+    padding-right: 0;
+    grid-template-rows: 100%;
+    border: 0.1rem solid rgb(179, 179, 179);
+  }
+  .sideDiv {
+    border-right: 0.1rem solid lightgray;
+    padding-top: 1rem;
+  }
+  .sideDiv h3 {
+    cursor: pointer;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  .sideDiv p {
+    text-align: center;
+    font-size: 1rem;
+  }
+  .rightSideDiv {
+    margin-left: 0rem;
+    margin-top: 1rem;
+    width: 100%;
+    display: grid;
+    padding: 0rem 0rem;
+    grid-template-rows: 10% 82%;
+  }
+  .pTitle {
+    padding-top: 1rem;
+  }
+
+  .tableOne th {
+    font-size: 1.1rem;
+  }
+  tr {
+    height: 2rem;
+  }
+  .editBtn {
+    padding: 0.7rem;
+    font-size: 1.1rem;
+  }
+  .logoutBtn button {
+    padding: 0.2rem 1rem;
+    border-radius: 0.2rem;
+    font-size: 1.1rem;
+  }
+}

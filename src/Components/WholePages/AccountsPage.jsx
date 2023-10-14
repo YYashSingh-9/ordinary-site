@@ -50,7 +50,7 @@ const AccountsPage = () => {
   return (
     <>
       <section className={classes.mainDiv} onClick={submenuRemover}>
-        <div className={classes.title}>{title}</div>
+        <div className={classes.titleA}>{title}</div>
 
         <div className={classes.infoDiv}>
           {cookieToken || isLoggedInState ? (

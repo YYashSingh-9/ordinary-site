@@ -7,7 +7,7 @@
 .info {
   height: 100%;
 }
-.title {
+.titleA {
   text-transform: uppercase;
   font-size: 2rem;
   font-weight: 800;
@@ -16,4 +16,19 @@
 
   word-spacing: 0.8rem;
   padding-right: 7rem;
+}
+
+@media (min-width: 280px) and (max-width: 576px) {
+  .mainDiv {
+    grid-template-columns: 100%;
+    padding-bottom: 0rem;
+    grid-template-rows: 9% 60rem;
+  }
+  .titleA {
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    padding-top: 2rem;
+    padding-right: 0;
+  }
 }
