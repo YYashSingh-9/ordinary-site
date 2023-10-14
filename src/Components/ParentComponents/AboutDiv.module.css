@@ -29,3 +29,35 @@
 .texts p {
   font-size: 1.2rem;
 }
+
+@media (min-width: 280px) and (max-width: 576px) {
+  .ImageDiv {
+    width: 100%;
+    height: 22rem;
+  }
+
+  .OtherPart {
+    display: grid;
+    grid-template-rows: 11rem 11rem;
+    grid-template-columns: 100%;
+  }
+  .imgHere {
+    display: flex;
+    justify-content: space-between;
+    max-height: 12rem;
+  }
+  .imgHere img {
+    width: 49%;
+  }
+  .texts {
+    margin-top: auto;
+    max-height: 10rem;
+  }
+  .texts h2 {
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .texts p {
+    font-size: 0.8rem;
+  }
+}
