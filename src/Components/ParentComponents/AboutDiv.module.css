@@ -50,12 +50,12 @@
     width: 49%;
   }
   .texts {
-    margin-top: auto;
-    max-height: 10rem;
+    max-height: 12rem;
   }
   .texts h2 {
     text-transform: uppercase;
     font-weight: 700;
+    margin-bottom: 0;
   }
   .texts p {
     font-size: 0.8rem;

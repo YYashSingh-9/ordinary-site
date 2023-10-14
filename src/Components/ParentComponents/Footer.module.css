@@ -70,3 +70,38 @@
   text-align: right;
   color: black;
 }
+
+@media (min-width: 280px) and (max-width: 576px) {
+  .logo_N_SearchIcon img {
+    max-width: 30%;
+    max-height: 100%;
+  }
+  .logos {
+    font-size: 1.2rem;
+  }
+  .links_N_Email {
+    grid-template-columns: 20% 20% 20% 37%;
+    column-gap: 0.3rem;
+  }
+  .links_N_Email h3 {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .final_N_Socials p {
+    font-size: 0.8rem;
+  }
+  .links_N_Email p {
+    margin-bottom: 1rem;
+    font-size: 0.7rem;
+    text-align: center;
+  }
+  .input_s input {
+    font-size: 0.7rem;
+  }
+  .final_N_Socials > div {
+    width: 50%;
+  }
+  .final_N_Socials {
+    height: 5rem;
+  }
+}
