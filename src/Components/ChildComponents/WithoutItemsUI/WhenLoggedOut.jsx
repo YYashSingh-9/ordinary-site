@@ -25,7 +25,12 @@ const LoginForm = () => {
           <br />
           <input type="password" name="password" id="passwordInput" />
           <br />
-          <button type="submit" name="intent" value="login">
+          <button
+            type="submit"
+            name="intent"
+            value="login"
+            className={classes.formBtn}
+          >
             Login
           </button>
         </Form>
@@ -63,7 +68,12 @@ const SignupForm = () => {
           <br />
           <input type="password" name="passwordConfirm" id="cpassword_input" />
           <br />
-          <button type="submit" name="intent" value="signup">
+          <button
+            type="submit"
+            name="intent"
+            value="signup"
+            className={classes.formBtn}
+          >
             Sign-up
           </button>
         </Form>
