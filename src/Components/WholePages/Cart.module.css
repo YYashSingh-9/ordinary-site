@@ -146,3 +146,6 @@
 .total_titles h3 {
   margin-left: 0;
 }
+
+@media (min-width: 280px) and (max-width: 576px) {
+}

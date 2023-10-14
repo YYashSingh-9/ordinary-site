@@ -57,3 +57,12 @@
 .cross:hover {
   cursor: pointer;
 }
+
+@media (min-width: 280px) and (max-width: 576px) {
+  .titleNprice h3 {
+    font-size: 1.1rem;
+  }
+  .titleNprice h4 {
+    font-size: 1rem;
+  }
+}
