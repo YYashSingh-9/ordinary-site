@@ -222,7 +222,7 @@
     text-align: center;
   }
 }
-@media (min-width: 330px) and (max-width: 567px) {
+@media (min-width: 330px) and (max-width: 576px) {
   .mainDiv {
     grid-template-columns: 100%;
     grid-template-rows: 9rem 55rem;
