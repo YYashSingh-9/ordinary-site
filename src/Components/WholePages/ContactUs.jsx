@@ -1,4 +1,6 @@
 import classes from "./ContactUs.module.css";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import { BsFillBagCheckFill } from "react-icons/bs";
 import { AiOutlineRight } from "react-icons/ai";
 import { Form } from "react-router-dom";
@@ -16,7 +18,13 @@ const QueryTypeLink = (props) => {
     </>
   );
 };
-
+const notifyFn = () => {
+  return toast.success("Message sent.!👍", {
+    position: "top-right",
+    theme: "colored",
+    autoClose: 2000,
+  });
+};
 const ContactUs = () => {
   const catalogueState = useSelector((state) => state.sliceOne.catalogueState);
   const dispatch = useDispatch();
@@ -69,15 +77,16 @@ const ContactUs = () => {
             </div>
           </div>
           <div className={classes.formDiv_right}>
-            <Form method="post">
+            <Form>
               <label>Please type your message here.</label>
               <br />
               <input type="text" name="message" />
               <br />
-              <button>Send us</button>
+              <button onClick={notifyFn}>Send us</button>
             </Form>
           </div>
         </div>
+        <ToastContainer />
       </section>
     </>
   );

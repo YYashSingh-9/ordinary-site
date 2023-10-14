@@ -51,6 +51,7 @@
   color: rgb(56, 187, 56);
   padding: 1rem 1.3rem;
   cursor: pointer;
+  background-color: transparent;
 }
 .checkOrderBtn:hover {
   color: white;
@@ -176,5 +177,41 @@
     width: 50%;
     font-size: 1rem;
     padding: 0.5rem 1rem;
+  }
+  .upperDiv {
+    grid-template-columns: 30% 70%;
+  }
+  .title h2 {
+    font-size: 1rem;
+  }
+  .title p {
+    margin-top: 0.1rem;
+  }
+  .trackTitle {
+    display: grid;
+    grid-template-columns: 15% 60% 25%;
+    align-items: center;
+    height: 7rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 0.1rem solid rgb(218, 218, 218);
+    border-radius: 0.2rem;
+  }
+  .bagLogo {
+    font-size: 3rem;
+    text-align: center;
+  }
+  .texts h3 {
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 800;
+  }
+  .texts {
+    padding-top: 1rem;
+  }
+  .checkOrderBtn {
+    font-size: 0.8rem;
+    background-color: transparent;
+    padding: 0.4rem 0.8rem;
   }
 }
