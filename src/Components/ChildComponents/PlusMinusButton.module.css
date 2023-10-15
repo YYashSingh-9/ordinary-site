@@ -49,3 +49,16 @@
     font-size: 1.5rem;
   }
 }
+@media (min-width: 576px) and (max-width: 768px) {
+  .quantityBtn {
+    width: 25%;
+    max-height: 60%;
+  }
+  .quantityBtn p {
+    font-size: 1.5rem;
+    padding-top: 0rem;
+  }
+  .quantityBtn button {
+    font-size: 2rem;
+  }
+}
