@@ -67,3 +67,34 @@ h3:hover {
     font-weight: 600;
   }
 }
+@media (min-width: 576px) and (max-width: 768px) {
+  .card {
+    margin-top: 2%;
+    column-gap: 0%;
+    grid-template-rows: 2rem auto;
+    overflow-x: scroll;
+  }
+  .card::-webkit-scrollbar {
+    display: none;
+  }
+  .childCard {
+    grid-template-columns: repeat(4, 12rem);
+    column-gap: 2rem;
+    grid-template-rows: 18rem;
+    max-width: 100%;
+    max-height: 20rem;
+    margin-top: 1%;
+  }
+  .buttons {
+    justify-content: space-around;
+    max-width: 100%;
+  }
+  .buttons h2 {
+    font-size: 1rem;
+    margin-right: auto;
+  }
+  .buttons h3 {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+}
