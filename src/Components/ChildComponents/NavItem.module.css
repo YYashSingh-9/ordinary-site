@@ -28,7 +28,7 @@
     color: black;
   }
 }
-@media (min-width: 576px) and (max-width: 768px) {
+@media (min-width: 576px) and (max-width: 767px) {
   .lis {
     margin: 0rem 0.3rem;
     margin-top: 1rem;

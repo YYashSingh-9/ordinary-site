@@ -221,7 +221,7 @@
   }
 }
 
-@media (min-width: 576px) and (max-width: 768px) {
+@media (min-width: 576px) and (max-width: 767px) {
   .mainDiv {
     display: grid;
     grid-template-columns: 1fr;
@@ -288,5 +288,79 @@
   }
   .insideLogo {
     width: 50%;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .mainDiv {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 55% 45%;
+    max-height: 80rem;
+  }
+  .topTitle {
+    padding-top: 3%;
+    font-size: 1rem;
+  }
+  .productDetails {
+    display: grid;
+    grid-template-rows: 15% 85%;
+  }
+  details {
+    margin-top: 1%;
+    display: grid;
+    grid-template-rows: 10% 10% 30% 20% 30%;
+  }
+  .details h2 {
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .details p {
+    font-size: 1.2rem;
+  }
+  .details h3 {
+    font-size: 1.8rem;
+  }
+  .details h4 {
+    font-size: 1.8rem;
+  }
+  .btn {
+    width: 48%;
+    font-size: 1rem;
+  }
+  .imgContainer img {
+    max-width: 100%;
+    max-height: 95%;
+  }
+  .insideLogo img {
+    max-width: 100%;
+    max-height: 100%;
+    padding-bottom: 0.5rem;
+  }
+  .fill_pincode input {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    margin-right: 1rem;
+  }
+  .fill_pincode button {
+    max-height: 70%;
+    padding: 0.7rem 1rem;
+    width: 35%;
+    font-size: 1rem;
+  }
+  .pincode_result p {
+    font-size: 0.9rem;
+    margin-top: 0;
+  }
+  .fill_pincode {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .insideLogo {
+    width: 50%;
+  }
+  .mainProductDiv {
+    display: grid;
+    grid-template-rows: 5% 80rem;
   }
 }

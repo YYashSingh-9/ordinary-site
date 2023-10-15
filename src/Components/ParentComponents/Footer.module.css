@@ -139,3 +139,16 @@
     height: 5rem;
   }
 }
+@media (min-width: 768px) and (max-width: 992px) {
+  .logo_N_SearchIcon img {
+    max-width: 30%;
+    max-height: 80%;
+  }
+  .logos {
+    font-size: 1.7rem;
+  }
+  .links_N_Email h3 {
+    font-size: 1rem;
+    text-align: left;
+  }
+}
