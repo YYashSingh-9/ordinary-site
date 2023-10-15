@@ -168,3 +168,28 @@
     padding-left: 2rem;
   }
 }
+@media (min-width: 992px) and (max-width: 1200px) {
+  .FiltersPart {
+    display: block;
+    max-width: 100%;
+  }
+  .toShow {
+    display: none;
+  }
+  .filterlogo {
+    display: none;
+  }
+  .nfilter {
+    grid-template-columns: 30% auto;
+  }
+  .ProductsListPart {
+    grid-template-columns: repeat(auto-fill, 16rem);
+    grid-template-rows: repeat(5, 20rem);
+    justify-content: start;
+    padding-left: 2rem;
+  }
+  .heading {
+    min-height: 3rem;
+    padding-left: 2rem;
+  }
+}

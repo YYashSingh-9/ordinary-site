@@ -155,11 +155,11 @@
   }
   .imageUsed {
     width: 100%;
-    max-height: 40rem;
+    max-height: 26rem;
   }
   .imageUsed img {
     width: 100%;
-    max-height: 40rem;
+    max-height: 26rem;
   }
   .interationInfo {
     display: flex;
