@@ -247,3 +247,49 @@
     display: none;
   }
 }
+@media (min-width: 992px) and (max-width: 1200px) {
+  .cartImg {
+    max-height: 5rem;
+    max-width: 10rem;
+  }
+  .linkBtn {
+    padding: 0.7rem 1rem;
+    border-radius: 0.8rem;
+    font-size: 1.1rem;
+  }
+  .favCardParentDiv {
+    max-width: 16rem;
+    max-height: 23rem;
+    grid-template-rows: 14rem 4rem 5rem;
+  }
+  .title {
+    font-size: 1rem;
+    margin-top: 0.3rem;
+  }
+  .prices h4 {
+    margin-top: 0.2rem;
+    margin-left: 0.7rem;
+    font-size: 1rem;
+  }
+  .orderId h4 {
+    font-size: 1rem;
+  }
+  .orderId h3 {
+    font-size: 1.1rem;
+  }
+  .orderId p {
+    font-size: 0.9rem;
+  }
+  .cartProductListDiv {
+    grid-template-rows: repeat(4, 23rem);
+    grid-template-columns: repeat(5, 16rem);
+    column-gap: 1.5rem;
+    row-gap: 1.5rem;
+    justify-content: center;
+    overflow-y: scroll;
+    max-height: 50rem;
+  }
+  .cartProductListDiv::-webkit-scrollbar {
+    display: none;
+  }
+}
