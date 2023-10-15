@@ -95,3 +95,76 @@
     border: 0.1rem solid rgb(180, 180, 180);
   }
 }
+@media (min-width: 576px) and (max-width: 768px) {
+  .FiltersPart {
+    display: none;
+  }
+  .thisSection {
+    display: grid;
+    grid-template-rows: auto 90% 10%;
+  }
+  .nfilter {
+    grid-template-columns: auto auto;
+  }
+  .ParentProductsDiv {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 85%;
+  }
+  .ProductsListPart {
+    grid-template-columns: repeat(auto-fill, 10rem);
+    column-gap: 3%;
+    justify-content: center;
+    overflow-y: scroll;
+    max-height: 60rem;
+  }
+  .ProductsListPart::-webkit-scrollbar {
+    display: none;
+  }
+  .secondSideDiv {
+    display: grid;
+    grid-template-rows: 4rem 60rem;
+  }
+  .filterlogo {
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  .pagination {
+    margin-top: 5%;
+    font-size: 1.6rem;
+    height: 2rem;
+  }
+  .heading {
+    min-height: 3rem;
+  }
+  .toShow {
+    display: block;
+    border: 0.1rem solid rgb(180, 180, 180);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .FiltersPart {
+    display: block;
+    max-width: 100%;
+  }
+  .toShow {
+    display: none;
+  }
+  .filterlogo {
+    display: none;
+  }
+  .nfilter {
+    grid-template-columns: 30% auto;
+  }
+  .ProductsListPart {
+    grid-template-columns: repeat(auto-fill, 16rem);
+    grid-template-rows: repeat(5, 20rem);
+    justify-content: start;
+    padding-left: 2rem;
+  }
+  .heading {
+    min-height: 3rem;
+    padding-left: 2rem;
+  }
+}

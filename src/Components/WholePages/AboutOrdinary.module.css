@@ -35,3 +35,27 @@
     font-size: 0.8rem;
   }
 }
+@media (min-width: 576px) and (max-width: 768px) {
+  .MainAboutSecDiv {
+    grid-template-rows: 30rem 40rem;
+    grid-template-columns: 100%;
+  }
+  .textHere h2 {
+    font-size: 1.6rem;
+  }
+  .textHere p {
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .MainAboutSecDiv {
+    grid-template-rows: 40rem 40rem;
+    grid-template-columns: 100%;
+  }
+  .textHere h2 {
+    font-size: 1.6rem;
+  }
+  .textHere p {
+    font-size: 1.2rem;
+  }
+}
