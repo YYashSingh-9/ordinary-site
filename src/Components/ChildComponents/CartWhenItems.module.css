@@ -236,3 +236,71 @@
     font-size: 1.4rem;
   }
 }
+@media (min-width: 576px) and (max-width: 768px) {
+  .CartSection {
+    grid-template-rows: 2rem auto;
+  }
+  .CartMain {
+    grid-template-columns: 100%;
+    grid-template-rows: 30% 40rem;
+    row-gap: 1rem;
+  }
+  .cartOrderDiv {
+    border-top: 0.1rem solid rgb(179, 179, 179);
+    border-left: none;
+    max-height: 33rem;
+  }
+  .applycoupon {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 0.1rem solid rgb(179, 179, 179);
+    padding-bottom: 1rem;
+  }
+  .applycoupon h4 {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .CouponMain p {
+    font-size: 0.9rem;
+  }
+  .couponSection {
+    grid-template-rows: 30% 70%;
+  }
+  .applycoupon {
+    border-bottom: 0.1rem solid rgb(171, 171, 171);
+    padding-bottom: 0.3rem;
+  }
+  .CartMain h3 {
+    font-size: 1.2rem;
+  }
+  .gifting {
+    grid-template-rows: 20% 80%;
+  }
+  .priceDetails {
+    display: grid;
+    grid-template-rows: 15% 85%;
+
+    margin-top: 1%;
+  }
+  .priceDetailComponent h3 {
+    font-size: 1rem;
+  }
+  .priceDetailComponent p {
+    font-size: 1rem;
+  }
+  .priceDetails h2 {
+    font-size: 1.2rem;
+  }
+  .total_N_Order {
+    margin-left: 2%;
+    display: grid;
+    grid-template-rows: 45% 47%;
+    row-gap: 4%;
+  }
+
+  .total_N_Order button {
+    padding: 0.4rem;
+    font-size: 1.4rem;
+  }
+}
