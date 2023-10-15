@@ -131,3 +131,30 @@
     margin-top: 1rem;
   }
 }
+@media (min-width: 768px) and (max-width: 992px) {
+  .favCardParentDiv {
+    max-width: 14rem;
+    max-height: 20rem;
+    grid-template-rows: 13rem 3rem 4rem;
+  }
+  .title {
+    font-size: 1rem;
+    margin-top: 0.3rem;
+  }
+  .prices h4 {
+    margin-top: 0.2rem;
+    margin-left: 0.7rem;
+    font-size: 0.8rem;
+  }
+  .closeLogo {
+    font-size: 1.3rem;
+  }
+  .addBtn {
+    font-size: 1.1rem;
+    width: 80%;
+    padding: 0.8rem 0.5rem;
+
+    border-radius: 0.2rem;
+    margin-top: 1rem;
+  }
+}
