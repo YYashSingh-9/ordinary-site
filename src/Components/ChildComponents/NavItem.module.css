@@ -50,3 +50,13 @@
     color: black;
   }
 }
+@media (min-width: 992px) and (max-width: 1200px) {
+  .lis {
+    margin: 0rem 1.6rem;
+    margin-top: 0rem;
+    font-size: 1.1rem;
+  }
+  .lis a:hover {
+    color: black;
+  }
+}
