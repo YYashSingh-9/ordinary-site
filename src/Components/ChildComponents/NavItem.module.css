@@ -28,3 +28,16 @@
     color: black;
   }
 }
+@media (min-width: 576px) and (max-width: 768px) {
+  .lis {
+    margin: 0rem 0.3rem;
+    margin-top: 1rem;
+    border-bottom: 0.1rem solid rgb(200, 200, 200);
+    width: 100%;
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+  }
+  .lis a:hover {
+    color: black;
+  }
+}

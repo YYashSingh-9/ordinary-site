@@ -77,7 +77,6 @@ const MainHeader = () => {
               <input
                 type="search"
                 ref={inputref}
-                placeholder="search-Hair/bestsellers etc"
                 value={searchbarValue}
                 onChange={onChangeSearch}
                 onKeyDown={navigateOnSearchHandler}
@@ -90,7 +89,7 @@ const MainHeader = () => {
               </div>
             </div>
             <NavLink to={"/account-details"}>
-              <BiSolidUser className={classes.icons} />
+              <BiSolidUser className={`${classes.icons} ${classes.disp}`} />
             </NavLink>
             <NavLink to={"/favourites"}>
               <CiHeart className={`${classes.icons} ${favStyle}`} />

@@ -3,6 +3,7 @@ import NavItem from "../ChildComponents/NavItems";
 import { useSelector, useDispatch } from "react-redux";
 import { createPortal } from "react-dom";
 import { actions } from "../../Store/StoreSlice";
+import { NavLink } from "react-router-dom";
 const Backdrop = (props) => {
   const removeFunction = () => {
     props.menuRemover();
@@ -33,6 +34,13 @@ const MenuItemPart = (props) => {
               />
             );
           })}
+          <li>
+            <NavLink to="/account-details">
+              <h2 className={classes.acc} onClick={menutoggler}>
+                Account
+              </h2>
+            </NavLink>
+          </li>
         </ul>
       </div>
     </>

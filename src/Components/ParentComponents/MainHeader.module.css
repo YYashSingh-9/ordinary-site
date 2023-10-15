@@ -95,7 +95,17 @@ nav {
 
 @media (min-width: 280px) and (max-width: 576px) {
   .searchBar {
-    display: none;
+    padding: 0rem 0rem;
+    max-width: 8rem;
+    display: flex;
+    justify-content: center;
+    font-size: 0.8rem;
+  }
+  .searchIcon {
+    font-size: 1.5rem;
+    margin-top: 0.4rem;
+    justify-content: center;
+    cursor: pointer;
   }
   .unorderdList {
     padding: 0;
@@ -104,7 +114,7 @@ nav {
     display: none;
   }
   nav {
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 40% 60%;
   }
   .menuIcon {
     font-size: 2rem;
@@ -115,7 +125,63 @@ nav {
   }
   .icons {
     margin-left: 0;
+    font-size: 1.7rem;
+    margin-left: 0.4rem;
+  }
+  .disp {
+    display: none;
+  }
+  .navIcons input {
+    padding: 0rem 0rem;
+
+    max-width: 6rem;
+  }
+  .logo img {
+    max-width: 60%;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  .searchBar {
+    padding: 0rem 0rem;
+    max-width: 12rem;
+    display: flex;
+    justify-content: center;
+    font-size: 0.8rem;
+  }
+  .searchIcon {
+    font-size: 1.5rem;
+    margin-top: 0.4rem;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .unorderdList {
+    padding: 0;
+    margin-right: auto;
+    font-size: 0.6rem;
+    display: none;
+  }
+  nav {
+    grid-template-columns: 40% 60%;
+  }
+  .menuIcon {
+    font-size: 2rem;
+    display: block;
+  }
+  .navIcons {
+    justify-content: right;
+  }
+  .icons {
     font-size: 2rem;
     margin-left: 0.4rem;
+  }
+  .disp {
+    display: block;
+  }
+  .navIcons input {
+    padding: 0rem 0rem;
+    max-width: 10rem;
+  }
+  .logo img {
+    max-width: 60%;
   }
 }
