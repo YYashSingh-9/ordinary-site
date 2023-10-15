@@ -13,7 +13,7 @@
 .CartMain {
   display: grid;
   grid-template-columns: 49% 49%;
-  grid-template-rows: 60vh;
+  grid-template-rows: 52vh;
   column-gap: 2%;
   /* background-color: bisque; */
 }
@@ -370,6 +370,32 @@
   }
   .total_N_Order button {
     padding: 0.8rem 0.4rem;
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .priceDetailComponent h3 {
+    font-size: 1.2rem;
+  }
+  .priceDetailComponent p {
+    font-size: 1.2rem;
+  }
+  .priceDetails h2 {
+    font-size: 1.2rem;
+  }
+
+  .CouponMain h3 {
+    font-size: 1.3rem;
+  }
+  .CartMain h3 {
+    margin-left: 2%;
+    font-size: 1.3rem;
+  }
+  .applycoupon h4 {
+    font-size: 1.3rem;
+  }
+  .total_N_Order button {
     font-size: 1.4rem;
   }
 }

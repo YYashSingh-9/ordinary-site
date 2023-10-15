@@ -59,3 +59,12 @@
     padding: 0.7rem 1rem;
   }
 }
+@media (min-width: 992px) and (max-width: 1200px) {
+  .heading {
+    font-size: 3.5rem;
+  }
+  .rBtn {
+    font-size: 1.5rem;
+    padding: 0.7rem 1rem;
+  }
+}

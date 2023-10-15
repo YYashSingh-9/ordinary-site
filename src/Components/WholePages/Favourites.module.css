@@ -54,3 +54,18 @@
     display: none;
   }
 }
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .cartProductListDiv {
+    grid-template-rows: repeat(5, 23rem);
+    grid-template-columns: repeat(5, 16rem);
+    column-gap: 1.5rem;
+    row-gap: 1.5rem;
+    justify-content: center;
+    overflow-y: scroll;
+    max-height: 50rem;
+  }
+  .cartProductListDiv::-webkit-scrollbar {
+    display: none;
+  }
+}
