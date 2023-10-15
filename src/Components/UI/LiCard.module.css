@@ -26,3 +26,10 @@
     grid-template-rows: 75% 25%;
   }
 }
+@media (min-width: 768px) and (max-width: 992px) {
+  .LiCard {
+    max-height: 20rem;
+    max-width: 16rem;
+    grid-template-rows: 75% 25%;
+  }
+}

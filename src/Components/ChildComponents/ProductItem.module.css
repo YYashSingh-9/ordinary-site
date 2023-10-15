@@ -64,3 +64,13 @@
     /* z-index: 99; */
   }
 }
+@media (min-width: 768px) and (max-width: 992px) {
+  .productInfo h2 {
+    font-size: 1.3rem;
+    padding-top: 0%;
+  }
+  .heartLogo {
+    font-size: 1.5rem;
+    /* z-index: 99; */
+  }
+}
