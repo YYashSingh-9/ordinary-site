@@ -101,7 +101,7 @@ const WhenLoggedOut = (props) => {
   };
 
   useEffect(() => {
-    if (!actionData === undefined) {
+    if (actionData) {
       if (actionData.status === "fail") {
         notifyFn("fail", actionData.message);
       }
@@ -121,12 +121,12 @@ const WhenLoggedOut = (props) => {
               {signUpState ? "Signup" : "Login"}
             </div>
             {signUpState ? <SignupForm /> : <LoginForm />}
+            <button className={classes.signUpbtn} onClick={signupFormToggle}>
+              {signUpState
+                ? "Already signed up? Login then"
+                : "Already a user? Signup then."}
+            </button>
           </div>
-          <button className={classes.signUpbtn} onClick={signupFormToggle}>
-            {signUpState
-              ? "Already signed up? Login then"
-              : "Already a user? Signup then."}
-          </button>
         </div>
         <ToastContainer />
       </div>

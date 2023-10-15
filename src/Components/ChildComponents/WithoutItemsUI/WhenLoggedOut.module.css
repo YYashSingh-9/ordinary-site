@@ -88,7 +88,7 @@
 @media (min-width: 280px) and (max-width: 576px) {
   .parent {
     display: grid;
-    grid-template-rows: 20rem 40rem;
+    grid-template-rows: 5rem 40rem;
   }
   .childOne {
     max-width: 80%;
@@ -96,15 +96,9 @@
     margin: auto;
   }
   .Img {
-    /* width: 100%; */
-    max-height: 100%;
-    padding: 0rem;
-    border-right: none;
+    display: none;
   }
-  .Img img {
-    width: 100%;
-    max-height: 20rem;
-  }
+
   .form label {
     font-size: 1.1rem;
     margin-bottom: 1rem;
@@ -115,7 +109,39 @@
     padding: 0.5rem 1rem;
   }
   .formDiv {
-    height: 50%;
+    height: 90%;
+    text-align: center;
+  }
+  .formBtn {
+    padding: 0.2rem 1.4rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  .parent {
+    display: grid;
+    grid-template-rows: 5rem 50rem;
+    /* grid-template-columns: 50% 50%; */
+  }
+  .childOne {
+    max-width: 80%;
+    padding-top: 2%;
+    margin: auto;
+  }
+  .Img {
+    display: none;
+  }
+
+  .form label {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  .form input {
+    margin-top: 0.5rem;
+    margin-bottom: 1.4rem;
+    padding: 0.5rem 1rem;
+  }
+  .formDiv {
+    height: 90%;
     text-align: center;
   }
   .formBtn {
