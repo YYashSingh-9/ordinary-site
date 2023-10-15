@@ -45,3 +45,9 @@
     height: 70%;
   }
 }
+@media (min-width: 576px) and (max-width: 768px) {
+  .ImgDiv img {
+    /* width: 80%; */
+    height: 80%;
+  }
+}

@@ -105,3 +105,37 @@
     height: 5rem;
   }
 }
+@media (min-width: 576px) and (max-width: 768px) {
+  .logo_N_SearchIcon img {
+    max-width: 30%;
+    max-height: 100%;
+  }
+  .logos {
+    font-size: 1.7rem;
+  }
+  .links_N_Email {
+    grid-template-columns: 20% 20% 20% 37%;
+    column-gap: 0.3rem;
+  }
+  .links_N_Email h3 {
+    font-size: 1rem;
+    text-align: center;
+  }
+  .final_N_Socials p {
+    font-size: 0.9rem;
+  }
+  .links_N_Email p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+  .input_s input {
+    font-size: 0.9rem;
+  }
+  .final_N_Socials > div {
+    width: 50%;
+  }
+  .final_N_Socials {
+    height: 5rem;
+  }
+}
