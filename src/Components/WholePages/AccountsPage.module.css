@@ -25,7 +25,22 @@
     grid-template-rows: 9% 60rem;
   }
   .titleA {
-    font-size: 2rem;
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-align: center;
+    padding-top: 2rem;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .mainDiv {
+    grid-template-columns: 100%;
+    padding-bottom: 0rem;
+    grid-template-rows: 9% 60rem;
+  }
+  .titleA {
+    font-size: 1.6rem;
     font-weight: 800;
     text-align: center;
     padding-top: 2rem;
