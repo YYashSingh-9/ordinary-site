@@ -56,3 +56,19 @@ h2 {
     font-size: 0.8rem;
   }
 }
+@media (min-width: 768px) and (max-width: 992px) {
+  .BasicCard {
+    grid-template-rows: 2rem auto;
+    margin-top: 5%;
+  }
+  .childTwo {
+    max-height: 35rem;
+    grid-template-rows: 35rem;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+  .childOne h3 {
+    font-size: 0.8rem;
+  }
+}
