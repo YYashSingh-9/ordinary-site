@@ -79,18 +79,18 @@ hr {
     height: 100%;
   }
   .infos {
-    font-size: 0.8rem;
+    font-size: 1rem;
     overflow-y: scroll;
   }
   .infos::-webkit-scrollbar {
     display: none;
   }
   .spans p {
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 500;
   }
   .linklogo {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   .sideInfo {
     grid-template-rows: 10rem 10rem;
