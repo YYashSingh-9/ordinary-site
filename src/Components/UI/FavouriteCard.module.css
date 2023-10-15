@@ -103,7 +103,6 @@
     margin-top: 0.5rem;
   }
 }
-
 @media (min-width: 576px) and (max-width: 768px) {
   .favCardParentDiv {
     max-width: 14rem;
@@ -153,7 +152,6 @@
     font-size: 1.1rem;
     width: 80%;
     padding: 0.8rem 0.5rem;
-
     border-radius: 0.2rem;
     margin-top: 1rem;
   }
