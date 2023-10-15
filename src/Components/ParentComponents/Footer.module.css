@@ -108,7 +108,7 @@
 @media (min-width: 576px) and (max-width: 768px) {
   .logo_N_SearchIcon img {
     max-width: 30%;
-    max-height: 100%;
+    max-height: 70%;
   }
   .logos {
     font-size: 1.7rem;
