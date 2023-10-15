@@ -104,8 +104,6 @@ nav {
   .searchIcon {
     font-size: 1.5rem;
     margin-top: 0.4rem;
-    justify-content: center;
-    cursor: pointer;
   }
   .unorderdList {
     padding: 0;
@@ -140,7 +138,7 @@ nav {
     max-width: 60%;
   }
 }
-@media (min-width: 576px) and (max-width: 767px) {
+@media (min-width: 577px) and (max-width: 767px) {
   .searchBar {
     padding: 0rem 0rem;
     max-width: 12rem;
@@ -151,8 +149,6 @@ nav {
   .searchIcon {
     font-size: 1.5rem;
     margin-top: 0.4rem;
-    justify-content: center;
-    cursor: pointer;
   }
   .unorderdList {
     padding: 0;
@@ -200,8 +196,6 @@ nav {
   .searchIcon {
     font-size: 1.5rem;
     margin-top: 0.4rem;
-    justify-content: center;
-    cursor: pointer;
   }
   .unorderdList {
     padding: 0;
@@ -234,8 +228,6 @@ nav {
   .searchIcon {
     font-size: 2rem;
     margin-top: 0.4rem;
-    justify-content: center;
-    cursor: pointer;
   }
   .unorderdList {
     padding: 0;
@@ -250,5 +242,37 @@ nav {
   }
   .logo img {
     max-width: 80%;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .searchBar {
+    padding: 0rem 0rem;
+    max-width: 17rem;
+    display: flex;
+    justify-content: center;
+    font-size: 0.8rem;
+  }
+  .navIcons input {
+    padding: 0rem 0rem;
+    max-width: 14rem;
+  }
+  .searchIcon {
+    font-size: 2rem;
+    margin-top: 0.4rem;
+  }
+  .unorderdList {
+    padding: 0;
+    margin: auto;
+    font-size: 1.3rem;
+  }
+  nav {
+    grid-template-columns: 15% 55% 30%;
+  }
+  .navIcons {
+    justify-content: right;
+  }
+  .logo img {
+    max-width: 85%;
   }
 }
