@@ -364,3 +364,9 @@
     grid-template-rows: 5% 80rem;
   }
 }
+@media (min-width: 992px) and (max-width: 1200px) {
+  .mainProductDiv {
+    display: grid;
+    grid-template-rows: 10% 45rem;
+  }
+}

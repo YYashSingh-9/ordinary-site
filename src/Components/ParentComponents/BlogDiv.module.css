@@ -149,3 +149,35 @@
     font-size: 1.3rem;
   }
 }
+@media (min-width: 992px) and (max-width: 1200px) {
+  .parentDiv {
+    grid-template-rows: 26rem 3rem 12rem;
+  }
+  .imageUsed {
+    width: 100%;
+    max-height: 40rem;
+  }
+  .imageUsed img {
+    width: 100%;
+    max-height: 40rem;
+  }
+  .interationInfo {
+    display: flex;
+    margin: 0;
+  }
+  .interationInfo p {
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    color: grey;
+  }
+  .title_N_info {
+    margin-top: 0.2rem;
+  }
+
+  .title_N_info p {
+    font-size: 1.3rem;
+  }
+  .title_N_info h2 {
+    font-size: 1.6rem;
+  }
+}

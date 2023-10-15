@@ -152,3 +152,9 @@
     text-align: left;
   }
 }
+@media (min-width: 992px) and (max-width: 1200px) {
+  .logo_N_SearchIcon img {
+    max-width: 30%;
+    max-height: 80%;
+  }
+}
