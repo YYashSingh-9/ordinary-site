@@ -185,3 +185,36 @@ nav {
     max-width: 45%;
   }
 }
+@media (min-width: 768px) and (max-width: 992px) {
+  .searchBar {
+    padding: 0rem 0rem;
+    max-width: 12rem;
+    display: flex;
+    justify-content: center;
+    font-size: 0.8rem;
+  }
+  .navIcons input {
+    padding: 0rem 0rem;
+    max-width: 10rem;
+  }
+  .searchIcon {
+    font-size: 1.5rem;
+    margin-top: 0.4rem;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .unorderdList {
+    padding: 0;
+    margin: auto;
+    font-size: 0.9rem;
+  }
+  nav {
+    grid-template-columns: 15% 47% 38%;
+  }
+  .navIcons {
+    justify-content: right;
+  }
+  .logo img {
+    max-width: 80%;
+  }
+}

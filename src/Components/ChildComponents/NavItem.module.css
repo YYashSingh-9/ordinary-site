@@ -41,3 +41,12 @@
     color: black;
   }
 }
+@media (min-width: 768px) and (max-width: 992px) {
+  .lis {
+    margin: 0rem 0.5rem;
+    margin-top: 0rem;
+  }
+  .lis a:hover {
+    color: black;
+  }
+}
