@@ -212,7 +212,6 @@ nav {
     max-width: 80%;
   }
 }
-
 @media (min-width: 993px) and (max-width: 1200px) {
   .searchBar {
     padding: 0rem 0rem;
@@ -244,7 +243,6 @@ nav {
     max-width: 80%;
   }
 }
-
 @media (min-width: 1201px) and (max-width: 1400px) {
   .searchBar {
     padding: 0rem 0rem;
