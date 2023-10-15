@@ -31,7 +31,6 @@ const SearchDiv = () => {
 
   const clickFunction = () => {
     const refValue = inputref.current.value;
-    console.log(refValue);
     dispatch(actions.searchModalToggler());
     navigate(`/${refValue}`);
   };
@@ -49,7 +48,6 @@ const SearchDiv = () => {
 const portal = document.getElementById("backdrop");
 const SearcBarModal = () => {
   const searchModalState = useSelector((state) => state.sliceOne.searchModal);
-  console.log(searchModalState);
   return (
     <>
       {searchModalState && createPortal(<BackDrop />, portal)}

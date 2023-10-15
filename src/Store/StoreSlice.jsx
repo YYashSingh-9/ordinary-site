@@ -569,8 +569,6 @@ const StoreSlice = createSlice({
       arrayGot.length >= 1
         ? (state.isThereAFav = true)
         : (state.isThereAFav = false);
-
-      console.log("this modified");
     },
     sideMenuToggle(state, action) {
       state.sideMenuState = !state.sideMenuState;

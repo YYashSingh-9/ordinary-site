@@ -14,6 +14,7 @@ const notifyFn = () => {
   return toast.success("Added to your favourites!.😁", {
     position: "top-right",
     theme: "light",
+    autoClose: 500,
   });
 };
 
@@ -36,8 +37,8 @@ const ProductItem = (props) => {
   const favouriteOnClick = (e) => {
     if (!isFav) {
       mutate("postFav");
+      notifyFn();
     }
-    notifyFn();
     dispatch(actions.FavouriteToggler(key));
   };
 

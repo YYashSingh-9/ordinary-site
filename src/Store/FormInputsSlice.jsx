@@ -19,7 +19,6 @@ const FormSlice = createSlice({
       inputObj.field_name === "mobile"
         ? (state.mobileNumberInput = inputObj.input)
         : "";
-      console.log("rendered here ");
     },
   },
 });

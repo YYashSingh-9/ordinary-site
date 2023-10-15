@@ -45,9 +45,32 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
 @media (min-width: 280px) and (max-width: 576px) {
   body {
     margin: 1% 5%;
     overflow-x: hidden;
+  }
+  .Toastify__toast-container--top-right {
+    max-width: 15rem;
+    margin-left: auto;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  .Toastify__toast-container--top-right {
+    max-width: 22rem;
+    margin-left: auto;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .Toastify__toast-container--top-right {
+    max-width: 30rem;
+    margin-left: auto;
+  }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  .Toastify__toast-container--top-right {
+    max-width: 36rem;
+    margin-left: auto;
   }
 }

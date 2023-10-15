@@ -55,7 +55,7 @@ export const dataSendRequest = async (
     redirect: "follow",
   });
   const doc2 = await doc.json();
-  console.log(doc2);
+
   return doc2;
 };
 //_________________
@@ -132,7 +132,6 @@ export const logoutSendFunction = async (cookie) => {
   return data;
 };
 export const addToCart_Function = async (userId, data, cookie) => {
-  console.log(data);
   const dataToSend = {
     productId: data._id,
     user: userId,
@@ -212,7 +211,6 @@ export const postFav = async (productObj, cookie, userId, condition) => {
     );
     return doc;
   } else if (condition === "deleteFav") {
-    console.log(cookie);
     const doc = await dataSendRequest(
       "favs",
       "delete-fav",

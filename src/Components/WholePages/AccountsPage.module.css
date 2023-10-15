@@ -47,3 +47,31 @@
     padding-right: 0;
   }
 }
+@media (min-width: 768px) and (max-width: 992px) {
+  .titleA {
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    padding-top: 2rem;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .titleA {
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    padding-top: 2rem;
+    padding-right: 0;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .titleA {
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    padding-top: 2rem;
+    padding-right: 0;
+  }
+}

@@ -27,7 +27,7 @@ const notifyFn = (type) => {
 
 const FavouriteCard = (props) => {
   const { title, price, images, key, isFav, catagory, _id } = props.elem;
-  console.log(props.elem);
+
   const cookie = useSelector((state) => state.sliceOne.cookieTokenVal);
   const currentUser = useSelector((state) => state.sliceOne.currentUserObject);
   const extendedPrice = (price * 3).toFixed(2);
@@ -56,7 +56,6 @@ const FavouriteCard = (props) => {
   const removeFavStatus = () => {
     dispatch(actions.FavouriteToggler(key));
     if (isFav) {
-      console.log("deleted fav");
       mutate("deleteFav");
       notifyFn("removeFav");
     }

@@ -22,7 +22,6 @@ const paramConversion = (stringPassed) => {
 const Pages = (props) => {
   let type = props.type;
   const pagerFunc = () => {
-    console.log(type);
     props.fn_to_inc(type);
   };
   return <h3 onClick={pagerFunc}>{props.pg_n}</h3>;
@@ -64,8 +63,12 @@ const BasicProductsPage = () => {
   const specificProductArray = productList.filter(
     (el) => el.catagory === paramRecieved
   );
-  let finalProductsArrayToDisplay =
-    paramRecieved === "Bestsellers" ? productList : specificProductArray;
+  let finalProductsArrayToDisplay;
+  if (paramRecieved === "Bestsellers" || paramRecieved === "Popular") {
+    finalProductsArrayToDisplay = productList;
+  } else {
+    finalProductsArrayToDisplay = specificProductArray;
+  }
 
   //USING/MANAGING FILTERS ON THE FINAL ARRAY..
   //1.Range selection..

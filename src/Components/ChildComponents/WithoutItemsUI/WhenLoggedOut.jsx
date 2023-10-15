@@ -95,7 +95,7 @@ const WhenLoggedOut = (props) => {
   const signUpState = useSelector((state) => state.sliceOne.signUpFormState);
   const dispatch = useDispatch();
   const actionData = useActionData();
-  console.log(actionData);
+
   const signupFormToggle = async () => {
     dispatch(actions.signupFormToggler());
   };

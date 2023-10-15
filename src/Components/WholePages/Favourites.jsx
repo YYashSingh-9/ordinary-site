@@ -54,7 +54,6 @@ const Favourites = () => {
   useEffect(() => {
     dispatch(actions.get_token_from_localStorage());
     if (data && data.status === "success") {
-      console.log(data);
       // dispatch(actions.products_Modified_With_Fav(data));
     }
   }, [cookie, data]);

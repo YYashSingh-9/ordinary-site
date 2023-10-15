@@ -39,7 +39,6 @@ const AccountsPage = () => {
       dispatch(actions.productsArray_Change({ array1: loaderData }));
     }
     if (data) {
-      console.log(data.status, data);
       if (data.token) {
         data.status === "success" && dispatch(actions.loginStateToggle());
         data.token && dispatch(actions.set_token_to_localStorage(data));
