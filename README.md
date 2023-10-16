@@ -88,3 +88,12 @@
 8. Add-to-cart functionality and upating the added to cart product's values (price,quantity)✅
 9. Multiple orders together from cart & removing them when ordered ✅
 10. Payment gateway (Might be in future updates).
+
+ <h4> USER & AUTHENTICATIONS..</h4>
+ 
+1. Creating a user profile(with POST req).✅
+2. Updating a user profile(with PUT/PATCH).✅
+3. Sending JWT with cookie when user signup/log-in.✅
+4. Login/Sign-up functionality(Backend-end-part).✅
+5. Logout functionality.✅
+6. Update Password functionality.✅
