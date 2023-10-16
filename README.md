@@ -97,3 +97,17 @@
 4. Login/Sign-up functionality(Backend-end-part).✅
 5. Logout functionality.✅
 6. Update Password functionality.✅
+
+ <h4> API DETAILS</h4> 
+ 
+1. Proper Documented API.✅
+2. Security middlewares :-
+   *1. Xss-clean (XSS Attacks)✅
+   *2. RateLimiter (BRUTE-FORCE/DOSS Attacks)✅
+   *3. Express-mongo-sanitize (NoSQL Injection Attacks)✅
+3. Compression added.✅
+4. Cors added. ✅
+5. API fully tested with POSTMAN.✅
+6. Proper Error handle management(Custom errors).✅
+7. Slugify (string to url friendly slug format) (used but later dropped)✅
+8. Hash Encrypted password.(bcrypt)✅
