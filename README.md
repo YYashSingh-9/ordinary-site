@@ -21,3 +21,8 @@
 
    <h2>This WebApp has 60+ features/tasks of a full stack web app..</h2>
    <p>They are listed below..</p>
+
+🎇FEATURES AND TASKS OF THIS APP.🛒 -->"FRONT-END"💻
+
+!Tech stack used here...-
+(React,Redux/Redux-Toolkit,React-Query,React-icons,React-router,CSS Modules)
