@@ -66,3 +66,9 @@
     saved fav's , added products in bag ). ✅
 29. Lazy loading for speed optimization.(might come later..)
 30. Responsive design( Mobile first ).✅
+31. Login/Sign-up functionality(front-end-part)✅
+32. User dashboard page.✅
+33. Update Password.✅
+34. Update Account Data(name,email etc).cart✅
+35. Allowing to perform main(secure route)features only when user is loggedin(with jwt token).✅
+36. My-orders functionality and dedicated page. ✅
