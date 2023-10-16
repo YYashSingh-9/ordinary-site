@@ -1,4 +1,4 @@
-# ordinary-site
+# Two-Fragrence
 
 ![logo](https://github.com/YYashSingh-9/YYashSingh-9/blob/main/Two%20fragrence.png)
 
@@ -13,7 +13,6 @@
 - 8.React-Icons
 - 9.CSS-Modules
 - 10.React-toastify
-
 
 <h2>Important points.</h2>
    <h2>Open to suggestions🤠</h2>
