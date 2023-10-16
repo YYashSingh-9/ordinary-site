@@ -40,3 +40,14 @@
    route of searched category✅
 9. Adding item to cart.✅
 10. Incrementing and decrementing quantity of Products .✅
+11. Changing price as per the quantity.✅
+12. Popup when a user sends his/her email from footer.✅
+13. Adding red dot on cart logo when user add something in cart
+    and removing it when all items are out of cart✅
+14. Adding route links on CatalogueDiv links.✅
+15. Remove item from cart.✅
+16. Remove item from fav list when it is added to bag.✅
+17. When removing last quantity of that product then remove that whole product from cart.✅
+18. Total removal of product from final bag and favourite cart ✅
+19. Showing more products on page numbers click.✅
+20. Range selection drag filter and its working.✅
