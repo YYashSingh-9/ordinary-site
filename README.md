@@ -111,3 +111,5 @@
 6. Proper Error handle management(Custom errors).✅
 7. Slugify (string to url friendly slug format) (used but later dropped)✅
 8. Hash Encrypted password.(bcrypt)✅
+
+<h3>If you like this project or have some suggestions or questions feel free to contact me </h3>
