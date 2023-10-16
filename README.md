@@ -14,4 +14,6 @@
 
    <h2>Open to suggestions🤠</h2>
    <h3>This project is V.1</h3>
-   <h3>This project's backend it hosted on</h3>
+   <h3>This project's backend it hosted on Render so it may take few seconds to load at first.So please wait for few seconds or reload the page again. <hr/> The experience would be worth the wait.</h3>
+   
+   <p></p>
