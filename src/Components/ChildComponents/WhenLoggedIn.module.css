@@ -231,7 +231,7 @@ tr {
   .editBtn {
     padding: 0.7rem;
     font-size: 1.1rem;
-    width: 0%;
+    width: 100%;
   }
   .logoutBtn button {
     padding: 0.2rem 1rem;
