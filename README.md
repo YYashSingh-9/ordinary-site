@@ -113,3 +113,7 @@
 8. Hash Encrypted password.(bcrypt)✅
 
 <h3>If you like this project or have some suggestions or questions feel free to contact me </h3>
+
+<h4> You can connect with me via linkedIn or any socials for future updates.<h4>
+
+<h4>Two Fragrence by Yash</h4>
