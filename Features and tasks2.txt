@@ -35,5 +35,5 @@
 4. Cors added. ✅
 5. API fully tested with POSTMAN.✅
 6. Proper Error handle management(Custom errors).✅
-7. Slugify (string to url friendly slug format) ✅
+7. Slugify (string to url friendly slug format) (used but later dropped)✅
 8. Hash Encrypted password.(bcrypt)✅
