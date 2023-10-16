@@ -51,3 +51,18 @@
 18. Total removal of product from final bag and favourite cart ✅
 19. Showing more products on page numbers click.✅
 20. Range selection drag filter and its working.✅
+21. Filtering process(type selection,search term,range selection).✅
+22. When clicked on a product , it's whole page should open up with it's data.. and also all the
+    functionalities(add-to-cart,favourite-toggle) ✅
+23. Product info page's button should also change their action as per the data like->when the product is in
+    favourite cart then , add to fav button should not work .. likewise also when we
+    clicked add-to-cart button then we should get re-directed to cart page when
+    clicked on that button again.. ✅
+24. Small v.1 functionality of checking/toggling pincode in productinfo page.✅
+25. Show nice popup when item is added to fav list , when added to bag and when order is placed ✅
+26. Show loading spinner/text/pop-up when page is not fully loaded. ✅
+27. Removing Items once order is Placed. ✅
+28. Data must be saved and everything should be shown as per that (like
+    saved fav's , added products in bag ). ✅
+29. Lazy loading for speed optimization.(might come later..)
+30. Responsive design( Mobile first ).✅
