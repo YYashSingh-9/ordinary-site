@@ -1,6 +1,6 @@
 # ordinary-site
 
-![logo]([https://github.com/YYashSingh-9/YYashSingh-9/blob/main/banner.png](https://github.com/YYashSingh-9/YYashSingh-9/blob/main/Two%20fragrence.png))
+![logo](https://github.com/YYashSingh-9/YYashSingh-9/blob/main/Two%20fragrence.png)
 
 - This project is a fullstack mobile responsive e-com web app .. with technologies used like :-
 - 1.React
