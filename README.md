@@ -9,9 +9,9 @@
 - 6.React Router-dom
 - 7.Tanstack-query(React-query)
 - 8.React-Icons
-
-* 9.CSS-Modules
+- 9.CSS-Modules
+- 10.React-toastify
 
    <h2>Open to suggestions🤠</h2>
    <h3>This project is V.1</h3>
-   Many updates can be done..there is space for updates.
+   <h3>This project's backend it hosted on</h3>
