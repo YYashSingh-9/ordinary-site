@@ -29,7 +29,7 @@ and removing it when all items are out of cart✅
 20.Range selection drag filter and its working.✅ 
 21. Filtering process(type selection,search term,range selection).✅ 
 22. When clicked on a product , it's whole page should open up with it's data.. and also all the
-functionalities(add-to-cart,favourite-toggle) 
+functionalities(add-to-cart,favourite-toggle) ✅
 23. Product info page's button should also change their action as per the data like->when the product is in
 favourite cart then , add to fav button should not work .. likewise also when we
 clicked add-to-cart button then we should get re-directed to cart page when
@@ -40,8 +40,8 @@ clicked on that button again.. ✅
 27. Removing Items once order is Placed. ✅
 28. Data must be saved and everything should be shown as per that (like
 saved fav's , added products in bag ). ✅
-29. Lazy loading for speed optimization.
-30. Responsive design( Mobile first ).
+29. Lazy loading for speed optimization.(might come later..)
+30. Responsive design( Mobile first ).✅
 31. Login/Sign-up functionality(front-end-part)✅ 
 32. User dashboard page.✅
 33. Update Password.✅
