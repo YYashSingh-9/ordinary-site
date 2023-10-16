@@ -17,4 +17,7 @@
    <h3>This project is V.1</h3>
    <h3>This project's backend is hosted on Render free verison so it may take few seconds to load at first.So please wait for few seconds or reload the page again. <hr/> The experience would be worth the wait.</h3>
    
-   <p>This web app is mobile first responsive , Rest API is fully tested with Postman and with many hours of testing of in use of this API </p>
+   <h3>This web app is mobile first responsive , <hr/> Rest API is fully tested with Postman and with many hours of testing of in use of this API </h3>
+
+   <h2>This WebApp has 60+ features/tasks of a full stack web app..</h2>
+   <p>They are listed below..</p>
