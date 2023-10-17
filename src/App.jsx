@@ -54,6 +54,7 @@ function App() {
 
   return (
     <>
+      {!document && <p>loading</p>}
       <HeaderMiddle />
       <ProductsDiv title="bestsellers" sliceInit={0} sliceEnd={4} />
       <CataloguesDiv />
